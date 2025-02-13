@@ -30,7 +30,7 @@ export default function Navbar() {
         scrolled ? "-translate-y-2" : ""
       }`}
     >
-      <div className="">
+      <div>
         <Link href={'/'}>
         <Image 
             src={'/images/logo/ampvc-logo.png'}       
