@@ -28,6 +28,7 @@ export default function RightSection() {
           width="1100"
           height="1200"
           quality={100}
+          priority
           className="object-contain object-right -right-20 w-full h-fit overflow-hidden"
         />
       </div>

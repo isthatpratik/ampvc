@@ -37,6 +37,8 @@ export default function Navbar() {
             alt="AMPVC logo"
             width={100}
             height={100}
+            priority
+            quality={75}
             className="object-contain w-16 h-auto" 
         />
         </Link>
