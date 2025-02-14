@@ -7,9 +7,10 @@ export default function Home() {
     <div className="mx-auto max-w-[1440px] min-h-screen flex items-center justify-center">
       <main>
         <SplitLayout>
-          <LeftSection>
-            
-          </LeftSection>
+          <>
+          
+          </>
+          <LeftSection />
           <RightSection />
         </SplitLayout>
       </main>
