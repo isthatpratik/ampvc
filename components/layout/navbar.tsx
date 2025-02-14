@@ -1,34 +1,13 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { Menu } from "lucide-react"
 import { Button } from "../ui/button"
 import Image from "next/image"
 import Link from "next/link"
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const navRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   return (
     <nav
-      ref={navRef}
-      className={`sticky top-0 z-50 flex w-full items-center justify-between bg-white px-10 py-14 transition-all duration-300 ${
-        scrolled ? "-translate-y-2" : ""
-      }`}
+      className={`top-0 z-50 px-[72px] flex w-full items-center bg-transparent justify-between`}
     >
       <div>
         <Link href={'/'}>
@@ -43,8 +22,16 @@ export default function Navbar() {
         />
         </Link>
       </div>
-      <Button variant="ghost" size="icon">
-        <Menu className="h-6 w-6" />
+      <Button className="border border-[#434343]/10 bg-transparent hover:bg-transparent shadow-none w-14 h-14" size="icon">
+        <Image 
+          src={'/images/menu.svg'}
+          alt="menu-icon"
+          width={100}
+          height={100} 
+          priority
+          quality={75} 
+          className="w-5 h-5"      
+        />
       </Button>
     </nav>
   )

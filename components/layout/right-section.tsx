@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import AnimatedButton from "../ui/animated-button";
+import { ArrowRight } from "lucide-react";
 
 export default function RightSection() {
   return (
@@ -12,6 +13,8 @@ export default function RightSection() {
           width={162}
           height={48}
           className="mb-14"
+          priority
+          quality={75}
         />
         <h2 className="mb-4 text-h2">The Future of Deal Flow</h2>
         <div className="text-h3">
@@ -21,7 +24,7 @@ export default function RightSection() {
         </div>
       </div>
 
-      <div className="relative flex-1 overflow-visible pl-[72px] xl:-right-2 2xl:right-0">
+      <div className="relative flex-1 overflow-visible pl-[72px] xl:-right-2 2xl:right-0 h-fit">
         <Image
           src="/images/fynar-dashboard.png"
           alt="Platform Interface"
@@ -29,7 +32,7 @@ export default function RightSection() {
           height="1200"
           quality={100}
           priority
-          className="object-contain object-right -right-20 w-full h-fit overflow-hidden"
+          className="object-contain object-right -right-20 w-auto h-auto overflow-hidden"
         />
       </div>
 
@@ -42,9 +45,16 @@ export default function RightSection() {
 
         <div className="flex gap-2">
           <AnimatedButton>Get Started</AnimatedButton>
-          <Button className="group relative flex items-center justify-start overflow-hidden bg-transparent text-body-2 border-white/20 border rounded-full px-14 py-4 h-full group-hover:bg-transparent hover:border-white transition-all duration-500">
-            <span className="group relative transition-transform duration-500 group-hover:translate-x-full">
+
+          <Button className="group relative flex items-center overflow-hidden bg-transparent text-body-2 border-white/20 border rounded-full px-14 py-4 h-full hover:bg-transparent hover:border-white transition-all duration-500">
+            {/* Login text moves slightly left */}
+            <span className="relative transition-transform duration-300 group-hover:-translate-x-2 z-999 text-body-2">
               Login
+            </span>
+
+            {/* Arrow slides in from right */}
+            <span className="absolute opacity-0 transition-all duration-300 right-1/4 transform  group-hover:opacity-100">
+              <ArrowRight className="w-5 h-5" />
             </span>
           </Button>
         </div>
