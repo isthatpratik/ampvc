@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fustat.className} antialiased`}
+        className={`${fustat.className} antialiased bg-[url('/images/pattern-main.jpg')] bg-center bg-contain`}
       >
         {children}
       </body>

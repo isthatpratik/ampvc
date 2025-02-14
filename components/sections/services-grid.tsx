@@ -8,7 +8,7 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <div className="mb-12 px-[72px] grid gap-2 md:grid-cols-3">
+    <div className="px-[40px] grid gap-2 md:grid-cols-3">
       {services.map((service) => (
         <ServiceCard key={service.title} {...service} />
       ))}

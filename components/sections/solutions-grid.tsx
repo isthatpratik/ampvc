@@ -8,8 +8,8 @@ const solutions = [
 
 export default function SolutionsGrid() {
   return (
-    <div className="px-[72px] pb-[72px]">
-      <h2 className="mb-8 text-3xl font-bold">
+    <div className="px-[40px] pb-[56px]">
+      <h2 className="mb-6 text-h3">
         Smart solutions for VCs,
         <br />
         Family Offices & Funds.

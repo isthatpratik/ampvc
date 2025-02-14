@@ -12,7 +12,7 @@ interface ServiceCardProps {
 export function ServiceCard({ title, subtitle, href, icon }: ServiceCardProps) {
   return (
     <Link href={href}>
-      <div className="group relative flex flex-col items-center justify-center rounded-sm border bg-transparent border-[#E4E8E8] py-6 px-2 transition-all duration-300 ease-in-out hover:bg-white">
+      <div className="group relative flex flex-col items-center justify-center rounded-sm bg-transparent border-[#E4E8E8] border-[1.18px] py-6 px-2 transition-all duration-300 ease-in-out hover:bg-white">
         
         {/* SVG Image */}
         <div className="flex h-16 w-16 items-center justify-center">
@@ -21,12 +21,13 @@ export function ServiceCard({ title, subtitle, href, icon }: ServiceCardProps) {
             alt={title} 
             width={60} 
             height={60} 
+            priority
             className="w-full h-auto"
           />
         </div>
 
         <h3 className="mb-2 text-label-1 font-semibold pt-[14px]">{title}</h3>
-        <p className="text-center text-caption text-[#B6B6B6] pb-[14px]">{subtitle}</p>
+        <p className="text-center text-caption text-[#C4C4C4] pb-[14px]">{subtitle}</p>
 
         <div className="mt-4 flex w-11 h-11 bg-white items-center justify-center rounded-full transition-all duration-300 ease-in-out group-hover:bg-[#F2F3F3]">
           <ArrowRight className="w-7 h-7" />

@@ -7,7 +7,7 @@ import Link from "next/link"
 export default function Navbar() {
   return (
     <nav
-      className={`top-0 z-50 px-[72px] flex w-full items-center bg-transparent justify-between`}
+      className={`top-0 z-50 px-[40px] flex w-full items-center bg-transparent justify-between`}
     >
       <div>
         <Link href={'/'}>

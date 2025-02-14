@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 export default function RightSection() {
   return (
     <div className="sticky top-0 flex h-screen w-full flex-col bg-[#181A1A] text-white lg:w-1/2 overflow-hidden">
-      <div className="px-[72px] py-[56px]">
+      <div className="px-[40px] py-[56px]">
         <Image
           src="/images/logo/fynar-logo.png"
           alt="FynarAI Logo"
@@ -24,19 +24,19 @@ export default function RightSection() {
         </div>
       </div>
 
-      <div className="relative flex-1 overflow-visible pl-[72px] xl:-right-2 2xl:right-0 h-fit">
+      <div className="relative flex-1 overflow-visible pl-[40px] xl:-right-2 2xl:right-0 h-fit">
         <Image
-          src="/images/fynar-dashboard.png"
+          src="/images/fynar-dashboard-default.png"
           alt="Platform Interface"
           width="1100"
-          height="1200"
+          height="300"
           quality={100}
           priority
           className="object-contain object-right -right-20 w-auto h-auto overflow-hidden"
         />
       </div>
 
-      <div className="py-14 px-[72px]">
+      <div className="py-14 px-[40px]">
         <p className="mb-6 text-body-1 text-[#AFB6B4]">
           Fynar AI redefines investor workflows—automating deal flow, tracking
           portfolios, and delivering AI-driven insights, so you can invest

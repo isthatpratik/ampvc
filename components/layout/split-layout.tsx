@@ -5,6 +5,6 @@ export default function SplitLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <div className="flex min-h-screen flex-col lg:flex-row">{children}</div>
+  return <div className="flex min-h-screen justify-center bg-transparent">{children}</div>
 }
 
