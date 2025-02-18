@@ -5,13 +5,12 @@ import Image from "next/image";
 interface ServiceCardProps {
   title: string;
   subtitle: string;
-  href: string;
-  icon: string; // Add icon prop to accept an SVG image
+  icon: string;
 }
 
-export function ServiceCard({ title, subtitle, href, icon }: ServiceCardProps) {
+export function ServiceCard({ title, subtitle, icon }: ServiceCardProps) {
   return (
-    <Link href={href}>
+    <Link href={'/'}>
       <div className="group relative flex flex-col items-center justify-center rounded-sm bg-transparent border-[#E4E8E8] border-[1.18px] py-6 px-2 transition-all duration-300 ease-in-out hover:bg-white">
         
         {/* SVG Image */}

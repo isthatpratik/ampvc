@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function RightSection() {
   return (
-    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#181A1A] text-white lg:w-1/2 overflow-hidden">
+    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#181A1A] text-white lg:w-full overflow-hidden">
       <div className="px-[40px] py-[56px]">
         <Image
           src="/images/logo/fynar-logo.png"
