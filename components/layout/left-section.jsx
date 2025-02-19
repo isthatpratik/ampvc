@@ -20,7 +20,7 @@ export default function LeftSection({ selectedService, setSelectedService }) {
             animate={{
               y: 0,
               opacity: 1,
-              transition: { delay: 0.2, type: "spring", stiffness: 100, damping: 25 },
+              transition: { delay: 0.4, type: "spring", stiffness: 100, damping: 25 },
             }}
           >
             <Navbar />
@@ -33,7 +33,7 @@ export default function LeftSection({ selectedService, setSelectedService }) {
               animate={{
                 y: 0,
                 opacity: 1,
-                transition: { delay: 0.4, type: "spring", stiffness: 100, damping: 25 },
+                transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 },
               }}
             >
               <ServiceDetails service={selectedService} onBack={() => setSelectedService(null)} />
@@ -46,7 +46,7 @@ export default function LeftSection({ selectedService, setSelectedService }) {
                 animate={{
                   y: 0,
                   opacity: 1,
-                  transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 },
+                  transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 },
                 }}
               >
                 <HeroSection />
@@ -58,7 +58,7 @@ export default function LeftSection({ selectedService, setSelectedService }) {
                 animate={{
                   y: 0,
                   opacity: 1,
-                  transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 },
+                  transition: { delay: 1, type: "spring", stiffness: 100, damping: 25 },
                 }}
               >
                 <ServicesGrid setSelectedService={setSelectedService} />
@@ -70,7 +70,7 @@ export default function LeftSection({ selectedService, setSelectedService }) {
                 animate={{
                   y: 0,
                   opacity: 1,
-                  transition: { delay: 1, type: "spring", stiffness: 100, damping: 25 },
+                  transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 25 },
                 }}
               >
                 <AIMatchingBanner />
@@ -82,7 +82,7 @@ export default function LeftSection({ selectedService, setSelectedService }) {
                 animate={{
                   y: 0,
                   opacity: 1,
-                  transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 25 },
+                  transition: { delay: 1.4, type: "spring", stiffness: 100, damping: 25 },
                 }}
               >
                 <SolutionsGrid />
@@ -97,7 +97,7 @@ export default function LeftSection({ selectedService, setSelectedService }) {
         animate={{
           y: 0,
           opacity: 1,
-          transition: { delay: 1.4, type: "spring", stiffness: 100, damping: 25 },
+          transition: { delay: 1.6, type: "spring", stiffness: 100, damping: 25 },
         }}
       >
         <Footer />

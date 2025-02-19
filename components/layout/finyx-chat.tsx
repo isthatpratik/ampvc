@@ -3,27 +3,36 @@ import { Input } from "../ui/input";
 import Image from "next/image";
 import { Button } from "../ui/button";
 
-const FinyxChat = () => {
+import { motion } from 'motion/react'
+
+export default function FinyxChat() {
   return (
-    <div className="mx-auto items-center justify-between pt-[112px] pb-[56px] px-[40px] flex-1 flex flex-col h-screen bg-white overflow-hidden">
-      <h1 className="text-h3 py-[48px] tracking-tight">
-        Find the right investors effortlessly with <br /><span className="bg-gradient-to-r from-[#99DBE0] from-10% via-[#FFAFDF] via-55% to-[#FCEC3B] to-98% bg-clip-text text-transparent">
-            AI-powered matching.
-          </span>
-      </h1>
+    <div className="sticky top-0 flex h-screen w-full flex-col bg-white lg:w-full overflow-hidden items-center justify-between pt-[112px] pb-[56px] px-[40px]">
+      <motion.h1 className="text-h3 py-[48px] tracking-tight"
+      initial={{ y: "50px", opacity: 0 }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        transition: { delay: 0.4, type: "spring", stiffness: 100, damping: 25 },
+      }}>
+        Find the right investors effortlessly with <br />
+        <span className="bg-gradient-to-r from-[#99DBE0] from-10% via-[#FFAFDF] via-55% to-[#FCEC3B] to-98% bg-clip-text text-transparent">
+          AI-powered matching.
+        </span>
+      </motion.h1>
       <div className="flex items-center justify-center h-[600px] w-full">
         {/* <Orb
-          hoverIntensity={0.5}
+          hoverIntensity={0.2}
           rotateOnHover={true}
-          hue={0}
-          forceHoverState={false}
+          hue={0.5}
+          forceHoverState={true}
         /> */}
         <Image
           src={"/images/blob.png"}
           alt="Finyx Blob"
-          width={300}
-          height={300}
-          className="w-auto h-auto object-contain"
+          width={500}
+          height={500}
+          className="w-auto h-full object-contain"
         />
       </div>
       <div className="border border-[#DCE0DF] w-full h-auto px-4 py-4 flex items-center rounded-[10px]">
@@ -41,7 +50,7 @@ const FinyxChat = () => {
         />
         <Button className="ml-2 w-12 h-12 bg-[#181A1A] px-2 flex items-center justify-center rounded-sm">
           <Image
-            src={"/images/icons/send.svg"} 
+            src={"/images/icons/send.svg"}
             alt="Send Icon"
             width={24}
             height={24}
@@ -51,6 +60,4 @@ const FinyxChat = () => {
       </div>
     </div>
   );
-};
-
-export default FinyxChat;
+}

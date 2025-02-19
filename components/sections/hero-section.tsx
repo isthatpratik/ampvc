@@ -5,13 +5,6 @@ export default function HeroSection() {
         Empowering startups - <br />
         elevating outcomes
       </h1>
-      <p className="text-body-2 font-medium">
-        Fueling startup success with expert guidance, strategic insights, and
-        powerful connections. Turning bold ideas into thriving businesses with
-        tailored support and investor-ready strategies. Empowering founders to
-        scale faster, smarter, and stronger—because their growth drives your
-        returns.
-      </p>
     </div>
   );
 }

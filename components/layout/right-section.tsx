@@ -70,6 +70,25 @@ export default function RightSection() {
         />
       </motion.div>
 
+      <div className="grid grid-cols-2 px-[40px] gap-2 pb-6">
+        <div className="grid border border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
+          <h3>For Investors</h3>
+          <p className="text-[#807E7E] text-caption">
+            Streamline deal flow with AI-driven insights, quickly evaluating
+            investments and making smarter decisions, all in one seamless
+            platform.
+          </p>
+        </div>
+        <div>
+          <div className="grid border border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
+            <h3>For Startups</h3>
+            <p className="text-[#807E7E] text-caption">
+            Manage sales with ease—track deals, generate reports, and monitor progress without the unnecessary complexity of traditional CRMs.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Description and Buttons Animation */}
       <motion.div
         className="pb-14 px-[40px]"
