@@ -7,8 +7,8 @@ import { motion } from 'motion/react'
 
 export default function FinyxChat() {
   return (
-    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-[112px] pb-[56px] px-[40px]">
-      <motion.h1 className="text-h3 py-[48px] tracking-tight"
+    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-14 pb-[56px] px-[40px]">
+      <motion.h1 className="text-h3 tracking-tight"
       initial={{ y: "50px", opacity: 0 }}
       animate={{
         y: 0,

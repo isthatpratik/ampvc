@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 
-export default function VisionCrafting({ onBack }) {
+export default function ScalingFuel({ onBack }) {
   return (
     <motion.div
       className="py-10"
@@ -21,13 +21,10 @@ export default function VisionCrafting({ onBack }) {
 
       {/* Title & Subtitle */}
       <h2 className="px-[40px] text-h2 text-balance mb-4">
-        Amplify your growth with serial entrepreneurs by your side.
+      From Seed toSeries A and Beyond
       </h2>
       <h3 className="px-[40px] text-body-1 mb-6">
-        We've successfully scaled businesses like yours, understanding your
-        constraints. Let's collaborate on tailored strategies to drive
-        sustainable growth, leveraging our expertise and hands-on approach for
-        mutual success.
+      We believe in the transformative power of early-stage ventures, and we're committed to fueling your journey from Day One with capital, strategic guidance, and unparalleled support.
       </h3>
 
       {/* Dynamic Content */}
@@ -38,19 +35,18 @@ export default function VisionCrafting({ onBack }) {
           <div className="grid grid-cols-6 ">
             <div className="col-span-4 bg-transparent py-24 px-10 border-t-2 border-l-2 border-r-2 border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">
-                Partnerships that Matter
+              Strategic
               </h3>
               <p className="text-body-2">
-                We identify strategic collaborations and partnerships that bring
-                synergy, optimize resources, and accelerate your journey.
+              We develop personalized exit strategies to maximize returns and align with your investment goals.
               </p>
             </div>
             <div className="col-span-2 border-t-2 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
-                src={"/images/services/partnership.svg"}
+                src={"/images/services/exit-planning.svg"}
                 alt="partnership icon"
-                width={400}
-                height={400}
+                width={300}
+                height={300}
                 className="w-full h-auto object-contain"
               />
             </div>
@@ -65,19 +61,20 @@ export default function VisionCrafting({ onBack }) {
           <div className="grid grid-cols-6 ">
             <div className="col-span-2 border-t-2 border-l-2 border-r-2 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
-                src={"/images/services/honest-guidance.svg"}
+                src={"/images/services/network-access.svg"}
                 alt="partnership icon"
-                width={400}
-                height={400}
+                width={300}
+                height={300}
                 className="w-full h-auto object-contain"
               />
             </div>
             <div className="col-span-4 bg-transparent py-24 px-10 border-t-2 border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">
-                Honest Guidance
+              Robust 
+              Network Access
               </h3>
-              <p className="text-body-2 mx-auto max-w-md">
-              We're transparent about our capabilities. We only take on projects when we believe we can add significant value and propel your growth beyond expectations.
+              <p className="text-body-2">
+              Leverage our extensive network of strategic buyers, private equity firms, and investors for optimal exit opportunities.
               </p>
             </div>
           </div>
@@ -90,18 +87,18 @@ export default function VisionCrafting({ onBack }) {
           <div className="grid grid-cols-6 ">
             <div className="col-span-4 bg-transparent py-24 px-10 border-t-2 border-l-2 border-r-2 border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">
-                Beyond Vanity Metrics
+              Bridging the Gap, Seamlessly
               </h3>
-              <p className="text-body-2 mx-auto max-w-md">
-              We don't believe in vanity metrics. We help you identify the right KPIs for your unique stage and industry, crafting a compelling narrative that resonates with investors.
+              <p className="text-body-2">
+              Navigate temporary funding needs with tailored bridge solutions designed to seamlessly connect you to your next major funding round.
               </p>
             </div>
             <div className="col-span-2 border-t-2 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
-                src={"/images/services/vanity-metrics.svg"}
+                src={"/images/services/bridging-the-gap.svg"}
                 alt="partnership icon"
-                width={400}
-                height={400}
+                width={300}
+                height={300}
                 className="w-full h-auto object-contain"
               />
             </div>
@@ -110,25 +107,25 @@ export default function VisionCrafting({ onBack }) {
         </div>
 
         {/* Fourth Row */}
-        <div className="flex">
+        <div className="flex w-full">
           <div className="w-10 border-t-2 border-b-2 border-[#AFB6B4] bg-primary/10" />
 
           <div className="grid grid-cols-6 ">
             <div className="col-span-2 border-2 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
-                src={"/images/services/amplified-vision.svg"}
+                src={"/images/services/not-profit.svg"}
                 alt="partnership icon"
-                width={400}
-                height={400}
+                width={300}
+                height={300}
                 className="w-full h-auto object-contain"
               />
             </div>
             <div className="col-span-4 bg-transparent py-24 px-10 border-t-2 border-b-2 border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">
-                Amplified Vision
+              Partnership, Not Profit
               </h3>
               <p className="text-body-2">
-              We help you articulate your vision with laser focus, translate it into concrete actions, and showcase your achievements in a way that attracts the right capital.
+              We believe in shared success. We have no retainers, and investors trust us for bringing high-impact startups that meet our stringent 360° Investment Criteria.
               </p>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 
-export default function VisionCrafting({ onBack }) {
+export default function BreakthroughExit({ onBack }) {
   return (
     <motion.div
       className="py-10"
@@ -21,13 +21,10 @@ export default function VisionCrafting({ onBack }) {
 
       {/* Title & Subtitle */}
       <h2 className="px-[40px] text-h2 text-balance mb-4">
-        Amplify your growth with serial entrepreneurs by your side.
+      Maximizing Returns onYour Investment.
       </h2>
       <h3 className="px-[40px] text-body-1 mb-6">
-        We've successfully scaled businesses like yours, understanding your
-        constraints. Let's collaborate on tailored strategies to drive
-        sustainable growth, leveraging our expertise and hands-on approach for
-        mutual success.
+      Services are designed to help early-stage investors and stakeholders achieve liquidity and maximize value before a company's Series A or B funding rounds. Our comprehensive approach ensures that your exit strategy aligns with your financial goals and the company’s growth trajectory.
       </h3>
 
       {/* Dynamic Content */}
@@ -38,16 +35,15 @@ export default function VisionCrafting({ onBack }) {
           <div className="grid grid-cols-6 ">
             <div className="col-span-4 bg-transparent py-24 px-10 border-t-2 border-l-2 border-r-2 border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">
-                Partnerships that Matter
+              Strategic
               </h3>
               <p className="text-body-2">
-                We identify strategic collaborations and partnerships that bring
-                synergy, optimize resources, and accelerate your journey.
+              We develop personalized exit strategies to maximize returns and align with your investment goals.
               </p>
             </div>
             <div className="col-span-2 border-t-2 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
-                src={"/images/services/partnership.svg"}
+                src={"/images/services/exit-planning.svg"}
                 alt="partnership icon"
                 width={400}
                 height={400}
@@ -65,7 +61,7 @@ export default function VisionCrafting({ onBack }) {
           <div className="grid grid-cols-6 ">
             <div className="col-span-2 border-t-2 border-l-2 border-r-2 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
-                src={"/images/services/honest-guidance.svg"}
+                src={"/images/services/network-access.svg"}
                 alt="partnership icon"
                 width={400}
                 height={400}
@@ -74,10 +70,11 @@ export default function VisionCrafting({ onBack }) {
             </div>
             <div className="col-span-4 bg-transparent py-24 px-10 border-t-2 border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">
-                Honest Guidance
+              Robust 
+              Network Access
               </h3>
               <p className="text-body-2 mx-auto max-w-md">
-              We're transparent about our capabilities. We only take on projects when we believe we can add significant value and propel your growth beyond expectations.
+              Leverage our extensive network of strategic buyers, private equity firms, and investors for optimal exit opportunities.
               </p>
             </div>
           </div>
@@ -98,7 +95,7 @@ export default function VisionCrafting({ onBack }) {
             </div>
             <div className="col-span-2 border-t-2 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
-                src={"/images/services/vanity-metrics.svg"}
+                src={"/images/services/market-insight.svg"}
                 alt="partnership icon"
                 width={400}
                 height={400}
@@ -116,7 +113,7 @@ export default function VisionCrafting({ onBack }) {
           <div className="grid grid-cols-6 ">
             <div className="col-span-2 border-2 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
-                src={"/images/services/amplified-vision.svg"}
+                src={"/images/services/transaction-management.svg"}
                 alt="partnership icon"
                 width={400}
                 height={400}

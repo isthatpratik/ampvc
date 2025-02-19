@@ -8,10 +8,10 @@ import { motion } from "framer-motion";
 
 export default function RightSection() {
   return (
-    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#181A1A] text-white lg:w-full overflow-hidden">
+    <div className="sticky top-0 flex min-h-screen w-full flex-col bg-[#181A1A] text-white lg:w-full overflow-hidden">
       {/* Logo Animation */}
       <motion.div
-        className="px-[40px] pt-[116px]"
+        className="px-[40px] pt-14"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
@@ -46,7 +46,7 @@ export default function RightSection() {
 
       {/* Image Animation */}
       <motion.div
-        className="relative  overflow-visible px-[40px] py-[54px] h-fit"
+        className="relative  overflow-visible px-[40px] py-[54px] h-min"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
@@ -63,15 +63,15 @@ export default function RightSection() {
           src="/images/fynar-dashboard-default.png"
           alt="Platform Interface"
           width={1000}
-          height={1000}
+          height={500}
           quality={100}
           priority
-          className="w-fit h-auto object-contain object-center overflow-hidden"
+          className="w-fit h-min object-contain object-center overflow-hidden"
         />
       </motion.div>
 
       <motion.div
-        className="grid grid-cols-2 px-[40px] gap-2 pb-6"
+        className="h-fit grid grid-cols-2 px-[40px] gap-2 pb-6"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
@@ -84,7 +84,7 @@ export default function RightSection() {
           },
         }}
       >
-        <div className="grid border border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
+        <div className="grid border h-full border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
           <h3>For Investors</h3>
           <p className="text-[#807E7E] text-caption">
             Streamline deal flow with AI-driven insights, quickly evaluating
@@ -93,7 +93,7 @@ export default function RightSection() {
           </p>
         </div>
         <div>
-          <div className="grid border border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
+          <div className="grid border h-full border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
             <h3>For Startups</h3>
             <p className="text-[#807E7E] text-caption">
               Manage sales with ease—track deals, generate reports, and monitor
