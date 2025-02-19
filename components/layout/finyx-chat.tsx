@@ -13,14 +13,20 @@ export default function FinyxChat() {
       animate={{
         y: 0,
         opacity: 1,
-        transition: { delay: 0.4, type: "spring", stiffness: 100, damping: 25 },
+        transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 },
       }}>
         Find the right investors effortlessly with <br />
         <span className="bg-gradient-to-r from-[#99DBE0] from-10% via-[#FFAFDF] via-55% to-[#FCEC3B] to-98% bg-clip-text text-transparent">
           AI-powered matching.
         </span>
       </motion.h1>
-      <div className="flex items-center justify-center h-[600px] w-full">
+      <motion.div className="flex items-center justify-center h-[600px] w-full"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{
+        scale: 1 ,
+        opacity: 1,
+        transition: { delay: 1, type: "spring", stiffness: 100, damping: 10 },
+      }}>
         {/* <Orb
           hoverIntensity={0.2}
           rotateOnHover={true}
@@ -34,8 +40,14 @@ export default function FinyxChat() {
           height={500}
           className="w-auto h-full object-contain"
         />
-      </div>
-      <div className="border border-[#DCE0DF] w-full h-auto px-4 py-4 flex items-center rounded-[10px]">
+      </motion.div>
+      <motion.div className="border border-[#DCE0DF] w-full h-auto px-4 py-4 flex items-center rounded-[10px]"
+      initial={{ y: "50px", opacity: 0 }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 25 },
+      }}>
         <Image
           src={"/images/icons/amp-gray-icon.svg"}
           alt="Icon"
@@ -57,7 +69,7 @@ export default function FinyxChat() {
             className="object-contain w-auto h-4"
           />
         </Button>
-      </div>
+      </motion.div>
     </div>
   );
 }

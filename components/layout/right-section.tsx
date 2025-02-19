@@ -17,7 +17,7 @@ export default function RightSection() {
           y: 0,
           opacity: 1,
           transition: {
-            delay: 0.2,
+            delay: 1,
             type: "spring",
             stiffness: 100,
             damping: 25,
@@ -50,9 +50,9 @@ export default function RightSection() {
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
-          opacity: 1,
+          opacity: 1.2,
           transition: {
-            delay: 0.4,
+            delay: 0.8,
             type: "spring",
             stiffness: 100,
             damping: 25,
@@ -70,7 +70,20 @@ export default function RightSection() {
         />
       </motion.div>
 
-      <div className="grid grid-cols-2 px-[40px] gap-2 pb-6">
+      <motion.div
+        className="grid grid-cols-2 px-[40px] gap-2 pb-6"
+        initial={{ y: "50px", opacity: 0 }}
+        animate={{
+          y: 0,
+          opacity: 1.4,
+          transition: {
+            delay: 1,
+            type: "spring",
+            stiffness: 100,
+            damping: 25,
+          },
+        }}
+      >
         <div className="grid border border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
           <h3>For Investors</h3>
           <p className="text-[#807E7E] text-caption">
@@ -83,11 +96,12 @@ export default function RightSection() {
           <div className="grid border border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
             <h3>For Startups</h3>
             <p className="text-[#807E7E] text-caption">
-            Manage sales with ease—track deals, generate reports, and monitor progress without the unnecessary complexity of traditional CRMs.
+              Manage sales with ease—track deals, generate reports, and monitor
+              progress without the unnecessary complexity of traditional CRMs.
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Description and Buttons Animation */}
       <motion.div
@@ -95,7 +109,7 @@ export default function RightSection() {
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
-          opacity: 1,
+          opacity: 1.6,
           transition: {
             delay: 0.6,
             type: "spring",
