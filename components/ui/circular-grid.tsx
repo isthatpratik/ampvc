@@ -11,7 +11,7 @@ interface ServiceCardProps {
 export function CircularCard({ title, subtitle, href, icon }: ServiceCardProps) {
   return (
     <Link href={href}>
-      <div className="group relative flex flex-col items-center justify-center rounded-full border-[1.18px] bg-transparent border-[#D5DEDE] py-6 px-2 transition-all duration-300 ease-in-out hover:bg-white">
+      <div className="h-full w-full group relative flex flex-col items-center justify-between rounded-full border-[1.18px] bg-transparent border-[#D5DEDE] p-8 transition-all duration-300 ease-in-out hover:bg-white">
         
         {/* SVG Image */}
         <div className="flex h-16 w-16 items-center justify-center">

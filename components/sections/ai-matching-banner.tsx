@@ -3,7 +3,7 @@ import AnimatedButtonTwo from "../ui/animated-button-2";
 
 export default function AIMatchingBanner() {
   return (
-    <div className="my-10 px-[40px]">
+    <div className="my-10 px-[40px] 2xl:hidden xl:hidden">
       <div className="relative flex items-center justify-between gap-6 rounded-sm p-8 text-white overflow-hidden bg-[#1D1D1D]">
         {/* Background Image */}
         <Image

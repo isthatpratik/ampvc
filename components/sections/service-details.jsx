@@ -1,17 +1,16 @@
-import ServiceLayout from "@/components/layout/service-layout";
+import VisionCrafting from "./vision-crafting";
+// import ExitStrategyLayout from "./ExitStrategyLayout";
+// import ScalingFuelLayout from "./ScalingFuelLayout";
 
 export default function ServiceDetails({ service, onBack }) {
-  return (
-    <ServiceLayout
-      title={service.title}
-      subtitle={service.subtitle}
-      content={
-        <p>
-          Detailed information about <strong>{service.title}</strong>. This
-          section can include features, benefits, and any relevant content.
-        </p>
-      }
-      onBack={onBack}
-    />
-  );
+  switch (service.title) {
+    case "Vision Crafting":
+      return <VisionCrafting onBack={onBack} />;
+    // case "Breakthrough to Exit":
+    //   return <ExitStrategyLayout onBack={onBack} />;
+    // case "Scaling Fuel":
+    //   return <ScalingFuelLayout onBack={onBack} />;
+    default:
+      return null;
+  }
 }

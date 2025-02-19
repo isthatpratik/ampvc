@@ -8,12 +8,16 @@ const solutions = [
 
 export default function SolutionsGrid() {
   return (
-    <div className="px-[40px] pb-[56px]">
-      <h2 className="mb-6 text-h3">
+    <div className="px-[40px] py-[56px] grid space-y-6">
+      <h2 className="text-h3">
         Smart solutions for VCs,
         <br />
         Family Offices & Funds.
       </h2>
+
+      <p className="text-body-2 font-medium">
+      Unlocking tailored strategies that drive growth, minimize risks, and maximize returns. Empowering investors with innovative tools, expert insights, and seamless solutions for smarter decision-making.Transforming your portfolio management with precision, insight, and results that matter.
+      </p>
 
       <div className="grid gap-2 md:grid-cols-3">
         {solutions.map((solution) => (
