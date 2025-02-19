@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 export default function LeftSection({ selectedService, setSelectedService }) {
   return (
-    <div className="min-h-screen relative flex-1 bg-[#F7F8F8] flex flex-col">
+    <div className="min-h-screen relative flex-1 bg-white flex flex-col">
       <div className="flex-1 pt-14 h-screen overflow-y-auto">
         <div className="">
           {/* Animate Navbar */}
