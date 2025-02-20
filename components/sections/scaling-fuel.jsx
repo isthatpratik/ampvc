@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 export default function ScalingFuel({ onBack }) {
   return (
     <motion.div
-      className="py-10"
+      className="py-14"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
