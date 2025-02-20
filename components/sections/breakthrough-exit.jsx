@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 export default function BreakthroughExit({ onBack }) {
   return (
@@ -12,19 +13,19 @@ export default function BreakthroughExit({ onBack }) {
       transition={{ duration: 0.5 }}
     >
       {/* Back Button */}
-      <button
-        onClick={onBack}
-        className="px-[40px] flex items-center text-gray-600 mb-4"
-      >
-        <ArrowLeft className="mr-2" /> Back to Services
-      </button>
 
       {/* Title & Subtitle */}
-      <div className="grid gap-4">
-        <h2 className="px-[40px] text-h2 text-balance">
+      <div className="px-[40px] grid gap-4">
+        <Button
+          onClick={onBack}
+          className="shadow-none hover:bg-black/5 transition-all duration-300 w-fit rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2 mb-4"
+        >
+          <ArrowLeft className="" /> Back
+        </Button>
+        <h2 className=" text-h2 text-balance">
           Maximizing Returns on Your Investment.
         </h2>
-        <h3 className="px-[40px] text-body-1 pb-12">
+        <h3 className="text-body-1 pb-12 text-balance">
           Services are designed to help early-stage investors and stakeholders
           achieve liquidity and maximize value before a company's Series A or B
           funding rounds. Our comprehensive approach ensures that your exit
@@ -37,7 +38,7 @@ export default function BreakthroughExit({ onBack }) {
       <div className="relative">
         {/* First Row */}
         <div className="grid grid-cols-12 gap-0">
-          <div className="col-span-1 bg-[url('/images/services/pattern.png')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
+          <div className="col-span-1 bg-[url('/images/services/pattern.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
           <div className="col-span-10 flex">
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-l border-r border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">

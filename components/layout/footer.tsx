@@ -48,12 +48,12 @@ const footerData: FooterSection[] = [
   {
     title: "FynarAI",
     links: [
-      { text: "Consectetur at", href: "#" },
-      { text: "Dignissim viverra", href: "#" },
-      { text: "Mauris tellus", href: "#" },
-      { text: "Augue convallis", href: "#" },
-      { text: "Urna iaculis", href: "#" },
-      { text: "Nisl enim", href: "#" },
+      { text: "Consectetur", href: "#" },
+      { text: "Dignissim", href: "#" },
+      { text: "Mauris", href: "#" },
+      { text: "Augue", href: "#" },
+      { text: "Urna", href: "#" },
+      { text: "Nisl", href: "#" },
     ],
   },
 ];
@@ -109,27 +109,33 @@ export default function Footer() {
                   key={link.text}
                   onMouseEnter={() => setHoveredLink(link.text)}
                   onMouseLeave={() => setHoveredLink(null)}
-                  className="group relative"
+                  className="relative group flex items-center gap-2"
                 >
-                  <AnimatePresence>
-                    {hoveredLink === link.text && (
-                      <motion.span
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -10 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute -left-6 top-1"
-                      >
-                        <ArrowRight className="h-4 w-4 text-white" />
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
-                  <Link
-                    href={link.href}
-                    className="hover:text-white hover:opacity-100 text-[#798682] text-body-3"
+                  <motion.span
+                    initial={{ opacity: 0, x: 0 }}
+                    animate={
+                      hoveredLink === link.text
+                        ? { opacity: 1, x: 12 }
+                        : { opacity: 0, x: 0 }
+                    }
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="absolute -left-4 top-1"
                   >
-                    {link.text}
-                  </Link>
+                    <ArrowRight className="h-4 w-4 text-white" />
+                  </motion.span>
+
+                  <motion.span
+                    initial={{ x: 0 }}
+                    animate={hoveredLink === link.text ? { x: 14 } : { x: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    <Link
+                      href={link.href}
+                      className="hover:text-white hover:opacity-100 text-[#798682] text-body-3 transition-colors duration-200"
+                    >
+                      {link.text}
+                    </Link>
+                  </motion.span>
                 </li>
               ))}
             </ul>
@@ -149,24 +155,25 @@ export default function Footer() {
           />
         </div>
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex font-light text-[#798682] text-caption gap-8">
+          <div className="flex font-light text-[#798682] text-caption gap-4 items-center">
             <Link href="#" className="hover:text-white">
               Terms of use
             </Link>
+            <div className="h-[6px] w-[6px] bg-[#313534] rounded-full"></div>
             <Link href="#" className="hover:text-white">
               Privacy
             </Link>
+            <div className="h-[6px] w-[6px] bg-[#313534] rounded-full"></div>
             <Link href="#" className="hover:text-white">
               GDPR
             </Link>
           </div>
-          <div className="">
-
-          </div>
-          <div className="text-[#798682] font-light text-caption flex items-center gap-2">
-            <span>All rights reserved. Ampersand VC</span>
-          </div>
-          <div className="flex">
+          <div className="w-[25%] h-[1px] bg-[#313534]"></div>
+          <div className="flex items-center gap-4">
+            <span className="text-[#798682] font-light text-caption">
+              All rights reserved. Ampersand VC
+            </span>
+            <div className="h-[6px] w-[6px] bg-[#313534] rounded-full"></div>
             <Image
               src="/images/logo/ampvc-footer.svg"
               alt="Ampersand Logo"

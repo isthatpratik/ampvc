@@ -5,6 +5,7 @@ import LeftSection from "@/components/layout/left-section";
 import RightSection from "@/components/layout/right-section";
 import { motion } from "framer-motion";
 import FinyxChat from "@/components/layout/finyx-chat";
+import ContactSection from "@/components/layout/contact-section"; // Import the ContactSection
 
 export default function Home() {
   const [selectedService, setSelectedService] = useState<{
@@ -43,9 +44,9 @@ export default function Home() {
           <LeftSection selectedService={selectedService} setSelectedService={setSelectedService} />
         </div>
 
-        {/* Finyx Chat (Hidden on Mobile) */}
+        {/* Middle Section: Finyx Chat or Contact Section */}
         {!isMobile && (
-          <div className="relative flex flex-[2.8]">
+          <div className="relative flex flex-[2.8] transition-all duration-500">
             {/* Black Overlay */}
             <motion.div
               className="absolute top-0 left-0 w-full h-full bg-black z-50"
@@ -53,7 +54,7 @@ export default function Home() {
               animate={{ y: "-100%" }}
               transition={{ delay: 0.5, duration: 1.2, type: "spring", stiffness: 70, damping: 20 }}
             />
-            <FinyxChat />
+            {selectedService ? <ContactSection selectedService={selectedService} /> : <FinyxChat />}
           </div>
         )}
 
