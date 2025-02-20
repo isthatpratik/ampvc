@@ -25,11 +25,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="scrollbar-left overflow-y-auto no-scrollbar relative mx-auto max-w-full min-h-screen flex items-center justify-center">
+    <div className="relative mx-auto max-w-full min-h-screen flex items-center justify-center">
       <main className="flex w-full">
         {/* Left Section */}
         <div
-          className={`relative flex transition-all duration-500 ${
+          className={`relative flex transition-all duration-500 scrollbar-left overflow-y-auto no-scrollbar ${
             isMobile ? (selectedService ? "flex-[6]" : "flex-[5]") : "flex-[3.6]"
           }`}
         >
@@ -65,7 +65,7 @@ export default function Home() {
         >
           {/* Black Overlay */}
           <motion.div
-            className="absolute top-0 left-0 w-full h-full bg-black z-50"
+            className="absolute top-0 w-full h-full bg-black z-50"
             initial={{ y: 0 }}
             animate={{ y: "-100%" }}
             transition={{ delay: 0.7, duration: 1.2, type: "spring", stiffness: 70, damping: 20 }}

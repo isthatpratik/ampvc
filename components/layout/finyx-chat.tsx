@@ -20,7 +20,7 @@ export default function FinyxChat() {
           AI-powered matching.
         </span>
       </motion.h1>
-      <motion.div className="flex items-center justify-center h-[600px] w-full"
+      <motion.div className="w-full relative flex-1 overflow-visible h-0 min-h-0 flex justify-center items-center"
       initial={{ scale: 0, opacity: 0 }}
       animate={{
         scale: 1 ,
@@ -36,9 +36,9 @@ export default function FinyxChat() {
         <Image
           src={"/images/blob.png"}
           alt="Finyx Blob"
-          width={500}
+          width={600}
           height={500}
-          className="w-auto h-full object-contain"
+          className="w-auto h-auto max-h-[50vh] object-contain"
         />
       </motion.div>
       <motion.div className="border border-[#DCE0DF] w-full h-auto px-4 py-4 flex items-center rounded-[10px]"

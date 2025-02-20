@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 export default function RightSection() {
   return (
-    <div className="sticky top-0 flex min-h-screen w-full flex-col bg-[#181A1A] text-white lg:w-full overflow-hidden">
+    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#181A1A] text-white overflow-hidden">
       {/* Logo Animation */}
       <motion.div
         className="px-[40px] pt-14"
@@ -24,29 +24,41 @@ export default function RightSection() {
           },
         }}
       >
-        <div>
-          <h2 className="mb-4 text-h2">The Future of Deal Flow</h2>
-          <div className="text-h3">
-            <span className="text-[#FFADDF]">Simple. </span>
-            <span className="text-[#FDF16C]">Intuitive. </span>
-            <span className="text-[#7AD0D7]">Efficient.</span>
+        <div className="flex flex-col justify-center gap-4">
+          <div className="flex items-center gap-2">
+            <h2 className="text-h4">
+              Meet Fynar{" "}
+              <span className="bg-gradient-to-r from-[#99DBE0] from-10% via-[#FFAFDF] via-55% to-[#FCEC3B] to-98% bg-clip-text text-transparent">
+                AI
+              </span>
+            </h2>
+            <div className="w-auto h-fit">
+
+            <Image
+              src="/images/logo/fynar-logo.svg"
+              alt="FynarAI Logo"
+              width={162}
+              height={48}
+              className="object-contain w-auto h-10"
+              priority
+              quality={75}
+            />
+            </div>
           </div>
-          <div className="w-full h-[1px] bg-white/20 my-5"></div>
+          <h2 className="text-h2">
+            <span className="bg-gradient-to-r from-[#99DBE0] text-balance from-10% via-[#FFAFDF] via-55% to-[#FCEC3B] to-98% bg-clip-text text-transparent">
+              The Simple, Intuitive CRM That Gets Things Done
+            </span>
+          </h2>
         </div>
-        <Image
-          src="/images/logo/fynar-logo.png"
-          alt="FynarAI Logo"
-          width={162}
-          height={48}
-          className="object-contain"
-          priority
-          quality={75}
-        />
+        <div>
+          <div className="w-full h-[1px] bg-white/20 mt-5"></div>
+        </div>
       </motion.div>
 
       {/* Image Animation */}
       <motion.div
-        className="relative  overflow-visible px-[40px] py-[54px] h-min"
+        className="relative flex-1 overflow-visible h-0 min-h-0 flex justify-start items-start"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
@@ -62,11 +74,10 @@ export default function RightSection() {
         <Image
           src="/images/fynar-dashboard-default.png"
           alt="Platform Interface"
-          width={1000}
-          height={500}
+          fill
           quality={100}
           priority
-          className="w-fit h-min object-contain object-center overflow-hidden"
+          className="w-auto h-auto max-h-[50vh] object-contain px-[40px] py-[54px]"
         />
       </motion.div>
 
@@ -119,9 +130,8 @@ export default function RightSection() {
         }}
       >
         <p className="mb-6 text-body-1 text-[#AFB6B4]">
-          Fynar AI redefines investor workflows—automating deal flow, tracking
-          portfolios, and delivering AI-driven insights, so you can invest
-          smarter and scale faster
+          Fynar AI is built for those who want simplicity, efficiency, and
+          results. Less hassle, more success.
         </p>
 
         <div className="flex gap-2">
