@@ -64,9 +64,27 @@ export default function ContactSection({
     },
   });
 
-  const onSubmit = (data: ContactFormValues) => {
-    console.log("Form Submitted:", data);
-  };
+  const onSubmit = async (data: ContactFormValues) => {
+    try {
+      const response = await fetch("/api/service-enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        alert("Enquiry sent successfully!");
+        form.reset();
+      } else {
+        alert(result.error || "Failed to send enquiry");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong, please try again.");
+    }
+  };  
 
   return (
     <div className="sticky top-0 flex flex-col bg-[#FAFAFA] lg:w-full overflow-hidden justify-start pt-[168px] pb-[56px] px-[40px] max-h-screen overflow-y-auto h-full">
@@ -77,7 +95,7 @@ export default function ContactSection({
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, delay: 0.3, type: "spring", stiffness: 100, damping: 25 }}
         className="text-h6 font-semibold mb-4"
       >
         {selectedService ? selectedService.title : "Get in Touch"}
@@ -88,7 +106,7 @@ export default function ContactSection({
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, delay: 0.5, type: "spring", stiffness: 100, damping: 25 }}
       >
         {selectedService
           ? selectedService.subtitle
@@ -100,7 +118,7 @@ export default function ContactSection({
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, delay: 0.7, type: "spring", stiffness: 100, damping: 25 }}
       >
         <div className="flex flex-col gap-4">
           <h6 className="text-h6 text-balance">

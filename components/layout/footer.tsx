@@ -70,7 +70,7 @@ export default function Footer() {
       <div className="mb-8 flex">
         <h2 className="text-h6 font-normal leading-tight flex gap-6">
           <div className="h-full w-2 text-[#AFB6B4] rounded-sm bg-gradient-to-b from-[#FCEC3B] from-5% via-[#FFAFDF] via-30% to-[#99DBE0] to-50%" />
-          <div className="flex-wrap indent-8">
+          <div className="flex-wrap">
             <span className=" text-white leading-tight">Ampersand</span> offers
             expert advisory services to well-funded startups, guiding them
             through critical growth stages. Leverage our expertise for
