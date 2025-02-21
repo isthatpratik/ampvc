@@ -15,7 +15,7 @@ export default function SolutionsGrid() {
         Family Offices & Funds.
       </h2>
 
-      <div className="grid justify-center gap-4 md:grid-cols-3 h-full w-full">
+      <div className="grid justify-center gap-2 md:grid-cols-3 h-full w-full">
         {solutions.map((solution) => (
           <CircularCard key={solution.title} {...solution} />
         ))}

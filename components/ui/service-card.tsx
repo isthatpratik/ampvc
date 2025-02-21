@@ -24,11 +24,15 @@ export function ServiceCard({ title, subtitle, icon }: ServiceCardProps) {
           />
         </div>
 
-        <div className="py-[14px] ">
+        {/* Force text area to take equal height */}
+        <div className="flex-1 flex flex-col justify-center text-center py-[14px]">
           <h3 className="mb-2 text-label-1 font-medium">{title}</h3>
-          <p className="text-center text-caption text-[#C4C4C4] transition-all duration-300 group-hover:text-[#B6B6B6]">{subtitle}</p>
+          <p className="text-caption text-[#C4C4C4] transition-all duration-300 group-hover:text-[#B6B6B6]">
+            {subtitle}
+          </p>
         </div>
 
+        {/* Arrow button stays at bottom */}
         <div className="mt-4 flex w-11 h-11 bg-[#F2F3F3] items-center justify-center rounded-full transition-all duration-300 ease-in-out group-hover:bg-[#181A1A]">
           <ArrowRight className="w-5 h-5 group-hover:text-white transition-all duration-300 ease-in-out" />
         </div>

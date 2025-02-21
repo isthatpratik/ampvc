@@ -65,7 +65,15 @@ export default function Footer() {
   const [hoveredLink, setHoveredLink] = React.useState<string | null>(null);
 
   return (
-    <footer className="relative bg-[#1C1D1C] p-8 text-gray-400">
+    <motion.footer
+      className="relative bg-[#1C1D1C] p-8 text-gray-400"
+      initial={{ y: "50px", opacity: 0 }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        transition: { delay: 0.4, type: "spring", stiffness: 100, damping: 25 },
+      }}
+    >
       {/* Header Text */}
       <div className="mb-8 flex">
         <h2 className="text-h6 font-normal leading-tight flex gap-6">
@@ -184,6 +192,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

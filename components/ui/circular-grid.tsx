@@ -16,16 +16,16 @@ export function CircularCard({
 }: ServiceCardProps) {
   return (
     <Link href={href} className="h-full w-full">
-      <div className="w-full h-full gap-4 group relative flex flex-col items-center justify-start rounded-full border-[1px] bg-transparent border-[#D5DEDE] p-6 transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
+      <div className="w-full h-full gap-4 px-6 py-6 group relative flex flex-col items-center justify-start rounded-[50%] border-[1px] bg-transparent border-[#D5DEDE] transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
         {/* SVG Image */}
         <div className="flex h-16 w-16 items-center justify-center">
           <Image
             src={icon}
             alt={title}
-            width={60}
-            height={60}
+            width={100}
+            height={100}
             priority
-            className="w-full h-auto"
+            className="w-full h-full aspect-[1/1]"
           />
         </div>
 

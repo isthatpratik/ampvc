@@ -52,7 +52,7 @@ export default function ContactSection({
   selectedService: { title: string; subtitle: string } | null;
 }) {
   const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema), 
+    resolver: zodResolver(contactFormSchema),
     mode: "onBlur",
     defaultValues: {
       firstName: "",
@@ -71,9 +71,9 @@ export default function ContactSection({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-  
+
       const result = await response.json();
-  
+
       if (response.ok) {
         alert("Enquiry sent successfully!");
         form.reset();
@@ -84,18 +84,23 @@ export default function ContactSection({
       console.error("Error submitting form:", error);
       alert("Something went wrong, please try again.");
     }
-  };  
+  };
 
   return (
     <div className="sticky top-0 flex flex-col bg-[#FAFAFA] lg:w-full overflow-hidden justify-start pt-[168px] pb-[56px] px-[40px] max-h-screen overflow-y-auto h-full">
-
       {/* Animate the title when the service changes */}
       <motion.h2
         key={selectedService?.title}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.3, delay: 0.3, type: "spring", stiffness: 100, damping: 25 }}
+        transition={{
+          duration: 0.3,
+          delay: 0.3,
+          type: "spring",
+          stiffness: 100,
+          damping: 25,
+        }}
         className="text-h6 font-semibold mb-4"
       >
         {selectedService ? selectedService.title : "Get in Touch"}
@@ -106,7 +111,13 @@ export default function ContactSection({
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.3, delay: 0.5, type: "spring", stiffness: 100, damping: 25 }}
+        transition={{
+          duration: 0.3,
+          delay: 0.5,
+          type: "spring",
+          stiffness: 100,
+          damping: 25,
+        }}
       >
         {selectedService
           ? selectedService.subtitle
@@ -118,16 +129,27 @@ export default function ContactSection({
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.3, delay: 0.7, type: "spring", stiffness: 100, damping: 25 }}
+        transition={{
+          duration: 0.3,
+          delay: 0.7,
+          type: "spring",
+          stiffness: 100,
+          damping: 25,
+        }}
       >
         <div className="flex flex-col gap-4">
           <h6 className="text-h6 text-balance">
             Ready to optimize your strategy and unlock new opportunities?
           </h6>
-          <p className="text-body-2">Let’s make your success story stand out.</p>
+          <p className="text-body-2">
+            Let’s make your success story stand out.
+          </p>
         </div>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="2xl:space-y-10 xl:space-y-8 lg:space-y-6 flex flex-col justify-center">
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="2xl:space-y-10 xl:space-y-8 lg:space-y-6 flex flex-col justify-center"
+          >
             <div className="grid grid-cols-2 gap-4">
               <FormField
                 control={form.control}
@@ -139,7 +161,7 @@ export default function ContactSection({
                       <Input
                         placeholder="First name"
                         {...field}
-                        className="border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                        className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                       />
                     </FormControl>
                     <FormMessage />
@@ -156,7 +178,7 @@ export default function ContactSection({
                       <Input
                         placeholder="Last name"
                         {...field}
-                        className="border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                        className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                       />
                     </FormControl>
                     <FormMessage />
@@ -170,13 +192,13 @@ export default function ContactSection({
               name="mail"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1">Corporate Email</FormLabel>
+                  <FormLabel className="text-body-1">Work Mail</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
                       placeholder="Email@yourcompany.com"
                       {...field}
-                      className="border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />
@@ -195,7 +217,7 @@ export default function ContactSection({
                       type="tel"
                       placeholder="9922853244"
                       {...field}
-                      className="border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />
@@ -208,12 +230,14 @@ export default function ContactSection({
               name="source"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1">How Did You Hear About Us?</FormLabel>
+                  <FormLabel className="text-body-1">
+                    How Did You Hear About Us?
+                  </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Eg. LinkedIn, Google, etc."
                       {...field}
-                      className="border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />
@@ -231,19 +255,21 @@ export default function ContactSection({
                     <Textarea
                       placeholder="Tell us about your project or requirements"
                       {...field}
-                      className="resize-none min-h-[100px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="focus-visible:outline-none focus-visible:ring-0 resize-none min-h-[100px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            
-            <div className="self-center">
 
-            <Button type="submit" className="py-4 shadow-none hover:border-black transition-all duration-300 bg-transparent border border-[#AFB6B4] w-fit rounded-full text-black hover:bg-transparent">
-              Submit  <ArrowRight className="w-4 h-4"/>
-            </Button>
+            <div className="self-center">
+              <Button
+                type="submit"
+                className="py-4 shadow-none hover:border-black transition-all duration-300 bg-transparent border border-[#AFB6B4] w-fit rounded-full text-black hover:bg-transparent"
+              >
+                Submit <ArrowRight className="w-4 h-4" />
+              </Button>
             </div>
           </form>
         </Form>
