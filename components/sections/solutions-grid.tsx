@@ -8,14 +8,14 @@ const solutions = [
 
 export default function SolutionsGrid() {
   return (
-    <div className="px-[40px] py-[56px] grid space-y-6">
+    <div className="px-[40px] pt-[56px] pb-[112px] grid space-y-6">
       <h2 className="text-h3">
         Smart solutions for VCs,
         <br />
         Family Offices & Funds.
       </h2>
 
-      <div className="grid justify-center gap-2 md:grid-cols-3 h-full w-full">
+      <div className="flex flex-row gap-4 items-center justify-between h-full w-full ">
         {solutions.map((solution) => (
           <CircularCard key={solution.title} {...solution} />
         ))}

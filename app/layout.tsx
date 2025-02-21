@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react"
 const fustat = Fustat({ subsets: ['latin'], weight: ['200','300','400','500','600','700','800'] });
 
 export const metadata: Metadata = {
-  title: "AMPVC",
+  title: "Ampersand",
   description: "Empowering Startups - Elevating Outcomes",
 };
 

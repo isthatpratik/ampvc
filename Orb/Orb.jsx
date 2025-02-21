@@ -161,10 +161,26 @@ export default function Orb({
     }
 
     void main() {
-      vec2 fragCoord = vUv * iResolution.xy;
-      vec4 col = mainImage(fragCoord);
-      gl_FragColor = vec4(col.rgb * col.a, col.a);
-    }
+    vec2 fragCoord = vUv * iResolution.xy;
+    vec2 center = iResolution.xy * 0.5;
+    float size = min(iResolution.x, iResolution.y);
+    
+    vec2 uv = (fragCoord - center) / size * 2.0;
+    
+    // Rotate effect
+    float angle = rot;
+    float s = sin(angle);
+    float c = cos(angle);
+    uv = vec2(c * uv.x - s * uv.y, s * uv.x + c * uv.y);
+    
+    // Hover distortions
+    uv.x += hover * hoverIntensity * 0.1 * sin(uv.y * 10.0 + iTime);
+    uv.y += hover * hoverIntensity * 0.1 * sin(uv.x * 10.0 + iTime);
+    
+    vec3 color = smoothGradient(uv);
+    
+    gl_FragColor = vec4(color, 1.0);
+}
   `;
 
   useEffect(() => {

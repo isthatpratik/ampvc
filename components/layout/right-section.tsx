@@ -11,7 +11,7 @@ export default function RightSection() {
     <div className="sticky top-0 flex h-screen w-full flex-col bg-[#181A1A] text-white overflow-hidden">
       {/* Logo Animation */}
       <motion.div
-        className="px-[40px] pt-[168px]"
+        className="px-10 pt-14"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,

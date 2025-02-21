@@ -7,7 +7,7 @@ import { motion } from 'motion/react'
 
 export default function FinyxChat() {
   return (
-    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-[168px] pb-[56px] px-[40px]">
+    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-14 pb-14 px-10">
       <motion.h1 className="text-h3 tracking-tight"
       initial={{ y: "50px", opacity: 0 }}
       animate={{
@@ -16,7 +16,7 @@ export default function FinyxChat() {
         transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 },
       }}>
         Find the right investors effortlessly with <br />
-        <span className="bg-gradient-to-r from-[#99DBE0] from-10% via-[#FFAFDF] via-55% to-[#FCEC3B] to-98% bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-[#4E7E71CF]/80 from-40% via-[#FB79C7] to-[#F7E307] to-80% bg-clip-text text-transparent">
           AI-powered matching.
         </span>
       </motion.h1>
@@ -36,9 +36,9 @@ export default function FinyxChat() {
         <Image
           src={"/images/blob.png"}
           alt="Finyx Blob"
-          width={600}
+          width={500}
           height={500}
-          className="w-auto h-auto max-h-[50vh] object-contain"
+          className="w-auto h-auto max-h-[40vh] object-contain aspect-square"
         />
       </motion.div>
       <motion.div className="border border-[#DCE0DF] w-full h-auto px-4 py-4 flex items-center rounded-[10px]"

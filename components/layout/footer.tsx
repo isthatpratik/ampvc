@@ -15,50 +15,47 @@ const footerData: FooterSection[] = [
   {
     title: "Startups",
     links: [
-      { text: "Aliquet nec", href: "#" },
-      { text: "Diam hac", href: "#" },
-      { text: "Eu libero", href: "#" },
-      { text: "Massa aliquet", href: "#" },
-      { text: "Aliquet vitae", href: "#" },
-      { text: "Odio volutpat", href: "#" },
+      { text: "Vision Crafting", href: "" },
+      { text: "Breakthrough to Exit", href: "" },
+      { text: "Scaling Fuel", href: "" },
     ],
   },
   {
     title: "Investors",
     links: [
-      { text: "Consectetur at", href: "#" },
-      { text: "Dignissim viverra", href: "#" },
-      { text: "Mauris tellus", href: "#" },
-      { text: "Augue convallis", href: "#" },
-      { text: "Urna iaculis", href: "#" },
-      { text: "Nisl enim", href: "#" },
+      { text: "Exit Strategy", href: "" },
+      { text: "Portfolio Pulse", href: "" },
+      { text: "Liquidity Move", href: "" },
     ],
   },
   {
     title: "Ampersand",
     links: [
-      { text: "Strategic Advisory", href: "#" },
-      { text: "Fast Exit", href: "#" },
-      { text: "Growth Capital", href: "#" },
-      { text: "Portfolio Exit", href: "#" },
-      { text: "Monitoring & Reporting", href: "#" },
-      { text: "Secondary Buyouts", href: "#" },
+      { text: "Contact Us", href: "" },
+      { text: "About Us", href: "" },
+      { text: "Careers", href: "" },
+      { text: "Responsible AI", href: "" },
     ],
   },
   {
     title: "FynarAI",
     links: [
-      { text: "Consectetur", href: "#" },
-      { text: "Dignissim", href: "#" },
-      { text: "Mauris", href: "#" },
-      { text: "Augue", href: "#" },
-      { text: "Urna", href: "#" },
-      { text: "Nisl", href: "#" },
+      { text: "Features", href: "" },
+      { text: "Pricing", href: "" },
+      { text: "Get Started", href: "" },
     ],
   },
 ];
 
-export default function Footer() {
+type Service = {
+  title: string;
+};
+
+type FooterProps = {
+  onServiceSelect?: (service: Service) => void;
+};
+
+export default function Footer({ onServiceSelect }: FooterProps) {
   const [hoveredSection, setHoveredSection] = React.useState<string | null>(
     null
   );
@@ -117,7 +114,7 @@ export default function Footer() {
                   key={link.text}
                   onMouseEnter={() => setHoveredLink(link.text)}
                   onMouseLeave={() => setHoveredLink(null)}
-                  className="relative group flex items-center gap-2"
+                  className="relative group flex gap-2"
                 >
                   <motion.span
                     initial={{ opacity: 0, x: 0 }}
@@ -137,12 +134,12 @@ export default function Footer() {
                     animate={hoveredLink === link.text ? { x: 14 } : { x: 0 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   >
-                    <Link
-                      href={link.href}
-                      className="hover:text-white hover:opacity-100 text-[#798682] text-body-3 transition-colors duration-200"
-                    >
-                      {link.text}
-                    </Link>
+                    <button
+                    onClick={() => onServiceSelect?.({ title: link.text })}
+                    className="hover:text-white text-[#798682] text-body-3 text-start transition-colors duration-200"
+                  >
+                    {link.text}
+                  </button>
                   </motion.span>
                 </li>
               ))}
@@ -162,12 +159,12 @@ export default function Footer() {
             className="w-full h-auto object-contain py-8"
           />
         </div>
-        <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex flex-nowrap items-center justify-between gap-4">
           <div className="flex font-light text-[#798682] text-caption gap-4 items-center">
             <Link href="#" className="hover:text-white">
               Terms of use
             </Link>
-            <div className="h-[6px] w-[6px] bg-[#313534] rounded-full"></div>
+            <div className="h-[6px] w-[6px] bg-[#313534] rounded-full "></div>
             <Link href="#" className="hover:text-white">
               Privacy
             </Link>
@@ -176,10 +173,10 @@ export default function Footer() {
               GDPR
             </Link>
           </div>
-          <div className="w-[25%] h-[1px] bg-[#313534]"></div>
+          <div className="2xl:w-[50%] lg:w-[15%] h-[1px] bg-[#313534]"></div>
           <div className="flex items-center gap-4">
             <span className="text-[#798682] font-light text-caption">
-              All rights reserved. Ampersand VC
+              All rights reserved. Ampersand
             </span>
             <div className="h-[6px] w-[6px] bg-[#313534] rounded-full"></div>
             <Image

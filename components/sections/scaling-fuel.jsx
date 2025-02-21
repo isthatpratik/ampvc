@@ -31,9 +31,9 @@ export default function ScalingFuel({ onBack }) {
       {/* Dynamic Content */}
       <div className="relative">
         {/* First Row */}
-        <div className="grid grid-cols-12 gap-0">
-          <div className="col-span-1 bg-[url('/images/services/pattern.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
-          <div className="col-span-10 flex">
+        <div className="grid grid-cols-24 gap-0">
+          <div className="col-span-1 bg-[url('/images/services/pattern-left.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
+          <div className="col-span-22 flex">
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-l border-r border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">
               Collaboration
@@ -48,7 +48,7 @@ export default function ScalingFuel({ onBack }) {
                 alt="strategic guidance icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain aspect-[4/3]"
               />
             </div>
           </div>
@@ -56,16 +56,16 @@ export default function ScalingFuel({ onBack }) {
         </div>
 
         {/* Second Row */}
-        <div className="grid grid-cols-12 gap-0">
+        <div className="grid grid-cols-24 gap-0">
           <div className="col-span-1 border-t border-[#AFB6B4] bg-transparent" />
-          <div className="col-span-10 flex">
+          <div className="col-span-22 flex">
             <div className="w-2/5 border-t border-l border-r border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
                 src={"/images/services/focus-growth.svg"}
                 alt="network access icon"
                 width={400}
                 height={400}
-                className="h-full object-contain relative left-0 bottom-0"
+                className="h-full object-contain relative left-0 bottom-0 aspect-[4/3]"
               />
             </div>
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-[#AFB6B4]">
@@ -81,9 +81,9 @@ export default function ScalingFuel({ onBack }) {
         </div>
 
         {/* Third Row */}
-        <div className="grid grid-cols-12 gap-0">
-          <div className="col-span-1 bg-[url('/images/services/pattern.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
-          <div className="col-span-10 flex">
+        <div className="grid grid-cols-24 gap-0">
+          <div className="col-span-1 bg-[url('/images/services/pattern-left.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
+          <div className="col-span-22 flex">
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-l border-r border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">
               Bridging the <br />Gap, Seamlessly
@@ -98,7 +98,7 @@ export default function ScalingFuel({ onBack }) {
                 alt="market insight icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain aspect-[4/3]"
               />
             </div>
           </div>
@@ -106,16 +106,16 @@ export default function ScalingFuel({ onBack }) {
         </div>
 
         {/* Fourth Row */}
-        <div className="grid grid-cols-12 gap-0">
+        <div className="grid grid-cols-24 gap-0">
           <div className="col-span-1 border-t border-b border-[#AFB6B4] bg-transparent" />
-          <div className="col-span-10 flex">
+          <div className="col-span-22 flex">
             <div className="w-2/5 border border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
                 src={"/images/services/not-profit.svg"}
                 alt="transaction management icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain "
+                className="w-full h-auto object-contain aspect-[4/3]"
               />
             </div>
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-b border-[#AFB6B4]">

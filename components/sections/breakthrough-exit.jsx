@@ -37,9 +37,9 @@ export default function BreakthroughExit({ onBack }) {
       {/* Dynamic Content */}
       <div className="relative">
         {/* First Row */}
-        <div className="grid grid-cols-12 gap-0">
-          <div className="col-span-1 bg-[url('/images/services/pattern.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
-          <div className="col-span-10 flex">
+        <div className="grid grid-cols-24 gap-0">
+          <div className="col-span-1 bg-[url('/images/services/pattern-left.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
+          <div className="col-span-22 flex">
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-l border-r border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">
                 Strategic <br />
@@ -90,9 +90,9 @@ export default function BreakthroughExit({ onBack }) {
         </div>
 
         {/* Third Row */}
-        <div className="grid grid-cols-12 gap-0">
-          <div className="col-span-1 bg-[url('/images/services/pattern.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
-          <div className="col-span-10 flex">
+        <div className="grid grid-cols-24 gap-0">
+          <div className="col-span-1 bg-[url('/images/services/pattern-left.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
+          <div className="col-span-22 flex">
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-l border-r border-[#AFB6B4]">
               <h3 className="text-h2 font-semibold mb-2">
                 Market <br />

@@ -31,7 +31,7 @@ export default function Home() {
         {/* Left Section */}
         <div
           className={`relative flex transition-all duration-500 scrollbar-left overflow-y-auto no-scrollbar ${
-            isMobile ? (selectedService ? "flex-[6]" : "flex-[5]") : "flex-[3.6]"
+            isMobile ? (selectedService ? "flex-[6]" : "flex-[5]") : "flex-[5]"
           }`}
         >
           {/* Black Overlay */}
@@ -46,7 +46,7 @@ export default function Home() {
 
         {/* Middle Section: Finyx Chat or Contact Section */}
         {!isMobile && (
-          <div className="relative flex flex-[2.8] transition-all duration-500">
+          <div className="relative flex flex-[2.5] transition-all duration-500">
             {/* Black Overlay */}
             <motion.div
               className="absolute top-0 left-0 w-full h-full bg-black z-50"
@@ -61,7 +61,7 @@ export default function Home() {
         {/* Right Section */}
         <div
           className={`relative flex transition-all duration-500 ${
-            isMobile ? (selectedService ? "flex-[4]" : "flex-[5]") : "flex-[3.6]"
+            isMobile ? (selectedService ? "flex-[4]" : "flex-[5]") : "flex-[2.5]"
           }`}
         >
           {/* Black Overlay */}

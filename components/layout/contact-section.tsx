@@ -87,7 +87,7 @@ export default function ContactSection({
   };
 
   return (
-    <div className="sticky top-0 flex flex-col bg-[#FAFAFA] lg:w-full overflow-hidden justify-start pt-[168px] pb-[56px] px-[40px] max-h-screen overflow-y-auto h-full">
+    <div className="sticky top-0 flex flex-col bg-[#FAFAFA] lg:w-full overflow-hidden justify-start py-14 px-10 max-h-screen overflow-y-auto h-full">
       {/* Animate the title when the service changes */}
       <motion.h2
         key={selectedService?.title}
@@ -156,12 +156,12 @@ export default function ContactSection({
                 name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-body-1">First name</FormLabel>
+                    <FormLabel className="text-body-1 text-[#181A1A]">First name</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="First name"
                         {...field}
-                        className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                        className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                       />
                     </FormControl>
                     <FormMessage />
@@ -172,13 +172,13 @@ export default function ContactSection({
                 control={form.control}
                 name="lastName"
                 render={({ field }) => (
-                  <FormItem className="text-body-1">
+                  <FormItem className="text-body-1 text-[#181A1A] ">
                     <FormLabel>Last name</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Last name"
                         {...field}
-                        className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                        className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                       />
                     </FormControl>
                     <FormMessage />
@@ -192,13 +192,13 @@ export default function ContactSection({
               name="mail"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1">Work Mail</FormLabel>
+                  <FormLabel className="text-body-1 text-[#181A1A]">Work Mail</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
                       placeholder="Email@yourcompany.com"
                       {...field}
-                      className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />
@@ -211,13 +211,13 @@ export default function ContactSection({
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1">Phone</FormLabel>
+                  <FormLabel className="text-body-1 text-[#181A1A]">Phone</FormLabel>
                   <FormControl>
                     <Input
                       type="tel"
                       placeholder="9922853244"
                       {...field}
-                      className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />
@@ -230,14 +230,14 @@ export default function ContactSection({
               name="source"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1">
+                  <FormLabel className="text-body-1 text-[#181A1A]">
                     How Did You Hear About Us?
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Eg. LinkedIn, Google, etc."
                       {...field}
-                      className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />
@@ -250,12 +250,12 @@ export default function ContactSection({
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1">Your Query</FormLabel>
+                  <FormLabel className="text-body-1 text-[#181A1A]">Your Query</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Tell us about your project or requirements"
                       {...field}
-                      className="focus-visible:outline-none focus-visible:ring-0 resize-none min-h-[100px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 resize-none min-h-[100px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />

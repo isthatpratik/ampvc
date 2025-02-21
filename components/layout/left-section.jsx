@@ -13,77 +13,50 @@ export default function LeftSection({ selectedService, setSelectedService }) {
   return (
     <div className="min-h-screen relative flex-1 bg-white flex flex-col">
       <div className="flex-1 pt-14 h-screen overflow-y-auto">
-        <div className="">
+        <div>
           {/* Animate Navbar */}
           <motion.div
             initial={{ y: "-50px", opacity: 0 }}
-            animate={{
-              y: 0,
-              opacity: 1,
-              transition: { delay: 0.4, type: "spring", stiffness: 100, damping: 25 },
-            }}
+            animate={{ y: 0, opacity: 1, transition: { delay: 0.4, type: "spring", stiffness: 100, damping: 25 } }}
           >
             <Navbar />
           </motion.div>
 
-          {/* Animate Content Sections */}
+          {/* Conditional rendering for ServiceDetails or Main Sections */}
           {selectedService ? (
             <motion.div
               initial={{ y: "50px", opacity: 0 }}
-              animate={{
-                y: 0,
-                opacity: 1,
-                transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 },
-              }}
+              animate={{ y: 0, opacity: 1, transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 } }}
             >
               <ServiceDetails service={selectedService} onBack={() => setSelectedService(null)} />
             </motion.div>
           ) : (
             <>
-              {/* Animate HeroSection */}
+              {/* Main Content Sections */}
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                  transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 },
-                }}
+                animate={{ y: 0, opacity: 1, transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 } }}
               >
                 <HeroSection />
               </motion.div>
 
-              {/* Animate ServicesGrid */}
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                  transition: { delay: 1, type: "spring", stiffness: 100, damping: 25 },
-                }}
+                animate={{ y: 0, opacity: 1, transition: { delay: 1, type: "spring", stiffness: 100, damping: 25 } }}
               >
                 <ServicesGrid setSelectedService={setSelectedService} />
               </motion.div>
 
-              {/* Animate AIMatchingBanner */}
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                  transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 25 },
-                }}
+                animate={{ y: 0, opacity: 1, transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 25 } }}
               >
                 <AIMatchingBanner />
               </motion.div>
 
-              {/* Animate SolutionsGrid */}
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                  transition: { delay: 1.4, type: "spring", stiffness: 100, damping: 25 },
-                }}
+                animate={{ y: 0, opacity: 1, transition: { delay: 1.4, type: "spring", stiffness: 100, damping: 25 } }}
               >
                 <SolutionsGrid />
               </motion.div>
@@ -91,16 +64,13 @@ export default function LeftSection({ selectedService, setSelectedService }) {
           )}
         </div>
       </div>
-      {/* Footer Animation */}
+
+      {/* Footer with dynamic service selection */}
       <motion.div
         initial={{ y: "50px", opacity: 0 }}
-        animate={{
-          y: 0,
-          opacity: 1,
-          transition: { delay: 1.6, type: "spring", stiffness: 100, damping: 25 },
-        }}
+        animate={{ y: 0, opacity: 1, transition: { delay: 1.6, type: "spring", stiffness: 100, damping: 25 } }}
       >
-        <Footer />
+        <Footer onServiceSelect={setSelectedService} />
       </motion.div>
     </div>
   );
