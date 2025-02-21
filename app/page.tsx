@@ -13,7 +13,14 @@ export default function Home() {
     subtitle: string;
     href: string;
   } | null>(null);
+
   const [isMobile, setIsMobile] = useState(false);
+
+  const [selectedSolution, setSelectedSolution] = useState<{
+    title: string;
+    subtitle: string;
+    href: string;
+  } | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,9 +46,20 @@ export default function Home() {
             className="absolute top-0 left-0 w-full h-full bg-black z-50"
             initial={{ y: 0 }}
             animate={{ y: "-100%" }}
-            transition={{ delay: 0.3, duration: 1.2, type: "spring", stiffness: 70, damping: 20 }}
+            transition={{
+              delay: 0.3,
+              duration: 1.2,
+              type: "spring",
+              stiffness: 70,
+              damping: 20,
+            }}
           />
-          <LeftSection selectedService={selectedService} setSelectedService={setSelectedService} />
+          <LeftSection
+            selectedService={selectedService}
+            setSelectedService={setSelectedService}
+            selectedSolution={selectedSolution}
+            setSelectedSolution={setSelectedSolution}
+          />
         </div>
 
         {/* Middle Section: Finyx Chat or Contact Section */}
@@ -52,16 +70,30 @@ export default function Home() {
               className="absolute top-0 left-0 w-full h-full bg-black z-50"
               initial={{ y: 0 }}
               animate={{ y: "-100%" }}
-              transition={{ delay: 0.5, duration: 1.2, type: "spring", stiffness: 70, damping: 20 }}
+              transition={{
+                delay: 0.5,
+                duration: 1.2,
+                type: "spring",
+                stiffness: 70,
+                damping: 20,
+              }}
             />
-            {selectedService ? <ContactSection selectedService={selectedService} /> : <FinyxChat />}
+            {selectedService ? (
+              <ContactSection selectedService={selectedService} />
+            ) : (
+              <FinyxChat />
+            )}
           </div>
         )}
 
         {/* Right Section */}
         <div
           className={`relative flex transition-all duration-500 ${
-            isMobile ? (selectedService ? "flex-[4]" : "flex-[5]") : "flex-[2.5]"
+            isMobile
+              ? selectedService
+                ? "flex-[4]"
+                : "flex-[5]"
+              : "flex-[2.5]"
           }`}
         >
           {/* Black Overlay */}
@@ -69,7 +101,13 @@ export default function Home() {
             className="absolute top-0 w-full h-full bg-black z-50"
             initial={{ y: 0 }}
             animate={{ y: "-100%" }}
-            transition={{ delay: 0.7, duration: 1.2, type: "spring", stiffness: 70, damping: 20 }}
+            transition={{
+              delay: 0.7,
+              duration: 1.2,
+              type: "spring",
+              stiffness: 70,
+              damping: 20,
+            }}
           />
           <RightSection />
         </div>

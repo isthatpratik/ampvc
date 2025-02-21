@@ -8,13 +8,18 @@ import SolutionsGrid from "../sections/solutions-grid";
 import Footer from "./footer";
 import ServiceDetails from "../sections/service-details";
 import { motion } from "framer-motion";
+import SolutionDetails from '../sections/solution-details'
 
-export default function LeftSection({ selectedService, setSelectedService }) {
+export default function LeftSection({
+  selectedService,
+  setSelectedService,
+  selectedSolution,
+  setSelectedSolution,
+}) {
   return (
     <div className="min-h-screen relative flex-1 bg-white flex flex-col">
       <div className="flex-1 pt-14 min-h-screen overflow-y-auto">
         <div>
-          {/* Animate Navbar */}
           <motion.div
             initial={{ y: "-50px", opacity: 0 }}
             animate={{ y: 0, opacity: 1, transition: { delay: 0.4, type: "spring", stiffness: 100, damping: 25 } }}
@@ -22,7 +27,7 @@ export default function LeftSection({ selectedService, setSelectedService }) {
             <Navbar />
           </motion.div>
 
-          {/* Conditional rendering for ServiceDetails or Main Sections */}
+          {/* Conditional Rendering for Service or Solution Details */}
           {selectedService ? (
             <motion.div
               initial={{ y: "50px", opacity: 0 }}
@@ -30,9 +35,15 @@ export default function LeftSection({ selectedService, setSelectedService }) {
             >
               <ServiceDetails service={selectedService} onBack={() => setSelectedService(null)} />
             </motion.div>
+          ) : selectedSolution ? (
+            <motion.div
+              initial={{ y: "50px", opacity: 0 }}
+              animate={{ y: 0, opacity: 1, transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 } }}
+            >
+              <SolutionDetails solution={selectedSolution} onBack={() => setSelectedSolution(null)} />
+            </motion.div>
           ) : (
             <>
-              {/* Main Content Sections */}
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
                 animate={{ y: 0, opacity: 1, transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 } }}
@@ -58,19 +69,18 @@ export default function LeftSection({ selectedService, setSelectedService }) {
                 initial={{ y: "50px", opacity: 0 }}
                 animate={{ y: 0, opacity: 1, transition: { delay: 1.4, type: "spring", stiffness: 100, damping: 25 } }}
               >
-                <SolutionsGrid />
+                <SolutionsGrid setSelectedSolution={setSelectedSolution} />
               </motion.div>
             </>
           )}
         </div>
       </div>
 
-      {/* Footer with dynamic service selection */}
       <motion.div
         initial={{ y: "50px", opacity: 0 }}
         animate={{ y: 0, opacity: 1, transition: { delay: 1.6, type: "spring", stiffness: 100, damping: 25 } }}
       >
-        <Footer onServiceSelect={setSelectedService} />
+        <Footer onServiceSelect={setSelectedService} onSolutionSelect={setSelectedSolution} />
       </motion.div>
     </div>
   );
