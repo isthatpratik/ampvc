@@ -23,7 +23,7 @@ const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
               strokeWidth={2}
             />
           </span>
-          <span className="z-999 text-body-2 -translate-x-[0.5rem] font-medium group-hover:-translate-x-[calc(80%)] transition-all group-hover:text-black duration-300">{children}</span>
+          <span className="z-999 text-body-2 -translate-x-[0.5rem] font-medium group-hover:-translate-x-[calc(42%)] transition-all group-hover:text-black duration-300">{children}</span>
         </div>
       </button>
     );

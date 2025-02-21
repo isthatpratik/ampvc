@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import AnimatedButton from "../ui/animated-button";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function RightSection() {
@@ -136,18 +134,6 @@ export default function RightSection() {
 
         <div className="flex gap-2">
           <AnimatedButton>Pre-Register Now</AnimatedButton>
-
-          <Button className="group relative flex items-center overflow-hidden bg-transparent text-body-2 border-white/20 border rounded-full px-14 py-4 h-full hover:bg-transparent hover:border-white transition-all duration-500">
-            {/* Login text moves slightly left */}
-            <span className="relative transition-transform duration-300 group-hover:-translate-x-2 z-999 text-body-2">
-              Login
-            </span>
-
-            {/* Arrow slides in from right */}
-            <span className="absolute opacity-0 transition-all duration-300 right-1/4 transform  group-hover:opacity-100">
-              <ArrowRight className="w-5 h-5" />
-            </span>
-          </Button>
         </div>
       </motion.div>
     </div>
