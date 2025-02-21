@@ -60,7 +60,7 @@ export default function FinyxChat() {
           className="w-full h-auto border-none bg-transparent shadow-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
           placeholder="Type your prompt here"
         />
-        <Button className="ml-2 w-12 h-12 bg-[#181A1A] px-2 flex items-center justify-center rounded-sm">
+        <Button className="ml-2 w-12 h-10 bg-[#181A1A] px-2 flex items-center justify-center rounded-sm">
           <Image
             src={"/images/icons/send.svg"}
             alt="Send Icon"

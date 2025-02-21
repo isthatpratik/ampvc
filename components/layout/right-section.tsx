@@ -135,7 +135,7 @@ export default function RightSection() {
         </p>
 
         <div className="flex gap-2">
-          <AnimatedButton>Get Started</AnimatedButton>
+          <AnimatedButton>Pre-Register Now</AnimatedButton>
 
           <Button className="group relative flex items-center overflow-hidden bg-transparent text-body-2 border-white/20 border rounded-full px-14 py-4 h-full hover:bg-transparent hover:border-white transition-all duration-500">
             {/* Login text moves slightly left */}

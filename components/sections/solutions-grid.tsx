@@ -8,18 +8,22 @@ const solutions = [
 
 export default function SolutionsGrid() {
   return (
-    <div className="px-[40px] pt-[56px] pb-[112px] grid space-y-6">
-      <h2 className="text-h3">
+    <div className="px-10 py-14 flex flex-col flex-grow flex-1 space-y-6">
+      <h2 className="text-h3 text-balance">
         Smart solutions for VCs,
-        <br />
         Family Offices & Funds.
       </h2>
 
-      <div className="flex flex-row gap-4 items-center justify-between h-full w-full ">
-        {solutions.map((solution) => (
-          <CircularCard key={solution.title} {...solution} />
-        ))}
-      </div>
+      <p className="text-body-2 font-medium">
+      Fueling startup success with expert guidance, strategic insights, and powerful connections. Turning bold ideas into thriving businesses with tailored support and investor-ready strategies. Empowering founders to scale faster, smarter, and stronger—because their growth drives your returns.
+      </p>
+
+      <div className="flex flex-nowrap gap-2 justify-between items-center w-full">
+  {solutions.map((solution) => (
+    <CircularCard key={solution.title} {...solution} />
+  ))}
+</div>
+
     </div>
   )
 }
