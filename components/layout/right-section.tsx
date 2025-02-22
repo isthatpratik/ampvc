@@ -24,12 +24,6 @@ export default function RightSection() {
       >
         <div className="flex flex-col justify-center gap-4">
           <div className="flex items-center gap-2">
-            <h2 className="text-h4">
-              Meet Fynar{" "}
-              <span className="bg-gradient-to-r from-[#99DBE0] from-10% via-[#FFAFDF] via-55% to-[#FCEC3B] to-98% bg-clip-text text-transparent">
-                AI
-              </span>
-            </h2>
             <div className="w-auto h-fit">
 
             <Image
@@ -43,7 +37,7 @@ export default function RightSection() {
             />
             </div>
           </div>
-          <h2 className="text-h2">
+          <h2 className="text-h4">
             <span className="bg-gradient-to-r from-[#99DBE0] text-balance from-10% via-[#FFAFDF] via-55% to-[#FCEC3B] to-98% bg-clip-text text-transparent">
               The Simple, Intuitive CRM That Gets Things Done
             </span>

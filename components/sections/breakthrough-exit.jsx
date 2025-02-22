@@ -64,9 +64,9 @@ export default function BreakthroughExit({ onBack }) {
         </div>
 
         {/* Second Row */}
-        <div className="grid grid-cols-12 gap-0">
+        <div className="grid grid-cols-24 gap-0">
           <div className="col-span-1 border-t border-[#AFB6B4] bg-transparent" />
-          <div className="col-span-10 flex">
+          <div className="col-span-22 flex">
             <div className="w-2/5 border-t border-l border-r border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
                 src={"/images/services/network-access.svg"}
@@ -117,9 +117,9 @@ export default function BreakthroughExit({ onBack }) {
         </div>
 
         {/* Fourth Row */}
-        <div className="grid grid-cols-12 gap-0">
+        <div className="grid grid-cols-24 gap-0">
           <div className="col-span-1 border-t border-b border-[#AFB6B4] bg-transparent" />
-          <div className="col-span-10 flex">
+          <div className="col-span-22 flex">
             <div className="w-2/5 border border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
                 src={"/images/services/transaction-management.svg"}

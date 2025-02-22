@@ -34,7 +34,7 @@ export default function SolutionsGrid({ setSelectedSolution }) {
         Empowering founders to scale faster, smarter, and stronger—because their growth drives your returns.
       </p>
 
-      <div className="flex flex-nowrap gap-2 justify-between items-center w-full">
+      <div className="grid grid-cols-3 gap-2 justify-between items-center w-full">
         {solutions.map((solution) => (
           <button key={solution.title} onClick={() => setSelectedSolution(solution)}>
             <CircularCard {...solution} />

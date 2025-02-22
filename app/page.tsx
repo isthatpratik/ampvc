@@ -78,7 +78,7 @@ export default function Home() {
                 damping: 20,
               }}
             />
-            {selectedService ? (
+            {selectedService || selectedSolution ? (
               <ContactSection selectedService={selectedService} />
             ) : (
               <FinyxChat />

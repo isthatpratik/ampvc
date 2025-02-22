@@ -24,12 +24,12 @@ export default function ExitStrategy({ onBack }) {
           fresh opportunities.
         </h3>
       </div>
-      
+
       {/* What We Do Section */}
       <section className="flex">
         <div className="grid grid-cols-3 gap-6">
           <div className="flex items-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
-            <h2 className="text-h4 p-4 text-[#181A1A] font-semibold">
+            <h2 className="text-h4 px-12 text-[#181A1A] font-semibold">
               What <br /> We Do
             </h2>
           </div>
@@ -64,44 +64,63 @@ export default function ExitStrategy({ onBack }) {
       <div className="my-12 w-full h-[1px] bg-[#B9BFBE]"></div>
 
       {/* Why Choose Us Section */}
-      <section className="space-y-12">
-        <div className="grid grid-cols-3 gap-6">
-        <div>
-
-        <h2 className="text-h4 p-4 text-[#181A1A] font-semibold">Why <br /> Choose Us</h2>
-        </div>
-          <FeatureCard
-            title="Sharp Focus on Distressed Exits"
-            description="Experience with turning losses into opportunities."
-          />
-          <FeatureCard
-            title="Powerful Network"
-            description="Buyers, secondaries, and strategic connections—lined up for you."
-          />
+      <section className="space-y-12 mb-12">
+        <div className="grid grid-cols-3">
+          <div className="mr-6 flex items-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
+            <h2 className="text-h4 px-12 text-[#181A1A] font-semibold">
+              Why <br /> Choose Us
+            </h2>
+          </div>
+          <div className="border-r-[0.5px] border-b-[0.5px] p-6 text-center text-balance space-y-4">
+            <h3 className="text-h6 font-semibold text-[#181A1A]">
+              Sharp Focus on Distressed Exits
+            </h3>
+            <p className="text-body-3 font-normal">
+              Experience with turning losses into opportunities.
+            </p>
+          </div>
+          <div className="border-b-[0.5px] border-l-[0.5px] text-balance text-center p-6 space-y-4">
+            <h3 className="text-h6 font-semibold text-[#181A1A]">
+              Powerful Network
+            </h3>
+            <p className="text-body-3 font-normal">
+              Buyers, secondaries, and strategic connections—lined up for you.
+            </p>
+          </div>
           <div></div>
-          <FeatureCard
-            title="End-to-End Solutions"
-            description="From valuation to handshake, we've got it covered."
-          />
-          <FeatureCard
-            title="Discreet & Swift"
-            description="Efficiency with full confidentiality."
-          />
+          <div className="border-t-[0.5px] border-r-[0.5px] text-balance text-center p-6 space-y-4">
+            <h3 className="text-h6 font-semibold text-[#181A1A]">
+              End-to-End Solutions
+            </h3>
+            <p className="text-body-3 font-normal">
+              From valuation to handshake, we've got it covered.
+            </p>
+          </div>
+          <div className="border-l-[0.5px] border-t-[0.5px] text-balance text-center p-6 space-y-4">
+            <h3 className="text-h6 font-semibold text-[#181A1A]">
+              Discreet & Swift
+            </h3>
+            <p className="text-body-3 font-normal">
+              Efficiency with full confidentiality.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="border rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="space-y-2">
+      <section className="border border-[#AFB6B4] rounded-sm grid grid-cols-2 items-center justify-between gap-6">
+        <div className="space-y-2 p-14">
           <h3 className="text-2xl font-bold">
             Ready to clear your books and reclaim your capital?
           </h3>
           <p className="text-gray-600">Let's make your exit count.</p>
         </div>
-        <Button className="bg-black text-white hover:bg-black/90 px-6 py-6 text-lg rounded-full">
-          Get Connected
-          <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
+        <div className="flex border-l border-[#AFB6B4] items-center h-full p-0 justify-center bg-[url('/images/solutions/solutions-grid-bg.jpg')] bg-center bg-no-repeat bg-cover">
+          <Button className="bg-black text-white hover:bg-black/90 px-6 py-6 text-lg rounded-full">
+            Get Connected
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
       </section>
     </div>
   );
@@ -116,18 +135,9 @@ function ServiceCard({ imageSrc, title, description }) {
       <h3 className="text-h6 max-w-[80%] text-[#181A1A] text-center text-balance font-semibold">
         {title}
       </h3>
-      <p className="text-[#798682] text-center  text-body-3">
+      <p className="text-[#798682] text-center text-balance text-body-3">
         {description}
       </p>
-    </div>
-  );
-}
-
-function FeatureCard({ title, description }) {
-  return (
-    <div className="border rounded-xl p-6 space-y-2">
-      <h3 className="text-xl font-semibold">{title}</h3>
-      <p className="text-gray-600">{description}</p>
     </div>
   );
 }

@@ -17,6 +17,9 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "../ui/dialog";
+
 
 const personalEmailDomains = [
   "gmail.com",
@@ -64,6 +67,8 @@ export default function ContactSection({
     },
   });
 
+  const [isDialogOpen, setDialogOpen] = useState(false);
+
   const onSubmit = async (data: ContactFormValues) => {
     try {
       const response = await fetch("/api/service-enquiry", {
@@ -75,7 +80,7 @@ export default function ContactSection({
       const result = await response.json();
 
       if (response.ok) {
-        alert("Enquiry sent successfully!");
+        setDialogOpen(true);
         form.reset();
       } else {
         alert(result.error || "Failed to send enquiry");
@@ -274,6 +279,24 @@ export default function ContactSection({
           </form>
         </Form>
       </motion.div>
+      <Dialog open={isDialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="border-none max-w-screen-md bg-[url('/images/form/form-success-bg.png')] bg-cover bg-no-repeat bg-center">
+          <DialogHeader>
+            <div className="p-24 flex flex-col gap-6">
+
+            <DialogTitle className="text-center text-h1">Thank you!</DialogTitle>
+            <DialogDescription className="text-center text-body-1 px-16 mx-auto">
+              We’ve received your message and appreciate you reaching out.
+              Our team will review it and get back to you shortly.
+            </DialogDescription>
+            </div>
+          </DialogHeader>
+          <DialogFooter className="py-24">
+            {/* <Button onClick={() => setDialogOpen(false)} className="px-6 py-2">Close</Button> */}
+
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

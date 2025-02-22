@@ -168,10 +168,6 @@ export default function Footer({ onServiceSelect }: FooterProps) {
             <Link href="#" className="hover:text-white">
               Privacy
             </Link>
-            <div className="h-[6px] w-[6px] bg-[#313534] rounded-full"></div>
-            <Link href="#" className="hover:text-white">
-              GDPR
-            </Link>
           </div>
           <div className="2xl:w-[50%] lg:w-[15%] h-[1px] bg-[#313534]"></div>
           <div className="flex items-center gap-4">
