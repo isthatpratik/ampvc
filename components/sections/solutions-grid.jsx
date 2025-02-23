@@ -4,19 +4,19 @@ const solutions = [
   {
     title: "Exit Strategy",
     subtitle: "Portfolio Exit",
-    href: "/",
+    href: "",
     icon: "/images/icons/exit-strategy.svg",
   },
   {
     title: "Portfolio Pulse",
     subtitle: "Monitoring & Reporting",
-    href: "/",
+    href: "",
     icon: "/images/icons/portfolio-pulse.svg",
   },
   {
     title: "Liquidity Move",
     subtitle: "Secondary Buyouts",
-    href: "/",
+    href: "",
     icon: "/images/icons/liquidity-move.svg",
   },
 ];

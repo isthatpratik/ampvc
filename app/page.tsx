@@ -79,7 +79,7 @@ export default function Home() {
               }}
             />
             {selectedService || selectedSolution ? (
-              <ContactSection selectedService={selectedService} />
+              <ContactSection selectedService={selectedService} selectedSolution={selectedSolution} />
             ) : (
               <FinyxChat />
             )}

@@ -51,15 +51,29 @@ type Service = {
   title: string;
 };
 
-type FooterProps = {
-  onServiceSelect?: (service: Service) => void;
+type Solution = {
+  title: string;
 };
 
-export default function Footer({ onServiceSelect }: FooterProps) {
-  const [hoveredSection, setHoveredSection] = React.useState<string | null>(
-    null
-  );
+type FooterProps = {
+  onServiceSelect?: (service: Service | null) => void;
+  onSolutionSelect?: (solution: Solution | null) => void;
+};
+
+export default function Footer({ onServiceSelect, onSolutionSelect }: FooterProps) {
+  const [hoveredSection, setHoveredSection] = React.useState<string | null>(null);
   const [hoveredLink, setHoveredLink] = React.useState<string | null>(null);
+
+  const handleLinkClick = (sectionTitle: string, linkText: string) => {
+    if (sectionTitle === "Investors") {
+      onServiceSelect?.(null); // Reset selected service
+      onSolutionSelect?.({ title: linkText }); // Set selected solution
+    } else {
+      onSolutionSelect?.(null); // Reset selected solution
+      onServiceSelect?.({ title: linkText }); // Set selected service
+    }
+  };
+  
 
   return (
     <motion.footer
@@ -135,11 +149,11 @@ export default function Footer({ onServiceSelect }: FooterProps) {
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   >
                     <button
-                    onClick={() => onServiceSelect?.({ title: link.text })}
-                    className="hover:text-white text-[#798682] text-body-3 text-start transition-colors duration-200"
-                  >
-                    {link.text}
-                  </button>
+                      onClick={() => handleLinkClick(section.title, link.text)}
+                      className="hover:text-white text-[#798682] text-body-3 text-start transition-colors duration-200"
+                    >
+                      {link.text}
+                    </button>
                   </motion.span>
                 </li>
               ))}

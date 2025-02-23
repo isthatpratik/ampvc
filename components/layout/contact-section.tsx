@@ -50,9 +50,10 @@ const contactFormSchema = z.object({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function ContactSection({
-  selectedService,
+  selectedService, selectedSolution
 }: {
   selectedService: { title: string; subtitle: string } | null;
+  selectedSolution: { title: string; subtitle: string } | null;
 }) {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -108,7 +109,7 @@ export default function ContactSection({
         }}
         className="text-h6 font-semibold mb-4"
       >
-        {selectedService ? selectedService.title : "Get in Touch"}
+        {selectedService ? selectedService.title : selectedSolution ? selectedSolution.title : "Get in Touch"}
       </motion.h2>
 
       <motion.p
