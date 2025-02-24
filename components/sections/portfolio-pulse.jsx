@@ -2,10 +2,15 @@ import React from "react";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "motion/react";
 
 export default function PortfolioPulse({ onBack }) {
   return (
-    <div className="py-14 px-10 mx-auto">
+    <motion.div className="py-14 px-10 mx-auto"
+    initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.5 }}>
       <div className="grid gap-4">
         <Button
           onClick={onBack}
@@ -108,7 +113,7 @@ export default function PortfolioPulse({ onBack }) {
           </div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 }
 

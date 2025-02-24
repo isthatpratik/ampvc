@@ -8,13 +8,16 @@ import SolutionsGrid from "../sections/solutions-grid";
 import Footer from "./footer";
 import ServiceDetails from "../sections/service-details";
 import { motion } from "framer-motion";
-import SolutionDetails from '../sections/solution-details'
+import SolutionDetails from "../sections/solution-details";
+import AboutUs from "../sections/about-us";
 
 export default function LeftSection({
   selectedService,
   setSelectedService,
   selectedSolution,
   setSelectedSolution,
+  selectedAboutUs,
+  setSelectedAboutUs,
 }) {
   return (
     <div className="min-h-screen relative flex-1 bg-white flex flex-col">
@@ -22,52 +25,127 @@ export default function LeftSection({
         <div>
           <motion.div
             initial={{ y: "-50px", opacity: 0 }}
-            animate={{ y: 0, opacity: 1, transition: { delay: 0.4, type: "spring", stiffness: 100, damping: 25 } }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              transition: {
+                delay: 0.4,
+                type: "spring",
+                stiffness: 100,
+                damping: 25,
+              },
+            }}
           >
-            <Navbar />
+            <Navbar
+              setSelectedService={setSelectedService}
+              setSelectedSolution={setSelectedSolution}
+              setSelectedAboutUs={setSelectedAboutUs}
+            />
           </motion.div>
 
           {/* Conditional Rendering for Service or Solution Details */}
           {selectedService ? (
             <motion.div
               initial={{ y: "50px", opacity: 0 }}
-              animate={{ y: 0, opacity: 1, transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 } }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
             >
-              <ServiceDetails service={selectedService} onBack={() => setSelectedService(null)} />
+              <ServiceDetails
+                service={selectedService}
+                onBack={() => setSelectedService(null)}
+              />
             </motion.div>
           ) : selectedSolution ? (
             <motion.div
               initial={{ y: "50px", opacity: 0 }}
-              animate={{ y: 0, opacity: 1, transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 } }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
             >
-              <SolutionDetails solution={selectedSolution} onBack={() => setSelectedSolution(null)} />
+              <SolutionDetails
+                solution={selectedSolution}
+                onBack={() => setSelectedSolution(null)}
+              />
             </motion.div>
+          ) : selectedAboutUs ? (
+            <AboutUs onBack={() => setSelectedAboutUs(false)}/>
           ) : (
             <>
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{ y: 0, opacity: 1, transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 } }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    delay: 0.8,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 25,
+                  },
+                }}
               >
                 <HeroSection />
               </motion.div>
 
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{ y: 0, opacity: 1, transition: { delay: 1, type: "spring", stiffness: 100, damping: 25 } }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    delay: 1,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 25,
+                  },
+                }}
               >
                 <ServicesGrid setSelectedService={setSelectedService} />
               </motion.div>
 
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{ y: 0, opacity: 1, transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 25 } }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    delay: 1.2,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 25,
+                  },
+                }}
               >
                 <AIMatchingBanner />
               </motion.div>
 
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{ y: 0, opacity: 1, transition: { delay: 1.4, type: "spring", stiffness: 100, damping: 25 } }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    delay: 1.4,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 25,
+                  },
+                }}
               >
                 <SolutionsGrid setSelectedSolution={setSelectedSolution} />
               </motion.div>
@@ -78,9 +156,21 @@ export default function LeftSection({
 
       <motion.div
         initial={{ y: "50px", opacity: 0 }}
-        animate={{ y: 0, opacity: 1, transition: { delay: 1.6, type: "spring", stiffness: 100, damping: 25 } }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            delay: 1.6,
+            type: "spring",
+            stiffness: 100,
+            damping: 25,
+          },
+        }}
       >
-        <Footer onServiceSelect={setSelectedService} onSolutionSelect={setSelectedSolution} />
+        <Footer
+          onServiceSelect={setSelectedService}
+          onSolutionSelect={setSelectedSolution}
+        />
       </motion.div>
     </div>
   );
