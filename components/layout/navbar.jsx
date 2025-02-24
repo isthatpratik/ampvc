@@ -9,7 +9,7 @@ import {
   DialogContent,
   DialogTrigger,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "@/components/ui/dropdown-menu";
 
 function MenuItem({ icon, text, onClick }) {
   return (
@@ -77,9 +77,12 @@ export default function Navbar({ setSelectedService, setSelectedSolution, setSel
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="max-w-screen-md top-48 mx-auto p-6 bg-white shadow-lg rounded-sm">
+        <DialogContent
+  className="fixed left-0 top-14 w-[300px] lg:w-[350px] md:w-[320px] h-screen bg-white shadow-lg rounded-none p-6 border-r border-gray-200"
+>
+
           <div className="relative">
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-8">
               {/* Startups Column */}
               <div>
                 <h3 className="mb-6 text-body-2 font-semibold">Startups</h3>

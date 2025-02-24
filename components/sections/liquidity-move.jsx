@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 export default function LiquidityMove({ onBack }) {
   return (
-    <motion.div className="py-14 px-10 mx-auto"
+    <motion.div className="pt-6 pb-14 px-10 mx-auto"
     initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
@@ -14,11 +14,11 @@ export default function LiquidityMove({ onBack }) {
       <div className="grid gap-4">
         <Button
           onClick={onBack}
-          className="shadow-none hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2 mb-4"
+          className="shadow-none hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
         >
           <ArrowLeft className="" /> Back
         </Button>
-        <h2 className="text-h2 text-balance">
+        <h2 className="text-h3 text-balance">
         Secondary Buyout Services for Investors
         </h2>
         <h3 className="text-body-1 pb-12 text-balance">

@@ -57,23 +57,23 @@ type Solution = {
 type FooterProps = {
   onServiceSelect?: (service: Service | null) => void;
   onSolutionSelect?: (solution: Solution | null) => void;
-  onStaticPageSelect?: (page: "terms-of-use" | "privacy-policy") => void; // Add this
+  onStaticPageSelect?: (page: "terms-of-use" | "privacy-policy") => void;
+  onResponsibleAISelect?: (state: boolean) => void;  // Add this
 };
 
-export default function Footer({ onServiceSelect, onSolutionSelect, onStaticPageSelect }: FooterProps) {
+export default function Footer({ onServiceSelect, onSolutionSelect, onStaticPageSelect, onResponsibleAISelect }: FooterProps) {
   const [hoveredSection, setHoveredSection] = React.useState<string | null>(null);
   const [hoveredLink, setHoveredLink] = React.useState<string | null>(null);
 
   const handleLinkClick = (sectionTitle: string, linkText: string) => {
-    if (sectionTitle === "Investors") {
-      onServiceSelect?.(null); // Reset selected service
-      onSolutionSelect?.({ title: linkText }); // Set selected solution
+    if (linkText === "Responsible AI") {
+      onResponsibleAISelect?.(true);
+    } else if (sectionTitle === "Investors") {
+      onSolutionSelect?.({ title: linkText });
     } else {
-      onSolutionSelect?.(null); // Reset selected solution
-      onServiceSelect?.({ title: linkText }); // Set selected service
+      onServiceSelect?.({ title: linkText });
     }
   };
-  
 
   return (
     <motion.footer

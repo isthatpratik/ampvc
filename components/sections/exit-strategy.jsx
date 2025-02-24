@@ -6,7 +6,7 @@ import { motion } from 'motion/react';
 
 export default function ExitStrategy({ onBack }) {
   return (
-    <motion.div className="py-14 px-10 mx-auto"
+    <motion.div className="pb-14 pt-6 px-10 mx-auto"
     initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
@@ -14,11 +14,11 @@ export default function ExitStrategy({ onBack }) {
       <div className="grid gap-4">
         <Button
           onClick={onBack}
-          className="shadow-none hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2 mb-4"
+          className="shadow-none hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
         >
           <ArrowLeft className="" /> Back
         </Button>
-        <h2 className="text-h2 text-balance">
+        <h2 className="text-h3 lg:max-w-lg">
           Exit Strategy Services for VCs and Investors
         </h2>
         <h3 className="text-body-1 pb-12 text-balance">
@@ -114,13 +114,13 @@ export default function ExitStrategy({ onBack }) {
 
       {/* CTA Section */}
       <section className="border border-[#AFB6B4] rounded-sm grid grid-cols-2 items-center justify-between gap-6">
-        <div className="space-y-2 p-14">
-          <h3 className="text-2xl font-bold">
+        <div className="space-y-4 p-14">
+          <h3 className="text-h6 font-semibold text-[#181A1A]">
             Ready to clear your books and reclaim your capital?
           </h3>
-          <p className="text-gray-600">Let's make your exit count.</p>
+          <p className="text-[#181A1A]">Let's make your exit count.</p>
         </div>
-        <div className="flex border-l border-[#AFB6B4] items-center h-full p-0 justify-center bg-[url('/images/solutions/solutions-grid-bg.jpg')] bg-center bg-no-repeat bg-cover">
+        <div className="flex border-l border-[#AFB6B4] items-center h-full p-0 justify-center bg-[url('/images/solutions/solutions-grid-bg.jpg')] bg-top bg-no-repeat bg-cover">
           <Button className="bg-black text-white hover:bg-black/90 px-6 py-6 text-lg rounded-full">
             Get Connected
             <ArrowRight className="ml-2 h-5 w-5" />
