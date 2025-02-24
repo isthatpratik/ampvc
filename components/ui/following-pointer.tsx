@@ -72,7 +72,7 @@ export const FollowPointer = ({
   y: MotionValue<number>;
   title?: string | React.ReactNode;
 }) => {
-  const colors = ["#FFADDF", "#FCEC3B", "#4E7E71", "#9BDCE1"];
+  const colors = ["#FFADDF", "#FCEC3B", "#9BDCE1"];
   const randomColor = colors[Math.floor(Math.random() * colors.length)]; 
   return (
     <motion.div

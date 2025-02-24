@@ -13,6 +13,7 @@ import AboutUs from "../sections/about-us";
 import { useState } from "react";
 import TermsOfUse from "../sections/terms-of-use";
 import PrivacyPolicy from "../sections/privacy-policy";
+import ResponsibleAI from '../sections/responsible-ai';
 
 export default function LeftSection({
   selectedService,
@@ -23,6 +24,7 @@ export default function LeftSection({
   setSelectedAboutUs,
 }) {
   const [selectedStaticPage, setSelectedStaticPage] = useState(null);
+  const [selectedResponsibleAI, setSelectedResponsibleAI] = useState(false);
 
   return (
     <div className="min-h-screen relative flex-1 bg-white flex flex-col">
@@ -135,6 +137,13 @@ export default function LeftSection({
             >
               <PrivacyPolicy onBack={() => setSelectedStaticPage(null)} />
             </motion.div>
+          ) : selectedResponsibleAI ? (
+            <motion.div
+              initial={{ y: "50px", opacity: 0 }}
+              animate={{ y: 0, opacity: 1, transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 } }}
+            >
+              <ResponsibleAI onBack={() => setSelectedResponsibleAI(false)} />
+            </motion.div>
           ) : (
             <>
               <motion.div
@@ -222,6 +231,7 @@ export default function LeftSection({
           onServiceSelect={setSelectedService}
           onSolutionSelect={setSelectedSolution}
           onStaticPageSelect={setSelectedStaticPage}
+          onResponsibleAISelect={setSelectedResponsibleAI}
         />
       </motion.div>
     </div>

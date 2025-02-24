@@ -23,7 +23,7 @@ const solutions = [
 
 export default function SolutionsGrid({ setSelectedSolution }) {
   return (
-    <div className="px-10 py-14 flex flex-col flex-grow flex-1 space-y-6">
+    <div className="h-full px-10 py-14 flex flex-col flex-grow flex-1 space-y-6">
       <h2 className="text-h3 text-balance">
         Smart solutions for VCs, Family Offices & Funds.
       </h2>
@@ -34,7 +34,7 @@ export default function SolutionsGrid({ setSelectedSolution }) {
         Empowering founders to scale faster, smarter, and stronger—because their growth drives your returns.
       </p>
 
-      <div className="grid grid-cols-3 gap-2 justify-between items-center w-full">
+      <div className="grid grid-cols-3 gap-2 justify-between items-center w-full h-full">
         {solutions.map((solution) => (
           <button key={solution.title} onClick={() => setSelectedSolution(solution)}>
             <CircularCard {...solution} />
