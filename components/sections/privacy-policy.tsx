@@ -115,7 +115,7 @@ export default function PrivacyPage() {
 
           <section className="relative pl-6">
             <div className="absolute left-0 top-0 h-full w-1 bg-green-500" />
-            <h2 className="mb-4 text-xl font-semibold">Children's Privacy</h2>
+            <h2 className="mb-4 text-xl font-semibold">Children&apos;s Privacy</h2>
             <div className="space-y-4 text-gray-300">
               <p>
                 Our services are not intended for children under 13, and we do not knowingly collect data from minors.

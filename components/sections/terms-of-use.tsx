@@ -90,7 +90,7 @@ export default function TermsPage() {
             <div className="absolute left-0 top-0 h-full w-1 bg-red-500" />
             <h2 className="mb-4 text-xl font-semibold">Disclaimers and Limitation of Liability</h2>
             <div className="space-y-4 text-gray-300">
-              <p>No Warranty: Our services are provided "as is" without warranties of any kind, express or implied.</p>
+              <p>No Warranty: Our services are provided &quot;as is&quot; without warranties of any kind, express or implied.</p>
               <p>No Guarantee: We do not guarantee outcomes from the use of our AI matching tool or CRM.</p>
               <p>
                 Limitation of Liability: Ampersand shall not be liable for any indirect, incidental, or consequential
