@@ -1,18 +1,6 @@
-import Link from "next/link"
-import { Menu } from "lucide-react"
-
-export default function TermsPage() {
+export default function TermsOfUse() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <header className="flex items-center justify-between p-6">
-        <Link href="/" className="text-2xl font-bold">
-          &
-        </Link>
-        <button className="text-white">
-          <Menu className="h-6 w-6" />
-        </button>
-      </header>
-
+    <div className="min-h-screen text-black">
       <main className="mx-auto max-w-3xl px-6 pb-20">
         <h1 className="mb-4 text-2xl font-bold">Terms of Use</h1>
         <p className="mb-8 text-gray-400">Effective Date: 20/02/25</p>

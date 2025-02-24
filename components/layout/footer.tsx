@@ -3,7 +3,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 
 interface FooterSection {
@@ -58,9 +57,10 @@ type Solution = {
 type FooterProps = {
   onServiceSelect?: (service: Service | null) => void;
   onSolutionSelect?: (solution: Solution | null) => void;
+  onStaticPageSelect?: (page: "terms-of-use" | "privacy-policy") => void; // Add this
 };
 
-export default function Footer({ onServiceSelect, onSolutionSelect }: FooterProps) {
+export default function Footer({ onServiceSelect, onSolutionSelect, onStaticPageSelect }: FooterProps) {
   const [hoveredSection, setHoveredSection] = React.useState<string | null>(null);
   const [hoveredLink, setHoveredLink] = React.useState<string | null>(null);
 
@@ -174,15 +174,21 @@ export default function Footer({ onServiceSelect, onSolutionSelect }: FooterProp
           />
         </div>
         <div className="flex flex-nowrap items-center justify-between gap-4">
-          <div className="flex font-light text-[#798682] text-caption gap-4 items-center">
-            <Link href="components/sections/terms-of-use.tsx" className="hover:text-white">
-              Terms of use
-            </Link>
-            <div className="h-[6px] w-[6px] bg-[#313534] rounded-full "></div>
-            <Link href="components/sections/privacy-policy.tsx" className="hover:text-white">
-              Privacy
-            </Link>
-          </div>
+        <div className="flex font-light text-[#798682] text-caption gap-4 items-center">
+        <button
+          onClick={() => onStaticPageSelect?.("terms-of-use")}
+          className="hover:text-white"
+        >
+          Terms of Use
+        </button>
+        <div className="h-[6px] w-[6px] bg-[#313534] rounded-full "></div>
+        <button
+          onClick={() => onStaticPageSelect?.("privacy-policy")}
+          className="hover:text-white"
+        >
+          Privacy Policy
+        </button>
+      </div>
           <div className="2xl:w-[50%] lg:w-[15%] h-[1px] bg-[#313534]"></div>
           <div className="flex items-center gap-4">
             <span className="text-[#798682] font-light text-caption">

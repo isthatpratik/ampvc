@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Menu } from "lucide-react"
 
-export default function PrivacyPage() {
+export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-black text-white">
       <header className="flex items-center justify-between p-6">

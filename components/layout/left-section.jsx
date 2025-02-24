@@ -10,6 +10,9 @@ import ServiceDetails from "../sections/service-details";
 import { motion } from "framer-motion";
 import SolutionDetails from "../sections/solution-details";
 import AboutUs from "../sections/about-us";
+import { useState } from "react";
+import TermsOfUse from "../sections/terms-of-use";
+import PrivacyPolicy from "../sections/privacy-policy";
 
 export default function LeftSection({
   selectedService,
@@ -19,6 +22,8 @@ export default function LeftSection({
   selectedAboutUs,
   setSelectedAboutUs,
 }) {
+  const [selectedStaticPage, setSelectedStaticPage] = useState(null);
+
   return (
     <div className="min-h-screen relative flex-1 bg-white flex flex-col">
       <div className="flex-1 pt-14 min-h-screen overflow-y-auto">
@@ -83,7 +88,53 @@ export default function LeftSection({
               />
             </motion.div>
           ) : selectedAboutUs ? (
-            <AboutUs onBack={() => setSelectedAboutUs(false)}/>
+            <motion.div
+              initial={{ y: "50px", opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
+            >
+              <AboutUs onBack={() => setSelectedAboutUs(false)} />
+            </motion.div>
+          ) : selectedStaticPage === "terms-of-use" ? (
+            <motion.div
+              initial={{ y: "50px", opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
+            >
+              <TermsOfUse onBack={() => setSelectedStaticPage(null)} />
+            </motion.div>
+          ) : selectedStaticPage === "privacy-policy" ? (
+            <motion.div
+              initial={{ y: "50px", opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
+            >
+              <PrivacyPolicy onBack={() => setSelectedStaticPage(null)} />
+            </motion.div>
           ) : (
             <>
               <motion.div
@@ -170,6 +221,7 @@ export default function LeftSection({
         <Footer
           onServiceSelect={setSelectedService}
           onSolutionSelect={setSelectedSolution}
+          onStaticPageSelect={setSelectedStaticPage}
         />
       </motion.div>
     </div>
