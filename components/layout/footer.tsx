@@ -33,7 +33,7 @@ const footerData: FooterSection[] = [
       { text: "Contact Us", href: "" },
       { text: "About Us", href: "" },
       { text: "Careers", href: "" },
-      { text: "Responsible AI", href: "" },
+      { text: "Responsible AI", href: "@/components/sections/responsible-ai.tsx" },
     ],
   },
   {
