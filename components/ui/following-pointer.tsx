@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-import { motion, AnimatePresence, useMotionValue } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, MotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
-
 
 export const FollowerPointerCard = ({
   children,
   className,
   title,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  title?: string | React.ReactNode;
 }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -20,7 +23,7 @@ export const FollowerPointerCard = ({
     }
   }, []);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = ref.current?.getBoundingClientRect();
     if (rect) {
       x.set(e.clientX - rect.left);
@@ -32,10 +35,9 @@ export const FollowerPointerCard = ({
     setIsInside(false);
   };
 
-  const handleMouseEnter = (e) => {
+  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = ref.current?.getBoundingClientRect();
     if (rect) {
-      // Immediately set the pointer to mouse position
       x.set(e.clientX - rect.left);
       y.set(e.clientY - rect.top);
       setIsInside(true);
@@ -65,6 +67,10 @@ export const FollowPointer = ({
   x,
   y,
   title,
+}: {
+  x: MotionValue<number>;
+  y: MotionValue<number>;
+  title?: string | React.ReactNode;
 }) => {
   const colors = ["#FFADDF", "#FCEC3B", "#4E7E71", "#9BDCE1"];
   const randomColor = colors[Math.floor(Math.random() * colors.length)]; 

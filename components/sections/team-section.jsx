@@ -42,6 +42,6 @@ const teamMembers = [
   { name: "Dinesh", image: "/images/about/16.png" },
   { name: "Ajay", image: "/images/about/17.png" },
   { name: "Clair", image: "/images/about/18.png" },
-  { name: "Supratip", image: "/images/about/19.png" },
+  { name: "Daniel", image: "/images/about/19.png" },
   { name: "Sharayu", image: "/images/about/20.png" },
 ];
