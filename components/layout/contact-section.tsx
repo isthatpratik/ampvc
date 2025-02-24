@@ -103,7 +103,7 @@ export default function ContactSection({
               ? `${country.idd.root}${country.idd.suffixes[0]}`
               : "",
           }))
-          .filter((c) => c.dialCode) // Ensure only valid country codes are included
+          .filter((c) => c.dialCode)
           .sort((a, b) => a.code.localeCompare(b.code));
   
         setCountryCodes(codes);
