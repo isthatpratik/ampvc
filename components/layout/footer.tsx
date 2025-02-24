@@ -175,11 +175,11 @@ export default function Footer({ onServiceSelect, onSolutionSelect }: FooterProp
         </div>
         <div className="flex flex-nowrap items-center justify-between gap-4">
           <div className="flex font-light text-[#798682] text-caption gap-4 items-center">
-            <Link href="#" className="hover:text-white">
+            <Link href="components/sections/terms-of-use.tsx" className="hover:text-white">
               Terms of use
             </Link>
             <div className="h-[6px] w-[6px] bg-[#313534] rounded-full "></div>
-            <Link href="#" className="hover:text-white">
+            <Link href="components/sections/privacy-policy.tsx" className="hover:text-white">
               Privacy
             </Link>
           </div>
