@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/layout/left-section.jsx", "components/sections/services-grid.jsx", "components/sections/service-details.jsx", "components/sections/vision-crafting.jsx", "components/layout/footer.tsx", "components/ui/contact-form.tsx", "components/sections/solutions-grid.jsx", "components/layout/navbar.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/layout/left-section.jsx", "components/sections/services-grid.jsx", "components/sections/service-details.jsx", "components/sections/vision-crafting.jsx", "components/layout/footer.tsx", "components/ui/contact-form.tsx", "components/sections/solutions-grid.jsx", "components/layout/navbar.jsx", "components/layout/contact-section.tsx", "components/ui/following-pointer.jsx"],
   "exclude": ["node_modules"]
 }

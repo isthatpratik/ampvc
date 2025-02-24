@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 import {
   Form,
@@ -18,8 +19,21 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "../ui/dialog";
-
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "../ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
 const personalEmailDomains = [
   "gmail.com",
@@ -42,6 +56,7 @@ const contactFormSchema = z.object({
       const domain = email.split("@")[1];
       return !personalEmailDomains.includes(domain);
     }, "Personal email addresses are not allowed"),
+  dialCode: z.string().min(1, "Please select a country code"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
   source: z.string().optional(),
   message: z.string().min(10, "Message must be at least 10 characters"),
@@ -50,7 +65,8 @@ const contactFormSchema = z.object({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function ContactSection({
-  selectedService, selectedSolution
+  selectedService,
+  selectedSolution,
 }: {
   selectedService: { title: string; subtitle: string } | null;
   selectedSolution: { title: string; subtitle: string } | null;
@@ -62,6 +78,7 @@ export default function ContactSection({
       firstName: "",
       lastName: "",
       mail: "",
+      dialCode: "+91",
       phone: "",
       source: "",
       message: "",
@@ -69,6 +86,34 @@ export default function ContactSection({
   });
 
   const [isDialogOpen, setDialogOpen] = useState(false);
+  const [countryCodes, setCountryCodes] = useState<
+    { code: string; dialCode: string }[]
+  >([]);
+
+  useEffect(() => {
+    const fetchCountryCodes = async () => {
+      try {
+        const response = await fetch("https://restcountries.com/v3.1/all");
+        const data: Array<{ cca2: string; idd?: { root: string; suffixes?: string[] } }> = await response.json();
+  
+        const codes = data
+          .map((country) => ({
+            code: country.cca2,
+            dialCode: country.idd?.root && country.idd?.suffixes
+              ? `${country.idd.root}${country.idd.suffixes[0]}`
+              : "",
+          }))
+          .filter((c) => c.dialCode) // Ensure only valid country codes are included
+          .sort((a, b) => a.code.localeCompare(b.code));
+  
+        setCountryCodes(codes);
+      } catch (error) {
+        console.error("Failed to fetch country codes:", error);
+      }
+    };
+  
+    fetchCountryCodes();
+  }, []);  
 
   const onSubmit = async (data: ContactFormValues) => {
     try {
@@ -109,7 +154,11 @@ export default function ContactSection({
         }}
         className="text-h6 font-semibold mb-4"
       >
-        {selectedService ? selectedService.title : selectedSolution ? selectedSolution.title : "Get in Touch"}
+        {selectedService
+          ? selectedService.title
+          : selectedSolution
+          ? selectedSolution.title
+          : "Get in Touch"}
       </motion.h2>
 
       <motion.p
@@ -162,12 +211,14 @@ export default function ContactSection({
                 name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-body-1 text-[#181A1A]">First name</FormLabel>
+                    <FormLabel className="text-body-1 text-[#181A1A]">
+                      First name
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="First name"
                         {...field}
-                        className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                        className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                       />
                     </FormControl>
                     <FormMessage />
@@ -198,7 +249,9 @@ export default function ContactSection({
               name="mail"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1 text-[#181A1A]">Work Mail</FormLabel>
+                  <FormLabel className="text-body-1 text-[#181A1A]">
+                    Work Mail
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="email"
@@ -217,15 +270,44 @@ export default function ContactSection({
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1 text-[#181A1A]">Phone</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="tel"
-                      placeholder="9922853244"
-                      {...field}
-                      className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                  <FormLabel className="text-body-1 text-[#181A1A]">
+                    Phone
+                  </FormLabel>
+                  <div className="flex items-center space-x-2">
+                    {/* Country Code Selector */}
+                    <FormField
+                      control={form.control}
+                      name="dialCode"
+                      render={({ field }) => (
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                          
+                        >
+                          <SelectTrigger className="w-fit placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
+                            <SelectValue placeholder="IN" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {countryCodes.map(({ code, dialCode }) => (
+                              <SelectItem key={code} value={dialCode}>
+                                {code} ({dialCode})
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      )}
                     />
-                  </FormControl>
+
+                    {/* Phone Number Input */}
+                    <FormControl>
+                      <Input
+                        type="tel"
+                        placeholder="0123456789"
+                        {...field}
+                        className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      />
+                    </FormControl>
+                  </div>
                   <FormMessage />
                 </FormItem>
               )}
@@ -256,7 +338,9 @@ export default function ContactSection({
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1 text-[#181A1A]">Your Query</FormLabel>
+                  <FormLabel className="text-body-1 text-[#181A1A]">
+                    Your Query
+                  </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Tell us about your project or requirements"
@@ -284,17 +368,17 @@ export default function ContactSection({
         <DialogContent className="border-none max-w-screen-md bg-[url('/images/form/form-success-bg.png')] bg-cover bg-no-repeat bg-center">
           <DialogHeader>
             <div className="p-24 flex flex-col gap-6">
-
-            <DialogTitle className="text-center text-h1">Thank you!</DialogTitle>
-            <DialogDescription className="text-center text-body-1 px-16 mx-auto">
-              We’ve received your message and appreciate you reaching out.
-              Our team will review it and get back to you shortly.
-            </DialogDescription>
+              <DialogTitle className="text-center text-h1">
+                Thank you!
+              </DialogTitle>
+              <DialogDescription className="text-center text-body-1 px-16 mx-auto">
+                We’ve received your message and appreciate you reaching out. Our
+                team will review it and get back to you shortly.
+              </DialogDescription>
             </div>
           </DialogHeader>
           <DialogFooter className="py-24">
             {/* <Button onClick={() => setDialogOpen(false)} className="px-6 py-2">Close</Button> */}
-
           </DialogFooter>
         </DialogContent>
       </Dialog>
