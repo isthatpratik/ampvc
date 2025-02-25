@@ -6,7 +6,7 @@ export default function ServiceDetails({ service, onBack }) {
   switch (service.title) {
     case "Vision Crafting":
       return <VisionCrafting onBack={onBack} />;
-    case "Breakthrough to Exit":
+    case "Exit Breakthrough":
       return <BreakthroughExit onBack={onBack} />;
     case "Scaling Fuel":
       return <ScalingFuel onBack={onBack} />;

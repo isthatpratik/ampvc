@@ -1,10 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
+
 import AnimatedButton from "../ui/animated-button";
 import { motion } from "framer-motion";
+import Preregister from "../forms/pre-register";
 
 export default function RightSection() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="sticky top-0 flex h-screen w-full flex-col bg-[#181A1A] text-white overflow-hidden">
       {/* Logo Animation */}
@@ -125,9 +130,11 @@ export default function RightSection() {
         </p>
 
         <div className="flex gap-2">
-          <AnimatedButton>Pre-Register Now</AnimatedButton>
+        <AnimatedButton onClick={() => setOpen(true)}>Pre-Register Now</AnimatedButton>
         </div>
       </motion.div>
+      <Preregister open={open} setOpen={setOpen} />
+
     </div>
   );
 }

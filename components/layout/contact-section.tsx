@@ -275,15 +275,17 @@ export default function ContactSection({
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
+                          
                         >
                           <SelectTrigger className="w-fit placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
                             <SelectValue placeholder="IN" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="rounded-none shadow-none">
                             {countryCodes.map(({ code, dialCode }) => (
                               <SelectItem
                                 key={`${code}-${dialCode}`}
                                 value={dialCode}
+                                className="rounded-none"
                               >
                                 {code} ({dialCode})
                               </SelectItem>
@@ -328,9 +330,9 @@ export default function ContactSection({
                         <SelectTrigger className="border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0 focus-visible:outline-none focus-visible:ring-0">
                           <SelectValue placeholder="Select an option" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="rounded-none shadow-none">
                           {sourceOptions.map((option) => (
-                            <SelectItem key={option} value={option}>
+                            <SelectItem key={option} value={option} className="rounded-none">
                               {option}
                             </SelectItem>
                           ))}

@@ -5,9 +5,13 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import ContactUs from "../forms/contact-us";
-import { useState } from "react";
 
-const footerData = [
+interface FooterSection {
+  title: string;
+  links: { text: string; href: string }[];
+}
+
+const footerData: FooterSection[] = [
   {
     title: "Startups",
     links: [
@@ -39,6 +43,21 @@ const footerData = [
   },
 ];
 
+type Service = {
+  title: string;
+};
+
+type Solution = {
+  title: string;
+};
+
+type FooterProps = {
+  onServiceSelect?: (service: Service | null) => void;
+  onSolutionSelect?: (solution: Solution | null) => void;
+  onStaticPageSelect?: (page: "terms-of-use" | "privacy-policy") => void;
+  onResponsibleAISelect?: (state: boolean) => void;
+  onAboutUsSelect?: (state: boolean) => void;
+};
 
 export default function Footer({
   onServiceSelect,
@@ -46,15 +65,15 @@ export default function Footer({
   onStaticPageSelect,
   onResponsibleAISelect,
   onAboutUsSelect,
-}) {
-  const [hoveredSection, setHoveredSection] = useState(
+}: FooterProps) {
+  const [hoveredSection, setHoveredSection] = React.useState<string | null>(
     null
   );
-  const [hoveredLink, setHoveredLink] = useState(null);
+  const [hoveredLink, setHoveredLink] = React.useState<string | null>(null);
 
-  const [openContactForm, setOpenContactForm] = useState(false);
+  const [openContactForm, setOpenContactForm] = React.useState(false);
 
-  const handleLinkClick = (sectionTitle, linkText) => {
+  const handleLinkClick = (sectionTitle: string, linkText: string) => {
     if (linkText === "Responsible AI") {
       onResponsibleAISelect?.(true);
       onServiceSelect?.(null);
