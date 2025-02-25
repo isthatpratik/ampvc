@@ -4,13 +4,10 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import ContactUs from "../forms/contact-us";
+import { useState } from "react";
 
-interface FooterSection {
-  title: string;
-  links: { text: string; href: string }[];
-}
-
-const footerData: FooterSection[] = [
+const footerData = [
   {
     title: "Startups",
     links: [
@@ -38,41 +35,26 @@ const footerData: FooterSection[] = [
   },
   {
     title: "FynarAI",
-    links: [
-      { text: "Pre-register", href: "" },
-    ],
+    links: [{ text: "Pre-register", href: "" }],
   },
 ];
 
-type Service = {
-  title: string;
-};
-
-type Solution = {
-  title: string;
-};
-
-type FooterProps = {
-  onServiceSelect?: (service: Service | null) => void;
-  onSolutionSelect?: (solution: Solution | null) => void;
-  onStaticPageSelect?: (page: "terms-of-use" | "privacy-policy") => void;
-  onResponsibleAISelect?: (state: boolean) => void;
-  onAboutUsSelect?: (state: boolean) => void;
-};
 
 export default function Footer({
   onServiceSelect,
   onSolutionSelect,
   onStaticPageSelect,
   onResponsibleAISelect,
-  onAboutUsSelect
-}: FooterProps) {
-  const [hoveredSection, setHoveredSection] = React.useState<string | null>(
+  onAboutUsSelect,
+}) {
+  const [hoveredSection, setHoveredSection] = useState(
     null
   );
-  const [hoveredLink, setHoveredLink] = React.useState<string | null>(null);
+  const [hoveredLink, setHoveredLink] = useState(null);
 
-  const handleLinkClick = (sectionTitle: string, linkText: string) => {
+  const [openContactForm, setOpenContactForm] = useState(false);
+
+  const handleLinkClick = (sectionTitle, linkText) => {
     if (linkText === "Responsible AI") {
       onResponsibleAISelect?.(true);
       onServiceSelect?.(null);
@@ -86,11 +68,14 @@ export default function Footer({
       onServiceSelect?.({ title: linkText });
       onSolutionSelect?.(null);
       onAboutUsSelect?.(false);
-    } else if (linkText === "About Us ") {
+    } else if (linkText === "About Us" || linkText === "Careers") {
       onAboutUsSelect?.(true);
       onServiceSelect?.(null);
       onSolutionSelect?.(null);
       onResponsibleAISelect?.(false);
+    } else if (linkText === "Contact Us") {
+      setOpenContactForm(true);
+      return;
     } else {
       onServiceSelect?.(null);
       onSolutionSelect?.(null);
@@ -100,6 +85,7 @@ export default function Footer({
   };
 
   return (
+    <>
     <motion.footer
       className="relative bg-[#1C1D1C] p-8 text-gray-400"
       initial={{ y: "50px", opacity: 0 }}
@@ -230,5 +216,7 @@ export default function Footer({
         </div>
       </div>
     </motion.footer>
+    {openContactForm && <ContactUs open={openContactForm} setOpen={setOpenContactForm} />}
+    </>
   );
 }

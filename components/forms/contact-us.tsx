@@ -23,10 +23,19 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useState, useEffect } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
   workEmail: z.string().email("Invalid email address"),
+  dialCode: z.string().min(1, "Please select a country code"),
   phone: z.string().min(10, "Phone number is required"),
   companyName: z.string().min(2, "Company name is required"),
   role: z.string().min(2, "Role is required"),
@@ -46,6 +55,9 @@ const services = [
 export default function ContactUs() {
   const [step, setStep] = React.useState(1);
   const [open, setOpen] = React.useState(true);
+  const [countryCodes, setCountryCodes] = useState<
+    { code: string; dialCode: string }[]
+  >([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -53,6 +65,7 @@ export default function ContactUs() {
     defaultValues: {
       fullName: "",
       workEmail: "",
+      dialCode: "+91",
       phone: "",
       companyName: "",
       role: "",
@@ -67,6 +80,41 @@ export default function ContactUs() {
     console.log(values);
     setOpen(false);
   }
+
+  useEffect(() => {
+    const fetchCountryCodes = async () => {
+      try {
+        const response = await fetch("https://restcountries.com/v3.1/all");
+        const data: Array<{
+          cca2: string;
+          idd?: { root: string; suffixes?: string[] };
+        }> = await response.json();
+
+        const codes = data
+          .map((country) => ({
+            code: country.cca2,
+            dialCode:
+              country.idd?.root && country.idd?.suffixes
+                ? `${country.idd.root}${country.idd.suffixes[0]}`
+                : "",
+          }))
+          .filter((c) => c.dialCode)
+          .sort((a, b) => a.code.localeCompare(b.code));
+
+        setCountryCodes(
+          codes.map(({ code, dialCode }) => ({
+            key: `${code}-${dialCode}`, // Unique key format
+            code,
+            dialCode,
+          }))
+        );
+      } catch (error) {
+        console.error("Failed to fetch country codes:", error);
+      }
+    };
+
+    fetchCountryCodes();
+  }, []);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -165,14 +213,46 @@ export default function ContactUs() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Phone</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="9922853244"
-                              className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
-                              {...field}
+                          <FormLabel className="text-body-1 text-[#181A1A]">
+                            Phone
+                          </FormLabel>
+                          <div className="flex items-center">
+                            {/* Country Code Selector */}
+                            <FormField
+                              control={form.control}
+                              name="dialCode"
+                              render={({ field }) => (
+                                <Select
+                                  onValueChange={field.onChange}
+                                  defaultValue={field.value}
+                                >
+                                  <SelectTrigger className="w-fit placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
+                                    <SelectValue placeholder="IN" />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    {countryCodes.map(({ code, dialCode }) => (
+                                      <SelectItem
+                                        key={`${code}-${dialCode}`}
+                                        value={dialCode}
+                                      >
+                                        {code} ({dialCode})
+                                      </SelectItem>
+                                    ))}
+                                  </SelectContent>
+                                </Select>
+                              )}
                             />
-                          </FormControl>
+
+                            {/* Phone Number Input */}
+                            <FormControl>
+                              <Input
+                                type="tel"
+                                placeholder="0123456789"
+                                {...field}
+                                className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                              />
+                            </FormControl>
+                          </div>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -196,8 +276,12 @@ export default function ContactUs() {
                     />
                   </div>
                   <div className="flex justify-end">
-                    <Button type="button" onClick={() => setStep(2)}>
-                      Next
+                    <Button
+                      type="button"
+                      onClick={() => setStep(2)}
+                      className=" mt-4 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
+                    >
+                      Next <ArrowRight />
                     </Button>
                   </div>
                 </div>
@@ -290,14 +374,18 @@ export default function ContactUs() {
                   />
                   <div className="flex justify-between">
                     <Button
-                    className="rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
+                      className="rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
                       type="button"
                       variant="outline"
                       onClick={() => setStep(1)}
                     >
                       Back <ArrowLeft />
                     </Button>
-                    <Button type="button" className="rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit" onClick={() => setStep(3)}>
+                    <Button
+                      type="button"
+                      className="rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
+                      onClick={() => setStep(3)}
+                    >
                       Next <ArrowRight />
                     </Button>
                   </div>

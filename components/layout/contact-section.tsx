@@ -87,7 +87,7 @@ export default function ContactSection({
   const [countryCodes, setCountryCodes] = useState<
     { code: string; dialCode: string }[]
   >([]);
-  const sourceOptions = ["LinkedIn", "Google", "Twitter", "Referral", "Other"];
+  const sourceOptions = ["LinkedIn", "Google", "Twitter", "From a friend", "Other"];
 
   useEffect(() => {
     const fetchCountryCodes = async () => {
@@ -378,7 +378,7 @@ export default function ContactSection({
       <Dialog open={isDialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="border-none max-w-screen-md bg-[url('/images/form/form-success-bg.png')] bg-cover bg-no-repeat bg-center">
           <DialogHeader>
-            <div className="p-24 flex flex-col gap-6">
+            <div className="p-16 flex flex-col gap-6">
               <DialogTitle className="text-center text-h1">
                 Thank you!
               </DialogTitle>

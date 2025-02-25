@@ -41,7 +41,7 @@ export default function AboutUs({ onBack }) {
               height={200}
               priority
               quality={75}
-              className="object-contain w-auto max-h-[80%] items-center justify-center self-center aspect-[4/3]"
+              className="object-contain w-auto max-h-[80%] items-center justify-center self-center"
             />
           </div>
         </div>
