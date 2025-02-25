@@ -40,6 +40,7 @@ export default function Navbar({
 }) {
   const [open, setOpen] = useState(false);
   const [openContactForm, setOpenContactForm] = useState(false);
+  const [openPreRegisterForm, setOpenPreRegisterForm] = useState(false);
 
   // Function to handle menu clicks
   const handleSelection = (type, title) => {
@@ -50,7 +51,7 @@ export default function Navbar({
       setSelectedSolution({ title });
       setSelectedService(null);
     }
-    setOpen(false); // Close the menu
+    setOpen(false);
   };
 
   return (
@@ -91,7 +92,7 @@ export default function Navbar({
             </Button>
           </DialogTrigger>
 
-          <DialogContent className="fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] h-fit bg-white shadow-lg rounded-md p-10 border-r border-gray-200">
+          <DialogContent className="fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] h-min bg-white shadow-lg rounded-md p-10 border-r border-gray-200">
             <div className="relative px-4 py-8">
               <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-8">
                 {/* Startups Column */}

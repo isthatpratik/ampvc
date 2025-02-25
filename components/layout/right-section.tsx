@@ -48,7 +48,6 @@ export default function RightSection() {
           </h2>
         </div>
         <div>
-          <div className="w-full h-[1px] bg-white/20 mt-5"></div>
         </div>
       </motion.div>
 

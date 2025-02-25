@@ -28,7 +28,7 @@ export default function LeftSection({
 
   return (
     <div className="min-h-screen relative flex-1 bg-white flex flex-col">
-      <div className="flex-1 pt-14 min-h-screen overflow-y-auto">
+      <div className="flex-1 pt-14 overflow-y-auto">
         <div>
           <motion.div
             initial={{ y: "-50px", opacity: 0 }}

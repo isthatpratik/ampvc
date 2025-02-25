@@ -173,7 +173,7 @@ export default function ContactSection({
       </motion.h2>
 
       <motion.p
-        className="text-[#B6B6B6] text-body-3 mb-5"
+        className="text-[#B6B6B6] text-body-3 2xl:mb-20 "
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
@@ -193,7 +193,7 @@ export default function ContactSection({
       </motion.p>
 
       <motion.div
-        className="border p-6 border-[#AFB6B4] h-fit flex flex-col gap-8 justify-between"
+        className="border p-6 border-[#AFB6B4] h-full flex flex-col gap-8 justify-between"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}

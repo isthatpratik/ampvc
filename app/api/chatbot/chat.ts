@@ -9,13 +9,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
   try {
-    const { chatHistory } = req.body;
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4o",
+      model: "gpt-4o-mini",
       messages: [
         { role: "system", content: "You are an AI VC matchmaking chatbot." },
-        ...chatHistory,
       ],
       max_tokens: 500,
     });

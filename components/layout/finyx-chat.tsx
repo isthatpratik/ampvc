@@ -4,16 +4,15 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import { SendHorizonal } from "lucide-react";
-import MatchingList from "../forms/matching-list"; // Import the form component
 
 export default function FinyxChat() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showInitialSvg, setShowInitialSvg] = useState(true);
-  const [showSecondSvg, setShowSecondSvg] = useState(false);
-  const [showResultScreen, setShowResultScreen] = useState(false);
-  const [showMatchingForm, setShowMatchingForm] = useState(false); // State for MatchingList form
+  const [showInitialSVG, setShowInitialSVG] = useState(true);
+  const [showMidSVG, setShowMidSVG] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [investorMatches, setInvestorMatches] = useState<string[]>([]);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,19 +22,11 @@ export default function FinyxChat() {
   const sendMessage = async () => {
     if (!input.trim()) return;
 
-    if (showInitialSvg) setShowInitialSvg(false);
-
     const userMessage = { role: "user", content: input };
     setMessages([...messages, userMessage]);
     setInput("");
     setLoading(true);
-
-    if (messages.filter((msg) => msg.role === "user").length === 1) {
-      setTimeout(() => {
-        setShowSecondSvg(true);
-        setTimeout(() => setShowResultScreen(true), 2000);
-      }, 500);
-    }
+    setShowInitialSVG(false);
 
     try {
       const response = await fetch("/api/chatbot/chat", {
@@ -50,6 +41,15 @@ export default function FinyxChat() {
       } else {
         throw new Error(data.error || "Something went wrong");
       }
+
+      if (messages.length === 1) {
+        setShowMidSVG(true);
+        setTimeout(() => {
+          fetchInvestorMatches();
+          setShowMidSVG(false);
+          setShowResults(true);
+        }, 2000);
+      }
     } catch (error) {
       console.error("Chat error:", error);
       setMessages((prev) => [...prev, { role: "assistant", content: "An error occurred. Try again!" }]);
@@ -58,20 +58,34 @@ export default function FinyxChat() {
     }
   };
 
+  const fetchInvestorMatches = async () => {
+    try {
+      const response = await fetch("/api/chatbot/investors", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chatHistory: messages }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setInvestorMatches(data.investors || []);
+      } else {
+        throw new Error(data.error || "Failed to fetch investors");
+      }
+    } catch (error) {
+      console.error("Investor fetch error:", error);
+    }
+  };
+
   return (
-    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-center pt-14 pb-14 px-10">
+    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-14 pb-14 px-10">
       <motion.h1
         className="text-h4 tracking-tight"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
           opacity: 1,
-          transition: {
-            delay: 0.8,
-            type: "spring",
-            stiffness: 100,
-            damping: 25,
-          },
+          transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 },
         }}
       >
         Find the right investors effortlessly with <br />
@@ -80,17 +94,45 @@ export default function FinyxChat() {
         </span>
       </motion.h1>
 
-      {showInitialSvg && (
-        <motion.div className="flex items-center justify-center h-full" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 1, duration: 1 } }}>
-          <Image src="/images/finyx-chat/middle-circle.svg" alt="Initial SVG" width={200} height={200} />
-        </motion.div>
+      {/* Show Initial SVG before chat starts */}
+      {showInitialSVG && (
+        <div className="flex justify-center items-center h-full">
+          <Image src="/images/finyx-chat/middle-circle.svg" alt="Start Chat" width={300} height={300} />
+        </div>
       )}
 
-      {!showInitialSvg && !showSecondSvg && !showResultScreen && (
-        <motion.div className="w-full overflow-y-auto h-full pt-10 flex-col space-y-3" ref={chatContainerRef} initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 } }}>
+      {/* Show mid-way SVG after second user message */}
+      {showMidSVG && (
+        <div className="flex justify-center items-center h-full">
+          <Image src="/images/finyx-chat/thinking.svg" alt="Finding Match" width={300} height={300} />
+        </div>
+      )}
+
+      {/* Show Chat Window or Results */}
+      {!showInitialSVG && !showMidSVG && !showResults && (
+        <motion.div
+          className="w-full overflow-y-auto flex flex-col space-y-3"
+          ref={chatContainerRef}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{
+            scale: 1,
+            opacity: 1,
+            transition: { delay: 1, type: "spring", stiffness: 100, damping: 10 },
+          }}
+        >
           {messages.map((msg, index) => (
-            <motion.div key={index} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-              <div className={`p-3 max-w-xs rounded-2xl text-white ${msg.role === "user" ? "bg-gradient-to-r from-[#007AFF] to-[#4E54C8] rounded-br-none shadow-lg hover:shadow-xl transition-shadow duration-300" : "bg-gradient-to-tr from-[#4E7E71CF]/80 via-[#FB79C7]/80 to-[#F7E307]/80 rounded-bl-none backdrop-blur-md bg-opacity-60 shadow-md hover:shadow-lg transition-all duration-300"}`}>
+            <motion.div
+              key={index}
+              className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div
+                className={`p-3 max-w-xs rounded-2xl text-white ${
+                  msg.role === "user" ? "bg-blue-500 rounded-br-none" : "bg-gray-700 rounded-bl-none"
+                }`}
+              >
                 {msg.content}
               </div>
             </motion.div>
@@ -99,38 +141,55 @@ export default function FinyxChat() {
         </motion.div>
       )}
 
-      {showSecondSvg && !showResultScreen && (
-        <motion.div className="flex items-center justify-center h-full" initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { delay: 1, duration: 1 } }}>
-          <Image src="/images/finyx-chat/thinking.svg" alt="Second SVG" width={200} height={200} />
-        </motion.div>
-      )}
-
-      {showResultScreen && (
-        <motion.div className="w-full h-full flex flex-col space-y-4 items-center justify-center text-center" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1 } }}>
-          <h2 className="text-xl font-bold">Top 3 Matches</h2>
+      {/* Show Investor Matches as Results */}
+      {showResults && (
+        <motion.div
+          className="w-full max-w-md p-4 bg-white shadow-lg rounded-lg flex flex-col space-y-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 1 } }}
+        >
+          <h2 className="text-lg font-semibold">Top Investor Matches</h2>
           <div className="flex flex-col space-y-2 w-full">
-            <div className="p-3 bg-gray-100 rounded-md">Investor 1</div>
-            <div className="p-3 bg-gray-100 rounded-md">Investor 2</div>
-            <div className="p-3 bg-gray-100 rounded-md">Investor 3</div>
-            <div className="p-3 bg-gray-200 rounded-md blur-md">Investor 4</div>
-            <div className="p-3 bg-gray-200 rounded-md blur-md">Investor 5</div>
+            {investorMatches.slice(0, 3).map((investor, index) => (
+              <div key={index} className="p-3 bg-gray-100 rounded-md">
+                {investor}
+              </div>
+            ))}
+            {investorMatches.slice(3).map((investor, index) => (
+              <div key={index} className="p-3 bg-gray-200 rounded-md blur-md">
+                {investor}
+              </div>
+            ))}
           </div>
-          <Button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md" onClick={() => setShowMatchingForm(true)}>
-            Click Here to Download
+          <Button className="mt-3 w-full bg-[#181A1A] text-white py-2 rounded-md">
+            Download Full List
           </Button>
         </motion.div>
       )}
 
-      {!showResultScreen && (
-        <motion.div className="border border-[#DCE0DF] w-full h-auto px-4 py-4 flex items-center rounded-[10px] bg-white mt-4" initial={{ y: "50px", opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 25 } }}>
-          <Input className="w-full h-auto border-none bg-transparent shadow-none focus-visible:outline-none focus-visible:ring-0 focus:outline-none focus:ring-0" placeholder="Type your prompt here" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && sendMessage()} />
-          <Button className="ml-2 w-12 h-10 bg-[#181A1A] flex items-center justify-center rounded-sm" onClick={sendMessage} disabled={loading}>
+      {/* Chat Input */}
+      {!showResults && (
+        <motion.div
+          className="border border-[#DCE0DF] w-full h-auto px-4 py-4 flex items-center rounded-[10px] bg-white mt-4"
+          initial={{ y: "50px", opacity: 0 }}
+          animate={{
+            y: 0,
+            opacity: 1,
+            transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 25 },
+          }}
+        >
+          <Input
+            className="w-full h-auto border-none bg-transparent shadow-none focus:outline-none"
+            placeholder="Type your prompt here"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+          />
+          <Button onClick={sendMessage} disabled={loading}>
             <SendHorizonal size={16} className="text-white" />
           </Button>
         </motion.div>
       )}
-
-      {showMatchingForm && <MatchingList open={showMatchingForm} setOpen={setShowMatchingForm} />}
     </div>
   );
 }
