@@ -16,7 +16,7 @@ export function CircularCard({
 }: ServiceCardProps) {
   return (
     <Link href={href} className="h-full w-full">
-      <div className="w-full h-full gap-4 p-6 group relative flex flex-col flex-grow items-center justify-start rounded-[full] border-[1px] bg-transparent border-[#D5DEDE] transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
+      <div className="w-full h-full gap-4 p-6 group relative flex flex-col flex-grow items-center justify-start rounded-full border-[1px] bg-transparent border-[#D5DEDE] transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
         {/* SVG Image */}
         <div className="flex h-16 w-16 items-center justify-center">
           <Image

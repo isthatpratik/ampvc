@@ -22,6 +22,8 @@ export default function Home() {
     href: string;
   } | null>(null);
 
+  const [selectedAboutUs, setSelectedAboutUs] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1440);
@@ -59,6 +61,8 @@ export default function Home() {
             setSelectedService={setSelectedService}
             selectedSolution={selectedSolution}
             setSelectedSolution={setSelectedSolution}
+            selectedAboutUs={selectedAboutUs}
+            setSelectedAboutUs={setSelectedAboutUs}
           />
         </div>
 
@@ -79,7 +83,10 @@ export default function Home() {
               }}
             />
             {selectedService || selectedSolution ? (
-              <ContactSection selectedService={selectedService} selectedSolution={selectedSolution} />
+              <ContactSection
+                selectedService={selectedService}
+                selectedSolution={selectedSolution}
+              />
             ) : (
               <FinyxChat />
             )}

@@ -8,66 +8,204 @@ import SolutionsGrid from "../sections/solutions-grid";
 import Footer from "./footer";
 import ServiceDetails from "../sections/service-details";
 import { motion } from "framer-motion";
-import SolutionDetails from '../sections/solution-details'
+import SolutionDetails from "../sections/solution-details";
+import AboutUs from "../sections/about-us";
+import { useState } from "react";
+import TermsOfUse from "../sections/terms-of-use";
+import PrivacyPolicy from "../sections/privacy-policy";
+import ResponsibleAI from '../sections/responsible-ai';
 
 export default function LeftSection({
   selectedService,
   setSelectedService,
   selectedSolution,
   setSelectedSolution,
+  selectedAboutUs,
+  setSelectedAboutUs,
 }) {
+  const [selectedStaticPage, setSelectedStaticPage] = useState(null);
+  const [selectedResponsibleAI, setSelectedResponsibleAI] = useState(false);
+
   return (
     <div className="min-h-screen relative flex-1 bg-white flex flex-col">
       <div className="flex-1 pt-14 min-h-screen overflow-y-auto">
         <div>
           <motion.div
             initial={{ y: "-50px", opacity: 0 }}
-            animate={{ y: 0, opacity: 1, transition: { delay: 0.4, type: "spring", stiffness: 100, damping: 25 } }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              transition: {
+                delay: 0.4,
+                type: "spring",
+                stiffness: 100,
+                damping: 25,
+              },
+            }}
           >
-            <Navbar />
+            <Navbar
+              setSelectedService={setSelectedService}
+              setSelectedSolution={setSelectedSolution}
+              setSelectedAboutUs={setSelectedAboutUs}
+            />
           </motion.div>
 
           {/* Conditional Rendering for Service or Solution Details */}
           {selectedService ? (
             <motion.div
               initial={{ y: "50px", opacity: 0 }}
-              animate={{ y: 0, opacity: 1, transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 } }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
             >
-              <ServiceDetails service={selectedService} onBack={() => setSelectedService(null)} />
+              <ServiceDetails
+                service={selectedService}
+                onBack={() => setSelectedService(null)}
+              />
             </motion.div>
           ) : selectedSolution ? (
             <motion.div
               initial={{ y: "50px", opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
+            >
+              <SolutionDetails
+                solution={selectedSolution}
+                onBack={() => setSelectedSolution(null)}
+              />
+            </motion.div>
+          ) : selectedAboutUs ? (
+            <motion.div
+              initial={{ y: "50px", opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
+            >
+              <AboutUs onBack={() => setSelectedAboutUs(false)} />
+            </motion.div>
+          ) : selectedStaticPage === "terms-of-use" ? (
+            <motion.div
+              initial={{ y: "50px", opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
+            >
+              <TermsOfUse onBack={() => setSelectedStaticPage(null)} />
+            </motion.div>
+          ) : selectedStaticPage === "privacy-policy" ? (
+            <motion.div
+              initial={{ y: "50px", opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
+            >
+              <PrivacyPolicy onBack={() => setSelectedStaticPage(null)} />
+            </motion.div>
+          ) : selectedResponsibleAI ? (
+            <motion.div
+              initial={{ y: "50px", opacity: 0 }}
               animate={{ y: 0, opacity: 1, transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 } }}
             >
-              <SolutionDetails solution={selectedSolution} onBack={() => setSelectedSolution(null)} />
+              <ResponsibleAI onBack={() => setSelectedResponsibleAI(false)} />
             </motion.div>
           ) : (
             <>
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{ y: 0, opacity: 1, transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 } }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    delay: 0.8,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 25,
+                  },
+                }}
               >
                 <HeroSection />
               </motion.div>
 
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{ y: 0, opacity: 1, transition: { delay: 1, type: "spring", stiffness: 100, damping: 25 } }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    delay: 1,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 25,
+                  },
+                }}
               >
                 <ServicesGrid setSelectedService={setSelectedService} />
               </motion.div>
 
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{ y: 0, opacity: 1, transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 25 } }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    delay: 1.2,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 25,
+                  },
+                }}
               >
                 <AIMatchingBanner />
               </motion.div>
 
               <motion.div
                 initial={{ y: "50px", opacity: 0 }}
-                animate={{ y: 0, opacity: 1, transition: { delay: 1.4, type: "spring", stiffness: 100, damping: 25 } }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    delay: 1.4,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 25,
+                  },
+                }}
               >
                 <SolutionsGrid setSelectedSolution={setSelectedSolution} />
               </motion.div>
@@ -78,9 +216,23 @@ export default function LeftSection({
 
       <motion.div
         initial={{ y: "50px", opacity: 0 }}
-        animate={{ y: 0, opacity: 1, transition: { delay: 1.6, type: "spring", stiffness: 100, damping: 25 } }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            delay: 1.6,
+            type: "spring",
+            stiffness: 100,
+            damping: 25,
+          },
+        }}
       >
-        <Footer onServiceSelect={setSelectedService} onSolutionSelect={setSelectedSolution} />
+        <Footer
+          onServiceSelect={setSelectedService}
+          onSolutionSelect={setSelectedSolution}
+          onStaticPageSelect={setSelectedStaticPage}
+          onResponsibleAISelect={setSelectedResponsibleAI}
+        />
       </motion.div>
     </div>
   );

@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 export default function VisionCrafting({ onBack }) {
   return (
     <motion.div
-      className="py-14"
+      className="pt-6 pb-14"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
@@ -16,11 +16,11 @@ export default function VisionCrafting({ onBack }) {
       <div className="px-[40px] grid gap-4">
         <Button
           onClick={onBack}
-          className="shadow-none hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2 mb-4"
+          className="shadow-none hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
         >
           <ArrowLeft className="" /> Back
         </Button>
-        <h2 className=" text-h2 text-balance">
+        <h2 className=" text-h3 text-balance">
         Amplify your growth with serial entrepreneurs by your side.
         </h2>
         <h3 className="text-body-1 pb-12 text-balance">
@@ -35,7 +35,7 @@ export default function VisionCrafting({ onBack }) {
           <div className="col-span-1 bg-[url('/images/services/pattern-left.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
           <div className="col-span-22 flex">
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-l border-r border-[#AFB6B4]">
-              <h3 className="text-h2 font-semibold mb-2">
+              <h3 className="text-h4 font-semibold mb-2">
                 Partnerships <br />that Matter
               </h3>
               <p className="text-body-2">
@@ -70,7 +70,7 @@ export default function VisionCrafting({ onBack }) {
               />
             </div>
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-[#AFB6B4]">
-              <h3 className="text-h2 font-semibold mb-2">
+              <h3 className="text-h4 font-semibold mb-2">
               Honest <br />Guidance
               </h3>
               <p className="text-body-2">
@@ -86,7 +86,7 @@ export default function VisionCrafting({ onBack }) {
           <div className="col-span-1 bg-[url('/images/services/pattern-left.svg')] bg-cover bg-center bg-no-repeat border-t border-[#AFB6B4]" />
           <div className="col-span-22 flex">
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-l border-r border-[#AFB6B4]">
-              <h3 className="text-h2 font-semibold mb-2">
+              <h3 className="text-h4 font-semibold mb-2">
               Beyond <br />Vanity Metrics
               </h3>
               <p className="text-body-2">
@@ -120,7 +120,7 @@ export default function VisionCrafting({ onBack }) {
               />
             </div>
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-b border-[#AFB6B4]">
-              <h3 className="text-h2 font-semibold mb-2">
+              <h3 className="text-h4 font-semibold mb-2">
               Amplified <br /> Vision
               </h3>
               <p className="text-body-2">
