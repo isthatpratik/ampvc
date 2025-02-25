@@ -63,7 +63,7 @@ export default function FinyxChat() {
 
       {/* Chat Window */}
       <motion.div
-        className="w-full max-w-md h-[400px] overflow-y-auto bg-white shadow-lg p-4 rounded-lg flex flex-col space-y-3"
+        className="w-full overflow-y-auto flex flex-col space-y-3"
         ref={chatContainerRef}
         initial={{ scale: 0, opacity: 0 }}
         animate={{
@@ -94,7 +94,7 @@ export default function FinyxChat() {
 
       {/* Chat Input */}
       <motion.div
-        className="border border-[#DCE0DF] w-full h-auto px-4 py-4 flex items-center rounded-[10px] bg-white shadow-lg mt-4"
+        className="border border-[#DCE0DF] w-full h-auto px-4 py-4 flex items-center rounded-[10px] bg-white mt-4"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
@@ -112,7 +112,7 @@ export default function FinyxChat() {
         <div className="w-[1px] h-full my-2 bg-[#DCDCDC]" />
         <Input
           className="w-full h-auto border-none bg-transparent shadow-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
-          placeholder="Type your message..."
+          placeholder="Type your prompt here"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}

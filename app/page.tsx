@@ -5,7 +5,8 @@ import LeftSection from "@/components/layout/left-section";
 import RightSection from "@/components/layout/right-section";
 import { motion } from "framer-motion";
 import FinyxChat from "@/components/layout/finyx-chat";
-import ContactSection from "@/components/layout/contact-section"; // Import the ContactSection
+import ContactSection from "@/components/layout/contact-section";
+import CareersSection from "@/components/sections/careers"; // Import the ContactSection
 
 export default function Home() {
   const [selectedService, setSelectedService] = useState<{
@@ -82,7 +83,9 @@ export default function Home() {
                 damping: 20,
               }}
             />
-            {selectedService || selectedSolution ? (
+            {selectedAboutUs ? (
+              <CareersSection />
+            ) : selectedService || selectedSolution ? (
               <ContactSection
                 selectedService={selectedService}
                 selectedSolution={selectedSolution}
@@ -97,7 +100,7 @@ export default function Home() {
         <div
           className={`relative flex transition-all duration-500 ${
             isMobile
-              ? selectedService
+              ? selectedService || selectedSolution
                 ? "flex-[4]"
                 : "flex-[5]"
               : "flex-[2.5]"

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 interface FeatureProps {
   number: string
@@ -32,7 +33,7 @@ export function FeaturePanel({ number, title, description, color, isActive, onCl
         </div>
 
         <div className="absolute bottom-6 right-6 w-32 h-32">
-          <img src={imageUrl || "/placeholder.svg"} alt="" className="w-full h-full object-contain" />
+          <Image src={imageUrl || "/placeholder.svg"} alt="" width={100} height={100} className="w-full h-full object-contain" />
         </div>
       </div>
     </div>

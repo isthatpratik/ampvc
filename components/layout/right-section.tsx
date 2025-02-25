@@ -25,16 +25,15 @@ export default function RightSection() {
         <div className="flex flex-col justify-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-auto h-fit">
-
-            <Image
-              src="/images/logo/fynar-logo.svg"
-              alt="FynarAI Logo"
-              width={162}
-              height={48}
-              className="object-contain w-auto h-10"
-              priority
-              quality={75}
-            />
+              <Image
+                src="/images/logo/fynar-logo.svg"
+                alt="FynarAI Logo"
+                width={162}
+                height={48}
+                className="object-contain w-auto h-10"
+                priority
+                quality={75}
+              />
             </div>
           </div>
           <h2 className="text-h4">
@@ -90,17 +89,16 @@ export default function RightSection() {
         <div className="grid border h-full border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
           <h3>For Investors</h3>
           <p className="text-[#807E7E] text-caption">
-            Streamline deal flow with AI-driven insights, quickly evaluating
-            investments and making smarter decisions, all in one seamless
-            platform.
+            Streamline deal flow with AI insights, evaluating investments and
+            making smarter decisions in one platform.
           </p>
         </div>
         <div>
           <div className="grid border h-full border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
             <h3>For Startups</h3>
             <p className="text-[#807E7E] text-caption">
-              Manage sales with ease—track deals, generate reports, and monitor
-              progress without the unnecessary complexity of traditional CRMs.
+              Track deals, generate reports, and monitor progress without the
+              complexity of traditional CRMs.
             </p>
           </div>
         </div>

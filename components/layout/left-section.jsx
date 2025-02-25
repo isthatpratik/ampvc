@@ -42,6 +42,7 @@ export default function LeftSection({
                 damping: 25,
               },
             }}
+            className="sticky top-0"
           >
             <Navbar
               setSelectedService={setSelectedService}
@@ -232,6 +233,7 @@ export default function LeftSection({
           onSolutionSelect={setSelectedSolution}
           onStaticPageSelect={setSelectedStaticPage}
           onResponsibleAISelect={setSelectedResponsibleAI}
+          onAboutUsSelect={setSelectedAboutUs}
         />
       </motion.div>
     </div>

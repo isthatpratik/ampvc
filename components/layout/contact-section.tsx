@@ -94,26 +94,36 @@ export default function ContactSection({
     const fetchCountryCodes = async () => {
       try {
         const response = await fetch("https://restcountries.com/v3.1/all");
-        const data: Array<{ cca2: string; idd?: { root: string; suffixes?: string[] } }> = await response.json();
-  
+        const data: Array<{
+          cca2: string;
+          idd?: { root: string; suffixes?: string[] };
+        }> = await response.json();
+
         const codes = data
           .map((country) => ({
             code: country.cca2,
-            dialCode: country.idd?.root && country.idd?.suffixes
-              ? `${country.idd.root}${country.idd.suffixes[0]}`
-              : "",
+            dialCode:
+              country.idd?.root && country.idd?.suffixes
+                ? `${country.idd.root}${country.idd.suffixes[0]}`
+                : "",
           }))
           .filter((c) => c.dialCode)
           .sort((a, b) => a.code.localeCompare(b.code));
-  
-        setCountryCodes(codes);
+
+        setCountryCodes(
+          codes.map(({ code, dialCode }) => ({
+            key: `${code}-${dialCode}`, // Unique key format
+            code,
+            dialCode,
+          }))
+        );
       } catch (error) {
         console.error("Failed to fetch country codes:", error);
       }
     };
-  
+
     fetchCountryCodes();
-  }, []);  
+  }, []);
 
   const onSubmit = async (data: ContactFormValues) => {
     try {
@@ -176,7 +186,9 @@ export default function ContactSection({
       >
         {selectedService
           ? selectedService.subtitle
-          : "Have questions? Let’s chat!"}
+          : selectedSolution
+          ? selectedSolution.subtitle
+          : "Have questions? Let's have a chat!"}
       </motion.p>
 
       <motion.div
@@ -282,14 +294,16 @@ export default function ContactSection({
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
-                          
                         >
                           <SelectTrigger className="w-fit placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
                             <SelectValue placeholder="IN" />
                           </SelectTrigger>
                           <SelectContent>
                             {countryCodes.map(({ code, dialCode }) => (
-                              <SelectItem key={code} value={dialCode}>
+                              <SelectItem
+                                key={`${code}-${dialCode}`}
+                                value={dialCode}
+                              >
                                 {code} ({dialCode})
                               </SelectItem>
                             ))}
@@ -343,9 +357,9 @@ export default function ContactSection({
                   </FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Tell us about your project or requirements"
+                      placeholder="Tell us about your project, specific requirements, challenges, or any other details we should know before getting started."
                       {...field}
-                      className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 resize-none min-h-[100px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 resize-none min-h-[80px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />

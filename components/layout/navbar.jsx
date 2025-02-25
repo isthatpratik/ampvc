@@ -10,23 +10,35 @@ import {
   DialogTrigger,
   DialogTitle,
 } from "@/components/ui/dropdown-menu";
+import ContactUS from "../forms/contact-us";
 
 function MenuItem({ icon, text, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-4 text-body-3 transition-all hover:text-primary w-full text-left"
+      className="flex flex-shrink-0 items-center gap-4 text-body-3 transition-all hover:text-primary w-full text-left"
     >
       <div className="relative h-9 w-9">
-        <Image src={icon} alt="" fill className="object-contain" />
+        <Image
+          src={icon}
+          alt=""
+          fill
+          className="object-contain flex-shrink-0"
+        />
       </div>
       <span>{text}</span>
     </button>
   );
 }
 
-export default function Navbar({ setSelectedService, setSelectedSolution, setSelectedAboutUs }) {
+export default function Navbar({
+  setSelectedService,
+  setSelectedSolution,
+  setSelectedAboutUs,
+  setSelectedContactUs,
+}) {
   const [open, setOpen] = useState(false);
+  const [openContactForm, setOpenContactForm] = useState(false);
 
   // Function to handle menu clicks
   const handleSelection = (type, title) => {
@@ -41,6 +53,7 @@ export default function Navbar({ setSelectedService, setSelectedSolution, setSel
   };
 
   return (
+    <>
     <nav className="top-0 z-50 px-[40px] flex w-full items-center bg-transparent justify-between">
       <div>
         <Link href={"/"}>
@@ -77,10 +90,7 @@ export default function Navbar({ setSelectedService, setSelectedSolution, setSel
           </Button>
         </DialogTrigger>
 
-        <DialogContent
-  className="fixed left-0 top-14 w-[300px] lg:w-[350px] md:w-[320px] h-screen bg-white shadow-lg rounded-none p-6 border-r border-gray-200"
->
-
+        <DialogContent className="fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] h-fit bg-white shadow-lg rounded-none p-6 border-r border-gray-200">
           <div className="relative">
             <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-8">
               {/* Startups Column */}
@@ -142,7 +152,8 @@ export default function Navbar({ setSelectedService, setSelectedSolution, setSel
                   <MenuItem
                     icon="/images/icons/contact-us.svg"
                     text="Contact Us"
-                    onClick={() => handleSelection("solution", "Contact Us")}
+                    onClick={() => {setOpenContactForm(true); setOpen(false);}}
+                    
                   />
                   <MenuItem
                     icon="/images/icons/about-us.svg"
@@ -161,5 +172,7 @@ export default function Navbar({ setSelectedService, setSelectedSolution, setSel
         </DialogContent>
       </Dialog>
     </nav>
+    {openContactForm && <ContactUS open={openContactForm} setOpen={setOpenContactForm} />}
+    </>
   );
 }

@@ -33,7 +33,7 @@ const footerData: FooterSection[] = [
       { text: "Contact Us", href: "" },
       { text: "About Us", href: "" },
       { text: "Careers", href: "" },
-      { text: "Responsible AI", href: "@/components/sections/responsible-ai.tsx" },
+      { text: "Responsible AI", href: "" },
     ],
   },
   {
@@ -58,20 +58,46 @@ type FooterProps = {
   onServiceSelect?: (service: Service | null) => void;
   onSolutionSelect?: (solution: Solution | null) => void;
   onStaticPageSelect?: (page: "terms-of-use" | "privacy-policy") => void;
-  onResponsibleAISelect?: (state: boolean) => void;  // Add this
+  onResponsibleAISelect?: (state: boolean) => void;
+  onAboutUsSelect?: (state: boolean) => void;
 };
 
-export default function Footer({ onServiceSelect, onSolutionSelect, onStaticPageSelect, onResponsibleAISelect }: FooterProps) {
-  const [hoveredSection, setHoveredSection] = React.useState<string | null>(null);
+export default function Footer({
+  onServiceSelect,
+  onSolutionSelect,
+  onStaticPageSelect,
+  onResponsibleAISelect,
+  onAboutUsSelect
+}: FooterProps) {
+  const [hoveredSection, setHoveredSection] = React.useState<string | null>(
+    null
+  );
   const [hoveredLink, setHoveredLink] = React.useState<string | null>(null);
 
   const handleLinkClick = (sectionTitle: string, linkText: string) => {
     if (linkText === "Responsible AI") {
       onResponsibleAISelect?.(true);
+      onServiceSelect?.(null);
+      onSolutionSelect?.(null);
+      onAboutUsSelect?.(false);
     } else if (sectionTitle === "Investors") {
       onSolutionSelect?.({ title: linkText });
-    } else {
+      onServiceSelect?.(null);
+      onAboutUsSelect?.(false);
+    } else if (sectionTitle === "Startups") {
       onServiceSelect?.({ title: linkText });
+      onSolutionSelect?.(null);
+      onAboutUsSelect?.(false);
+    } else if (linkText === "About Us ") {
+      onAboutUsSelect?.(true);
+      onServiceSelect?.(null);
+      onSolutionSelect?.(null);
+      onResponsibleAISelect?.(false);
+    } else {
+      onServiceSelect?.(null);
+      onSolutionSelect?.(null);
+      onAboutUsSelect?.(false);
+      onResponsibleAISelect?.(false);
     }
   };
 
@@ -174,22 +200,22 @@ export default function Footer({ onServiceSelect, onSolutionSelect, onStaticPage
           />
         </div>
         <div className="flex flex-nowrap items-center justify-between gap-4">
-        <div className="flex font-light text-[#798682] text-caption gap-4 items-center">
-        <button
-          onClick={() => onStaticPageSelect?.("terms-of-use")}
-          className="hover:text-white"
-        >
-          Terms of Use
-        </button>
-        <div className="h-[6px] w-[6px] bg-[#313534] rounded-full "></div>
-        <button
-          onClick={() => onStaticPageSelect?.("privacy-policy")}
-          className="hover:text-white"
-        >
-          Privacy Policy
-        </button>
-      </div>
-          <div className="2xl:w-[50%] lg:w-[15%] h-[1px] bg-[#313534]"></div>
+          <div className="flex font-light text-[#798682] text-caption gap-4 items-center">
+            <button
+              onClick={() => onStaticPageSelect?.("terms-of-use")}
+              className="hover:text-white"
+            >
+              Terms of Use
+            </button>
+            <div className="h-[6px] w-[6px] bg-[#313534] rounded-full "></div>
+            <button
+              onClick={() => onStaticPageSelect?.("privacy-policy")}
+              className="hover:text-white"
+            >
+              Privacy Policy
+            </button>
+          </div>
+          <div className="2xl:w-[40%] lg:w-[15%] h-[1px] bg-[#313534]"></div>
           <div className="flex items-center gap-4">
             <span className="text-[#798682] font-light text-caption">
               All rights reserved. Ampersand
