@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { FeaturesSection } from "./features-section-01";
 
 export default function VisionCrafting({ onBack }) {
   return (
@@ -132,7 +131,6 @@ export default function VisionCrafting({ onBack }) {
           <div className="col-span-1 bg-[url('/images/services/pattern.svg')] bg-cover bg-center bg-no-repeat border-t border-l border-b border-[#AFB6B4]" />
         </div>
       </div>
-      <FeaturesSection />
     </motion.div>
   );
 }

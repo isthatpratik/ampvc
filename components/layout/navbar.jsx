@@ -11,6 +11,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dropdown-menu";
 import ContactUS from "../forms/contact-us";
+import AnimatedButton from "../ui/animated-button";
 
 function MenuItem({ icon, text, onClick }) {
   return (
@@ -90,7 +91,7 @@ export default function Navbar({
             </Button>
           </DialogTrigger>
 
-          <DialogContent className="fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] h-fit bg-white shadow-lg rounded-none p-10 border-r border-gray-200">
+          <DialogContent className="fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] h-fit bg-white shadow-lg rounded-md p-10 border-r border-gray-200">
             <div className="relative px-4 py-8">
               <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-8">
                 {/* Startups Column */}
@@ -171,6 +172,27 @@ export default function Navbar({
                       }}
                     />
                   </div>
+                </div>
+              </div>
+              <div className="bg-[#1D1D1D] rounded-md mt-6 py-6 px-8 flex justify-between items-center">
+                <div className="grid gap-4">
+                  <Image
+                    src={"/images/logo/fynar-logo.svg"}
+                    alt="Fynar AI logo"
+                    width={200}
+                    height={200}
+                    className="object-contain w-[130px] h-auto"
+                  />
+                  <p>
+                    <span className="text-body-2 bg-gradient-to-br from-[#99DBE0] from-10% via-[#FFAFDF] via-67% to-[#FCEC3B] to-98% bg-clip-text text-transparent">
+                      The Simple, Intuitive CRM That Gets Things Done
+                    </span>
+                  </p>
+                </div>
+                <div className="text-white">
+                  <AnimatedButton onClick={() => setOpen(true)}>
+                    Pre-Register Now
+                  </AnimatedButton>
                 </div>
               </div>
             </div>

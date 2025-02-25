@@ -134,7 +134,6 @@ export default function RightSection() {
         </div>
       </motion.div>
       <Preregister open={open} setOpen={setOpen} />
-
     </div>
   );
 }
