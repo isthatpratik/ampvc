@@ -15,7 +15,7 @@ const footerData: FooterSection[] = [
     title: "Startups",
     links: [
       { text: "Vision Crafting", href: "" },
-      { text: "Breakthrough to Exit", href: "" },
+      { text: "Exit Breakthrough", href: "" },
       { text: "Scaling Fuel", href: "" },
     ],
   },
@@ -39,9 +39,7 @@ const footerData: FooterSection[] = [
   {
     title: "FynarAI",
     links: [
-      { text: "Features", href: "" },
-      { text: "Pricing", href: "" },
-      { text: "Get Started", href: "" },
+      { text: "Pre-register", href: "" },
     ],
   },
 ];

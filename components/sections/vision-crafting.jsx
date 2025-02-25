@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { FeaturesSection } from "./features-section-01";
 
 export default function VisionCrafting({ onBack }) {
   return (
@@ -21,9 +22,9 @@ export default function VisionCrafting({ onBack }) {
           <ArrowLeft className="" /> Back
         </Button>
         <h2 className=" text-h3 text-balance">
-        Amplify your growth with serial entrepreneurs by your side.
+        Grow with serial entrepreneurs by your side.
         </h2>
-        <h3 className="text-body-1 pb-12 text-balance">
+        <h3 className="text-body-1 pb-12">
         We've successfully scaled businesses like yours, understanding your constraints. Let's collaborate on tailored strategies to drive sustainable growth, leveraging our expertise and hands-on approach for mutual success.
         </h3>
       </div>
@@ -131,6 +132,7 @@ export default function VisionCrafting({ onBack }) {
           <div className="col-span-1 bg-[url('/images/services/pattern.svg')] bg-cover bg-center bg-no-repeat border-t border-l border-b border-[#AFB6B4]" />
         </div>
       </div>
+      <FeaturesSection />
     </motion.div>
   );
 }

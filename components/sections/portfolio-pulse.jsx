@@ -34,7 +34,7 @@ export default function PortfolioPulse({ onBack }) {
       <section className="flex">
         <div className="grid grid-cols-3 gap-6">
           <div className="flex items-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
-            <h2 className="text-h4 px-12 text-[#181A1A] font-semibold">
+            <h2 className="text-h4 xl:px-10 lg:px-6 text-[#181A1A] font-semibold">
               Our Services <br /> Include
             </h2>
           </div>
@@ -72,12 +72,12 @@ export default function PortfolioPulse({ onBack }) {
       <section className="space-y-12">
         <div className="grid grid-cols-3">
           <div className="mr-6 flex items-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
-            <h2 className="text-h4 px-12 text-[#181A1A] font-semibold">
+            <h2 className="text-h4 xl:px-10 lg:px-6 text-[#181A1A] font-semibold">
               Why
               Partner With Us
             </h2>
           </div>
-          <div className="border-r-[0.5px] border-b-[0.5px] p-6 text-center text-balance space-y-4">
+          <div className="border-r-[0.5px] border-b-[0.5px] p-8 text-center text-balance space-y-4">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
               Expert Oversight
             </h3>
@@ -86,7 +86,7 @@ export default function PortfolioPulse({ onBack }) {
               board meeting.
             </p>
           </div>
-          <div className="border-b-[0.5px] border-l-[0.5px] text-balance text-center p-6 space-y-4">
+          <div className="border-b-[0.5px] border-l-[0.5px] text-balance text-center p-8 space-y-4">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
               Proactive Monitoring
             </h3>
@@ -95,20 +95,20 @@ export default function PortfolioPulse({ onBack }) {
             </p>
           </div>
           <div></div>
-          <div className="border-t-[0.5px] border-r-[0.5px] text-balance text-center p-6 space-y-4">
+          <div className="border-t-[0.5px] border-r-[0.5px] text-balance text-center p-8 space-y-4">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
               Transparent Reporting
             </h3>
             <p className="text-body-3 font-normal">
-              Clear, concise, and data-backed performance insights.
+            Clear, concise, and data-backed performance insights.
             </p>
           </div>
-          <div className="border-l-[0.5px] border-t-[0.5px] text-balance text-center p-6 space-y-4">
+          <div className="border-l-[0.5px] border-t-[0.5px] text-balance text-center p-8 space-y-4">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
-              Compliance Assurance
+            Compliance Certainty
             </h3>
-            <p className="text-body-3 font-normal">
-              Regular audits and adherence checks.
+            <p className="text-body-3 font-normal mx-auto max-w-[80%]">
+            Regular audits and adherence checks.
             </p>
           </div>
         </div>
@@ -119,14 +119,14 @@ export default function PortfolioPulse({ onBack }) {
 
 function ServiceCard({ imageSrc, title, description }) {
   return (
-    <div className="border rounded-[4px] flex flex-col p-6 h-full items-center justify-start space-y-4">
+    <div className="border border-[#AFB6B4] rounded-[4px] flex flex-col px-4 py-8 h-full items-center justify-start space-y-4">
       <div className="w-16 h-16 rounded-lg flex items-center justify-center">
         <Image src={imageSrc} alt={title} width={64} height={64} />
       </div>
       <h3 className="text-h6 max-w-[80%] text-[#181A1A] text-center text-balance font-semibold">
         {title}
       </h3>
-      <p className="text-[#798682] text-center text-balance text-body-3">
+      <p className="text-[#798682] max-w-[80%] text-center text-balance text-body-3">
         {description}
       </p>
     </div>

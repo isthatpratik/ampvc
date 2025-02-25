@@ -13,14 +13,14 @@ export function ServiceCard({ title, subtitle, icon }: ServiceCardProps) {
     <Link href={"/"} className="w-full h-full">
       <div className="group h-full flex flex-col items-center justify-between rounded-sm bg-transparent border-[#E4E8E8] border-[1px] p-6 transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
         {/* SVG Image */}
-        <div className="flex h-16 w-16 items-center justify-center">
+        <div className="flex h-16 w-16 items-center justify-center aspect-square">
           <Image
             src={icon}
             alt={title}
             width={60}
             height={60}
             priority
-            className="w-full h-auto"
+            className="w-full h-auto aspect-square"
           />
         </div>
 

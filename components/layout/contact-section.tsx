@@ -47,8 +47,7 @@ const personalEmailDomains = [
 ];
 
 const contactFormSchema = z.object({
-  firstName: z.string().min(2, "First name must be at least 2 characters"),
-  lastName: z.string().min(2, "Last name must be at least 2 characters"),
+  name: z.string().min(2, "First name must be at least 2 characters"),
   mail: z
     .string()
     .email("Invalid email address")
@@ -75,8 +74,7 @@ export default function ContactSection({
     resolver: zodResolver(contactFormSchema),
     mode: "onBlur",
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      name: "",
       mail: "",
       dialCode: "+91",
       phone: "",
@@ -89,6 +87,7 @@ export default function ContactSection({
   const [countryCodes, setCountryCodes] = useState<
     { code: string; dialCode: string }[]
   >([]);
+  const sourceOptions = ["LinkedIn", "Google", "Twitter", "Referral", "Other"];
 
   useEffect(() => {
     const fetchCountryCodes = async () => {
@@ -147,6 +146,8 @@ export default function ContactSection({
     }
   };
 
+  const [customSource, setCustomSource] = useState("");
+
   return (
     <div className="sticky top-0 flex flex-col bg-[#FAFAFA] lg:w-full overflow-hidden justify-start py-14 px-10 max-h-screen overflow-y-auto h-full">
       {/* Animate the title when the service changes */}
@@ -192,7 +193,7 @@ export default function ContactSection({
       </motion.p>
 
       <motion.div
-        className="border py-16 px-8 border-[#AFB6B4] h-fit flex flex-col 2xl:gap-16 justify-between"
+        className="border p-6 border-[#AFB6B4] h-fit flex flex-col gap-8 justify-between"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
@@ -204,50 +205,30 @@ export default function ContactSection({
           damping: 25,
         }}
       >
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-8">
           <h6 className="text-h6 text-balance">
-            Ready to optimize your strategy and unlock new opportunities?
+          Ready to sharpen your strategy and uncover hidden opportunities?
           </h6>
-          <p className="text-body-2">
-            Let’s make your success story stand out.
-          </p>
         </div>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="2xl:space-y-10 xl:space-y-8 lg:space-y-6 flex flex-col justify-center"
+            className="space-y-6 flex flex-col justify-center"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid w-full">
               <FormField
                 control={form.control}
-                name="firstName"
+                name="name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-body-1 text-[#181A1A]">
-                      First name
+                      Your Name
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="First name"
+                        placeholder="John Doe"
                         {...field}
                         className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="lastName"
-                render={({ field }) => (
-                  <FormItem className="text-body-1 text-[#181A1A] ">
-                    <FormLabel>Last name</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Last name"
-                        {...field}
-                        className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                       />
                     </FormControl>
                     <FormMessage />
@@ -267,7 +248,7 @@ export default function ContactSection({
                   <FormControl>
                     <Input
                       type="email"
-                      placeholder="Email@yourcompany.com"
+                      placeholder="you@companymail.com"
                       {...field}
                       className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
@@ -285,7 +266,7 @@ export default function ContactSection({
                   <FormLabel className="text-body-1 text-[#181A1A]">
                     Phone
                   </FormLabel>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center">
                     {/* Country Code Selector */}
                     <FormField
                       control={form.control}
@@ -330,21 +311,37 @@ export default function ContactSection({
             <FormField
               control={form.control}
               name="source"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-body-1 text-[#181A1A]">
-                    How Did You Hear About Us?
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Eg. LinkedIn, Google, etc."
-                      {...field}
-                      className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              render={({ field }) => {
+                return (
+                  <FormItem>
+                    <FormLabel className="text-body-1 text-[#181A1A]">
+                      How did you hear about us?
+                    </FormLabel>
+                    <FormControl>
+                      <Select
+                        onValueChange={(value) => {
+                          field.onChange(value);
+                          setCustomSource(value);
+                        }}
+                        value={customSource}
+                      >
+                        <SelectTrigger className="border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0 focus-visible:outline-none focus-visible:ring-0">
+                          <SelectValue placeholder="Select an option" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {sourceOptions.map((option) => (
+                            <SelectItem key={option} value={option}>
+                              {option}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
             />
 
             <FormField
@@ -367,7 +364,7 @@ export default function ContactSection({
               )}
             />
 
-            <div className="self-center">
+            <div className="self-center py-6">
               <Button
                 type="submit"
                 className="py-4 shadow-none hover:border-black transition-all duration-300 bg-transparent border border-[#AFB6B4] w-fit rounded-full text-black hover:bg-transparent"

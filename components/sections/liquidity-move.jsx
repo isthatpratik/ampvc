@@ -19,10 +19,10 @@ export default function LiquidityMove({ onBack }) {
           <ArrowLeft className="" /> Back
         </Button>
         <h2 className="text-h3 text-balance">
-        Secondary Buyout Services for Investors
+        Secondary Buyout Services ensure strategic exits and portfolio restructuring for investors.
         </h2>
-        <h3 className="text-body-1 pb-12 text-balance">
-        Quick Liquidity. Clean Cap Tables. Smart Exits. – We help investors unlock value from their portfolio companies through secondary buyouts, providing fast liquidity options and streamlined ownership structures. Whether you’re looking to exit or restructure, we make the process efficient and rewarding.
+        <h3 className="text-body-1 pb-12">
+        Quick liquidity. Clean cap tables. Smart exits. – We help investors unlock value from their portfolio companies through secondary buyouts, providing fast liquidity options and streamlined ownership structures. Whether you’re looking to exit or restructure, we make the process efficient and rewarding.
         </h3>
       </div>
 
@@ -30,7 +30,7 @@ export default function LiquidityMove({ onBack }) {
       <section className="flex">
         <div className="grid grid-cols-3 gap-6">
           <div className="flex items-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
-            <h2 className="text-h4 px-12 text-[#181A1A] font-semibold">
+            <h2 className="text-h4 2xl:px-10 lg:px-6 text-[#181A1A] font-semibold">
               Our Services <br /> Include
             </h2>
           </div>
@@ -68,12 +68,12 @@ export default function LiquidityMove({ onBack }) {
       <section className="space-y-12">
         <div className="grid grid-cols-3">
           <div className="mr-6 flex items-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
-            <h2 className="text-h4 px-12 text-[#181A1A] font-semibold text-balance">
+            <h2 className="text-h4 2xl:px-10 lg:px-6 text-[#181A1A] font-semibold text-balance">
             Why 
             Choose Us
             </h2>
           </div>
-          <div className="border-r-[0.5px] border-b-[0.5px] p-6 text-center text-balance space-y-4">
+          <div className="border-r-[0.5px] border-b-[0.5px] p-8 text-center text-balance space-y-4">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
             Swift Liquidity
             </h3>
@@ -81,28 +81,28 @@ export default function LiquidityMove({ onBack }) {
             Fast-track exits without disrupting operations.
             </p>
           </div>
-          <div className="border-b-[0.5px] border-l-[0.5px] text-balance text-center p-6 space-y-4">
+          <div className="border-b-[0.5px] border-l-[0.5px] text-balance text-center p-8 space-y-4">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
-            Extensive Buyer Network
+            Vast Buyer Network
             </h3>
             <p className="text-body-3 font-normal">
             Connect with qualified investors and secondary market players.
             </p>
           </div>
           <div></div>
-          <div className="border-t-[0.5px] border-r-[0.5px] text-balance text-center p-6 space-y-4">
-            <h3 className="text-h6 font-semibold text-[#181A1A]">
+          <div className="border-t-[0.5px] border-r-[0.5px] text-balance text-center p-8 space-y-4">
+            <h3 className="text-h6 font-semibold text-[#181A1A] text-balance">
             Cap Table Expertise
             </h3>
-            <p className="text-body-3 font-normal">
+            <p className="text-body-3 font-normal text-balance">
             Reduce complexity and prepare for future growth.
             </p>
           </div>
-          <div className="border-l-[0.5px] border-t-[0.5px] text-balance text-center p-6 space-y-4">
-            <h3 className="text-h6 font-semibold text-[#181A1A]">
-            Confidential & Smooth Process
+          <div className="border-l-[0.5px] border-t-[0.5px] text-balance text-center p-8 space-y-4">
+            <h3 className="text-h6 font-semibold text-[#181A1A] text-balance">
+            Swift PrivateFlow
             </h3>
-            <p className="text-body-3 font-normal">
+            <p className="text-body-3 mx-auto max-w-[80%] font-normal text-balance">
             Secure, discreet, and efficient transactions.
             </p>
           </div>
@@ -114,7 +114,7 @@ export default function LiquidityMove({ onBack }) {
 
 function ServiceCard({ imageSrc, title, description }) {
   return (
-    <div className="border rounded-[4px] flex flex-col p-6 h-full items-center justify-start space-y-4">
+    <div className="border border-[#AFB6B4] rounded-[4px] flex flex-col px-4 py-8 h-full items-center justify-start space-y-4">
       <div className="w-16 h-16 rounded-lg flex items-center justify-center">
         <Image src={imageSrc} alt={title} width={64} height={64} />
       </div>

@@ -2,7 +2,7 @@ import { ServiceCard } from "@/components/ui/service-card";
 
 const services = [
   { title: "Vision Crafting", subtitle: "[ Strategic Advisory ]", icon: "/images/icons/vision-crafting.svg", href: "" },
-  { title: "Breakthrough to Exit", subtitle: "[ Fast Exit ]", icon: "/images/icons/exit.svg", href: "" },
+  { title: "Exit Breakthrough", subtitle: "[ Fast Exit ]", icon: "/images/icons/exit.svg", href: "" },
   { title: "Scaling Fuel", subtitle: "[ Growth Capital ]", icon: "/images/icons/scaling.svg", href: "" },
 ];
 

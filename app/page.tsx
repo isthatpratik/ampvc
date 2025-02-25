@@ -100,8 +100,8 @@ export default function Home() {
         <div
           className={`relative flex transition-all duration-500 ${
             isMobile
-              ? selectedService || selectedSolution
-                ? "flex-[4]"
+              ? selectedService || selectedSolution || selectedAboutUs
+                ? "flex-[3]"
                 : "flex-[5]"
               : "flex-[2.5]"
           }`}

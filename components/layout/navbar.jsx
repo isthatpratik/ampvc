@@ -18,7 +18,7 @@ function MenuItem({ icon, text, onClick }) {
       onClick={onClick}
       className="flex flex-shrink-0 items-center gap-4 text-body-3 transition-all hover:text-primary w-full text-left"
     >
-      <div className="relative h-9 w-9">
+      <div className="relative h-11 w-11 flex-shrink-0">
         <Image
           src={icon}
           alt=""
@@ -90,12 +90,12 @@ export default function Navbar({
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] h-fit bg-white shadow-lg rounded-none p-6 border-r border-gray-200">
-          <div className="relative">
-            <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-8">
+        <DialogContent className="fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] h-fit bg-white shadow-lg rounded-none p-10 border-r border-gray-200">
+          <div className="relative px-4 py-8">
+            <div className="grid lg:grid-cols-5 md:grid-cols-1 gap-8">
               {/* Startups Column */}
-              <div>
-                <h3 className="mb-6 text-body-2 font-semibold">Startups</h3>
+              <div className="grid space-y-6">
+                <h3 className="text-body-2 font-semibold">Startups</h3>
                 <div className="space-y-6">
                   <MenuItem
                     icon="/images/icons/vision-crafting.svg"
@@ -106,7 +106,7 @@ export default function Navbar({
                   />
                   <MenuItem
                     icon="/images/icons/exit.svg"
-                    text="Breakthrough to Exit"
+                    text="Exit Breakthrough"
                     onClick={() =>
                       handleSelection("service", "Breakthrough to Exit")
                     }
@@ -119,9 +119,11 @@ export default function Navbar({
                 </div>
               </div>
 
+              <div className="border-l border-gray-200"></div>
+
               {/* Investors Column */}
-              <div>
-                <h3 className="mb-6 text-body-2 font-semibold">Investors</h3>
+              <div className="grid space-y-6">
+                <h3 className="text-body-2 font-semibold">Investors</h3>
                 <div className="space-y-6">
                   <MenuItem
                     icon="/images/icons/exit-strategy.svg"
@@ -146,15 +148,9 @@ export default function Navbar({
               </div>
 
               {/* Company Column */}
-              <div>
-                <h3 className="mb-6 text-body-2 font-semibold">Company</h3>
+              <div className="flex flex-col gap-6">
+                <h3 className="text-body-2 font-semibold">Company</h3>
                 <div className="space-y-6">
-                  <MenuItem
-                    icon="/images/icons/contact-us.svg"
-                    text="Contact Us"
-                    onClick={() => {setOpenContactForm(true); setOpen(false);}}
-                    
-                  />
                   <MenuItem
                     icon="/images/icons/about-us.svg"
                     text="About Us"
@@ -164,6 +160,12 @@ export default function Navbar({
                       setSelectedAboutUs(true);
                       setOpen(false);
                     }}
+                  />
+                  <MenuItem
+                    icon="/images/icons/contact-us.svg"
+                    text="Contact Us"
+                    onClick={() => {setOpenContactForm(true); setOpen(false);}}
+                    
                   />
                 </div>
               </div>
