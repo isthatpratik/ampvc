@@ -131,6 +131,7 @@ export default function VisionCrafting({ onBack }) {
           <div className="col-span-1 bg-[url('/images/services/pattern.svg')] bg-cover bg-center bg-no-repeat border-t border-l border-b border-[#AFB6B4]" />
         </div>
       </div>
+      
     </motion.div>
   );
 }
