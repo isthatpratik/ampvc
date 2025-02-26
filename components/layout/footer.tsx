@@ -126,8 +126,6 @@ export default function Footer({
           </div>
         </h2>
       </div>
-
-      <div className="bg-[#313534] my-8 w-full h-[1px]"></div>
       {/* Navigation Grid */}
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
         {footerData.map((section) => (

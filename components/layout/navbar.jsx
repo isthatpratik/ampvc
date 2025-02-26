@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import ContactUS from "../forms/contact-us";
 import AnimatedButton from "../ui/animated-button";
+import Preregister from "../forms/pre-register";
 
 function MenuItem({ icon, text, onClick }) {
   return (
@@ -19,12 +20,12 @@ function MenuItem({ icon, text, onClick }) {
       onClick={onClick}
       className="flex flex-shrink-0 items-center gap-4 text-body-3 transition-all hover:text-primary w-full text-left"
     >
-      <div className="relative h-11 w-11 flex-shrink-0">
+      <div className="aspect-square relative h-11 w-11 flex-shrink-0">
         <Image
           src={icon}
           alt=""
           fill
-          className="object-contain flex-shrink-0"
+          className="object-contain aspect-square flex-shrink-0"
         />
       </div>
       <span>{text}</span>
@@ -92,11 +93,11 @@ export default function Navbar({
             </Button>
           </DialogTrigger>
 
-          <DialogContent className="fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] h-min bg-white shadow-lg rounded-md p-10 border-r border-gray-200">
-            <div className="relative px-4 py-8">
+          <DialogContent className="p-6 fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] h-min bg-white shadow-lg rounded-md border-r border-gray-200">
+            <div className="relative pt-4">
               <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-8">
                 {/* Startups Column */}
-                <div className="grid space-y-6">
+                <div className="grid space-y-6 hover:bg-[#F7F8F8] transition-all duration-300 p-4">
                   <h3 className="text-body-2 font-semibold">Startups</h3>
                   <div className="space-y-6">
                     <MenuItem
@@ -122,7 +123,7 @@ export default function Navbar({
                 </div>
 
                 {/* Investors Column */}
-                <div className="grid space-y-6">
+                <div className="grid space-y-6 p-4 hover:bg-[#F7F8F8] transition-all duration-300">
                   <h3 className="text-body-2 font-semibold">Investors</h3>
                   <div className="space-y-6">
                     <MenuItem
@@ -150,7 +151,7 @@ export default function Navbar({
                 </div>
 
                 {/* Company Column */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col p-4 gap-6 hover:bg-[#F7F8F8] transition-all duration-300">
                   <h3 className="text-body-2 font-semibold">Company</h3>
                   <div className="space-y-6">
                     <MenuItem
@@ -169,6 +170,16 @@ export default function Navbar({
                       onClick={() => {
                         setOpenContactForm(false); // Reset state first
                         setTimeout(() => setOpenContactForm(true), 100); // Small delay to re-trigger opening
+                        setOpen(false);
+                      }}
+                    />
+                    <MenuItem
+                      icon="/images/icons/careers.svg"
+                      text="Careers"
+                      onClick={() => {
+                        setSelectedSolution(null);
+                        setSelectedService(null);
+                        setSelectedAboutUs(true);
                         setOpen(false);
                       }}
                     />
@@ -191,7 +202,12 @@ export default function Navbar({
                   </p>
                 </div>
                 <div className="text-white">
-                  <AnimatedButton onClick={() => setOpen(true)}>
+                  <AnimatedButton
+                    onClick={() => {
+                      setOpen(false); // Close the Navbar menu
+                      setTimeout(() => setOpenPreRegisterForm(true), 100); // Delay opening Pre-Register form
+                    }}
+                  >
                     Pre-Register Now
                   </AnimatedButton>
                 </div>
@@ -200,8 +216,15 @@ export default function Navbar({
           </DialogContent>
         </Dialog>
       </nav>
+
       {openContactForm && (
         <ContactUS open={openContactForm} setOpen={setOpenContactForm} />
+      )}
+      {openPreRegisterForm && (
+        <Preregister
+          open={openPreRegisterForm}
+          setOpen={setOpenPreRegisterForm}
+        />
       )}
     </>
   );

@@ -97,14 +97,14 @@ export default function FinyxChat() {
       {/* Show Initial SVG before chat starts */}
       {showInitialSVG && (
         <div className="flex justify-center items-center h-full">
-          <Image src="/images/finyx-chat/middle-circle.svg" alt="Start Chat" width={300} height={300} />
+          <Image src="/images/finyx-chat/middle-circle.svg" alt="Start Chat" width={200} height={200} />
         </div>
       )}
 
       {/* Show mid-way SVG after second user message */}
       {showMidSVG && (
         <div className="flex justify-center items-center h-full">
-          <Image src="/images/finyx-chat/thinking.svg" alt="Finding Match" width={300} height={300} />
+          <Image src="/images/finyx-chat/thinking.svg" alt="Finding Match" width={200} height={200} />
         </div>
       )}
 
@@ -178,8 +178,16 @@ export default function FinyxChat() {
             transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 25 },
           }}
         >
+          <Image
+          src={"/images/icons/amp-gray-icon.svg"}
+          alt="Icon"
+          width={48}
+          height={48}
+          className="mr-2 object-contain w-12 h-auto"
+        />
+        <div className="w-[1px] h-full my-2 bg-[#DCDCDC]" />
           <Input
-            className="w-full h-auto border-none bg-transparent shadow-none focus:outline-none"
+            className="w-full h-auto border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
             placeholder="Type your prompt here"
             value={input}
             onChange={(e) => setInput(e.target.value)}

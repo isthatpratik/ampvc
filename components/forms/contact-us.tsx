@@ -33,9 +33,26 @@ import {
 } from "../ui/select";
 import { DialogDescription, DialogFooter } from "../ui/dropdown-menu";
 
+const personalEmailDomains = [
+  "gmail.com",
+  "yahoo.com",
+  "hotmail.com",
+  "aol.com",
+  "outlook.com",
+  "icloud.com",
+  "mail.com",
+  "protonmail.com",
+];
+
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
-  workEmail: z.string().email("Invalid email address"),
+  workMail: z
+      .string()
+      .email("Invalid email address")
+      .refine((email) => {
+        const domain = email.split("@")[1];
+        return !personalEmailDomains.includes(domain);
+      }, "Personal email addresses are not allowed"),
   dialCode: z.string().min(1, "Please select a country code"),
   phone: z.string().min(10, "Phone number is required"),
   companyName: z.string().min(2, "Company name is required"),
@@ -53,10 +70,35 @@ const services = [
   { id: "secondary-buyout", label: "Secondary Buyout" },
 ];
 
+const industryOptions = [
+  "Technology",
+  "Finance",
+  "Healthcare",
+  "Education",
+  "Retail",
+  "Manufacturing",
+  "Consulting",
+  "Energy",
+  "Real Estate",
+  "Other",
+];
+
+const sourceOptions = [
+  "LinkedIn",
+  "Google",
+  "Twitter",
+  "Instagram",
+  "Event/Conference",
+  "YouTube",
+  "From a friend",
+  "Other",
+];
+
 interface ContactUsProps {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 
 export default function ContactUs({ open, setOpen }: ContactUsProps) {
   const [step, setStep] = React.useState(1);
@@ -70,7 +112,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
     mode: "onBlur",
     defaultValues: {
       fullName: "",
-      workEmail: "",
+      workMail: "",
       dialCode: "+91",
       phone: "",
       companyName: "",
@@ -177,7 +219,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-6 py-6 col-span-2 flex flex-col justify-between h-full w-[60%] mr-auto"
+                className="space-y-6 py-6 col-span-2 flex flex-col justify-between h-full w-[60%] mr-auto text-body-1"
               >
                 {step === 1 && (
                   <div className="space-y-4">
@@ -190,7 +232,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                             <FormLabel>Full Name</FormLabel>
                             <FormControl>
                               <Input
-                                placeholder="John Smith"
+                                placeholder="John Doe"
                                 className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                                 {...field}
                               />
@@ -201,7 +243,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                       />
                       <FormField
                         control={form.control}
-                        name="workEmail"
+                        name="workMail"
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Work Email</FormLabel>
