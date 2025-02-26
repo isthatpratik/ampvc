@@ -8,7 +8,7 @@ const services = [
 
 export default function ServicesGrid({ setSelectedService }) {
   return (
-    <div className="lg:px-10 px-5 grid gap-2 lg:grid-cols-3">
+    <div className="lg:px-10 px-5 grid gap-2 md:grid-cols-3 lg:grid-cols-3">
       {services.map((service) => (
         <button key={service.title} onClick={() => setSelectedService(service)} className="flex h-full w-full">
           <ServiceCard {...service} />

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { FeaturesSection3 } from "./features-section-03";
 
 export default function ScalingFuel({ onBack }) {
   return (
@@ -130,6 +131,7 @@ export default function ScalingFuel({ onBack }) {
           <div className="col-span-1 bg-[url('/images/services/pattern.svg')] bg-cover bg-center bg-no-repeat border-t border-l border-b border-[#AFB6B4]" />
         </div>
       </div>
+      <FeaturesSection3 />
     </motion.div>
   );
 }

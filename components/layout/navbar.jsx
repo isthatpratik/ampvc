@@ -93,11 +93,11 @@ export default function Navbar({
             </Button>
           </DialogTrigger>
 
-          <DialogContent className="p-6 fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] h-min bg-white shadow-lg rounded-md border-r border-gray-200">
+          <DialogContent className="p-6 fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] max-h-fit bg-white shadow-lg rounded-md border-r border-gray-200">
             <div className="relative pt-4">
               <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-8">
                 {/* Startups Column */}
-                <div className="grid space-y-6 hover:bg-[#F7F8F8] transition-all duration-300 p-4">
+                <div className="grid space-y-6 transition-all duration-300 p-4">
                   <h3 className="text-body-2 font-semibold">Startups</h3>
                   <div className="space-y-6">
                     <MenuItem
@@ -123,7 +123,7 @@ export default function Navbar({
                 </div>
 
                 {/* Investors Column */}
-                <div className="grid space-y-6 p-4 hover:bg-[#F7F8F8] transition-all duration-300">
+                <div className="grid space-y-6 p-4 transition-all duration-300">
                   <h3 className="text-body-2 font-semibold">Investors</h3>
                   <div className="space-y-6">
                     <MenuItem
@@ -151,7 +151,7 @@ export default function Navbar({
                 </div>
 
                 {/* Company Column */}
-                <div className="flex flex-col p-4 gap-6 hover:bg-[#F7F8F8] transition-all duration-300">
+                <div className="flex flex-col p-4 gap-6 bg-[#F7F8F8] rounded-sm transition-all duration-300">
                   <h3 className="text-body-2 font-semibold">Company</h3>
                   <div className="space-y-6">
                     <MenuItem

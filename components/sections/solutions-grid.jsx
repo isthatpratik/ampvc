@@ -4,19 +4,16 @@ const solutions = [
   {
     title: "Exit Strategy",
     subtitle: "Portfolio Exit",
-    href: "",
     icon: "/images/icons/exit-strategy.svg",
   },
   {
     title: "Portfolio Pulse",
     subtitle: "Monitoring & Reporting",
-    href: "",
     icon: "/images/icons/portfolio-pulse.svg",
   },
   {
     title: "Liquidity Move",
     subtitle: "Secondary Buyouts",
-    href: "",
     icon: "/images/icons/liquidity-move.svg",
   },
 ];
@@ -34,7 +31,7 @@ export default function SolutionsGrid({ setSelectedSolution }) {
         Empowering founders to scale faster, smarter, and stronger—because their growth drives your returns.
       </p>
 
-      <div className="grid lg:grid-cols-3 gap-2 justify-between items-center w-full h-full">
+      <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-2 justify-between items-center w-full h-full">
         {solutions.map((solution) => (
           <button key={solution.title} onClick={() => setSelectedSolution(solution)} className="w-full">
             <CircularCard {...solution} />

@@ -5,21 +5,19 @@ import { ArrowRight } from "lucide-react";
 interface ServiceCardProps {
   title: string;
   subtitle: string;
-  href: string;
   icon: string;
 }
 
 export function CircularCard({
   title,
   subtitle,
-  href,
   icon,
 }: ServiceCardProps) {
   return (
-    <Link href={href} className="h-full w-full">
-      <div className="w-full h-full lg:gap-4 py-6 px-4 lg:p-6 group relative flex lg:flex-col flex-grow items-center justify-start lg:rounded-full border-[1px] bg-transparent border-[#D5DEDE] transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
+    <div className="flex flex-1 aspect-square items-center justify-center">
+      <div className="w-full h-full lg:gap-4 py-6 px-4 lg:p-6 group relative flex lg:flex-col flex-grow items-center justify-center lg:rounded-full border-[1px] bg-transparent border-[#D5DEDE] transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
         {/* SVG Image */}
-        <div className="flex h-15 w-15 items-center justify-center">
+        <div className="flex lg:h-15 lg:w-15 md:w-10 md:h-10 w-15 h-15 items-center justify-center">
           <Image
             src={icon}
             alt={title}
@@ -43,6 +41,6 @@ export function CircularCard({
           <ArrowRight className="w-4 h-4 group-hover:text-white transition-all duration-300 ease-in-out" />
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { FeaturesSection2 } from "./features-section-02";
 
 export default function BreakthroughExit({ onBack }) {
   return (
@@ -144,6 +145,7 @@ export default function BreakthroughExit({ onBack }) {
           <div className="col-span-1 bg-[url('/images/services/pattern.svg')] bg-cover bg-center bg-no-repeat border-t border-l border-b border-[#AFB6B4]" />
         </div>
       </div>
+      <FeaturesSection2 />
     </motion.div>
   );
 }

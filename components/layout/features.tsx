@@ -1,72 +1,100 @@
-import React from "react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface FeatureProps {
   number: string;
   title: string;
   description: string;
   color: string;
-  borderColor: string;
   isActive: boolean;
   onClick: () => void;
-  imageUrl?: string;
+  imageUrl: string;
+  borderColor: string;
 }
+
+const titleColors: Record<string, string> = {
+  "01": "#9E2E71", 
+  "02": "#2F959D",
+  "03": "#2B5C4F", 
+  "04": "#CFC339", 
+};
 
 export function FeaturePanel({
   number,
   title,
   description,
   color,
-  borderColor,
   isActive,
   onClick,
   imageUrl,
+  borderColor,
 }: FeatureProps) {
+  const textColor = titleColors[number] || "#000"; 
   return (
     <div
       className={cn(
-        "relative overflow-hidden transition-all duration-500 ease-in-out cursor-pointer ${borderColor}",
-        isActive ? "w-full md:w-[60%]" : "w-16 md:w-24"
+        "relative overflow-hidden transition-all duration-500 ease-in-out cursor-pointer border-t-8",
+        isActive ? "w-full md:w-[65%]" : "w-20 md:w-32",
+        borderColor // Apply dynamic border color
       )}
       onClick={onClick}
-      style={{ borderTop: `2px solid ${borderColor}` }}
     >
-      <div
-        className={cn(
-          "h-full p-6 transition-colors",
-          isActive ? "bg-[#F7F8F8]" : color
-        )}
-      >
-        <div className="flex items-start gap-4">
-          <span
-            className={cn(
-              "text-4xl md:text-6xl font-bold",
-              isActive ? "opacity-100" : "opacity-70"
+      <div className={cn("h-full p-6 transition-colors", color)}>
+        <div className="flex flex-col items-start gap-4">
+          {/* Number & Title with Proper Spacing */}
+          <div className="flex items-center gap-4">
+            <span
+              className={cn(
+                "font-bold leading-none flex-shrink-0",
+                isActive ? "text-2xl md:text-4xl opacity-100" : "text-4xl md:text-6xl opacity-70"
+              )}
+              style={{ color: textColor }} 
+            >
+              {number}
+            </span>
+            {isActive && (
+              <h3 className="text-2xl md:text-3xl font-semibold leading-none mt-2 md:mt-4 mb-4 md:mb-8" style={{ color: textColor }}>{title}</h3>
+              
             )}
-          >
-            {number}
-          </span>
 
-          <div
-            className={cn(
-              "transition-opacity duration-300",
-              isActive ? "opacity-100" : "opacity-0"
-            )}
-          >
-            <h3 className="text-xl md:text-2xl font-semibold mb-4">{title}</h3>
-            <p className="text-sm md:text-base max-w-2xl">{description}</p>
           </div>
-        </div>
+          
 
-        <div className="absolute bottom-6 right-6 w-32 h-32">
-          <Image
-            src={imageUrl || "/placeholder.svg"}
-            alt=""
-            width={100}
-            height={100}
-            className="w-full h-full object-contain"
-          />
+          {/* Description & Image */}
+          <div className="grid grid-cols-12 gap-0">
+            
+            <div
+              className={cn(
+                "transition-opacity duration-300 col-span-7",
+                isActive ? "opacity-100" : "opacity-0"
+              )}
+            >
+               <p className="text-sm md:text-lg max-w-2xl">{description}</p>
+            </div>
+            
+            {/* Image Section */}
+            <div
+              className={cn(
+                "absolute transition-all duration-300",
+                isActive
+                  ? "bottom-6 right-2 col-span-4" // Active: Normal position
+                  : "bottom-0 left-1 transform -translate-x-2 scale-90" // Inactive: Bottom-centered & smaller
+              )}
+            >
+              <Image
+                src={imageUrl || "/placeholder.svg"}
+                alt=""
+                width={140}
+                height={140}
+                className={cn(
+                  "transition-all duration-300",
+                  isActive
+                    ? "w-60 h-60 object-contain grayscale-0 opacity-100" // Active: Full size
+                    : "w-48 h-48 translate-y-12 object-cover opacity-50" // Inactive: Smaller & blended
+                )}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
