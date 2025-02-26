@@ -15,7 +15,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 
 const personalEmailDomains = [
   "gmail.com",

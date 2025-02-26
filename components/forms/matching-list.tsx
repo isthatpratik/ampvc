@@ -101,9 +101,8 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
     >
       <DialogContent className="sm:max-w-[500px] w-full bg-white text-black shadow-xl p-11 z-50">
         {formSubmitted ? (
-          // ✅ Thank You Message
           <div className="bg-[url('/images/form/form-success-bg.png')] bg-cover bg-no-repeat bg-center p-16 text-center flex flex-col items-center gap-6">
-            <h2 className="text-h1">You're on the list!</h2>
+            <h2 className="text-h1">You&apos;re on the list!</h2>
             <p className="text-body-1 px-12 mx-auto">
               We’ll notify you as soon as the full list is available.
               Stay tuned for updates!

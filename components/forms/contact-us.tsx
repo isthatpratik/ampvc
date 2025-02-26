@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -31,7 +31,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { DialogDescription, DialogFooter } from "../ui/dropdown-menu";
+import { Textarea } from "../ui/textarea";
 
 const personalEmailDomains = [
   "gmail.com",
@@ -47,12 +47,12 @@ const personalEmailDomains = [
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
   workMail: z
-      .string()
-      .email("Invalid email address")
-      .refine((email) => {
-        const domain = email.split("@")[1];
-        return !personalEmailDomains.includes(domain);
-      }, "Personal email addresses are not allowed"),
+    .string()
+    .email("Invalid email address")
+    .refine((email) => {
+      const domain = email.split("@")[1];
+      return !personalEmailDomains.includes(domain);
+    }, "Personal email addresses are not allowed"),
   dialCode: z.string().min(1, "Please select a country code"),
   phone: z.string().min(10, "Phone number is required"),
   companyName: z.string().min(2, "Company name is required"),
@@ -74,12 +74,10 @@ const industryOptions = [
   "Technology",
   "Finance",
   "Healthcare",
-  "Education",
-  "Retail",
-  "Manufacturing",
+  "Ed-Tech",
   "Consulting",
-  "Energy",
-  "Real Estate",
+  "Green Tech",
+  "AI",
   "Other",
 ];
 
@@ -98,7 +96,6 @@ interface ContactUsProps {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
-
 
 export default function ContactUs({ open, setOpen }: ContactUsProps) {
   const [step, setStep] = React.useState(1);
@@ -126,8 +123,8 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-    setOpen(false);
-    setDialogOpen(true);
+    setOpen(false); 
+    setDialogOpen(true); 
   }
 
   useEffect(() => {
@@ -165,8 +162,51 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
     fetchCountryCodes();
   }, []);
 
+  const step1Values = useWatch({
+    control: form.control,
+    name: ["fullName", "workMail", "dialCode", "phone", "companyName"],
+  });
+
+  const step2Values = useWatch({
+    control: form.control,
+    name: ["role", "industry", "services"],
+  });
+
+  const step3Values = useWatch({
+    control: form.control,
+    name: ["source", "query"],
+  });
+
+  // Step validity states
+  const [isStep1Valid, setIsStep1Valid] = useState(false);
+  const [isStep2Valid, setIsStep2Valid] = useState(false);
+  const [isStep3Valid, setIsStep3Valid] = useState(false);
+
+  // Check validation for each step
+  useEffect(() => {
+    setIsStep1Valid(
+      step1Values.every((field) => field !== "" && field !== undefined) &&
+        form.formState.errors.fullName === undefined &&
+        form.formState.errors.workMail === undefined &&
+        form.formState.errors.phone === undefined &&
+        form.formState.errors.companyName === undefined
+    );
+
+    setIsStep2Valid(
+      step2Values.every((field) => field !== "" && field !== undefined) &&
+        form.formState.errors.role === undefined &&
+        form.formState.errors.industry === undefined &&
+        form.formState.errors.services === undefined
+    );
+
+    setIsStep3Valid(
+      step3Values.every((field) => field !== "" && field !== undefined) &&
+        form.formState.errors.source === undefined &&
+        form.formState.errors.query === undefined
+    );
+  }, [step1Values, step2Values, step3Values, form.formState.errors]);
+
   return (
-    <>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="mx-auto max-w-4xl px-14 py-14 min-h-[450px]">
           <DialogHeader>
@@ -219,7 +259,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-6 py-6 col-span-2 flex flex-col justify-between h-full w-[60%] mr-auto text-body-1"
+                className="space-y-6 py-6 col-span-2 flex flex-col justify-between h-full w-[60%] mr-auto"
               >
                 {step === 1 && (
                   <div className="space-y-4">
@@ -229,11 +269,11 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                         name="fullName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Full Name</FormLabel>
+                            <FormLabel className="lg:text-body-1">Full Name</FormLabel>
                             <FormControl>
                               <Input
                                 placeholder="John Doe"
-                                className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                                className="focus-visible:outline-none lg:text-body-1 focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                                 {...field}
                               />
                             </FormControl>
@@ -246,11 +286,11 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                         name="workMail"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Work Email</FormLabel>
+                            <FormLabel className="lg:text-body-1">Work Email</FormLabel>
                             <FormControl>
                               <Input
                                 placeholder="you@companymail.com"
-                                className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                                className="focus-visible:outline-none lg:text-body-1 focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                                 {...field}
                               />
                             </FormControl>
@@ -263,7 +303,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                         name="phone"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-body-1 text-[#181A1A]">
+                            <FormLabel className="lg:text-body-1 text-[#181A1A]">
                               Phone
                             </FormLabel>
                             <div className="flex items-center">
@@ -276,8 +316,8 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                                     onValueChange={field.onChange}
                                     defaultValue={field.value}
                                   >
-                                    <SelectTrigger className="w-fit placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
-                                      <SelectValue placeholder="IN" />
+                                    <SelectTrigger className="w-fit lg:text-body-1 placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
+                                      <SelectValue placeholder="+91" />
                                     </SelectTrigger>
                                     <SelectContent className="rounded-none shadow-none">
                                       {countryCodes.map(
@@ -302,7 +342,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                                   type="tel"
                                   placeholder="0123456789"
                                   {...field}
-                                  className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                                  className="placeholder-[#AFB6B4] lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                                 />
                               </FormControl>
                             </div>
@@ -315,11 +355,11 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                         name="companyName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Company Name</FormLabel>
+                            <FormLabel className="lg:text-body-1">Company Name</FormLabel>
                             <FormControl>
                               <Input
                                 placeholder="Ampersand"
-                                className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                                className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                                 {...field}
                               />
                             </FormControl>
@@ -331,8 +371,8 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                     <div className="flex justify-end">
                       <Button
                         type="button"
-                        onClick={() => setStep(2)}
-                        className=" mt-4 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
+                        disabled={!isStep1Valid} onClick={() => setStep(2)}
+                        className="text-body-1 mt-4 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
                       >
                         Next <ArrowRight />
                       </Button>
@@ -347,11 +387,11 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                       name="role"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Role</FormLabel>
+                          <FormLabel className="lg:text-body-1">Role</FormLabel>
                           <FormControl>
                             <Input
                               placeholder="Manager"
-                              className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                              className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                               {...field}
                             />
                           </FormControl>
@@ -364,14 +404,22 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                       name="industry"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Industry</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Email@example.com"
-                              className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
-                              {...field}
-                            />
-                          </FormControl>
+                          <FormLabel className="lg:text-body-1">Industry</FormLabel>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <SelectTrigger className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
+                              <SelectValue placeholder="Select your industry" className="lg:text-body-1"/>
+                            </SelectTrigger>
+                            <SelectContent>
+                              {industryOptions.map((industry) => (
+                                <SelectItem key={industry} value={industry}>
+                                  {industry}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -381,7 +429,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                       name="services"
                       render={() => (
                         <FormItem>
-                          <FormLabel>
+                          <FormLabel className="lg:text-body-1">
                             What Services Are You Interested In?
                           </FormLabel>
                           <div className="grid grid-cols-2 gap-4">
@@ -391,7 +439,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                                 control={form.control}
                                 name="services"
                                 render={({ field }) => (
-                                  <FormItem className="flex items-center space-x-3">
+                                  <FormItem className="lg:text-body-1 flex items-center space-x-2">
                                     <FormControl>
                                       <Checkbox
                                         className="border-[#6E6E6E] rounded-sm shadow-none"
@@ -413,7 +461,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                                         }}
                                       />
                                     </FormControl>
-                                    <FormLabel className="text-sm font-normal">
+                                    <FormLabel className="lg:text-body-1 font-normal">
                                       {service.label}
                                     </FormLabel>
                                   </FormItem>
@@ -427,7 +475,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                     />
                     <div className="flex justify-between">
                       <Button
-                        className="rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
+                        className="lg:text-body-1 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
                         type="button"
                         variant="outline"
                         onClick={() => setStep(1)}
@@ -436,8 +484,8 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                       </Button>
                       <Button
                         type="button"
-                        className="rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
-                        onClick={() => setStep(3)}
+                        className="lg:text-body-1 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
+                        disabled={!isStep2Valid} onClick={() => setStep(3)}
                       >
                         Next <ArrowRight />
                       </Button>
@@ -452,28 +500,37 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                       name="source"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>How Did You Here About Us?</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Eg. LinkedIn, Google, etc."
-                              className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
-                              {...field}
-                            />
-                          </FormControl>
+                          <FormLabel className="lg:text-body-1">How did you hear about us?</FormLabel>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <SelectTrigger className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
+                              <SelectValue placeholder="Select a source" className="lg:text-body-1" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {sourceOptions.map((source) => (
+                                <SelectItem key={source} value={source}>
+                                  {source}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
+
                     <FormField
                       control={form.control}
                       name="query"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Your Query</FormLabel>
+                          <FormLabel className="lg:text-body-1">Your Query</FormLabel>
                           <FormControl>
-                            <Input
-                              placeholder="Email@example.com"
-                              className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                            <Textarea
+                              placeholder="Tell us about your project, specific requirements, challenges, or any other details we should know before getting started."
+                              className="lg:text-body-1 placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 resize-none min-h-[80px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                               {...field}
                             />
                           </FormControl>
@@ -486,10 +543,11 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                         type="button"
                         variant="outline"
                         onClick={() => setStep(2)}
+                        className="lg:text-body-1 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
                       >
                         Back
                       </Button>
-                      <Button type="submit">Submit</Button>
+                      <Button disabled={!isStep3Valid} type="submit" className="lg:text-body-1 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit">Submit</Button>
                     </div>
                   </div>
                 )}
@@ -498,24 +556,5 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
           </div>
         </DialogContent>
       </Dialog>
-      <Dialog open={isDialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="border-none max-w-screen-md bg-[url('/images/form/form-success-bg.png')] bg-cover bg-no-repeat bg-center">
-          <DialogHeader>
-            <div className="p-16 flex flex-col gap-6">
-              <DialogTitle className="text-center text-h1">
-                Thank you!
-              </DialogTitle>
-              <DialogDescription className="text-center text-body-1 px-16 mx-auto">
-                We’ve received your message and appreciate you reaching out. Our
-                team will review it and get back to you shortly.
-              </DialogDescription>
-            </div>
-          </DialogHeader>
-          <DialogFooter className="py-24">
-            {/* <Button onClick={() => setDialogOpen(false)} className="px-6 py-2">Close</Button> */}
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </>
   );
 }

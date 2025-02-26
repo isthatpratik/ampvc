@@ -87,7 +87,7 @@ export default function ContactSection({
   const [countryCodes, setCountryCodes] = useState<
     { code: string; dialCode: string }[]
   >([]);
-  const sourceOptions = ["LinkedIn", "Google", "Twitter", "From a friend", "Other"];
+  const sourceOptions = ["LinkedIn", "Google", "Twitter", "Instagram", "YouTube", "From a friend", "Other"];
 
   useEffect(() => {
     const fetchCountryCodes = async () => {
@@ -221,14 +221,14 @@ export default function ContactSection({
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-body-1 text-[#181A1A]">
+                    <FormLabel className="lg:text-body-1 text-[#181A1A]">
                       Your Name
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="John Doe"
                         {...field}
-                        className="focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                        className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                       />
                     </FormControl>
                     <FormMessage />
@@ -242,7 +242,7 @@ export default function ContactSection({
               name="mail"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1 text-[#181A1A]">
+                  <FormLabel className="lg:text-body-1 text-[#181A1A]">
                     Work Mail
                   </FormLabel>
                   <FormControl>
@@ -250,7 +250,7 @@ export default function ContactSection({
                       type="email"
                       placeholder="you@companymail.com"
                       {...field}
-                      className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="lg:text-body-1 placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />
@@ -263,7 +263,7 @@ export default function ContactSection({
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1 text-[#181A1A]">
+                  <FormLabel className="lg:text-body-1 text-[#181A1A]">
                     Phone
                   </FormLabel>
                   <div className="flex items-center">
@@ -277,10 +277,10 @@ export default function ContactSection({
                           defaultValue={field.value}
                           
                         >
-                          <SelectTrigger className="w-fit placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
-                            <SelectValue placeholder="IN" />
+                          <SelectTrigger className="lg:text-body-1 w-fit placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
+                            <SelectValue placeholder="+91" />
                           </SelectTrigger>
-                          <SelectContent className="rounded-none shadow-none">
+                          <SelectContent className="lg:text-body-1 rounded-none shadow-none">
                             {countryCodes.map(({ code, dialCode }) => (
                               <SelectItem
                                 key={`${code}-${dialCode}`}
@@ -301,7 +301,7 @@ export default function ContactSection({
                         type="tel"
                         placeholder="0123456789"
                         {...field}
-                        className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                        className="lg:text-body-1 placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                       />
                     </FormControl>
                   </div>
@@ -316,7 +316,7 @@ export default function ContactSection({
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel className="text-body-1 text-[#181A1A]">
+                    <FormLabel className="lg:text-body-1 text-[#181A1A]">
                       How did you hear about us?
                     </FormLabel>
                     <FormControl>
@@ -327,10 +327,10 @@ export default function ContactSection({
                         }}
                         value={customSource}
                       >
-                        <SelectTrigger className="border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0 focus-visible:outline-none focus-visible:ring-0">
+                        <SelectTrigger className="lg:text-body-1 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0 focus-visible:outline-none focus-visible:ring-0">
                           <SelectValue placeholder="Select an option" />
                         </SelectTrigger>
-                        <SelectContent className="rounded-none shadow-none">
+                        <SelectContent className="lg:text-body-1 rounded-none shadow-none">
                           {sourceOptions.map((option) => (
                             <SelectItem key={option} value={option} className="rounded-none">
                               {option}
@@ -351,14 +351,14 @@ export default function ContactSection({
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-body-1 text-[#181A1A]">
+                  <FormLabel className="lg:text-body-1 text-[#181A1A]">
                     Your Query
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Tell us about your project, specific requirements, challenges, or any other details we should know before getting started."
                       {...field}
-                      className="placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 resize-none min-h-[80px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                      className="lg:text-body-1 placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 resize-none min-h-[90px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                     />
                   </FormControl>
                   <FormMessage />
@@ -369,7 +369,7 @@ export default function ContactSection({
             <div className="self-center py-6">
               <Button
                 type="submit"
-                className="py-4 shadow-none hover:border-black transition-all duration-300 bg-transparent border border-[#AFB6B4] w-fit rounded-full text-black hover:bg-transparent"
+                className="lg:text-body-1 p-6 shadow-none hover:border-black transition-all duration-300 bg-transparent border border-[#AFB6B4] w-fit rounded-full text-black hover:bg-transparent"
               >
                 Submit <ArrowRight className="w-4 h-4" />
               </Button>
