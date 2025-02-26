@@ -3,17 +3,17 @@ import { CircularCard } from "../ui/circular-grid";
 const solutions = [
   {
     title: "Exit Strategy",
-    subtitle: "Portfolio Exit",
+    subtitle: "[ Portfolio Exit ]",
     icon: "/images/icons/exit-strategy.svg",
   },
   {
     title: "Portfolio Pulse",
-    subtitle: "Monitoring & Reporting",
+    subtitle: "[ Monitoring & Reporting ]",
     icon: "/images/icons/portfolio-pulse.svg",
   },
   {
     title: "Liquidity Move",
-    subtitle: "Secondary Buyouts",
+    subtitle: "[ Secondary Buyouts ]",
     icon: "/images/icons/liquidity-move.svg",
   },
 ];

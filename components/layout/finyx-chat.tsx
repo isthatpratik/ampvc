@@ -188,8 +188,8 @@ export default function FinyxChat() {
         />
         <div className="w-[1px] h-full my-2 bg-[#DCDCDC]" />
           <Textarea
-            className="resize-none w-full min-h-8 h-8 border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
-            placeholder="Type your prompt here"
+            className="placeholder:truncate resize-none w-full min-h-8 h-8 border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
+            placeholder="XYZ company looking to raise $20 million for AI-powered CRM"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}

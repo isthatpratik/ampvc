@@ -3,8 +3,11 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
+import { useState } from "react";
 
 export default function ExitStrategy({ onBack }) {
+  const [openContactForm, setOpenContactForm] = useState(false);
+
   return (
     <motion.div className="pb-14 pt-6 px-10 mx-auto"
     initial={{ opacity: 0, y: 30 }}

@@ -92,6 +92,25 @@ const sourceOptions = [
   "Other",
 ];
 
+const roles = [
+  "CEO",
+  "Founder",
+  "Co-Founder",
+  "CMO (Chief Marketing Officer)",
+  "CFO (Chief Financial Officer)",
+  "CTO (Chief Technology Officer)",
+  "COO (Chief Operating Officer)",
+  "Startup Advisor",
+  "Venture Capitalist",
+  "Angel Investor",
+  "Private Equity Investor",
+  "Institutional Investor",
+  "LP (Limited Partner)",
+  "Investment Analyst",
+  "Family Office Representative",
+  "Others",
+];
+
 interface ContactUsProps {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -121,11 +140,33 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    setOpen(false); 
-    setDialogOpen(true); 
+  type FormData = z.infer<typeof formSchema>;
+
+  async function onSubmit(data: FormData) {
+    console.log(data);
+  
+    // Send form data to the API
+    try {
+      const response = await fetch("/api/contact-us", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to send email");
+      }
+  
+      console.log("Email sent successfully");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  
+    setIsSubmitted(true); 
   }
+  
 
   useEffect(() => {
     const fetchCountryCodes = async () => {
@@ -206,355 +247,411 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
     );
   }, [step1Values, step2Values, step3Values, form.formState.errors]);
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   return (
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="mx-auto max-w-4xl px-14 py-14 min-h-[450px]">
-          <DialogHeader>
-            <DialogTitle className="text-h3 px-12">
-              Ready to Disrupt the Ordinary?
-              <br />
-              Let&apos;s Create Something Extraordinary!
-            </DialogTitle>
-          </DialogHeader>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent className="max-w-4xl rounded-sm w-full p-0 border-none min-h-[35vh] bg-white text-black z-50">
+        {isSubmitted ? (
+          <div className="bg-[url('/images/form/contact-us-success.jpg')] min-h-[60vh] bg-cover bg-no-repeat bg-center p-16 text-center flex flex-col items-center gap-6">
+            <h2 className="text-h1">Thank You!</h2>
+            <p className="text-body-1 px-12 mx-auto max-w-md">
+            Your form has been submitted successfully. 
+            We’ll get back to you shortly!
+            </p>
+            <Button className="p-8 rounded-full" onClick={() => setOpen(false)}>
+              Go Back
+            </Button>
+          </div>
+        ) : (
+          <>
+            <DialogHeader>
+              <DialogTitle className="text-h3 px-12">
+                Ready to Disrupt the Ordinary?
+                <br />
+                Let&apos;s Create Something Extraordinary!
+              </DialogTitle>
+            </DialogHeader>
 
-          <div className="grid grid-cols-3 gap-6">
-            <div className="relative cols-span-1 flex justify-start pl-14 pt-2">
-              <div className="relative flex flex-col justify-between h-[90%] items-center">
-                {/* Background line */}
-                <div className="absolute h-full w-[6px] bg-gray-200 rounded-full z-0" />
+            <div className="grid grid-cols-3 gap-6">
+              <div className="relative cols-span-1 flex justify-start pl-14 pt-2">
+                <div className="relative flex flex-col justify-between h-[90%] items-center">
+                  {/* Background line */}
+                  <div className="absolute h-full w-[6px] bg-gray-200 rounded-full z-0" />
 
-                {/* Progress line */}
-                <div
-                  className="absolute w-[6px] bg-gray-200 rounded-full z-10 transition-all duration-300 ease-in-out"
-                  style={{
-                    height: `${(step - 1) * 50}%`,
-                    background:
-                      step === 1
-                        ? "#9BDCE1"
-                        : step === 2
-                        ? "linear-gradient(to bottom, #9BDCE1, #FFADDF)"
-                        : "linear-gradient(to bottom, #9BDCE1, #FFADDF, #2B5C4F)",
-                  }}
-                />
+                  {/* Progress line */}
+                  <div
+                    className="absolute w-[6px] bg-gray-200 rounded-full z-10 transition-all duration-300 ease-in-out"
+                    style={{
+                      height: `${(step - 1) * 50}%`,
+                      background:
+                        step === 1
+                          ? "#9BDCE1"
+                          : step === 2
+                          ? "linear-gradient(to bottom, #9BDCE1, #FFADDF)"
+                          : "linear-gradient(to bottom, #9BDCE1, #FFADDF, #2B5C4F)",
+                    }}
+                  />
 
-                {/* Steps */}
-                {[1, 2, 3].map((i) => {
-                  const stepColors = ["#9BDCE1", "#FFADDF", "#2B5C4F"]; // Colors for each step
-                  return (
-                    <div
-                      key={i}
-                      className="relative z-20 h-6 w-6 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out"
-                      style={{
-                        backgroundColor:
-                          i <= step ? stepColors[i - 1] : "#D1D5DB", // Gray for inactive steps
-                      }}
-                    >
-                      <div className="h-2 w-2 bg-white rounded-full" />
-                    </div>
-                  );
-                })}
+                  {/* Steps */}
+                  {[1, 2, 3].map((i) => {
+                    const stepColors = ["#9BDCE1", "#FFADDF", "#2B5C4F"]; // Colors for each step
+                    return (
+                      <div
+                        key={i}
+                        className="relative z-20 h-6 w-6 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out"
+                        style={{
+                          backgroundColor:
+                            i <= step ? stepColors[i - 1] : "#D1D5DB", // Gray for inactive steps
+                        }}
+                      >
+                        <div className="h-2 w-2 bg-white rounded-full" />
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
 
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-6 py-6 col-span-2 flex flex-col justify-between h-full w-[60%] mr-auto"
-              >
-                {step === 1 && (
-                  <div className="space-y-4">
-                    <div className="grid gap-4">
-                      <FormField
-                        control={form.control}
-                        name="fullName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="lg:text-body-1">Full Name</FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="John Doe"
-                                className="focus-visible:outline-none lg:text-body-1 focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="workMail"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="lg:text-body-1">Work Email</FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="you@companymail.com"
-                                className="focus-visible:outline-none lg:text-body-1 focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="lg:text-body-1 text-[#181A1A]">
-                              Phone
-                            </FormLabel>
-                            <div className="flex items-center">
-                              {/* Country Code Selector */}
-                              <FormField
-                                control={form.control}
-                                name="dialCode"
-                                render={({ field }) => (
-                                  <Select
-                                    onValueChange={field.onChange}
-                                    defaultValue={field.value}
-                                  >
-                                    <SelectTrigger className="w-fit lg:text-body-1 placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
-                                      <SelectValue placeholder="+91" />
-                                    </SelectTrigger>
-                                    <SelectContent className="rounded-none shadow-none">
-                                      {countryCodes.map(
-                                        ({ code, dialCode }) => (
-                                          <SelectItem
-                                            key={`${code}-${dialCode}`}
-                                            value={dialCode}
-                                            className="rounded-none"
-                                          >
-                                            {code} ({dialCode})
-                                          </SelectItem>
-                                        )
-                                      )}
-                                    </SelectContent>
-                                  </Select>
-                                )}
-                              />
-
-                              {/* Phone Number Input */}
+              <Form {...form}>
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="py-6 col-span-2 flex flex-col h-full justify-between min-h-[35vh] w-[60%] mr-auto"
+                >
+                  {step === 1 && (
+                    <div className="flex flex-col space-y-4 h-full">
+                      <div className="grid gap-4">
+                        <FormField
+                          control={form.control}
+                          name="fullName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="lg:text-body-1">
+                                Full Name
+                              </FormLabel>
                               <FormControl>
                                 <Input
-                                  type="tel"
-                                  placeholder="0123456789"
+                                  placeholder="John Doe"
+                                  className="focus-visible:outline-none lg:text-body-1 focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                                   {...field}
-                                  className="placeholder-[#AFB6B4] lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                                 />
                               </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="workMail"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="lg:text-body-1">
+                                Work Email
+                              </FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder="you@companymail.com"
+                                  className="focus-visible:outline-none lg:text-body-1 focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="lg:text-body-1 text-[#181A1A]">
+                                Phone
+                              </FormLabel>
+                              <div className="flex items-center">
+                                {/* Country Code Selector */}
+                                <FormField
+                                  control={form.control}
+                                  name="dialCode"
+                                  render={({ field }) => (
+                                    <Select
+                                      onValueChange={field.onChange}
+                                      defaultValue={field.value}
+                                    >
+                                      <SelectTrigger className="w-fit lg:text-body-1 placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
+                                        <SelectValue placeholder="+91" />
+                                      </SelectTrigger>
+                                      <SelectContent className="rounded-none shadow-none">
+                                        {countryCodes.map(
+                                          ({ code, dialCode }) => (
+                                            <SelectItem
+                                              key={`${code}-${dialCode}`}
+                                              value={dialCode}
+                                              className="rounded-none"
+                                            >
+                                              {code} ({dialCode})
+                                            </SelectItem>
+                                          )
+                                        )}
+                                      </SelectContent>
+                                    </Select>
+                                  )}
+                                />
+
+                                {/* Phone Number Input */}
+                                <FormControl>
+                                  <Input
+                                    type="tel"
+                                    placeholder="0123456789"
+                                    {...field}
+                                    className="placeholder-[#AFB6B4] lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                                  />
+                                </FormControl>
+                              </div>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="companyName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="lg:text-body-1">
+                                Company Name
+                              </FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder="Ampersand"
+                                  className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      <div className="flex justify-end">
+                        <Button
+                          type="button"
+                          disabled={!isStep1Valid}
+                          onClick={() => setStep(2)}
+                          className="text-body-1 mt-4 rounded-full border text-white bg-black shadow-none p-5 w-fit"
+                        >
+                          Next
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+
+                  {step === 2 && (
+                    <div className="flex flex-col space-y-4 h-full justify-between">
+                      <FormField
+                        control={form.control}
+                        name="role"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="lg:text-body-1">
+                              Role
+                            </FormLabel>
+                            <FormControl>
+                              <Select
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                              >
+                                <SelectTrigger className="lg:text-body-1 w-full border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0 text-left">
+                                  <SelectValue placeholder="Select Industry" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  {roles.map((role) => (
+                                    <SelectItem key={role} value={role}>
+                                      {role}
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="industry"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="lg:text-body-1">
+                              Industry
+                            </FormLabel>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
+                              <SelectTrigger className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
+                                <SelectValue
+                                  placeholder="Select your industry"
+                                  className="lg:text-body-1"
+                                />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {industryOptions.map((industry) => (
+                                  <SelectItem key={industry} value={industry}>
+                                    {industry}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="services"
+                        render={() => (
+                          <FormItem>
+                            <FormLabel className="lg:text-body-1">
+                              What Services Are You Interested In?
+                            </FormLabel>
+                            <div className="grid grid-cols-2 gap-4">
+                              {services.map((service) => (
+                                <FormField
+                                  key={service.id}
+                                  control={form.control}
+                                  name="services"
+                                  render={({ field }) => (
+                                    <FormItem className="lg:text-body-1 flex items-center space-x-2">
+                                      <FormControl>
+                                        <Checkbox
+                                          className="border-[#6E6E6E] rounded-sm shadow-none"
+                                          checked={field.value?.includes(
+                                            service.id
+                                          )}
+                                          onCheckedChange={(checked) => {
+                                            const value = field.value || [];
+                                            return checked
+                                              ? field.onChange([
+                                                  ...value,
+                                                  service.id,
+                                                ])
+                                              : field.onChange(
+                                                  value.filter(
+                                                    (v) => v !== service.id
+                                                  )
+                                                );
+                                          }}
+                                        />
+                                      </FormControl>
+                                      <FormLabel className="lg:text-body-1 text-nowrap font-normal">
+                                        {service.label}
+                                      </FormLabel>
+                                    </FormItem>
+                                  )}
+                                />
+                              ))}
                             </div>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
-                      <FormField
-                        control={form.control}
-                        name="companyName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="lg:text-body-1">Company Name</FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Ampersand"
-                                className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                      <div className="flex justify-between">
+                        <Button
+                          className="lg:text-body-1 rounded-full border border-black/40 text-black shadow-none p-5 w-fit"
+                          type="button"
+                          variant="outline"
+                          onClick={() => setStep(1)}
+                        >
+                          Back
+                        </Button>
+                        <Button
+                          type="button"
+                          className="lg:text-body-1 rounded-full border text-white border-black/40 shadow-none p-5 w-fit"
+                          disabled={!isStep2Valid}
+                          onClick={() => setStep(3)}
+                        >
+                          Next
+                        </Button>
+                      </div>
                     </div>
-                    <div className="flex justify-end">
-                      <Button
-                        type="button"
-                        disabled={!isStep1Valid} onClick={() => setStep(2)}
-                        className="text-body-1 mt-4 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
-                      >
-                        Next <ArrowRight />
-                      </Button>
-                    </div>
-                  </div>
-                )}
+                  )}
 
-                {step === 2 && (
-                  <div className="space-y-4">
-                    <FormField
-                      control={form.control}
-                      name="role"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="lg:text-body-1">Role</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Manager"
-                              className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="industry"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="lg:text-body-1">Industry</FormLabel>
-                          <Select
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                          >
-                            <SelectTrigger className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
-                              <SelectValue placeholder="Select your industry" className="lg:text-body-1"/>
-                            </SelectTrigger>
-                            <SelectContent>
-                              {industryOptions.map((industry) => (
-                                <SelectItem key={industry} value={industry}>
-                                  {industry}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="services"
-                      render={() => (
-                        <FormItem>
-                          <FormLabel className="lg:text-body-1">
-                            What Services Are You Interested In?
-                          </FormLabel>
-                          <div className="grid grid-cols-2 gap-4">
-                            {services.map((service) => (
-                              <FormField
-                                key={service.id}
-                                control={form.control}
-                                name="services"
-                                render={({ field }) => (
-                                  <FormItem className="lg:text-body-1 flex items-center space-x-2">
-                                    <FormControl>
-                                      <Checkbox
-                                        className="border-[#6E6E6E] rounded-sm shadow-none"
-                                        checked={field.value?.includes(
-                                          service.id
-                                        )}
-                                        onCheckedChange={(checked) => {
-                                          const value = field.value || [];
-                                          return checked
-                                            ? field.onChange([
-                                                ...value,
-                                                service.id,
-                                              ])
-                                            : field.onChange(
-                                                value.filter(
-                                                  (v) => v !== service.id
-                                                )
-                                              );
-                                        }}
-                                      />
-                                    </FormControl>
-                                    <FormLabel className="lg:text-body-1 font-normal">
-                                      {service.label}
-                                    </FormLabel>
-                                  </FormItem>
-                                )}
-                              />
-                            ))}
-                          </div>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <div className="flex justify-between">
-                      <Button
-                        className="lg:text-body-1 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
-                        type="button"
-                        variant="outline"
-                        onClick={() => setStep(1)}
-                      >
-                        Back <ArrowLeft />
-                      </Button>
-                      <Button
-                        type="button"
-                        className="lg:text-body-1 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
-                        disabled={!isStep2Valid} onClick={() => setStep(3)}
-                      >
-                        Next <ArrowRight />
-                      </Button>
-                    </div>
-                  </div>
-                )}
+                  {step === 3 && (
+                    <div className="flex flex-col space-y-4 h-full justify-between">
+                      <div className="space-y-4">
+                        <FormField
+                          control={form.control}
+                          name="source"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="lg:text-body-1">
+                                How did you hear about us?
+                              </FormLabel>
+                              <Select
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                              >
+                                <SelectTrigger className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
+                                  <SelectValue
+                                    placeholder="Select a source"
+                                    className="lg:text-body-1"
+                                  />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  {sourceOptions.map((source) => (
+                                    <SelectItem key={source} value={source}>
+                                      {source}
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                {step === 3 && (
-                  <div className="space-y-4">
-                    <FormField
-                      control={form.control}
-                      name="source"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="lg:text-body-1">How did you hear about us?</FormLabel>
-                          <Select
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                          >
-                            <SelectTrigger className="lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
-                              <SelectValue placeholder="Select a source" className="lg:text-body-1" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {sourceOptions.map((source) => (
-                                <SelectItem key={source} value={source}>
-                                  {source}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="query"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="lg:text-body-1">Your Query</FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder="Tell us about your project, specific requirements, challenges, or any other details we should know before getting started."
-                              className="lg:text-body-1 placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 resize-none min-h-[80px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <div className="flex justify-between">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={() => setStep(2)}
-                        className="lg:text-body-1 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit"
-                      >
-                        Back
-                      </Button>
-                      <Button disabled={!isStep3Valid} type="submit" className="lg:text-body-1 rounded-full border text-black bg-transparent shadow-none hover:bg-transparent w-fit">Submit</Button>
+                        <FormField
+                          control={form.control}
+                          name="query"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="lg:text-body-1">
+                                Ask Us
+                              </FormLabel>
+                              <FormControl>
+                                <Textarea
+                                  placeholder="Tell us about your project, specific requirements, challenges, or any other details we should know before getting started."
+                                  className="lg:text-body-1 placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 resize-none min-h-[80px] border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      <div className="flex justify-between">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={() => setStep(2)}
+                          className="lg:text-body-1 p-5 rounded-full border border-black/40 text-black bg-transparent shadow-none hover:bg-transparent w-fit"
+                        >
+                          Back
+                        </Button>
+                        <Button
+                          disabled={!isStep3Valid}
+                          className="lg:text-body-1 rounded-full text-white bg-black shadow-none p-5 w-fit"
+                        >
+                          Submit
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                )}
-              </form>
-            </Form>
-          </div>
-        </DialogContent>
-      </Dialog>
+                  )}
+                </form>
+              </Form>
+            </div>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
   );
 }

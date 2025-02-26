@@ -17,7 +17,6 @@ import {
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
-import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import {
   Dialog,
@@ -176,7 +175,7 @@ export default function ContactSection({
           stiffness: 100,
           damping: 25,
         }}
-        className="text-h6 font-semibold mb-4"
+        className="text-h5 font-semibold mb-4"
       >
         {selectedService
           ? selectedService.title
@@ -186,7 +185,7 @@ export default function ContactSection({
       </motion.h2>
 
       <motion.p
-        className="text-[#B6B6B6] text-body-3 2xl:mb-20 "
+        className="text-[#798682] text-body-1 2xl:mb-20 "
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
@@ -235,7 +234,7 @@ export default function ContactSection({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="lg:text-body-1 text-[#181A1A]">
-                      Your Name
+                      Full Name
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -365,7 +364,7 @@ export default function ContactSection({
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="lg:text-body-1 text-[#181A1A]">
-                    Your Query
+                    Ask Us
                   </FormLabel>
                   <FormControl>
                     <Textarea

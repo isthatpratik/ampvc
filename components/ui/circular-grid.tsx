@@ -17,7 +17,7 @@ export function CircularCard({
     <div className="flex flex-1 aspect-square items-center justify-center">
       <div className="w-full h-full lg:gap-4 py-6 px-4 lg:p-6 group relative flex lg:flex-col flex-grow items-center justify-center lg:rounded-full border-[1px] bg-transparent border-[#D5DEDE] transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
         {/* SVG Image */}
-        <div className="flex w-15 h-15 items-center justify-center">
+        <div className="flex w-16 h-16 items-center justify-center">
           <Image
             src={icon}
             alt={title}

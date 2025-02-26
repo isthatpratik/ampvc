@@ -37,29 +37,35 @@ export default function Navbar({
   setSelectedService,
   setSelectedSolution,
   setSelectedAboutUs,
-  setSelectedContactUs,
 }) {
   const [open, setOpen] = useState(false);
   const [openContactForm, setOpenContactForm] = useState(false);
   const [openPreRegisterForm, setOpenPreRegisterForm] = useState(false);
 
   // Function to handle menu clicks
-  const handleSelection = (type, title) => {
+  const handleSelection = (type, title, subtitle) => {
     if (type === "service") {
-      setSelectedService({ title });
+      setSelectedService({ title, subtitle });
       setSelectedSolution(null);
     } else if (type === "solution") {
-      setSelectedSolution({ title });
+      setSelectedSolution({ title, subtitle });
       setSelectedService(null);
     }
     setOpen(false);
+  };
+
+  const resetSite = () => {
+    setSelectedService(null);
+    setSelectedSolution(null);
+    setSelectedAboutUs(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <>
       <nav className="top-0 z-50 lg:px-10 px-5 flex w-full items-center bg-transparent justify-between">
         <div>
-          <Link href={"/"}>
+          <Link href={"/"} onClick={resetSite}>
             <Image
               src={"/images/logo/ampvc-logo.png"}
               alt="AMPVC logo"
@@ -93,9 +99,9 @@ export default function Navbar({
             </Button>
           </DialogTrigger>
 
-          <DialogContent className="p-6 fixed left-[1vw] top-[5vh] lg:w-[48vw] w-[95vw] max-h-fit bg-white shadow-lg rounded-md border-r border-gray-200">
+          <DialogContent className="p-6 fixed lg:left-[3vw] overflow-y-auto 2xl:max-w-[35vw] 2xl:left-[8vw] top-[5vh] lg:max-w-[45vw] max-w-[90vw] max-h-fit bg-white shadow-lg rounded-md border-r border-gray-200">
             <div className="relative pt-4">
-              <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-8">
+              <div className="grid xl:grid-cols-3 grid-cols-1 xl:gap-8 gap-4 ">
                 {/* Startups Column */}
                 <div className="grid space-y-6 transition-all duration-300 p-4">
                   <h3 className="text-body-2 font-semibold">Startups</h3>
@@ -104,20 +110,20 @@ export default function Navbar({
                       icon="/images/icons/vision-crafting.svg"
                       text="Vision Crafting"
                       onClick={() =>
-                        handleSelection("service", "Vision Crafting")
+                        handleSelection("service", "Vision Crafting", "Strategic Advisory")
                       }
                     />
                     <MenuItem
                       icon="/images/icons/exit.svg"
                       text="Exit Breakthrough"
                       onClick={() =>
-                        handleSelection("service", "Breakthrough to Exit")
+                        handleSelection("service", "Exit Breakthrough", "Fast Exit")
                       }
                     />
                     <MenuItem
                       icon="/images/icons/scaling.svg"
                       text="Scaling Fuel"
-                      onClick={() => handleSelection("service", "Scaling Fuel")}
+                      onClick={() => handleSelection("service", "Scaling Fuel", "Growth Capital")}
                     />
                   </div>
                 </div>
@@ -130,21 +136,21 @@ export default function Navbar({
                       icon="/images/icons/exit-strategy.svg"
                       text="Exit Strategy"
                       onClick={() =>
-                        handleSelection("solution", "Exit Strategy")
+                        handleSelection("solution", "Exit Strategy", "Portfolio Exit")
                       }
                     />
                     <MenuItem
                       icon="/images/icons/portfolio-pulse.svg"
                       text="Portfolio Pulse"
                       onClick={() =>
-                        handleSelection("solution", "Portfolio Pulse")
+                        handleSelection("solution", "Portfolio Pulse", "Monitoring & Reporting")
                       }
                     />
                     <MenuItem
                       icon="/images/icons/liquidity-move.svg"
                       text="Liquidity Move"
                       onClick={() =>
-                        handleSelection("solution", "Liquidity Move")
+                        handleSelection("solution", "Liquidity Move", "Secondary Buyouts")
                       }
                     />
                   </div>

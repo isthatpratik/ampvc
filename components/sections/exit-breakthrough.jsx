@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { FeaturesSection2 } from "./features-section-02";
 
-export default function BreakthroughExit({ onBack }) {
+export default function ExitBreakthrough({ onBack }) {
   return (
     <motion.div
       className="pt-6 pb-14"

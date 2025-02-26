@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import ContactUs from "../forms/contact-us";
+import Preregister from "../forms/pre-register";
 
 interface FooterSection {
   title: string;
@@ -72,6 +73,7 @@ export default function Footer({
   const [hoveredLink, setHoveredLink] = React.useState<string | null>(null);
 
   const [openContactForm, setOpenContactForm] = React.useState(false);
+  const [openPreRegisterForm, setOpenPreRegisterForm] = React.useState(false);
 
   const handleLinkClick = (sectionTitle: string, linkText: string) => {
     if (linkText === "Responsible AI") {
@@ -94,6 +96,9 @@ export default function Footer({
       onResponsibleAISelect?.(false);
     } else if (linkText === "Contact Us") {
       setOpenContactForm(true);
+      return;
+    } else if (linkText === "Pre-register") {
+      setOpenPreRegisterForm(true);
       return;
     } else {
       onServiceSelect?.(null);
@@ -234,6 +239,7 @@ export default function Footer({
       </div>
     </motion.footer>
     {openContactForm && <ContactUs open={openContactForm} setOpen={setOpenContactForm} />}
+    {openPreRegisterForm && <Preregister open={openPreRegisterForm} setOpen={setOpenPreRegisterForm} />}
     </>
   );
 }

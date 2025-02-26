@@ -47,13 +47,12 @@ export default function RightSection() {
             </span>
           </h2>
         </div>
-        <div>
-        </div>
+        <div></div>
       </motion.div>
 
       {/* Image Animation */}
       <motion.div
-        className="relative flex-1 overflow-visible h-0 min-h-0 flex justify-start items-start"
+        className="relative flex-1 overflow-visible h-0 min-h-0 flex justify-start items-start aspect-[4/3]"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
@@ -72,7 +71,15 @@ export default function RightSection() {
           fill
           quality={100}
           priority
-          className="w-auto h-auto max-h-[50vh] object-contain px-[40px] py-[54px]"
+          className="w-full hidden 2xl:block h-full object-cover object-left py-10"
+        />
+        <Image
+          src="/images/fynar-dashboard-default.png"
+          alt="Platform Interface"
+          fill
+          quality={100}
+          priority
+          className="w-full h-full block 2xl:hidden object-contain py-10"
         />
       </motion.div>
 
@@ -90,21 +97,20 @@ export default function RightSection() {
           },
         }}
       >
-        <div className="grid border h-full border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
-          <h3>For Investors</h3>
-          <p className="text-[#807E7E] text-caption">
+        <div className="flex flex-col gap-2 border h-full border-[#E4E8E8]/10 p-5  rounded-sm text-body-3">
+          <h3 className="text-body-3 font-semibold">For Investors</h3>
+          <p className="text-[#807E7E] 2xl:text-body-3 xl:text-caption">
             Streamline deal flow with AI insights, evaluating investments and
             making smarter decisions in one platform.
           </p>
         </div>
-        <div>
-          <div className="grid border h-full border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
-            <h3>For Startups</h3>
-            <p className="text-[#807E7E] text-caption">
-              Track deals, generate reports, and monitor progress without the
-              complexity of traditional CRMs.
-            </p>
-          </div>
+
+        <div className="flex flex-col gap-2 border h-full border-[#E4E8E8]/10 p-5 rounded-sm text-body-3">
+          <h3 className="text-body-3 font-semibold">For Startups</h3>
+          <p className="text-[#807E7E] 2xl:text-body-3 xl:text-caption">
+            Track deals, generate reports, and monitor progress without the
+            complexity of traditional CRMs.
+          </p>
         </div>
       </motion.div>
 
@@ -129,7 +135,9 @@ export default function RightSection() {
         </p>
 
         <div className="flex gap-2">
-        <AnimatedButton onClick={() => setOpen(true)}>Pre-Register Now</AnimatedButton>
+          <AnimatedButton onClick={() => setOpen(true)}>
+            Pre-Register Now
+          </AnimatedButton>
         </div>
       </motion.div>
       <Preregister open={open} setOpen={setOpen} />

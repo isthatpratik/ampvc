@@ -11,9 +11,9 @@ interface ServiceCardProps {
 export function ServiceCard({ title, subtitle, icon }: ServiceCardProps) {
   return (
     <Link href={"/"} className="w-full h-full">
-      <div className="group h-full flex lg:flex-col items-center justify-between rounded-sm bg-transparent border-[#E4E8E8] border-[1px] py-6 px-4 lg:p-8 transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
+      <div className="group h-full flex lg:flex-col items-center justify-between rounded-sm bg-transparent border-[#D5DEDE] border-[1px] py-6 px-4 lg:p-8 transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
         {/* SVG Image */}
-        <div className="flex h-15 w-15 items-center justify-center aspect-square">
+        <div className="flex h-16 w-16 items-center justify-center aspect-square">
           <Image
             src={icon}
             alt={title}
