@@ -57,7 +57,7 @@ export default function Navbar({
 
   return (
     <>
-      <nav className="top-0 z-50 px-[40px] flex w-full items-center bg-transparent justify-between">
+      <nav className="top-0 z-50 lg:px-10 px-5 flex w-full items-center bg-transparent justify-between">
         <div>
           <Link href={"/"}>
             <Image

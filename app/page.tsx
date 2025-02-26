@@ -98,7 +98,7 @@ export default function Home() {
 
         {/* Right Section */}
         <div
-          className={`relative flex transition-all duration-500 ${
+          className={`relative hidden lg:flex transition-all duration-500 ${
             isMobile
               ? selectedService || selectedSolution || selectedAboutUs
                 ? "flex-[3]"

@@ -71,14 +71,14 @@ const services = [
 ];
 
 const industryOptions = [
-  "Technology",
-  "Finance",
-  "Healthcare",
-  "Ed-Tech",
+  "Saas",
+  "Fintech",
+  "Healthtech",
+  "Edtech",
+  "E-commerce",
+  "Artificial Intelligence",
   "Consulting",
-  "Green Tech",
-  "AI",
-  "Other",
+  "Others",
 ];
 
 const sourceOptions = [

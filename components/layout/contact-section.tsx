@@ -46,6 +46,13 @@ const personalEmailDomains = [
   "protonmail.com",
 ];
 
+const titles = [
+  "Ready to elevate your strategy and unleash infinite possibilities?",
+  "Ready to refine your strategy and unlock boundless opportunities?",
+  "Ready to sharpen your strategy and uncover hidden opportunities?",
+  "Excited to transform your strategy and discover transformative opportunities?",
+];
+
 const contactFormSchema = z.object({
   name: z.string().min(2, "First name must be at least 2 characters"),
   mail: z
@@ -122,6 +129,12 @@ export default function ContactSection({
     };
 
     fetchCountryCodes();
+  }, []);
+
+  const [randomTitle, setRandomTitle] = useState("");
+
+  useEffect(() => {
+    setRandomTitle(titles[Math.floor(Math.random() * titles.length)]);
   }, []);
 
   const onSubmit = async (data: ContactFormValues) => {
@@ -206,8 +219,8 @@ export default function ContactSection({
         }}
       >
         <div className="flex flex-col gap-8">
-          <h6 className="text-h6 text-balance">
-          Ready to sharpen your strategy and uncover hidden opportunities?
+        <h6 className="text-h6 text-balance">
+            {randomTitle}
           </h6>
         </div>
         <Form {...form}>

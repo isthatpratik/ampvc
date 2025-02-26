@@ -4,6 +4,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import { SendHorizonal } from "lucide-react";
+import { Textarea } from "../ui/textarea";
 
 export default function FinyxChat() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
@@ -78,7 +79,7 @@ export default function FinyxChat() {
   };
 
   return (
-    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-14 pb-14 px-10">
+    <div className="sticky top-0 flex h-screen w-full flex-col 2xl:bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-14 pb-14 px-10">
       <motion.h1
         className="text-h4 tracking-tight"
         initial={{ y: "50px", opacity: 0 }}
@@ -186,12 +187,13 @@ export default function FinyxChat() {
           className="mr-2 object-contain w-12 h-auto"
         />
         <div className="w-[1px] h-full my-2 bg-[#DCDCDC]" />
-          <Input
-            className="w-full h-auto border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
+          <Textarea
+            className="resize-none w-full min-h-8 h-8 border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
             placeholder="Type your prompt here"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+            
           />
           <Button onClick={sendMessage} disabled={loading}>
             <SendHorizonal size={16} className="text-white" />

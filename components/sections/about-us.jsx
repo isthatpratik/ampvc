@@ -22,18 +22,18 @@ export default function AboutUs({ onBack }) {
           <ArrowLeft className="" /> Back
         </Button>
         <div className="flex lg:mb-12">
-          <div className="w-fit grid space-y-2">
+          <div className="w-7/12 grid space-y-2">
             <h2 className="text-h3 text-balance">
               Redefining Possibilities, Empowering Growth
             </h2>
-            <h3 className="text-body-2 text-balance">
+            <h3 className="text-body-2 max-w-xl text-balance">
               At Ampersand, we bridge the gap between vision and execution. We
               empower startups and businesses with solutions, insights, and
               tools that drive growth and maximize impact. Our mission is to
               simplify complexity and create pathways to success.
             </h3>
           </div>
-          <div className="w-[80%] grid justify-center items-center bg-center bg-cover bg-[url('/images/about/about-grid.png')] bg-no-repeat">
+          <div className="w-5/12 h-full grid justify-center items-center bg-center bg-cover bg-[url('/images/about/about-grid.png')] bg-no-repeat">
             <Image
               src="/images/about/about-hero.svg"
               alt=""
@@ -41,7 +41,7 @@ export default function AboutUs({ onBack }) {
               height={200}
               priority
               quality={75}
-              className="object-contain w-auto max-h-[80%] items-center justify-center self-center"
+              className="object-contain w-auto h-full items-center justify-center self-center"
             />
           </div>
         </div>

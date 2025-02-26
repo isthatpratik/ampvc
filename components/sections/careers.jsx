@@ -18,7 +18,7 @@ export default function CareersSection() {
           damping: 25,
         }}
       >
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 border-b border-[#B9BFBE] pb-4">
           <h3 className="text-h3 text-balance">Join our Team</h3>
           <p className="text-body-1">
             At Ampersand, we are committed to driving business growth through
@@ -47,20 +47,20 @@ export default function CareersSection() {
           <div className="grid space-y-6">
             <div className="grid space-y-1 border-b-[1px] border-b-[#B9BFBE] pb-2">
               <h6 className="text-h6">Financial Analyst</h6>
-              <p className="text-body-3">
-                Analyzes financial data to support investments and strategy.
+              <p className="text-body-3 text-black/60">
+              Responsible for analyzing financial data, preparing reports, and providing insights to support business decisions and optimize financial performance.
               </p>
             </div>
             <div className="grid space-y-1 border-b-[1px] border-b-[#B9BFBE] pb-2">
-              <h6 className="text-h6">Financial Analyst</h6>
-              <p className="text-body-3">
-                Analyzes financial data to support investments and strategy.
+              <h6 className="text-h6">AI Development Intern</h6>
+              <p className="text-body-3 text-black/60">
+              Assist in developing and implementing AI models, conducting research, and supporting the development of machine learning algorithms.
               </p>
             </div>
             <div className="grid space-y-1 border-b-[1px] border-b-[#B9BFBE] pb-2">
-              <h6 className="text-h6">Financial Analyst</h6>
-              <p className="text-body-3">
-                Analyzes financial data to support investments and strategy.
+              <h6 className="text-h6">Legal Intern</h6>
+              <p className="text-body-3 text-black/60">
+              Assist with legal research, document preparation, and support attorneys in case management and compliance tasks.
               </p>
             </div>
           </div>

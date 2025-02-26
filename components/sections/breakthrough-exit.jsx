@@ -56,7 +56,7 @@ export default function BreakthroughExit({ onBack }) {
                 alt="partnership icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:px-8 aspect-[4/3]"
               />
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function BreakthroughExit({ onBack }) {
                 alt="partnership icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:px-8 aspect-[4/3]"
               />
             </div>
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-[#AFB6B4]">
@@ -109,7 +109,7 @@ export default function BreakthroughExit({ onBack }) {
                 alt="partnership icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:px-8 aspect-[4/3]"
               />
             </div>
           </div>
@@ -126,7 +126,7 @@ export default function BreakthroughExit({ onBack }) {
                 alt="partnership icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:px-8 aspect-[4/3]"
               />
             </div>
             <div className="w-3/5 bg-transparent py-24 px-10 border-t border-b border-[#AFB6B4]">

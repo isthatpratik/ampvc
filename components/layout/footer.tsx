@@ -118,7 +118,7 @@ export default function Footer({
       <div className="mb-8 flex">
         <h2 className="text-h6 font-normal leading-tight flex gap-6">
           <div className="h-full w-2 text-[#AFB6B4] rounded-sm bg-gradient-to-b from-[#FCEC3B] from-5% via-[#FFAFDF] via-30% to-[#99DBE0] to-50%" />
-          <div className="flex-wrap">
+          <div className="flex-wrap text-body-2 lg:text-h6 lg:font-medium">
             <span className=" text-white leading-tight">Ampersand</span> offers
             expert advisory services to well-funded startups, guiding them
             through critical growth stages. Leverage our expertise for
@@ -127,7 +127,7 @@ export default function Footer({
         </h2>
       </div>
       {/* Navigation Grid */}
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-12 grid-cols-2 lg:grid-cols-4">
         {footerData.map((section) => (
           <div
             key={section.title}
@@ -200,15 +200,15 @@ export default function Footer({
             className="w-full h-auto object-contain py-8"
           />
         </div>
-        <div className="flex flex-nowrap items-center justify-between gap-4">
-          <div className="flex font-light text-[#798682] text-caption gap-4 items-center">
+        <div className="flex flex-nowrap lg:flex-row flex-col items-center justify-between gap-4">
+          <div className="flex font-light text-[#798682] text-caption gap-4 items-center lg:justify-normal">
             <button
               onClick={() => onStaticPageSelect?.("terms-of-use")}
               className="hover:text-white"
             >
               Terms of Use
             </button>
-            <div className="h-[6px] w-[6px] bg-[#313534] rounded-full "></div>
+            <div className="hidden lg:block h-[6px] w-[6px] bg-[#313534] rounded-full "></div>
             <button
               onClick={() => onStaticPageSelect?.("privacy-policy")}
               className="hover:text-white"
@@ -221,7 +221,7 @@ export default function Footer({
             <span className="text-[#798682] font-light text-caption">
               All rights reserved. Ampersand
             </span>
-            <div className="h-[6px] w-[6px] bg-[#313534] rounded-full"></div>
+            <div className="hidden lg:block h-[6px] w-[6px] bg-[#313534] rounded-full"></div>
             <Image
               src="/images/logo/ampvc-footer.svg"
               alt="Ampersand Logo"

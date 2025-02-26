@@ -1,9 +1,13 @@
 import Image from "next/image";
 import AnimatedButtonTwo from "../ui/animated-button-2";
 
-export default function AIMatchingBanner() {
+interface AIMatchingBannerProps {
+  setShowFinyxChat: (value: boolean) => void;
+}
+
+export default function AIMatchingBanner({ setShowFinyxChat }: AIMatchingBannerProps) {
   return (
-    <div className="my-10 px-[40px] hidden">
+    <div className="mt-10 px-[40px] lg:block hidden md:hidden xl:block 2xl:hidden">
       <div className="relative flex items-center justify-between gap-6 rounded-sm p-8 text-white overflow-hidden bg-[#1D1D1D]">
         {/* Background Image */}
         <Image
@@ -23,7 +27,7 @@ export default function AIMatchingBanner() {
           </span>
         </h2>
 
-        <AnimatedButtonTwo>Launch Your Vision</AnimatedButtonTwo>
+        <AnimatedButtonTwo onClick={() => setShowFinyxChat(true)}>Launch Your Vision</AnimatedButtonTwo>
       </div>
     </div>
   );

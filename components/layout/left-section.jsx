@@ -13,7 +13,9 @@ import AboutUs from "../sections/about-us";
 import { useState } from "react";
 import TermsOfUse from "../sections/terms-of-use";
 import PrivacyPolicy from "../sections/privacy-policy";
-import ResponsibleAI from '../sections/responsible-ai';
+import ResponsibleAI from "../sections/responsible-ai";
+import PreRegisterMobile from "../ui/pre-register-mobile";
+import FinyxChat from "./finyx-chat";
 
 export default function LeftSection({
   selectedService,
@@ -25,10 +27,11 @@ export default function LeftSection({
 }) {
   const [selectedStaticPage, setSelectedStaticPage] = useState(null);
   const [selectedResponsibleAI, setSelectedResponsibleAI] = useState(false);
+  const [showFinyxChat, setShowFinyxChat] = useState(false);
 
   return (
     <div className="min-h-screen relative flex-1 bg-white flex flex-col">
-      <div className="flex-1 pt-14 overflow-y-auto">
+      <div className="flex-1 pt-8 lg:pt-14 overflow-y-auto">
         <div>
           <motion.div
             initial={{ y: "-50px", opacity: 0 }}
@@ -52,7 +55,9 @@ export default function LeftSection({
           </motion.div>
 
           {/* Conditional Rendering for Service or Solution Details */}
-          {selectedService ? (
+          {showFinyxChat ? (
+            <FinyxChat />
+          ) : selectedService ? (
             <motion.div
               initial={{ y: "50px", opacity: 0 }}
               animate={{
@@ -141,7 +146,16 @@ export default function LeftSection({
           ) : selectedResponsibleAI ? (
             <motion.div
               initial={{ y: "50px", opacity: 0 }}
-              animate={{ y: 0, opacity: 1, transition: { delay: 0.6, type: "spring", stiffness: 100, damping: 25 } }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
             >
               <ResponsibleAI onBack={() => setSelectedResponsibleAI(false)} />
             </motion.div>
@@ -192,7 +206,8 @@ export default function LeftSection({
                   },
                 }}
               >
-                <AIMatchingBanner />
+                <AIMatchingBanner setShowFinyxChat={setShowFinyxChat} /> 
+                <PreRegisterMobile />
               </motion.div>
 
               <motion.div
