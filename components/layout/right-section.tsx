@@ -11,7 +11,7 @@ export default function RightSection() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 flex h-screen w-full flex-col bg-[#181A1A] text-white overflow-hidden">
+    <div className="sticky top-0 flex h-screen justify-between w-full flex-col bg-[#181A1A] text-white overflow-hidden">
       {/* Logo Animation */}
       <motion.div
         className="px-10 pt-14"

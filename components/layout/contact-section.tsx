@@ -379,12 +379,12 @@ export default function ContactSection({
               )}
             />
 
-            <div className="self-center py-6">
+            <div className="self-center py-24">
               <Button
                 type="submit"
-                className="lg:text-body-1 p-6 shadow-none hover:border-black transition-all duration-300 bg-transparent border border-[#AFB6B4] w-fit rounded-full text-black hover:bg-transparent"
+                className="lg:text-body-1 p-6 shadow-none transition-all duration-300 bg-transparent bg-black text-white w-fit rounded-full text-whitehover:bg-transparent"
               >
-                Submit <ArrowRight className="w-4 h-4" />
+                Submit
               </Button>
             </div>
           </form>
