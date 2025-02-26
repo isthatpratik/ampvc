@@ -1,33 +1,48 @@
-import Link from "next/link";
-import Image from "next/image";
+"use client";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
-interface ServiceCardProps {
+interface CircularCardProps {
   title: string;
   subtitle: string;
-  icon: string;
+  defaultIcon: React.ReactNode;
+  hoverIcon: React.ReactNode;
 }
 
-export function CircularCard({
-  title,
-  subtitle,
-  icon,
-}: ServiceCardProps) {
+export function CircularCard({ title, subtitle, defaultIcon, hoverIcon }: CircularCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="flex flex-1 aspect-square items-center justify-center">
+    <div
+      className="flex flex-1 aspect-square items-center justify-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="w-full h-full lg:gap-4 py-6 px-4 lg:p-6 group relative flex lg:flex-col flex-grow items-center justify-center lg:rounded-full border-[1px] bg-transparent border-[#D5DEDE] transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
-        {/* SVG Image */}
-        <div className="flex w-16 h-16 items-center justify-center">
-          <Image
-            src={icon}
-            alt={title}
-            width={100}
-            height={100}
-            priority
-            className="w-full h-full aspect-square"
-          />
+        
+        {/* SVG Animation */}
+        <div className="relative flex w-16 h-16 items-center justify-center">
+        <motion.div
+            initial={{ opacity: 1 }}
+            animate={{ opacity: isHovered ? 0 : 1 }}
+            transition={{ duration: 0.5, ease: "easeInOut", stiffness: 100 }}
+            className="absolute"
+          >
+            {defaultIcon}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut", stiffness: 100 }}
+            className="absolute"
+          >
+            {hoverIcon}
+          </motion.div>
         </div>
 
+        {/* Text Content */}
         <div className="flex flex-col space-y-2 w-full">
           <h3 className="mb-2 text-center text-body-1 text-balance">
             {title}
@@ -37,6 +52,7 @@ export function CircularCard({
           </p>
         </div>
 
+        {/* Arrow Button */}
         <div className="flex-shrink-0 lg:hidden lg:mt-4 flex w-11 h-11 bg-[#F2F3F3] items-center justify-center rounded-full transition-all duration-300 ease-in-out group-hover:bg-[#181A1A]">
           <ArrowRight className="w-4 h-4 group-hover:text-white transition-all duration-300 ease-in-out" />
         </div>

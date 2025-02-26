@@ -66,7 +66,7 @@ export default function FinyxChat() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chatHistory: messages }),
       });
-
+  
       const data = await response.json();
       if (response.ok) {
         setInvestorMatches(data.investors || []);
@@ -77,6 +77,7 @@ export default function FinyxChat() {
       console.error("Investor fetch error:", error);
     }
   };
+  
 
   return (
     <div className="sticky top-0 flex h-screen w-full flex-col 2xl:bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-14 pb-14 px-10">
@@ -112,7 +113,7 @@ export default function FinyxChat() {
       {/* Show Chat Window or Results */}
       {!showInitialSVG && !showMidSVG && !showResults && (
         <motion.div
-          className="w-full overflow-y-auto flex flex-col space-y-3"
+          className="w-full overflow-y-auto flex flex-col space-y-4"
           ref={chatContainerRef}
           initial={{ scale: 0, opacity: 0 }}
           animate={{
@@ -131,7 +132,7 @@ export default function FinyxChat() {
             >
               <div
                 className={`p-3 max-w-xs rounded-2xl text-white ${
-                  msg.role === "user" ? "bg-blue-500 rounded-br-none" : "bg-gray-700 rounded-bl-none"
+                  msg.role === "user" ? "bg-[#2B5C4F] rounded-br-none" : "border border-[#FCEC3B] bg-[#000000] rounded-bl-none"
                 }`}
               >
                 {msg.content}
@@ -188,8 +189,8 @@ export default function FinyxChat() {
         />
         <div className="w-[1px] h-full my-2 bg-[#DCDCDC]" />
           <Textarea
-            className="placeholder:truncate resize-none w-full min-h-8 h-8 border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
-            placeholder="XYZ company looking to raise $20 million for AI-powered CRM"
+            className="resize-none w-full min-h-8 h-8 border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
+            placeholder="Type your prompt here"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}

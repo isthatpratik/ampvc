@@ -9,7 +9,7 @@ interface ChatMessage {
 }
 
 interface Investor {
-  Firm: string;
+  name: string;
   Sector: string;
   Stage: string;
   Requirements: string | null;
@@ -45,7 +45,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Match investors based on startup details
     const matchedInvestors = investors
       .filter((investor: Investor) => isMatchingInvestor(investor, startupDetails))
-      .map((investor: Investor) => investor.Firm); // Only return investor names
+      .map((investor: Investor) => investor.name); // Only return investor names
 
     return res.status(200).json({ investors: matchedInvestors });
   } catch (error) {
@@ -64,5 +64,5 @@ function isMatchingInvestor(investor: Investor, startupDetails: string): boolean
   return startupDetails
     .toLowerCase()
     .split(" ")
-    .some((detail) => investor.Firm.toLowerCase().includes(detail));
+    .some((detail) => investor.name.toLowerCase().includes(detail));
 }

@@ -1,20 +1,24 @@
 import { CircularCard } from "../ui/circular-grid";
+import Image from "next/image";
 
 const solutions = [
-  {
-    title: "Exit Strategy",
-    subtitle: "[ Portfolio Exit ]",
-    icon: "/images/icons/exit-strategy.svg",
+  { 
+    title: "Exit Strategy", 
+    subtitle: "[ Portfolio Exit ]", 
+    defaultIcon: "/images/icons/exit-strategy.svg", 
+    hoverIcon: "/images/icons/exit-strategy-hover.svg" 
   },
-  {
-    title: "Portfolio Pulse",
-    subtitle: "[ Monitoring & Reporting ]",
-    icon: "/images/icons/portfolio-pulse.svg",
+  { 
+    title: "Portfolio Pulse", 
+    subtitle: "[ Monitoring & Reporting ]", 
+    defaultIcon: "/images/icons/portfolio-pulse.svg", 
+    hoverIcon: "/images/icons/portfolio-pulse-hover.svg" 
   },
-  {
-    title: "Liquidity Move",
-    subtitle: "[ Secondary Buyouts ]",
-    icon: "/images/icons/liquidity-move.svg",
+  { 
+    title: "Liquidity Move", 
+    subtitle: "[ Secondary Buyouts ]", 
+    defaultIcon: "/images/icons/liquidity-move.svg", 
+    hoverIcon: "/images/icons/liquidity-move-hover.svg" 
   },
 ];
 
@@ -33,12 +37,38 @@ export default function SolutionsGrid({ setSelectedSolution }) {
 
       <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-2 justify-between items-center w-full h-full">
         {solutions.map((solution) => (
-          <button key={solution.title} onClick={() => setSelectedSolution(solution)} className="w-full">
-            <CircularCard {...solution} />
+          <button 
+            key={solution.title} 
+            onClick={() => setSelectedSolution(solution)} 
+            className="w-full focus:outline-none"
+          >
+            <CircularCard
+              title={solution.title}
+              subtitle={solution.subtitle}
+              defaultIcon={
+                <Image 
+                  src={solution.defaultIcon} 
+                  alt={solution.title} 
+                  width={60} 
+                  height={60} 
+                  className="w-full h-auto"
+                  priority
+                />
+              }
+              hoverIcon={
+                <Image 
+                  src={solution.hoverIcon} 
+                  alt={`${solution.title} Hover`} 
+                  width={60} 
+                  height={60} 
+                  className="w-full h-auto"
+                  priority
+                />
+              }
+            />
           </button>
         ))}
       </div>
     </div>
   );
 }
-

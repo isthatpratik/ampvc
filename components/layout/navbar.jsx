@@ -13,23 +13,39 @@ import {
 import ContactUS from "../forms/contact-us";
 import AnimatedButton from "../ui/animated-button";
 import Preregister from "../forms/pre-register";
+import {motion} from "motion/react";
 
-function MenuItem({ icon, text, onClick }) {
+function MenuItem({ defaultIcon, hoverIcon, text, onClick }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <button
+    <motion.button
       onClick={onClick}
       className="flex flex-shrink-0 items-center gap-4 text-body-3 transition-all hover:text-primary w-full text-left"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)} 
+      transition={{ type: "spring", stiffness: 100, damping: 10 }} 
     >
       <div className="aspect-square relative h-11 w-11 flex-shrink-0">
-        <Image
-          src={icon}
-          alt=""
-          fill
-          className="object-contain aspect-square flex-shrink-0"
-        />
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: isHovered ? 0 : 1 }}
+          transition={{ duration: 0.3, ease: "easeInOut", stiffness: 100 }}
+          className="absolute inset-0"
+        >
+          <Image src={defaultIcon} alt={text} fill className="object-contain aspect-square" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut", stiffness: 100 }}
+          className="absolute inset-0"
+        >
+          <Image src={hoverIcon} alt={text} fill className="object-contain aspect-square" />
+        </motion.div>
       </div>
       <span>{text}</span>
-    </button>
+    </motion.button>
   );
 }
 
@@ -107,23 +123,40 @@ export default function Navbar({
                   <h3 className="text-body-2 font-semibold">Startups</h3>
                   <div className="space-y-6">
                     <MenuItem
-                      icon="/images/icons/vision-crafting.svg"
+                      defaultIcon="/images/icons/vision-crafting.svg"
+                      hoverIcon="/images/icons/vision-crafting-hover.svg"
                       text="Vision Crafting"
                       onClick={() =>
-                        handleSelection("service", "Vision Crafting", "Strategic Advisory")
+                        handleSelection(
+                          "service",
+                          "Vision Crafting",
+                          "Strategic Advisory"
+                        )
                       }
                     />
                     <MenuItem
-                      icon="/images/icons/exit.svg"
+                      defaultIcon="/images/icons/exit.svg"
+                      hoverIcon="/images/icons/exit-breakthrough-hover.svg"
                       text="Exit Breakthrough"
                       onClick={() =>
-                        handleSelection("service", "Exit Breakthrough", "Fast Exit")
+                        handleSelection(
+                          "service",
+                          "Exit Breakthrough",
+                          "Fast Exit"
+                        )
                       }
                     />
                     <MenuItem
-                      icon="/images/icons/scaling.svg"
+                      defaultIcon="/images/icons/scaling.svg"
+                      hoverIcon="/images/icons/scaling-fuel-hover.svg"
                       text="Scaling Fuel"
-                      onClick={() => handleSelection("service", "Scaling Fuel", "Growth Capital")}
+                      onClick={() =>
+                        handleSelection(
+                          "service",
+                          "Scaling Fuel",
+                          "Growth Capital"
+                        )
+                      }
                     />
                   </div>
                 </div>
@@ -133,24 +166,39 @@ export default function Navbar({
                   <h3 className="text-body-2 font-semibold">Investors</h3>
                   <div className="space-y-6">
                     <MenuItem
-                      icon="/images/icons/exit-strategy.svg"
+                      defaultIcon="/images/icons/exit-strategy.svg"
+                      hoverIcon="/images/icons/exit-strategy-hover.svg"
                       text="Exit Strategy"
                       onClick={() =>
-                        handleSelection("solution", "Exit Strategy", "Portfolio Exit")
+                        handleSelection(
+                          "solution",
+                          "Exit Strategy",
+                          "Portfolio Exit"
+                        )
                       }
                     />
                     <MenuItem
-                      icon="/images/icons/portfolio-pulse.svg"
+                      defaultIcon="/images/icons/portfolio-pulse.svg"
+                      hoverIcon="/images/icons/portfolio-pulse-hover.svg"
                       text="Portfolio Pulse"
                       onClick={() =>
-                        handleSelection("solution", "Portfolio Pulse", "Monitoring & Reporting")
+                        handleSelection(
+                          "solution",
+                          "Portfolio Pulse",
+                          "Monitoring & Reporting"
+                        )
                       }
                     />
                     <MenuItem
-                      icon="/images/icons/liquidity-move.svg"
+                      defaultIcon="/images/icons/liquidity-move.svg"
+                      hoverIcon="/images/icons/liquidity-move-hover.svg"
                       text="Liquidity Move"
                       onClick={() =>
-                        handleSelection("solution", "Liquidity Move", "Secondary Buyouts")
+                        handleSelection(
+                          "solution",
+                          "Liquidity Move",
+                          "Secondary Buyouts"
+                        )
                       }
                     />
                   </div>
@@ -161,7 +209,8 @@ export default function Navbar({
                   <h3 className="text-body-2 font-semibold">Company</h3>
                   <div className="space-y-6">
                     <MenuItem
-                      icon="/images/icons/about-us.svg"
+                      defaultIcon="/images/icons/about-us.svg"
+                      hoverIcon="/images/icons/about-us-hover.svg"
                       text="About Us"
                       onClick={() => {
                         setSelectedSolution(null);
@@ -171,21 +220,23 @@ export default function Navbar({
                       }}
                     />
                     <MenuItem
-                      icon="/images/icons/contact-us.svg"
-                      text="Contact Us"
-                      onClick={() => {
-                        setOpenContactForm(false); // Reset state first
-                        setTimeout(() => setOpenContactForm(true), 100); // Small delay to re-trigger opening
-                        setOpen(false);
-                      }}
-                    />
-                    <MenuItem
-                      icon="/images/icons/careers.svg"
+                      defaultIcon="/images/icons/careers.svg"
+                      hoverIcon="/images/icons/careers-hover.svg"
                       text="Careers"
                       onClick={() => {
                         setSelectedSolution(null);
                         setSelectedService(null);
                         setSelectedAboutUs(true);
+                        setOpen(false);
+                      }}
+                    />
+                    <MenuItem
+                      defaultIcon="/images/icons/contact-us.svg"
+                      hoverIcon="/images/icons/contact-us-hover.svg"
+                      text="Contact Us"
+                      onClick={() => {
+                        setOpenContactForm(false); // Reset state first
+                        setTimeout(() => setOpenContactForm(true), 100); // Small delay to re-trigger opening
                         setOpen(false);
                       }}
                     />

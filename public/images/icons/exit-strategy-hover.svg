@@ -1,0 +1,25 @@
+<svg width="65" height="66" viewBox="0 0 65 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3275_60403)">
+<path d="M32.6849 1.89355L32.6849 61.9974" stroke="#ECEEED" stroke-width="1.07203" stroke-linecap="round" stroke-dasharray="2.14 2.14"/>
+<path d="M62.7369 31.9454L2.63312 31.9454" stroke="#ECEEED" stroke-width="1.07203" stroke-linecap="round" stroke-dasharray="2.14 2.14"/>
+<path d="M57.7157 1.89355L57.7157 61.9974" stroke="#ECEEED" stroke-width="1.07203" stroke-linecap="round"/>
+<path d="M8.72412 1.89355L8.72412 61.9974" stroke="#ECEEED" stroke-width="1.07203" stroke-linecap="round"/>
+<path d="M63.2367 7.2713L2.13114 7.2713" stroke="#ECEEED" stroke-width="1.07203" stroke-linecap="round"/>
+<path d="M63.2367 56.2629L2.13114 56.2629" stroke="#ECEEED" stroke-width="1.07203" stroke-linecap="round"/>
+<path d="M19.0877 26.5676L30.8798 46.2212L46.6026 37.1951L50.5333 44.0772L30.8798 55.5119L15.5143 46.7631V28.5847L19.0877 26.5676Z" fill="white"/>
+<path d="M30.8798 55.5119L50.5333 44.0772L46.6026 37.1951L30.8798 46.2212L19.0877 26.5676L15.5143 28.5847M30.8798 55.5119L15.5143 28.5847M30.8798 55.5119L15.5143 46.7631V28.5847" stroke="#D4DCDC" stroke-width="1.07203" stroke-linecap="round" stroke-linejoin="round"/>
+<g filter="url(#filter0_f_3275_60403)">
+<path d="M36.41 4.73314L50.9147 13.8843L50.4595 31.435C50.4546 31.6269 50.3473 31.8015 50.1784 31.8927L30.8746 42.3187L16.1998 15.4862L35.8665 4.71633C36.0373 4.62282 36.2453 4.62925 36.41 4.73314Z" fill="#9BDCE1"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_3275_60403" x="10.8397" y="-0.709684" width="45.4351" height="48.3885" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="2.68007" result="effect1_foregroundBlur_3275_60403"/>
+</filter>
+<clipPath id="clip0_3275_60403">
+<rect width="64.3216" height="64.3216" fill="white" transform="translate(0.505859 0.839172)"/>
+</clipPath>
+</defs>
+</svg>
