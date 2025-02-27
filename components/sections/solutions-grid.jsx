@@ -4,19 +4,19 @@ import Image from "next/image";
 const solutions = [
   { 
     title: "Exit Strategy", 
-    subtitle: "[ Portfolio Exit ]", 
+    subtitle: "Portfolio Exit", 
     defaultIcon: "/images/icons/exit-strategy.svg", 
     hoverIcon: "/images/icons/exit-strategy-hover.svg" 
   },
   { 
     title: "Portfolio Pulse", 
-    subtitle: "[ Monitoring & Reporting ]", 
+    subtitle: "Monitoring & Reporting", 
     defaultIcon: "/images/icons/portfolio-pulse.svg", 
     hoverIcon: "/images/icons/portfolio-pulse-hover.svg" 
   },
   { 
     title: "Liquidity Move", 
-    subtitle: "[ Secondary Buyouts ]", 
+    subtitle: "Secondary Buyouts", 
     defaultIcon: "/images/icons/liquidity-move.svg", 
     hoverIcon: "/images/icons/liquidity-move-hover.svg" 
   },

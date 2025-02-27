@@ -80,7 +80,7 @@ export default function FinyxChat() {
   
 
   return (
-    <div className="sticky top-0 flex h-screen w-full flex-col 2xl:bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-14 pb-14 px-10">
+    <div className="sticky top-0 flex h-screen w-full flex-col 2xl:bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-8 2xl:pt-14 2xl:pb-14 pb-8 px-10">
       <motion.h1
         className="text-h4 tracking-tight"
         initial={{ y: "50px", opacity: 0 }}
@@ -90,7 +90,7 @@ export default function FinyxChat() {
           transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 },
         }}
       >
-        Find the right investors effortlessly with <br />
+        Find the right investors effortlessly with {" "}
         <span className="bg-gradient-to-r from-[#4E7E71CF]/80 from-40% via-[#FB79C7] to-[#F7E307] to-80% bg-clip-text text-transparent">
           AI-powered matching.
         </span>
@@ -98,14 +98,20 @@ export default function FinyxChat() {
 
       {/* Show Initial SVG before chat starts */}
       {showInitialSVG && (
-        <div className="flex justify-center items-center h-full">
+        <motion.div className="flex justify-center items-center h-full" 
+        initial={{ y: "50px", opacity: 0 }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          transition: { delay: 1, type: "spring", stiffness: 100, damping: 25 },
+        }}>
           <Image src="/images/finyx-chat/middle-circle.svg" alt="Start Chat" width={200} height={200} />
-        </div>
+        </motion.div>
       )}
 
       {/* Show mid-way SVG after second user message */}
       {showMidSVG && (
-        <div className="flex justify-center items-center h-full">
+        <div className="flex justify-center items-center h-full w-auto">
           <Image src="/images/finyx-chat/thinking.svg" alt="Finding Match" width={200} height={200} />
         </div>
       )}
@@ -119,7 +125,7 @@ export default function FinyxChat() {
           animate={{
             scale: 1,
             opacity: 1,
-            transition: { delay: 1, type: "spring", stiffness: 100, damping: 10 },
+            transition: { delay: 1.2, type: "spring", stiffness: 100, damping: 10 },
           }}
         >
           {messages.map((msg, index) => (

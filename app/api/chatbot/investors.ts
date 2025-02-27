@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import path from "path";
 import fs from "fs";
-import xlsx from "xlsx";
 
 interface ChatMessage {
   role: string;
@@ -33,14 +32,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const jsonPath = path.join(process.cwd(), "public", "vc_data.json");
     const jsonData: Investor[] = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
 
-    // Load Excel data if needed
-    const xlsxPath = path.join(process.cwd(), "public", "vc_data.xlsx");
-    const workbook = xlsx.readFile(xlsxPath);
-    const sheetName = workbook.SheetNames[0];
-    const excelData: Investor[] = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
-
     // Combine data
-    const investors: Investor[] = [...jsonData, ...excelData];
+    const investors: Investor[] = [...jsonData];
 
     // Match investors based on startup details
     const matchedInvestors = investors

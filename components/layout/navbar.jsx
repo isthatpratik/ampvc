@@ -115,7 +115,7 @@ export default function Navbar({
             </Button>
           </DialogTrigger>
 
-          <DialogContent className="p-6 fixed lg:left-[3vw] overflow-y-auto 2xl:max-w-[35vw] 2xl:left-[8vw] top-[5vh] lg:max-w-[45vw] max-w-[90vw] max-h-fit bg-white shadow-lg rounded-md border-r border-gray-200">
+          <DialogContent className="p-6 fixed lg:left-[3vw] left-[5vw] overflow-y-auto 2xl:max-w-[35vw] 2xl:left-[8vw] top-[5vh] lg:max-w-[45vw] max-w-[90vw] max-h-[90vh] bg-white shadow-lg rounded-md border-r border-gray-200">
             <div className="relative pt-4">
               <div className="grid xl:grid-cols-3 grid-cols-1 xl:gap-8 gap-4 ">
                 {/* Startups Column */}
@@ -243,7 +243,7 @@ export default function Navbar({
                   </div>
                 </div>
               </div>
-              <div className="bg-[#1D1D1D] rounded-md mt-6 py-6 px-8 flex justify-between items-center">
+              <div className="bg-[#1D1D1D] hidden rounded-md mt-6 py-6 px-8 lg:flex justify-between items-center">
                 <div className="grid gap-4">
                   <Image
                     src={"/images/logo/fynar-logo.svg"}

@@ -15,7 +15,7 @@ export function CircularCard({ title, subtitle, defaultIcon, hoverIcon }: Circul
 
   return (
     <div
-      className="flex flex-1 aspect-square items-center justify-center"
+      className="flex flex-1 aspect-[2/1] lg:aspect-square items-center justify-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

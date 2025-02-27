@@ -118,10 +118,10 @@ export default function Preregister({ open, setOpen }: PreregisterProps) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-2xl rounded-sm w-full p-0 border-none bg-white text-black shadow-xl z-50">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto rounded-sm w-full p-0 border-none bg-white text-black shadow-xl z-50">
         {/* Show Thank You Message if Form is Submitted */}
         {isSubmitted ? (
-          <div className="bg-[url('/images/form/pre-register-success.jpg')] min-h-[80vh] bg-cover bg-no-repeat bg-center p-16 text-center flex flex-col items-center gap-6">
+          <div className="bg-[url('/images/form/pre-register-success.jpg')] 2xl:min-h-[80vh] bg-cover bg-no-repeat bg-center p-16 text-center flex flex-col items-center gap-6">
             <h2 className="text-h1">Thank You!</h2>
             <p className="text-body-1 px-12 mx-auto">
               We will notify you when we launch!

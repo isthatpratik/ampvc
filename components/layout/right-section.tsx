@@ -14,7 +14,7 @@ export default function RightSection() {
     <div className="sticky top-0 flex h-screen justify-between w-full flex-col bg-[#181A1A] text-white overflow-hidden">
       {/* Logo Animation */}
       <motion.div
-        className="px-10 pt-14"
+        className="px-10 pt-8 2xl:pt-14"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
@@ -84,7 +84,7 @@ export default function RightSection() {
       </motion.div>
 
       <motion.div
-        className="h-fit grid grid-cols-2 px-[40px] gap-2 pb-6"
+        className="h-fit hidden 2xl:grid grid-cols-2 px-[40px] gap-2 pb-6"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
@@ -116,7 +116,7 @@ export default function RightSection() {
 
       {/* Description and Buttons Animation */}
       <motion.div
-        className="pb-14 px-[40px]"
+        className="2xl:pb-14 pb-8 px-[40px]"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
