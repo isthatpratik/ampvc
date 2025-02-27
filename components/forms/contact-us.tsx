@@ -71,7 +71,7 @@ const services = [
 ];
 
 const industryOptions = [
-  "Saas",
+  "SaaS",
   "Fintech",
   "Healthtech",
   "Edtech",
@@ -145,7 +145,6 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
   async function onSubmit(data: FormData) {
     console.log(data);
   
-    // Send form data to the API
     try {
       const response = await fetch("/api/contact-us", {
         method: "POST",
@@ -251,9 +250,9 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-4xl rounded-sm w-full p-0 border-none min-h-[35vh] bg-white text-black z-50">
+      <DialogContent className="max-w-4xl rounded-sm w-full p-0 border-none max-h-[90vh] min-h-[50vh] overflow-y-auto bg-white text-black z-50">
         {isSubmitted ? (
-          <div className="bg-[url('/images/form/contact-us-success.jpg')] min-h-[60vh] bg-cover bg-no-repeat bg-center p-16 text-center flex flex-col items-center gap-6">
+          <div className="bg-[url('/images/form/contact-us-success.jpg')] 2xl:min-h-[60vh] lg:min-h-[80vh] bg-cover bg-no-repeat bg-top p-16 text-center flex flex-col items-center gap-6">
             <h2 className="text-h1">Thank You!</h2>
             <p className="text-body-1 px-12 mx-auto max-w-md">
             Your form has been submitted successfully. 
@@ -266,14 +265,14 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle className="text-h3 px-12">
+              <DialogTitle className="text-h3 px-12 pt-12">
                 Ready to Disrupt the Ordinary?
                 <br />
                 Let&apos;s Create Something Extraordinary!
               </DialogTitle>
             </DialogHeader>
 
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-6 pb-12">
               <div className="relative cols-span-1 flex justify-start pl-14 pt-2">
                 <div className="relative flex flex-col justify-between h-[90%] items-center">
                   {/* Background line */}

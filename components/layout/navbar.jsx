@@ -13,7 +13,7 @@ import {
 import ContactUS from "../forms/contact-us";
 import AnimatedButton from "../ui/animated-button";
 import Preregister from "../forms/pre-register";
-import {motion} from "motion/react";
+import { motion } from "motion/react";
 
 function MenuItem({ defaultIcon, hoverIcon, text, onClick }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -23,8 +23,8 @@ function MenuItem({ defaultIcon, hoverIcon, text, onClick }) {
       onClick={onClick}
       className="flex flex-shrink-0 items-center gap-4 text-body-3 transition-all hover:text-primary w-full text-left"
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)} 
-      transition={{ type: "spring", stiffness: 100, damping: 10 }} 
+      onMouseLeave={() => setIsHovered(false)}
+      transition={{ type: "spring", stiffness: 100, damping: 10 }}
     >
       <div className="aspect-square relative h-11 w-11 flex-shrink-0">
         <motion.div
@@ -33,7 +33,12 @@ function MenuItem({ defaultIcon, hoverIcon, text, onClick }) {
           transition={{ duration: 0.3, ease: "easeInOut", stiffness: 100 }}
           className="absolute inset-0"
         >
-          <Image src={defaultIcon} alt={text} fill className="object-contain aspect-square" />
+          <Image
+            src={defaultIcon}
+            alt={text}
+            fill
+            className="object-contain aspect-square"
+          />
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -41,7 +46,12 @@ function MenuItem({ defaultIcon, hoverIcon, text, onClick }) {
           transition={{ duration: 0.3, ease: "easeInOut", stiffness: 100 }}
           className="absolute inset-0"
         >
-          <Image src={hoverIcon} alt={text} fill className="object-contain aspect-square" />
+          <Image
+            src={hoverIcon}
+            alt={text}
+            fill
+            className="object-contain aspect-square"
+          />
         </motion.div>
       </div>
       <span>{text}</span>
@@ -53,6 +63,7 @@ export default function Navbar({
   setSelectedService,
   setSelectedSolution,
   setSelectedAboutUs,
+  setSelectedCareers
 }) {
   const [open, setOpen] = useState(false);
   const [openContactForm, setOpenContactForm] = useState(false);
@@ -74,6 +85,7 @@ export default function Navbar({
     setSelectedService(null);
     setSelectedSolution(null);
     setSelectedAboutUs(null);
+    setSelectedCareers(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -115,7 +127,7 @@ export default function Navbar({
             </Button>
           </DialogTrigger>
 
-          <DialogContent className="p-6 fixed lg:left-[3vw] left-[5vw] overflow-y-auto 2xl:max-w-[35vw] 2xl:left-[8vw] top-[5vh] lg:max-w-[45vw] max-w-[90vw] max-h-[90vh] bg-white shadow-lg rounded-md border-r border-gray-200">
+          <DialogContent className="p-6 fixed lg:left-[10vw] left-[5vw] overflow-y-auto 2xl:max-w-[35vw] 2xl:left-[8vw] top-[5vh] lg:max-w-[45vw] max-w-[90vw] max-h-[90vh] bg-white shadow-lg rounded-md border-r border-gray-200">
             <div className="relative pt-4">
               <div className="grid xl:grid-cols-3 grid-cols-1 xl:gap-8 gap-4 ">
                 {/* Startups Column */}
@@ -206,7 +218,7 @@ export default function Navbar({
 
                 {/* Company Column */}
                 <div className="flex flex-col p-4 gap-6 bg-[#F7F8F8] rounded-sm transition-all duration-300">
-                  <h3 className="text-body-2 font-semibold">Company</h3>
+                  <h3 className="text-body-2 font-semibold">Ampersand</h3>
                   <div className="space-y-6">
                     <MenuItem
                       defaultIcon="/images/icons/about-us.svg"
@@ -216,6 +228,7 @@ export default function Navbar({
                         setSelectedSolution(null);
                         setSelectedService(null);
                         setSelectedAboutUs(true);
+                        setSelectedCareers(null);
                         setOpen(false);
                       }}
                     />
@@ -224,12 +237,14 @@ export default function Navbar({
                       hoverIcon="/images/icons/careers-hover.svg"
                       text="Careers"
                       onClick={() => {
-                        setSelectedSolution(null);
                         setSelectedService(null);
-                        setSelectedAboutUs(true);
+                        setSelectedSolution(null);
+                        setSelectedAboutUs(false);
+                        setSelectedCareers(true);
                         setOpen(false);
                       }}
                     />
+
                     <MenuItem
                       defaultIcon="/images/icons/contact-us.svg"
                       hoverIcon="/images/icons/contact-us-hover.svg"
@@ -265,7 +280,7 @@ export default function Navbar({
                       setTimeout(() => setOpenPreRegisterForm(true), 100); // Delay opening Pre-Register form
                     }}
                   >
-                    Pre-Register Now
+                    Early Access
                   </AnimatedButton>
                 </div>
               </div>

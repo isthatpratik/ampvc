@@ -235,13 +235,10 @@ export default function TermsOfUse({ onBack }) {
                 </h2>
                 <div className="space-y-4 text-body-2">
                   <p>
-                    These Terms are governed by the laws of These Terms are
-                    governed by the laws of India, with the courts of Pune
-                    having exclusive jurisdiction over all matters.
+                  These terms will be governed by and construed in accordance with the laws of India, and its jurisdiction lies in Pune, Maharashtra.
                   </p>
                   <p>
-                    Disputes will be resolved through binding arbitration or
-                    mediation in [Insert Location].
+                  Any dispute arising out from these terms shall be referred to arbitration under the Arbitration and Conciliation Act, 1996, and both the parties will nominate one neutral arbitrator after the consent obtained by both the parties on the choice of the arbitrator. Arbitration Body located in Pune, Maharashtra.
                   </p>
                 </div>
               </div>
@@ -257,12 +254,9 @@ export default function TermsOfUse({ onBack }) {
                 </h2>
                 <div className="space-y-4 text-body-2">
                   <p>
-                    If you have questions about these Terms of Use, please
-                    contact us at:
+                  If you have questions about these Terms of Use, please contact us at:
                   </p>
-                  <p>Email: [Insert Email]</p>
-                  <p>Phone: [Insert Phone Number]</p>
-                  <p>Address: [Insert Address]</p>
+                  <p>Email: hello@ampvc.co</p>
                 </div>
               </div>
             </div>

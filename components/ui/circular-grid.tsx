@@ -15,11 +15,11 @@ export function CircularCard({ title, subtitle, defaultIcon, hoverIcon }: Circul
 
   return (
     <div
-      className="flex flex-1 aspect-[2/1] lg:aspect-square items-center justify-center"
+      className="flex md:aspect-square items-center justify-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="w-full h-full lg:gap-4 py-6 px-4 lg:p-6 group relative flex lg:flex-col flex-grow items-center justify-center lg:rounded-full border-[1px] bg-transparent border-[#D5DEDE] transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
+      <div className="w-full h-full lg:gap-4 py-6 px-4 lg:p-6 group relative flex md:flex-col items-center justify-center md:rounded-full border-[1px] bg-transparent border-[#D5DEDE] transition-all duration-300 ease-in-out hover:bg-[#F7F8F8]">
         
         {/* SVG Animation */}
         <div className="relative flex w-16 h-16 items-center justify-center">

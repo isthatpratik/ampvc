@@ -24,6 +24,7 @@ export default function Home() {
   } | null>(null);
 
   const [selectedAboutUs, setSelectedAboutUs] = useState(false);
+  const [selectedCareers, setSelectedCareers] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -64,6 +65,8 @@ export default function Home() {
             setSelectedSolution={setSelectedSolution}
             selectedAboutUs={selectedAboutUs}
             setSelectedAboutUs={setSelectedAboutUs}
+            selectedCareers={selectedCareers}
+            setSelectedCareers={setSelectedCareers}
           />
         </div>
 

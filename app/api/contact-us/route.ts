@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       query,
     } = data;
 
-    if (!fullName || !workMail || !phone || !companyName || !role || !industry || !source) {
+    if (!fullName || !workMail || !phone || !companyName || !role || !industry) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
@@ -37,16 +37,16 @@ export async function POST(req: NextRequest) {
           <tr><td><strong>Role:</strong></td><td>${role}</td></tr>
           <tr><td><strong>Industry:</strong></td><td>${industry}</td></tr>
           <tr><td><strong>Services:</strong></td><td>${services.length ? services.join(", ") : "None"}</td></tr>
-          <tr><td><strong>Source:</strong></td><td>${source}</td></tr>
+          <tr><td><strong>Source:</strong></td><td>${source} || "Not Defined"</td></tr>
           <tr><td><strong>Query:</strong></td><td>${query || "No query provided"}</td></tr>
         </table>
       </div>
     `;
 
     await resend.emails.send({
-      from: "Ampersand <onboarding@resend.dev>",
-      to: "pd@mpvc.co",
-      subject: `New Form Submission from ${fullName}`,
+      from: "Ampersand Contact <onboarding@resend.dev>",
+      to: "pd@ampvc.co",
+      subject: `New Enquiry from ${fullName} `,
       html: htmlContent,
       replyTo: workMail,
     });

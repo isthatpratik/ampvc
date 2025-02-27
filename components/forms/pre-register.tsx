@@ -29,7 +29,7 @@ const personalEmailDomains = [
 ];
 
 const industries = [
-  "Saas",
+  "SaaS",
   "FinTech",
   "HealthTech",
   "EdTech",

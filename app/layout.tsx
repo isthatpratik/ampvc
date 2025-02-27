@@ -9,7 +9,7 @@ const fustat = Fustat({
 });
 
 export const metadata = {
-  title: "Ampersand - AI-Powered Advisory | Investor Database & Simple CRM",
+  title: "Ampersand - AI-Powered Advisory",
   description:
     "Ampersand offers AI-powered advisory services for startups and investors, including Speedy Exit, Secondary Buyouts, Growth Capital, and a FREE CRM for deal flow and sales management.",
   keywords:

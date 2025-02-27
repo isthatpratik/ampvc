@@ -244,9 +244,8 @@ export default function PrivacyPolicy({ onBack }) {
               <div className="grid ml-10">
                 <h2 className="mb-2 text-h5 font-semibold">Contact Us</h2>
                 <div className="space-y-4 text-body-2">
-                  <p>Email: [Insert Email]</p>
-                  <p>Phone: [Insert Phone Number]</p>
-                  <p>Address: [Insert Address]</p>
+                  <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                  <p>Email: hello@ampvc.co</p>
                 </div>
               </div>
             </div>

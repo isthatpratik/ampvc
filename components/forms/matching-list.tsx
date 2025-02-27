@@ -29,7 +29,7 @@ const personalEmailDomains = [
 ];
 
 const industries = [
-  "Saas",
+  "SaaS",
   "FinTech",
   "HealthTech",
   "EdTech",
@@ -48,8 +48,6 @@ const roles = [
   "CTO (Chief Technology Officer)",
   "COO (Chief Operating Officer)",
   "Startup Advisor",
-  "Venture Capitalist",
-  "Angel Investor",
   "Private Equity Investor",
   "Institutional Investor",
   "LP (Limited Partner)",
@@ -101,7 +99,7 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
 
   const onSubmit = (data: FormData) => {
     console.log("Form submitted:", data);
-    setIsSubmitted(true); 
+    setIsSubmitted(true);
   };
 
   return (
@@ -112,7 +110,7 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
           <div className="bg-[url('/images/form/pre-register-success.jpg')] min-h-[80vh] bg-cover bg-no-repeat bg-center p-16 text-center flex flex-col items-center gap-6">
             <h2 className="text-h1">Thank You!</h2>
             <p className="text-body-1 px-12 mx-auto">
-              We will notify you when we launch!
+              The complete list has been sent to your email.
             </p>
             <Button className="p-8 rounded-full" onClick={() => setOpen(false)}>
               Go Back
@@ -134,7 +132,7 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
               </div>
               <div className="p-11 space-y-4">
                 <DialogTitle className="text-center font-semibold text-[40px] ">
-                Get the full list
+                  Get the full list
                 </DialogTitle>
                 <div className="space-y-1">
                   <label
@@ -273,9 +271,7 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
                   >
                     Cancel
                   </Button>
-                  <Button
-                    className="h-12 px-6 shadow-none hover:bg-black/5 transition-all duration-300 rounded-full bg-transparent border border-black/20 py-1 flex items-center text-body-2"
-                  >
+                  <Button className="h-12 px-6 shadow-none hover:bg-black/5 transition-all duration-300 rounded-full bg-transparent border border-black/20 py-1 flex items-center text-body-2">
                     Submit
                   </Button>
                 </div>

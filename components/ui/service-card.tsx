@@ -47,7 +47,7 @@ export function ServiceCard({ title, subtitle, defaultIcon, hoverIcon }: Service
         {/* Text Content */}
         <div className="flex-1 flex flex-col justify-center text-center py-[14px]">
           <h3 className="mb-2 text-label-2 lg:text-label-1 font-medium">{title}</h3>
-          <p className="text-body-3 text-[#798682] transition-all duration-300 group-hover:text-[#B6B6B6]">
+          <p className="text-body-3 text-[#798682] transition-all duration-300">
             {subtitle}
           </p>
         </div>

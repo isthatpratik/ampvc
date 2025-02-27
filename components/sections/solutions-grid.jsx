@@ -24,12 +24,12 @@ const solutions = [
 
 export default function SolutionsGrid({ setSelectedSolution }) {
   return (
-    <div className="h-full px-5 lg:px-10 pb-6 lg:py-14 flex flex-col flex-grow flex-1 space-y-6">
-      <h2 className="text-h4 lg:text-h3 text-balance">
+    <div className="h-full px-5 lg:px-10 pb-6 lg:py-14 flex flex-col space-y-6">
+      <h2 className="text-h4 lg:text-h3 text-balance text-center lg:text-left">
         Smart solutions for VCs, Family Offices & Funds.
       </h2>
 
-      <p className="text-body-2 text-[#798682] lg:text-black font-medium">
+      <p className="text-body-2 text-[#798682] lg:text-black font-medium text-center lg:text-left">
         Fueling startup success with expert guidance, strategic insights, and powerful connections.
         Turning bold ideas into thriving businesses with tailored support and investor-ready strategies.
         Empowering founders to scale faster, smarter, and stronger—because their growth drives your returns.

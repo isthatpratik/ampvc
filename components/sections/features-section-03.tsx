@@ -49,7 +49,7 @@ export function FeaturesSection3() {
     <section className="py-16 px-10 max-w-10xl mx-auto">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Driving Success with Cutting-Edge Smart Features</h2>
 
-      <div className="flex flex-col md:flex-row gap-3 max-w-fit mx-auto h-[400px]">
+      <div className="flex flex-col md:flex-row gap-3 max-w-fit mx-auto h-[300px]">
         {features.map((feature, index) => (
           <FeaturePanel
             key={feature.number}

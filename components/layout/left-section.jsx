@@ -16,6 +16,7 @@ import PrivacyPolicy from "../sections/privacy-policy";
 import ResponsibleAI from "../sections/responsible-ai";
 import PreRegisterMobile from "../ui/pre-register-mobile";
 import FinyxChat from "./finyx-chat";
+import CareersSection from "../sections/careers";
 
 export default function LeftSection({
   selectedService,
@@ -24,10 +25,43 @@ export default function LeftSection({
   setSelectedSolution,
   selectedAboutUs,
   setSelectedAboutUs,
+  selectedCareers,
+  setSelectedCareers
 }) {
   const [selectedStaticPage, setSelectedStaticPage] = useState(null);
   const [selectedResponsibleAI, setSelectedResponsibleAI] = useState(false);
   const [showFinyxChat, setShowFinyxChat] = useState(false);
+  const [showCareers, setShowCareers] = useState(false);
+
+  const handleServiceSelect = (value) => {
+    setShowFinyxChat(false);
+    setSelectedService(value);
+  };
+
+  const handleSolutionSelect = (value) => {
+    setShowFinyxChat(false);
+    setSelectedSolution(value);
+  };
+
+  const handleAboutUsSelect = (value) => {
+    setShowFinyxChat(false);
+    setSelectedAboutUs(value);
+  };
+
+  const handleStaticPageSelect = (value) => {
+    setShowFinyxChat(false);
+    setSelectedStaticPage(value);
+  };
+
+  const handleResponsibleAISelect = (value) => {
+    setShowFinyxChat(false);
+    setSelectedResponsibleAI(value);
+  };
+
+  const handleCareersSelect = (value) => {
+    setShowFinyxChat(false);
+    setSelectedCareers(value);
+  };
 
   return (
     <div className="min-h-screen relative flex-1 bg-white flex flex-col">
@@ -48,9 +82,10 @@ export default function LeftSection({
             className="sticky top-0"
           >
             <Navbar
-              setSelectedService={setSelectedService}
-              setSelectedSolution={setSelectedSolution}
-              setSelectedAboutUs={setSelectedAboutUs}
+              setSelectedService={handleServiceSelect}
+              setSelectedSolution={handleSolutionSelect}
+              setSelectedAboutUs={handleAboutUsSelect}
+              setSelectedCareers={handleCareersSelect}
             />
           </motion.div>
 
@@ -73,7 +108,7 @@ export default function LeftSection({
             >
               <ServiceDetails
                 service={selectedService}
-                onBack={() => setSelectedService(null)}
+                onBack={() => handleServiceSelect(null)}
               />
             </motion.div>
           ) : selectedSolution ? (
@@ -92,7 +127,7 @@ export default function LeftSection({
             >
               <SolutionDetails
                 solution={selectedSolution}
-                onBack={() => setSelectedSolution(null)}
+                onBack={() => handleSolutionSelect(null)}
               />
             </motion.div>
           ) : selectedAboutUs ? (
@@ -109,7 +144,23 @@ export default function LeftSection({
                 },
               }}
             >
-              <AboutUs onBack={() => setSelectedAboutUs(false)} />
+              <AboutUs onBack={() => handleAboutUsSelect(false)} />
+            </motion.div>
+          ) : selectedCareers ? (
+            <motion.div
+              initial={{ y: "50px", opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 25,
+                },
+              }}
+            >
+              <CareersSection onBack={() => handleCareersSelect(false)} />
             </motion.div>
           ) : selectedStaticPage === "terms-of-use" ? (
             <motion.div
@@ -125,7 +176,7 @@ export default function LeftSection({
                 },
               }}
             >
-              <TermsOfUse onBack={() => setSelectedStaticPage(null)} />
+              <TermsOfUse onBack={() => handleStaticPageSelect(null)} />
             </motion.div>
           ) : selectedStaticPage === "privacy-policy" ? (
             <motion.div
@@ -141,7 +192,7 @@ export default function LeftSection({
                 },
               }}
             >
-              <PrivacyPolicy onBack={() => setSelectedStaticPage(null)} />
+              <PrivacyPolicy onBack={() => handleStaticPageSelect(null)} />
             </motion.div>
           ) : selectedResponsibleAI ? (
             <motion.div
@@ -157,7 +208,7 @@ export default function LeftSection({
                 },
               }}
             >
-              <ResponsibleAI onBack={() => setSelectedResponsibleAI(false)} />
+              <ResponsibleAI onBack={() => handleResponsibleAISelect(false)} />
             </motion.div>
           ) : (
             <>
@@ -190,7 +241,7 @@ export default function LeftSection({
                   },
                 }}
               >
-                <ServicesGrid setSelectedService={setSelectedService} />
+                <ServicesGrid setSelectedService={handleServiceSelect} />
               </motion.div>
 
               <motion.div
@@ -206,7 +257,7 @@ export default function LeftSection({
                   },
                 }}
               >
-                <AIMatchingBanner setShowFinyxChat={setShowFinyxChat} /> 
+                <AIMatchingBanner setShowFinyxChat={setShowFinyxChat} />
                 <PreRegisterMobile />
               </motion.div>
 
@@ -223,7 +274,7 @@ export default function LeftSection({
                   },
                 }}
               >
-                <SolutionsGrid setSelectedSolution={setSelectedSolution} />
+                <SolutionsGrid setSelectedSolution={handleSolutionSelect} />
               </motion.div>
             </>
           )}
@@ -244,11 +295,11 @@ export default function LeftSection({
         }}
       >
         <Footer
-          onServiceSelect={setSelectedService}
-          onSolutionSelect={setSelectedSolution}
-          onStaticPageSelect={setSelectedStaticPage}
-          onResponsibleAISelect={setSelectedResponsibleAI}
-          onAboutUsSelect={setSelectedAboutUs}
+          onServiceSelect={handleServiceSelect}
+          onSolutionSelect={handleSolutionSelect}
+          onStaticPageSelect={handleStaticPageSelect}
+          onResponsibleAISelect={handleResponsibleAISelect}
+          onAboutUsSelect={handleAboutUsSelect}
         />
       </motion.div>
     </div>
