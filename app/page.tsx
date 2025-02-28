@@ -87,7 +87,7 @@ export default function Home() {
               }}
             />
             {selectedAboutUs ? (
-              <CareersSection onBack={() => {}}/>
+              <FinyxChat onBack={() => {}}/>
             ) : selectedService || selectedSolution ? (
               <ContactSection
                 selectedService={selectedService}
