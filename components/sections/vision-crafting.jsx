@@ -14,7 +14,7 @@ export default function VisionCrafting({ onBack }) {
       transition={{ duration: 0.5 }}
     >
       {/* Back Button */}
-      <div className="lg:px-10 px-5 grid gap-4">
+      <div className="lg:px-10 pb-10 px-5 grid gap-4">
         <Button
           onClick={onBack}
           className="shadow-none hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
@@ -24,7 +24,7 @@ export default function VisionCrafting({ onBack }) {
         <h2 className="text-h4 lg:text-h3 text-balance lg:text-start text-center">
           Grow with serial entrepreneurs by your side.
         </h2>
-        <h3 className="text-body-3 lg:text-body-1 pb-12 lg:text-start text-center">
+        <h3 className="text-body-3 lg:text-body-1 text-balance lg:text-start text-center">
           We've successfully scaled businesses like yours, understanding your
           constraints. Let's collaborate on tailored strategies to drive
           sustainable growth, leveraging our expertise and hands-on approach for
@@ -48,7 +48,7 @@ export default function VisionCrafting({ onBack }) {
                 synergy, optimize resources, and accelerate your journey.
               </p>
             </div>
-            <div className="md:w-2/5 border-t border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
+            <div className="md:w-2/5 border-t border-l border-b border-r md:border-l-0 md:border-b-0 md:border-r-0 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
                 src={"/images/services/partnership.svg"}
                 alt="partnership icon"
@@ -74,7 +74,7 @@ export default function VisionCrafting({ onBack }) {
                 className="w-full h-auto object-contain 2xl:px-8 md:px-0 px-10 aspect-[4/3]"
               />
             </div>
-            <div className="md:w-3/5 md:order-2 order-1 bg-transparent md:py-24 py-5 md:px-10 px-5 border-t border-[#AFB6B4]">
+            <div className="md:w-3/5 md:order-2 order-1 bg-transparent md:py-24 py-5 md:px-10 px-5 border-t border-l border-r md:border-x-0 border-[#AFB6B4]">
               <h3 className="text-h4 font-semibold mb-2">
                 Honest <br />
                 Guidance
@@ -104,7 +104,7 @@ export default function VisionCrafting({ onBack }) {
                 compelling narrative that resonates with investors.
               </p>
             </div>
-            <div className="md:w-2/5 border-t border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
+            <div className="md:w-2/5 border-t border-l border-r border-b md:border-x-0 md:border-b-0 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
                 src={"/images/services/vanity-metrics.svg"}
                 alt="partnership icon"
@@ -121,7 +121,7 @@ export default function VisionCrafting({ onBack }) {
         <div className="grid lg:grid-cols-24 md:p-0 px-4 gap-0">
           <div className="hidden lg:block col-span-1 border-t border-b border-[#AFB6B4] bg-transparent" />
           <div className="col-span-22 flex md:flex-row flex-col">
-            <div className="md:w-2/5 border border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
+            <div className="md:w-2/5 border md:order-1 order-2 border-[#AFB6B4] bg-[url('/images/services/service-icon-bg.jpg')] bg-no-repeat bg-cover bg-center p-4 flex items-center justify-center">
               <Image
                 src={"/images/services/amplified-vision.svg"}
                 alt="partnership icon"
@@ -130,7 +130,7 @@ export default function VisionCrafting({ onBack }) {
                 className="w-full h-auto object-contain 2xl:px-8 md:px-0 px-10 aspect-[4/3]"
               />
             </div>
-            <div className="md:w-3/5 bg-transparent md:py-24 py-5 md:px-10 px-5 border-t border-b border-[#AFB6B4]">
+            <div className="md:w-3/5 bg-transparent md:py-24 py-5 md:px-10 px-5 border-t border-b border-x md:border-x-0 border-[#AFB6B4]">
               <h3 className="text-h4 font-semibold mb-2">
                 Amplified <br /> Vision
               </h3>

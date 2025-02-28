@@ -113,6 +113,21 @@ export default function PortfolioPulse({ onBack }) {
           </div>
         </div>
       </section>
+
+      <section className="border border-[#AFB6B4] grid grid-cols-2 items-center justify-between gap-6">
+        <div className="space-y-4 p-14">
+          <h3 className="text-h6 font-semibold text-[#181A1A]">
+            Ready to clear your books and reclaim your capital?
+          </h3>
+          <p className="text-[#181A1A]">Let's make your exit count.</p>
+        </div>
+        <div className="flex border-l border-[#AFB6B4] items-center h-full p-0 justify-center bg-[url('/images/solutions/solutions-grid-bg.jpg')] bg-top bg-no-repeat bg-cover">
+          <Button className="bg-black text-white hover:bg-black/90 px-6 py-6 text-lg rounded-full">
+            Get Connected
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
+      </section>
     </motion.div>
   );
 }

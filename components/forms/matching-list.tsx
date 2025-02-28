@@ -48,11 +48,8 @@ const roles = [
   "CTO (Chief Technology Officer)",
   "COO (Chief Operating Officer)",
   "Startup Advisor",
-  "Private Equity Investor",
-  "Institutional Investor",
   "LP (Limited Partner)",
   "Investment Analyst",
-  "Family Office Representative",
   "Others",
 ];
 
@@ -97,9 +94,26 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
     },
   });
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     console.log("Form submitted:", data);
     setIsSubmitted(true);
+
+    // Send form data to the backend
+    try {
+      const response = await fetch("/api/send-investor-list", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send email");
+      }
+
+      console.log("Email sent successfully");
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
   };
 
   return (
@@ -107,10 +121,10 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
       <DialogContent className="max-w-2xl rounded-sm w-full p-0 border-none bg-white text-black shadow-xl z-50">
         {/* Show Thank You Message if Form is Submitted */}
         {isSubmitted ? (
-          <div className="bg-[url('/images/form/pre-register-success.jpg')] min-h-[80vh] bg-cover bg-no-repeat bg-center p-16 text-center flex flex-col items-center gap-6">
+          <div className="bg-[url('/images/form/full-list-success.jpg')] min-h-[80vh] min-w-[40vw] bg-cover bg-no-repeat bg-center p-16 text-center flex flex-col items-center gap-6">
             <h2 className="text-h1">Thank You!</h2>
             <p className="text-body-1 px-12 mx-auto">
-              The complete list has been sent to your email.
+              We will notify you when the full list is ready.
             </p>
             <Button className="p-8 rounded-full" onClick={() => setOpen(false)}>
               Go Back
@@ -132,7 +146,7 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
               </div>
               <div className="p-11 space-y-4">
                 <DialogTitle className="text-center font-semibold text-[40px] ">
-                  Get the full list
+                Get the full list
                 </DialogTitle>
                 <div className="space-y-1">
                   <label
@@ -211,7 +225,7 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
                         defaultValue={field.value}
                       >
                         <SelectTrigger className="w-full border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0 text-left">
-                          <SelectValue placeholder="Select Industry" />
+                          <SelectValue placeholder="Select Role" />
                         </SelectTrigger>
                         <SelectContent>
                           {roles.map((role) => (
@@ -271,7 +285,10 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
                   >
                     Cancel
                   </Button>
-                  <Button className="h-12 px-6 shadow-none hover:bg-black/5 transition-all duration-300 rounded-full bg-transparent border border-black/20 py-1 flex items-center text-body-2">
+                  <Button
+                    type="submit"
+                    className="h-12 px-6 shadow-none hover:bg-black/5 transition-all duration-300 rounded-full bg-transparent border border-black/20 py-1 flex items-center text-body-2"
+                  >
                     Submit
                   </Button>
                 </div>

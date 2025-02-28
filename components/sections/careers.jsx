@@ -17,7 +17,7 @@ export default function CareersSection() {
   const [showJobForm, setShowJobForm] = useState(false);
 
   return (
-    <div className="sticky top-0 flex flex-col space-y-4 lg:w-full overflow-hidden justify-start py-14 px-10 min-h-screen overflow-y-auto h-full">
+    <div className="sticky top-0 flex flex-col space-y-4 lg:w-full overflow-hidden justify-start py-14 px-5 lg:px-10 min-h-screen overflow-y-auto h-full">
       {!showJobForm ? ( // Conditionally render job listings or job form
         <>
           <motion.div
@@ -34,8 +34,8 @@ export default function CareersSection() {
             }}
           >
             <div className="flex flex-col gap-4 border-b border-[#B9BFBE] pb-4">
-              <h3 className="text-h3 text-balance">Join our Team</h3>
-              <p className="text-body-1">
+              <h3 className="text-h4 lg:text-h3 text-center lg:text-start">Join our Team</h3>
+              <p className="text-body-3 lg:text-body-1 text-balance text-center lg:text-start">
                 At Ampersand, we are committed to driving business growth
                 through strategic financial solutions. If you're passionate
                 about finance, strategy, and helping businesses thrive, we’d
@@ -45,7 +45,7 @@ export default function CareersSection() {
           </motion.div>
 
           <motion.div
-            className="h-fit flex flex-col 2xl:gap-16 justify-between py-12"
+            className="h-fit flex flex-col 2xl:gap-16 justify-between py-6 lg:py-12"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}

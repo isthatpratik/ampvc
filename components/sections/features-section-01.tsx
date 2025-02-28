@@ -46,7 +46,7 @@ export function FeaturesSection1() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className="py-16 px-10 max-w-10xl mx-auto">
+    <section className="hidden md:block py-16 px-10 max-w-10xl mx-auto">
       <h2 className="text-h4 font-semibold text-center mb-12">Driving Success with Cutting-Edge Smart Features</h2>
 
       <div className="flex flex-col md:flex-row gap-3 max-w-fit mx-auto h-[300px]">

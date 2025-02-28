@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import { SendHorizonal } from "lucide-react";
 import { Textarea } from "../ui/textarea";
+import MatchingList from "../forms/matching-list"; // Import the MatchingList component
 
 export default function FinyxChat() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
@@ -14,6 +15,7 @@ export default function FinyxChat() {
   const [showMidSVG, setShowMidSVG] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [investorMatches, setInvestorMatches] = useState<string[]>([]);
+  const [showForm, setShowForm] = useState(false); // State to control form visibility
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -77,7 +79,20 @@ export default function FinyxChat() {
       console.error("Investor fetch error:", error);
     }
   };
-  
+
+  const renderMessageContent = (content: string) => {
+    const parts = content.split("[Download Full List]");
+    return (
+      <>
+        {parts[0]}
+        {parts.length > 1 && (
+          <Button className="mt-3 w-full bg-[#181A1A] text-white py-2 rounded-md" onClick={() => setShowForm(true)}>
+            Download Full List
+          </Button>
+        )}
+      </>
+    );
+  };
 
   return (
     <div className="sticky top-0 flex h-screen w-full flex-col 2xl:bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-8 2xl:pt-14 2xl:pb-14 pb-8 px-10">
@@ -141,7 +156,7 @@ export default function FinyxChat() {
                   msg.role === "user" ? "bg-[#2B5C4F] rounded-br-none" : "border border-[#FCEC3B] bg-[#000000] rounded-bl-none"
                 }`}
               >
-                {msg.content}
+                {renderMessageContent(msg.content)}
               </div>
             </motion.div>
           ))}
@@ -169,7 +184,7 @@ export default function FinyxChat() {
               </div>
             ))}
           </div>
-          <Button className="mt-3 w-full bg-[#181A1A] text-white py-2 rounded-md">
+          <Button className="mt-3 w-full bg-[#181A1A] text-white py-2 rounded-md" onClick={() => setShowForm(true)}>
             Download Full List
           </Button>
         </motion.div>
@@ -187,26 +202,28 @@ export default function FinyxChat() {
           }}
         >
           <Image
-          src={"/images/icons/amp-gray-icon.svg"}
-          alt="Icon"
-          width={48}
-          height={48}
-          className="mr-2 object-contain w-12 h-auto"
-        />
-        <div className="w-[1px] h-full my-2 bg-[#DCDCDC]" />
+            src={"/images/icons/amp-gray-icon.svg"}
+            alt="Icon"
+            width={48}
+            height={48}
+            className="mr-2 object-contain w-12 h-auto"
+          />
+          <div className="w-[1px] h-full my-2 bg-[#DCDCDC]" />
           <Textarea
             className="resize-none w-full min-h-8 h-8 border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
             placeholder="Type your prompt here"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-            
           />
           <Button onClick={sendMessage} disabled={loading}>
             <SendHorizonal size={16} className="text-white" />
           </Button>
         </motion.div>
       )}
+
+      {/* Matching List Form */}
+      <MatchingList open={showForm} setOpen={setShowForm} />
     </div>
   );
 }

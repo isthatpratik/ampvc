@@ -12,7 +12,7 @@ export default function ResponsibleAI({ onBack }) {
         exit={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="px-[40px] pt-6 grid gap-4">
+        <div className="lg:px-10 px-5 pt-6 grid gap-4">
           <Button
             onClick={onBack}
             className="shadow-none hover:bg-black/5 transition-all duration-300 w-fit rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
@@ -20,10 +20,10 @@ export default function ResponsibleAI({ onBack }) {
             <ArrowLeft className="" /> Back
           </Button>
         </div>
-        <div className="mb-10 px-10 pt-6 flex flex-col space-y-8">
-          <h1 className="font-semibold text-h3">Responsible AI</h1>
+        <div className="mb-10 lg:px-10 px-5 pt-6 flex flex-col space-y-4 lg:space-y-8">
+          <h1 className="font-semibold text-h4 lg:text-h3 text-center lg:text-start">Responsible AI</h1>
           <div className="flex flex-col">
-            <p className="text-body-1">
+            <p className="lg:text-body-1 text-body-3 text-center lg:text-start">
               At Ampersand, we are dedicated to building and deploying AI
               solutions that drive growth for startups and investors while
               maintaining the highest standards of ethics, transparency, and
@@ -33,15 +33,15 @@ export default function ResponsibleAI({ onBack }) {
           </div>
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-2 lg:space-y-5">
           <section className="relative bg-[#F7F8F8]">
             <div className="flex p-6 pr-10 items-center">
               <div className="absolute h-[80%] w-1 bg-[#FFADDF] rounded-full" />
-              <div className="grid ml-10">
-                <h2 className="mb-2 text-h5 font-semibold">
+              <div className="grid ml-5 lg:ml-10">
+                <h2 className="mb-2 text-h6 lg:text-h5 font-semibold">
                   Ethical AI Matching for Startups & Investors
                 </h2>
-                <div className="space-y-4 text-body-2">
+                <div className="space-y-4 lg:text-body-2 text-body-3 text-[#616B68] lg:text-black">
                   <p>
                     Bias-Free Recommendations: Our AI matching tool connects
                     startups with the most suitable investors using objective
@@ -68,11 +68,11 @@ export default function ResponsibleAI({ onBack }) {
           <section className="relative">
             <div className="flex p-6 pr-10 items-center">
               <div className="absolute h-[80%] w-1 bg-[#FCEC3B] rounded-full" />
-              <div className="grid ml-10">
-                <h2 className="mb-2 text-h5 font-semibold">
+              <div className="grid ml-5 lg:ml-10">
+                <h2 className="mb-2 text-h6 lg:text-h5 font-semibold">
                   Transparent Decision-Making in Deal Flow Management
                 </h2>
-                <div className="space-y-4 text-body-2">
+                <div className="space-y-4 lg:text-body-2 text-body-3 text-[#616B68] lg:text-black">
                   <p>
                     AI-Assisted Insights: Ampersand CRM leverages AI to help
                     startups manage their sales pipelines and investors manage
@@ -96,11 +96,11 @@ export default function ResponsibleAI({ onBack }) {
           <section className="relative bg-[#F7F8F8]">
             <div className="flex p-6 pr-10 items-center">
               <div className="absolute h-[80%] w-1 bg-[#9BDCE1] rounded-full" />
-              <div className="grid ml-10">
-                <h2 className="mb-2 text-h5 font-semibold">
+              <div className="grid ml-5 lg:ml-10">
+                <h2 className="mb-2 text-h6 lg:text-h5 font-semibold">
                   Data Security & Privacy
                 </h2>
-                <div className="space-y-4 text-body-2">
+                <div className="space-y-4 lg:text-body-2 text-body-3 text-[#616B68] lg:text-black">
                   <p>
                     Robust Protection: We implement end-to-end encryption and
                     secure data storage to protect user information from
@@ -124,11 +124,11 @@ export default function ResponsibleAI({ onBack }) {
           <section className="relative">
             <div className="flex p-6 pr-10 items-center">
               <div className="absolute h-[80%] w-1 bg-[#4E7E71] rounded-full" />
-              <div className="grid ml-10">
-                <h2 className="mb-2 text-h5 font-semibold">
+              <div className="grid ml-5 lg:ml-10">
+                <h2 className="mb-2 text-h6 lg:text-h5 font-semibold">
                   Fairness in Growth Capital and Secondary Buyouts
                 </h2>
-                <div className="space-y-4 text-body-2">
+                <div className="space-y-4 lg:text-body-2 text-body-3 text-[#616B68] lg:text-black">
                   <p>
                     Objective Analysis: Our AI evaluates Growth Capital and
                     Secondary Buyout opportunities using clear, data-driven
@@ -151,11 +151,11 @@ export default function ResponsibleAI({ onBack }) {
           <section className="relative bg-[#F7F8F8]">
             <div className="flex p-6 pr-10 items-center">
               <div className="absolute h-[80%] w-1 bg-[#818CF8] rounded-full" />
-              <div className="grid ml-10">
-                <h2 className="mb-2 text-h5 font-semibold">
+              <div className="grid ml-5 lg:ml-10">
+                <h2 className="mb-2 text-h6 lg:text-h5 font-semibold">
                   Accountability & Continuous Improvement
                 </h2>
-                <div className="space-y-4 text-body-2">
+                <div className="space-y-4 lg:text-body-2 text-body-3 text-[#616B68] lg:text-black">
                   <p>
                     Human Oversight: Our expert advisory team continuously
                     reviews AI outputs to ensure accuracy and alignment with
@@ -178,11 +178,11 @@ export default function ResponsibleAI({ onBack }) {
           <section className="relative">
             <div className="flex p-6 pr-10 items-center">
               <div className="absolute h-[80%] w-1 bg-[#FA8016] rounded-full" />
-              <div className="grid ml-10">
-                <h2 className="mb-2 text-h5 font-semibold">
+              <div className="grid ml-5 lg:ml-10">
+                <h2 className="mb-2 text-h6 lg:text-h5 font-semibold">
                   Sustainable and Responsible Innovation
                 </h2>
-                <div className="space-y-4 text-body-2">
+                <div className="space-y-4 lg:text-body-2 text-body-3 text-[#616B68] lg:text-black">
                   <p>
                     Green AI Practices: We aim to minimize the environmental
                     impact of our AI operations by optimizing computing
@@ -203,7 +203,7 @@ export default function ResponsibleAI({ onBack }) {
           </section>
         </div>
 
-        <p className="text-body-1 py-6 px-10">
+        <p className="text-body-3 lg:text-body-1 py-6 px-5 lg:px-10">
           At Ampersand, Responsible AI is not just a commitment—it is a core
           principle driving innovation, trust, and value creation for startups
           and investors alike.

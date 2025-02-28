@@ -38,7 +38,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Match investors based on startup details
     const matchedInvestors = investors
       .filter((investor: Investor) => isMatchingInvestor(investor, startupDetails))
-      .map((investor: Investor) => investor.name); // Only return investor names
+      .map((investor: Investor, index: number) => `${index + 1}. ${investor.name}`); // Return numbered list
 
     return res.status(200).json({ investors: matchedInvestors });
   } catch (error) {
