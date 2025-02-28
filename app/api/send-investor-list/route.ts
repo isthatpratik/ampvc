@@ -33,9 +33,20 @@ Stay tuned—exciting updates are on the way!
 \n\nBest regards,\nAmpersand Team`,
     };
 
-    const emailResponse = await transporter.sendMail(mailOptions);
+    const adminMailOptions = {
+      from: process.env.EMAIL_USER, // Your email address
+      to: process.env.ADMIN_EMAIL, // Your email address to receive form data
+      subject: "New Investor List Form Submission",
+      text: `New form submission received:\n\nFull Name: ${fullName}\nWork Email: ${workEmail}\nCompany Name: ${companyName}\nRole: ${role}\nIndustry: ${industry}`,
+    };
 
-    console.log("Email response:", emailResponse);
+    // Send email to the user
+    const userEmailResponse = await transporter.sendMail(mailOptions);
+    console.log("User email response:", userEmailResponse);
+
+    // Send email to the admin
+    const adminEmailResponse = await transporter.sendMail(adminMailOptions);
+    console.log("Admin email response:", adminEmailResponse);
 
     return NextResponse.json({ message: "Thank you email sent successfully" }, { status: 200 });
 
