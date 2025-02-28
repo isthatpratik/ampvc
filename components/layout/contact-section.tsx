@@ -33,7 +33,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import Image from "next/image";
 
 const personalEmailDomains = [
   "gmail.com",
@@ -218,10 +217,8 @@ export default function ContactSection({
           damping: 25,
         }}
       >
-        <div>
-          
-        </div>
-        <div className="w-full h-full">
+        
+        {/* <div className="w-full h-full">
           <Image 
           src={'/images/form/middle-form-banner.svg'}
           alt=""
@@ -229,7 +226,7 @@ export default function ContactSection({
           height={200}
           className="object-contain w-auto h-auto"
           />
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-8">
         <h6 className="text-h6 text-balance">
