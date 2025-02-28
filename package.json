@@ -27,6 +27,7 @@
     "lucide-react": "^0.475.0",
     "motion": "^12.4.2",
     "next": "15.1.7",
+    "nodemailer": "^6.10.0",
     "ogl": "^1.0.11",
     "openai": "^4.85.4",
     "react": "^19.0.0",
@@ -41,6 +42,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

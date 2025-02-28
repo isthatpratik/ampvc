@@ -99,9 +99,26 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
     },
   });
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     console.log("Form submitted:", data);
-    setIsSubmitted(true); 
+    setIsSubmitted(true);
+
+    // Send form data to the backend
+    try {
+      const response = await fetch("/api/send-investor-list", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send email");
+      }
+
+      console.log("Email sent successfully");
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
   };
 
   return (
@@ -213,7 +230,7 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
                         defaultValue={field.value}
                       >
                         <SelectTrigger className="w-full border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0 text-left">
-                          <SelectValue placeholder="Select Industry" />
+                          <SelectValue placeholder="Select Role" />
                         </SelectTrigger>
                         <SelectContent>
                           {roles.map((role) => (
@@ -274,6 +291,7 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
                     Cancel
                   </Button>
                   <Button
+                    type="submit"
                     className="h-12 px-6 shadow-none hover:bg-black/5 transition-all duration-300 rounded-full bg-transparent border border-black/20 py-1 flex items-center text-body-2"
                   >
                     Submit
