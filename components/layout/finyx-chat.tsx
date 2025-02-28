@@ -4,11 +4,15 @@ import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { SendHorizonal } from "lucide-react"
+import { ArrowLeft, SendHorizonal } from "lucide-react"
 import { Textarea } from "@/components/ui/textarea"
 import MatchingList from "@/components/forms/matching-list"
 
-export default function FinyxChat() {
+interface FinyxChatProps {
+  onBack: () => void;
+}
+
+export default function FinyxChat({ onBack }: FinyxChatProps) {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([])
   const [input, setInput] = useState("")
   const [loading, setLoading] = useState(false)
@@ -131,6 +135,13 @@ export default function FinyxChat() {
           transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 },
         }}
       >
+        <Button
+            onClick={onBack}
+            className="shadow-none 2xl:hidden mb-6 hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
+          >
+            <ArrowLeft className="" /> Back
+          </Button>
+
         Find the right investors effortlessly with{" "}
         <span className="bg-gradient-to-r from-[#4E7E71CF]/80 from-40% via-[#FB79C7] to-[#F7E307] to-80% bg-clip-text text-transparent">
           AI-powered matching.

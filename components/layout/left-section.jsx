@@ -96,7 +96,7 @@ export default function LeftSection({
 
           {/* Conditional Rendering for Service or Solution Details */}
           {showFinyxChat ? (
-            <FinyxChat />
+            <FinyxChat onBack={() => setShowFinyxChat(false)}/>
           ) : selectedService ? (
             <motion.div
               initial={{ y: "50px", opacity: 0 }}

@@ -94,7 +94,7 @@ export default function Home() {
                 selectedSolution={selectedSolution}
               />
             ) : (
-              <FinyxChat />
+              <FinyxChat onBack={() => {}}/>
             )}
           </div>
         )}
