@@ -6,7 +6,6 @@ import RightSection from "@/components/layout/right-section";
 import { motion } from "framer-motion";
 import FinyxChat from "@/components/layout/finyx-chat";
 import ContactSection from "@/components/layout/contact-section";
-import CareersSection from "@/components/sections/careers"; // Import the ContactSection
 
 export default function Home() {
   const [selectedService, setSelectedService] = useState<{
@@ -35,6 +34,31 @@ export default function Home() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    const handleBackButton = (event: PopStateEvent) => {
+      if (selectedService || selectedSolution || selectedAboutUs || selectedCareers) {
+        event.preventDefault(); 
+        setSelectedService(null);
+        setSelectedSolution(null);
+        setSelectedAboutUs(false);
+        setSelectedCareers(false);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        // Allow default back button behavior (closing tab or navigating away)
+        window.history.back();
+      }
+    };
+
+    window.history.pushState(null, "", window.location.href); // Push state to history
+
+    window.addEventListener("popstate", handleBackButton); // Listen for back button
+
+    return () => {
+      window.removeEventListener("popstate", handleBackButton);
+    };
+  }, [selectedService, selectedSolution, selectedAboutUs, selectedCareers]);
+
 
   return (
     <div className="relative mx-auto max-w-full min-h-screen flex items-center justify-center">

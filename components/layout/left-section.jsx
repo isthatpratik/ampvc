@@ -32,7 +32,6 @@ export default function LeftSection({
   const [selectedStaticPage, setSelectedStaticPage] = useState(null);
   const [selectedResponsibleAI, setSelectedResponsibleAI] = useState(false);
   const [showFinyxChat, setShowFinyxChat] = useState(false);
-  const [showCareers, setShowCareers] = useState(false);
 
   const toggleFinyxChat = () => {
     setShowFinyxChat((prev) => !prev);
