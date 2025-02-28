@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { Button } from "./button";
+import Preregister from "../forms/pre-register";
+import { useState } from "react";
 
 export default function PreRegisterMobile() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="block lg:hidden px-5 py-8">
       <div className="flex flex-col bg-[#181A1A] rounded-sm p-6 justify-center space-y-6">
@@ -26,10 +30,11 @@ export default function PreRegisterMobile() {
         <h3 className="text-[#AFB6B4] text-body-1 text-balance text-center">
         Fynar AI is built for those who want simplicity, efficiency, and results. Less hassle, more success.
         </h3>
-        <Button className="w-full text-black hover:bg-white/80 transition-all duration-300 mx-auto p-6 bg-white shadow-none border-none rounded-full">
+        <Button onClick={() => setOpen(true)} className="w-full text-black hover:bg-white/80 transition-all duration-300 mx-auto p-6 bg-white shadow-none border-none rounded-full">
             Get Early Access
         </Button>
       </div>
+      <Preregister open={open} setOpen={setOpen} />
     </div>
   );
 }

@@ -272,8 +272,8 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
             </DialogHeader>
 
             <div className="grid grid-cols-5 gap-6 pb-12 px-4">
-              <div className="relative col-span-1 md:flex justify-start pl-14 pt-2 hidden">
-                <div className="relative flex flex-col justify-between h-[90%] items-center">
+              <div className="relative col-span-1 md:flex justify-start pl-14 h-[50%] pt-2 hidden">
+                <div className="relative flex flex-col justify-between h-[50%] items-center">
                   {/* Background line */}
                   <div className="absolute h-full w-[6px] bg-gray-200 rounded-full z-0" />
 
@@ -400,7 +400,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                                     type="tel"
                                     placeholder="0123456789"
                                     {...field}
-                                    className="placeholder-[#AFB6B4] lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                                    className="placeholder-[#AFB6B4] ml-2 lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                                   />
                                 </FormControl>
                               </div>
