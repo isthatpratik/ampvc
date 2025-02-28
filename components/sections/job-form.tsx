@@ -45,7 +45,11 @@ const roles = [
 
 type JobFormValues = z.infer<typeof jobFormSchema>;
 
-export default function JobForm({ onClose }: { onClose: () => void }) {
+interface JobFormProps {
+    onClose: () => void;
+  }
+
+export default function JobForm({ onClose }: JobFormProps) {
   const [dialCodes, setDialCodes] = useState<{ code: string; name: string }[]>(
     []
   );
@@ -55,20 +59,29 @@ export default function JobForm({ onClose }: { onClose: () => void }) {
     async function fetchDialCodes() {
       try {
         const response = await fetch("https://restcountries.com/v3.1/all");
-        const data = await response.json();
+        const data: Array<{ 
+          idd?: { root?: string; suffixes?: string[] }; 
+          name: { common: string } 
+        }> = await response.json();
+  
         const codes = data
-          .map((country: any) => ({
-            code: country.idd?.root + (country.idd?.suffixes?.[0] || ""),
+          .map((country) => ({
+            code: country.idd?.root && country.idd?.suffixes?.[0] 
+              ? country.idd.root + country.idd.suffixes[0] 
+              : "",
             name: country.name.common,
           }))
-          .filter((c: any) => c.code);
+          .filter((c) => c.code); 
+  
         setDialCodes(codes);
       } catch (error) {
         console.error("Error fetching dial codes:", error);
       }
     }
+  
     fetchDialCodes();
   }, []);
+  
 
   const form = useForm<JobFormValues>({
     resolver: zodResolver(jobFormSchema),
