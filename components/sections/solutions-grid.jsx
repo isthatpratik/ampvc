@@ -24,7 +24,7 @@ const solutions = [
 
 export default function SolutionsGrid({ setSelectedSolution }) {
   return (
-    <div className="h-full px-5 lg:px-10 pb-6 lg:py-14 flex flex-col space-y-6">
+    <div className="h-full px-5 lg:px-10 pb-6 lg:py-14 flex flex-col space-y-6 w-full"> {/* UPDATED: Ensured full width */}
       <h2 className="text-h4 lg:text-h3 text-balance text-center lg:text-left">
         Smart solutions for VCs, Family Offices & Funds.
       </h2>
@@ -35,12 +35,13 @@ export default function SolutionsGrid({ setSelectedSolution }) {
         Empowering founders to scale faster, smarter, and stronger—because their growth drives your returns.
       </p>
 
-      <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-2 justify-between items-center w-full h-full">
+      {/* Grid Update for Full-Width on Small Screens */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-2 w-full"> {/* UPDATED: Ensure grid covers full width */}
         {solutions.map((solution) => (
           <button 
             key={solution.title} 
             onClick={() => setSelectedSolution(solution)} 
-            className="w-full focus:outline-none"
+            className="w-full focus:outline-none" // UPDATED: Ensures full-width button coverage
           >
             <CircularCard
               title={solution.title}

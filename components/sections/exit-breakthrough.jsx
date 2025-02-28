@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { FeaturesSection2 } from "./features-section-02";
+import FeatureCards02 from "./features-mobile-02";
 
 export default function ExitBreakthrough({ onBack }) {
   return (
@@ -146,6 +147,7 @@ export default function ExitBreakthrough({ onBack }) {
         </div>
       </div>
       <FeaturesSection2 />
+      <FeatureCards02 />
     </motion.div>
   );
 }

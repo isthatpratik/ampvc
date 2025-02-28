@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { FeaturesSection3 } from "./features-section-03";
+import FeatureCards03 from "./features-mobile-03";
 
 export default function ScalingFuel({ onBack }) {
   return (
@@ -132,6 +133,7 @@ export default function ScalingFuel({ onBack }) {
         </div>
       </div>
       <FeaturesSection3 />
+      <FeatureCards03 />
     </motion.div>
   );
 }

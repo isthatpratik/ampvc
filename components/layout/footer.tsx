@@ -224,7 +224,7 @@ export default function Footer({
           <div className="2xl:w-[40%] lg:w-[15%] h-[1px] bg-[#313534]"></div>
           <div className="flex items-center gap-4">
             <span className="text-[#798682] font-light text-caption">
-              All rights reserved. Ampersand
+              All rights reserved. Ampersand 2025
             </span>
             <div className="hidden lg:block h-[6px] w-[6px] bg-[#313534] rounded-full"></div>
             <Image

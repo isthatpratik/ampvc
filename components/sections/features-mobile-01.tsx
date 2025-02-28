@@ -1,9 +1,7 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect, useRef, useCallback } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 
@@ -13,7 +11,7 @@ interface FeatureCard {
   title: string
   description: string
   borderColor: string
-  illustration: React.ReactNode
+  imageUrl: string
 }
 
 export default function FeatureCards01() {
@@ -29,20 +27,7 @@ export default function FeatureCards01() {
       description:
         "Strategic Growth Consultation offers expert advisory services to accelerate your business. Our seasoned professionals identify opportunities, optimize operations, and implement strategies to drive performance and success.",
       borderColor: "bg-pink-400",
-      illustration: (
-        <div className="relative h-32 w-full">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-            <div className="relative">
-              <div className="w-16 h-16 bg-yellow-300 rotate-45 absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="w-12 h-12 bg-pink-300 absolute top-8"></div>
-              <div className="w-14 h-14 bg-emerald-800 absolute top-16"></div>
-              <div className="w-8 h-8 bg-white border border-gray-300 absolute bottom-4 left-[-20px]"></div>
-              <div className="w-2 h-2 bg-gray-500 rounded-full absolute top-0 left-8"></div>
-              <div className="w-2 h-2 bg-pink-300 rounded-full absolute right-0 top-12"></div>
-            </div>
-          </div>
-        </div>
-      ),
+      imageUrl: "/images/features/Features-0101.svg",
     },
     {
       id: "in-depth-analysis",
@@ -51,25 +36,7 @@ export default function FeatureCards01() {
       description:
         "We start with a deep analysis of your market position, operations, and competition. Our experts then work with your leadership to craft a tailored growth plan that aligns with your goals and vision.",
       borderColor: "bg-teal-500",
-      illustration: (
-        <div className="relative h-32 w-full">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-            <div className="relative">
-              <div className="w-14 h-14 bg-white border border-gray-300 absolute top-0"></div>
-              <div className="w-14 h-14 bg-emerald-800 absolute top-8 left-4"></div>
-              <div className="w-14 h-14 bg-teal-300 absolute top-16 left-[-10px]"></div>
-              <div className="w-16 h-16 flex items-center justify-center absolute top-0 left-0">
-                <div className="w-10 h-6 border-2 border-gray-500 rounded-full relative">
-                  <div className="w-6 h-6 bg-pink-300 rounded-full absolute left-2 top-0"></div>
-                  <div className="w-3 h-3 bg-gray-800 rounded-full absolute left-3.5 top-1.5"></div>
-                </div>
-              </div>
-              <div className="w-2 h-2 bg-yellow-300 rounded-full absolute left-[-20px] top-12"></div>
-              <div className="w-2 h-2 bg-blue-400 rounded-full absolute right-[-10px] top-0"></div>
-            </div>
-          </div>
-        </div>
-      ),
+      imageUrl: "/images/features/Features-0102.svg",
     },
     {
       id: "customized-growth-plan",
@@ -78,23 +45,7 @@ export default function FeatureCards01() {
       description:
         "The plan outlines strategies for market expansion, product development, revenue growth, and cost management. We also identify potential obstacles and provide solutions to ensure sustainable success.",
       borderColor: "bg-emerald-800",
-      illustration: (
-        <div className="relative h-32 w-full">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-            <div className="relative">
-              <div className="w-16 h-16 bg-yellow-300 absolute top-0 left-8 transform -rotate-12">
-                <div className="w-16 h-16 bg-yellow-300 absolute top-0 left-0 border-2 border-yellow-400"></div>
-              </div>
-              <div className="w-14 h-14 bg-emerald-800 absolute top-8"></div>
-              <div className="w-14 h-14 bg-gray-200 absolute top-16 left-8"></div>
-              <div className="w-8 h-8 bg-white border border-gray-300 absolute top-0 left-[-20px]"></div>
-              <div className="w-2 h-2 bg-teal-300 rounded-full absolute left-[-10px] top-12"></div>
-              <div className="w-2 h-2 bg-pink-300 rounded-full absolute right-[-10px] top-8"></div>
-              <div className="w-2 h-2 bg-gray-400 rounded-full absolute bottom-[-10px] left-16"></div>
-            </div>
-          </div>
-        </div>
-      ),
+      imageUrl: "/images/features/Features-0103.svg",
     },
     {
       id: "best-practices",
@@ -103,22 +54,7 @@ export default function FeatureCards01() {
       description:
         "We offer expert guidance on scaling operations, enhancing customer acquisition and retention, and utilizing technology to gain a competitive edge.",
       borderColor: "bg-yellow-400",
-      illustration: (
-        <div className="relative h-32 w-full">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-            <div className="relative">
-              <div className="w-24 h-24 bg-pink-300 rounded-full absolute top-0"></div>
-              <div className="w-8 h-8 bg-teal-300 absolute top-0 left-[-30px]"></div>
-              <div className="w-8 h-8 bg-yellow-300 absolute bottom-8 right-[-20px]"></div>
-              <div className="border-dashed border-2 border-gray-400 w-40 h-20 rounded-full absolute top-12 left-[-20px] transform -rotate-12"></div>
-              <div className="w-2 h-2 bg-emerald-800 rounded-full absolute top-12 left-0"></div>
-              <div className="w-2 h-2 bg-yellow-300 rounded-full absolute top-16 left-[-40px]"></div>
-              <div className="w-2 h-2 bg-pink-400 rounded-full absolute right-0 top-8"></div>
-              <div className="w-2 h-2 bg-gray-400 rounded-full absolute bottom-[-10px] right-8"></div>
-            </div>
-          </div>
-        </div>
-      ),
+      imageUrl: "/images/features/Features-0104.svg",
     },
   ]
 
@@ -135,7 +71,6 @@ export default function FeatureCards01() {
   }
 
   useEffect(() => {
-    // Auto slide every 5 seconds if not paused
     if (!isPaused) {
       intervalRef.current = setInterval(() => {
         nextSlide()
@@ -162,7 +97,7 @@ export default function FeatureCards01() {
       <h1 className="text-h5 font-bold text-center mb-8">Driving Success with Cutting-Edge Smart Features</h1>
 
       {/* Only show on small screens */}
-      <div className="relative " onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className="overflow-hidden h-full">
           <div
             className="flex transition-transform duration-500 ease-in-out"
@@ -189,8 +124,8 @@ export default function FeatureCards01() {
                     {card.title}
                   </h2>
                   <p className="text-gray-800 mb-4 text-body-3">{card.description}</p>
-                  <div className="object-contain">
-                    {card.illustration}
+                  <div className="w-full h-32 flex justify-center">
+                    <Image src={card.imageUrl} alt={card.title} className="w-full h-full object-contain" width={100} height={100}/>
                   </div>
                 </div>
               </div>
