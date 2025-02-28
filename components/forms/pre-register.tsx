@@ -141,10 +141,10 @@ export default function Preregister({ open, setOpen }: PreregisterProps) {
                   width={400}
                   height={400}
                   priority
-                  className="w-full h-auto object-cover rounded-md"
+                  className="w-full h-fit object-cover rounded-[8px]"
                 />
               </div>
-              <div className="p-11 space-y-4">
+              <div className="px-11 pb-11 space-y-4">
                 <DialogTitle className="text-center font-semibold text-[32px] lg:text-[40px] ">
                 Get Early Access to Fynar AI
                 </DialogTitle>
@@ -277,14 +277,6 @@ export default function Preregister({ open, setOpen }: PreregisterProps) {
                 </div>
 
                 <div className="flex gap-12 justify-center">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => setOpen(false)}
-                    className="h-12 px-6 shadow-none hover:bg-black/5 transition-all duration-300 rounded-full bg-transparent border border-black/40 py-1 flex items-center text-body-2"
-                  >
-                    Cancel
-                  </Button>
                   <Button
                   type="submit"
                   variant="submit"

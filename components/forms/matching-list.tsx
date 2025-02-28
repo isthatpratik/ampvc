@@ -136,7 +136,7 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-4">
               <div className="flex px-4 rounded-sm">
                 <Image
-                  src={"/images/form/pre-register-banner.jpg"}
+                  src={"/images/form/full-list-banner.jpg"}
                   alt="Pre-Register Banner"
                   width={400}
                   height={400}
@@ -144,7 +144,7 @@ export default function MatchingList({ open, setOpen }: MatchingListProps) {
                   className="w-full h-auto object-cover rounded-md"
                 />
               </div>
-              <div className="p-11 space-y-4">
+              <div className="px-11 pb-11 space-y-4">
                 <DialogTitle className="text-center font-semibold text-[40px] ">
                 Get the full list
                 </DialogTitle>
