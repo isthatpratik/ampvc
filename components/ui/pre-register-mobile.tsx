@@ -27,7 +27,7 @@ export default function PreRegisterMobile() {
         Fynar AI is built for those who want simplicity, efficiency, and results. Less hassle, more success.
         </h3>
         <Button className="w-full text-black hover:bg-white/80 transition-all duration-300 mx-auto p-6 bg-white shadow-none border-none rounded-full">
-            Pre-register Now
+            Get Early Access
         </Button>
       </div>
     </div>

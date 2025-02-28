@@ -9,7 +9,7 @@ export default function ExitStrategy({ onBack }) {
   const [openContactForm, setOpenContactForm] = useState(false);
 
   return (
-    <motion.div className="pb-14 pt-6 px-10 mx-auto"
+    <motion.div className="pb-14 pt-6 px-5 lg:px-10 mx-auto"
     initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ export default function ExitStrategy({ onBack }) {
 
       {/* What We Do Section */}
       <section className="flex">
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-4 lg:gap-6">
           <div className="flex items-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
             <h2 className="text-h4 xl:px-10 lg:px-6 text-[#181A1A] font-semibold">
               What <br /> We Do
@@ -72,14 +72,14 @@ export default function ExitStrategy({ onBack }) {
       <div className="my-12 w-full h-[1px] bg-[#B9BFBE]"></div>
 
       {/* Why Choose Us Section */}
-      <section className="space-y-12 mb-12">
-        <div className="grid grid-cols-3">
-          <div className="mr-6 flex items-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
-            <h2 className="text-h4 xl:px-10 lg:px-6 text-[#181A1A] font-semibold">
+      <section className="space-y-12 mb-6 lg:mb-12">
+        <div className="grid lg:grid-cols-3">
+          <div className="lg:mr-6 flex items-center justify-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
+            <h2 className="text-h4 text-center xl:px-10 lg:px-6 text-[#181A1A] font-semibold">
               Why <br /> Choose Us
             </h2>
           </div>
-          <div className="border-r-[0.5px] border-b-[0.5px] p-8 text-center text-balance space-y-4">
+          <div className="lg:border-r-[0.5px] lg:border-b-[0.5px] p-8 text-center text-balance space-y-4">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
             Distressed Exits
             </h3>
@@ -87,7 +87,7 @@ export default function ExitStrategy({ onBack }) {
               Experience with turning losses into opportunities.
             </p>
           </div>
-          <div className="border-b-[0.5px] border-l-[0.5px] text-balance text-center p-8 space-y-4">
+          <div className="lg:border-b-[0.5px] lg:border-l-[0.5px] text-balance text-center p-8 space-y-4">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
               Powerful Network
             </h3>
@@ -95,8 +95,8 @@ export default function ExitStrategy({ onBack }) {
               Buyers, secondaries, and strategic connections—lined up for you.
             </p>
           </div>
-          <div></div>
-          <div className="border-t-[0.5px] border-r-[0.5px] text-balance text-center p-8 space-y-4">
+          <div className="hidden lg:block"></div>
+          <div className="lg:border-t-[0.5px] lg:border-r-[0.5px] text-balance text-center p-8 space-y-4">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
               End-to-End Solutions
             </h3>
@@ -104,7 +104,7 @@ export default function ExitStrategy({ onBack }) {
               From valuation to handshake, we've got it covered.
             </p>
           </div>
-          <div className="border-l-[0.5px] border-t-[0.5px] text-balance text-center p-8 space-y-4">
+          <div className="lg:border-l-[0.5px] lg:border-t-[0.5px] text-balance text-center p-8 space-y-4">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
               Discreet & Swift
             </h3>

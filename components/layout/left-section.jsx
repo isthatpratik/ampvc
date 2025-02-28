@@ -17,6 +17,7 @@ import ResponsibleAI from "../sections/responsible-ai";
 import PreRegisterMobile from "../ui/pre-register-mobile";
 import FinyxChat from "./finyx-chat";
 import CareersSection from "../sections/careers";
+import Image from "next/image";
 
 export default function LeftSection({
   selectedService,
@@ -32,6 +33,10 @@ export default function LeftSection({
   const [selectedResponsibleAI, setSelectedResponsibleAI] = useState(false);
   const [showFinyxChat, setShowFinyxChat] = useState(false);
   const [showCareers, setShowCareers] = useState(false);
+
+  const toggleFinyxChat = () => {
+    setShowFinyxChat((prev) => !prev);
+  };
 
   const handleServiceSelect = (value) => {
     setShowFinyxChat(false);
@@ -302,6 +307,24 @@ export default function LeftSection({
           onAboutUsSelect={handleAboutUsSelect}
         />
       </motion.div>
+
+      {!showFinyxChat && ( <motion.button
+      initial={{ y: "50px", opacity: 0 }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        transition: {
+          delay: 1,
+          type: "spring",
+          stiffness: 100,
+          damping: 25,
+        },
+      }}
+        onClick={toggleFinyxChat}
+        className="fixed bottom-0 right-0 lg:hidden items-center justify-center"
+      >
+        <Image src="/images/finyx-chat/ai-chat-blob.svg" alt="Chat" width={100} height={100} className="w-auto h-auto object-contain" />
+      </motion.button> )}
     </div>
   );
 }

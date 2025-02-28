@@ -95,9 +95,9 @@ export default function FinyxChat() {
   };
 
   return (
-    <div className="sticky top-0 flex h-screen w-full flex-col 2xl:bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-8 2xl:pt-14 2xl:pb-14 pb-8 px-10">
+    <div className="sticky top-0 flex lg:h-screen min-h-[70vh] w-full flex-col 2xl:bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-8 2xl:pt-14 2xl:pb-14 pb-8 px-5 lg:px-10">
       <motion.h1
-        className="text-h4 tracking-tight"
+        className="text-h5 lg:text-h4 tracking-tight"
         initial={{ y: "50px", opacity: 0 }}
         animate={{
           y: 0,
@@ -120,14 +120,14 @@ export default function FinyxChat() {
           opacity: 1,
           transition: { delay: 1, type: "spring", stiffness: 100, damping: 25 },
         }}>
-          <Image src="/images/finyx-chat/middle-circle.svg" alt="Start Chat" width={200} height={200} />
+          <Image src="/images/finyx-chat/thinking.svg" alt="Start Chat" width={200} height={200} className="w-25 h-auto"/>
         </motion.div>
       )}
 
       {/* Show mid-way SVG after second user message */}
       {showMidSVG && (
         <div className="flex justify-center items-center h-full w-auto">
-          <Image src="/images/finyx-chat/thinking.svg" alt="Finding Match" width={200} height={200} />
+          <Image src="/images/finyx-chat/thinking.svg" alt="Finding Match" width={200} height={200} className="w-20 h-20"/>
         </div>
       )}
 
@@ -206,18 +206,18 @@ export default function FinyxChat() {
             alt="Icon"
             width={48}
             height={48}
-            className="mr-2 object-contain w-12 h-auto"
+            className="mr-2 object-contain w-8 lg:w-12 h-auto"
           />
           <div className="w-[1px] h-full my-2 bg-[#DCDCDC]" />
           <Textarea
-            className="resize-none w-full min-h-8 h-8 border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
+            className="resize-none lg:text-body-1 text-body-3 w-full min-h-8 h-8 border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
             placeholder="Type your prompt here"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
           />
-          <Button onClick={sendMessage} disabled={loading}>
-            <SendHorizonal size={16} className="text-white" />
+          <Button onClick={sendMessage} disabled={loading} className="aspect-square">
+            <SendHorizonal className="text-white" />
           </Button>
         </motion.div>
       )}

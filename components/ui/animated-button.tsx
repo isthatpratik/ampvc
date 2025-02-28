@@ -17,13 +17,13 @@ const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
         {...props}
       >
         <div className="flex items-center gap-4 transition-transform duration-300">
-          <span className="flex-shrink-0 h-11 w-11 rounded-full bg-white group-hover:bg-black flex items-center justify-center transition-all duration-300 group-hover:translate-x-[calc(100%+4rem)]">
+          <span className="flex-shrink-0 h-11 w-11 rounded-full bg-white group-hover:bg-black flex items-center justify-center transition-all duration-300 group-hover:translate-x-[calc(100%+5.8rem)]">
             <ArrowUpRight 
               className="h-5 w-5 transition-all duration-300 group-hover:rotate-45 text-black group-hover:text-white" 
               strokeWidth={2}
             />
           </span>
-          <span className="z-999 text-body-2 -translate-x-[0.5rem] font-medium group-hover:-translate-x-[calc(56%)] transition-all group-hover:text-black duration-300">{children}</span>
+          <span className="z-999 text-body-3 lg:text-body-2 -translate-x-[0.5rem] font-medium group-hover:-translate-x-[calc(42%)] transition-all group-hover:text-black duration-300">{children}</span>
         </div>
       </button>
     );

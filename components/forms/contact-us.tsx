@@ -144,7 +144,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
 
   async function onSubmit(data: FormData) {
     console.log(data);
-  
+
     try {
       const response = await fetch("/api/contact-us", {
         method: "POST",
@@ -153,19 +153,18 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
         },
         body: JSON.stringify(data),
       });
-  
+
       if (!response.ok) {
         throw new Error("Failed to send email");
       }
-  
+
       console.log("Email sent successfully");
     } catch (error) {
       console.error("Error submitting form:", error);
     }
-  
-    setIsSubmitted(true); 
+
+    setIsSubmitted(true);
   }
-  
 
   useEffect(() => {
     const fetchCountryCodes = async () => {
@@ -250,30 +249,30 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-4xl rounded-sm w-full p-0 border-none max-h-[90vh] min-h-[50vh] overflow-y-auto bg-white text-black z-50">
+      <DialogContent className="max-w-4xl rounded-sm w-full p-0 border-none lg:max-h-[90vh] h-full min-h-[50vh] overflow-y-auto bg-white text-black z-50">
         {isSubmitted ? (
-          <div className="bg-[url('/images/form/contact-us-success.jpg')] 2xl:min-h-[60vh] lg:min-h-[80vh] bg-cover bg-no-repeat bg-top p-16 text-center flex flex-col items-center gap-6">
-            <h2 className="text-h1">Thank You!</h2>
-            <p className="text-body-1 px-12 mx-auto max-w-md">
-            Your form has been submitted successfully. 
-            We’ll get back to you shortly!
+          <div className="lg:bg-[url('/images/form/contact-us-success.jpg')] bg-[url('/images/form/contact-success-mobile.jpg')]  2xl:min-h-[60vh] lg:min-h-[80vh] min-h-screen bg-cover lg:bg-cover bg-no-repeat bg-center lg:bg-top p-16 text-center flex flex-col items-center gap-6">
+            <h2 className="text-h3 lg:text-h1">Thank You!</h2>
+            <p className="text-body-3 lg:text-body-1 lg:px-12 mx-auto lg:max-w-md">
+              Your form has been submitted successfully.
+               We’ll get back to you shortly!
             </p>
-            <Button className="p-8 rounded-full" onClick={() => setOpen(false)}>
+            <Button className="p-6 lg:p-8 rounded-full" onClick={() => setOpen(false)}>
               Go Back
             </Button>
           </div>
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle className="text-h3 px-12 pt-12">
+              <DialogTitle className="text-h5 lg:text-h3 px-12 pt-12">
                 Ready to Disrupt the Ordinary?
                 <br />
                 Let&apos;s Create Something Extraordinary!
               </DialogTitle>
             </DialogHeader>
 
-            <div className="grid grid-cols-3 gap-6 pb-12">
-              <div className="relative cols-span-1 flex justify-start pl-14 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-12 px-4 sm:px-0">
+              <div className="relative cols-span-1 lg:flex justify-start pl-14 pt-2 hidden">
                 <div className="relative flex flex-col justify-between h-[90%] items-center">
                   {/* Background line */}
                   <div className="absolute h-full w-[6px] bg-gray-200 rounded-full z-0" />
@@ -314,7 +313,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
-                  className="py-6 col-span-2 flex flex-col h-full justify-between min-h-[35vh] w-[60%] mr-auto"
+                  className="py-6 col-span-1 sm:col-span-2 flex flex-col h-full justify-between min-h-[35vh] w-full sm:w-[60%] mx-auto"
                 >
                   {step === 1 && (
                     <div className="flex flex-col space-y-4 h-full">

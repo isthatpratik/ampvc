@@ -280,7 +280,7 @@ export default function Navbar({
                       setTimeout(() => setOpenPreRegisterForm(true), 100); // Delay opening Pre-Register form
                     }}
                   >
-                    Early Access
+                    Get Early Access
                   </AnimatedButton>
                 </div>
               </div>

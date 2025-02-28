@@ -136,7 +136,7 @@ export default function RightSection() {
 
         <div className="flex gap-2">
           <AnimatedButton onClick={() => setOpen(true)}>
-            Early Access
+            Get Early Access
           </AnimatedButton>
         </div>
       </motion.div>
