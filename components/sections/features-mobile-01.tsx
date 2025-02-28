@@ -5,6 +5,7 @@ import type React from "react"
 import { useState, useEffect, useRef, useCallback } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 interface FeatureCard {
   id: string
@@ -15,7 +16,7 @@ interface FeatureCard {
   illustration: React.ReactNode
 }
 
-export default function FeatureCardsCarousel() {
+export default function FeatureCards01() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
@@ -157,12 +158,12 @@ export default function FeatureCardsCarousel() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto block md:hidden">
-      <h1 className="text-4xl font-bold text-center mb-8">Driving Success with Cutting-Edge Smart Features</h1>
+    <div className="max-w-sm w-screen h-full mx-auto block md:hidden py-10 px-5 overflow-hidden">
+      <h1 className="text-h5 font-bold text-center mb-8">Driving Success with Cutting-Edge Smart Features</h1>
 
       {/* Only show on small screens */}
       <div className="relative " onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <div className="overflow-hidden">
+        <div className="overflow-hidden h-full">
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -180,37 +181,22 @@ export default function FeatureCardsCarousel() {
                     {card.number}
                   </div>
                   <h2
-                    className="text-3xl font-semibold mb-4"
+                    className="text-h6 font-semibold mb-4"
                     style={{
                       color: index === 0 ? "#be185d" : index === 1 ? "#0d9488" : index === 2 ? "#065f46" : "#eab308",
                     }}
                   >
                     {card.title}
                   </h2>
-                  <p className="text-gray-800 mb-6 text-lg">{card.description}</p>
-                  {card.illustration}
+                  <p className="text-gray-800 mb-4 text-body-3">{card.description}</p>
+                  <div className="object-contain">
+                    {card.illustration}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
-        {/* Navigation buttons */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-
-        <button
-          onClick={nextSlide}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
 
         {/* Indicators */}
         <div className="flex justify-center mt-4 gap-2">

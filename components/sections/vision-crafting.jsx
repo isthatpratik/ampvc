@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { FeaturesSection1 } from "./features-section-01";
+import FeatureCards01 from "./features-mobile-01";
 
 export default function VisionCrafting({ onBack }) {
   return (
@@ -145,6 +146,7 @@ export default function VisionCrafting({ onBack }) {
         </div>
       </div>
       <FeaturesSection1 />
+      <FeatureCards01 />
     </motion.div>
   );
 }
