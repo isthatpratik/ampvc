@@ -249,9 +249,9 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-4xl rounded-sm w-full p-0 border-none 2xl:max-h-[60vh] lg:max-h-[90vh] h-full overflow-y-auto bg-white text-black z-50">
+      <DialogContent className="max-w-4xl rounded-sm w-full p-0 border-none lg:max-h-[90vh] min-h-[50vh] overflow-y-auto bg-white text-black z-50">
         {isSubmitted ? (
-          <div className="lg:bg-[url('/images/form/contact-us-success.jpg')] bg-[url('/images/form/contact-success-mobile.jpg')] 2xl:min-h-[60vh] lg:min-h-[80vh] min-h-screen bg-cover lg:bg-cover bg-no-repeat bg-center lg:bg-top p-16 text-center flex flex-col items-center gap-6">
+          <div className="lg:bg-[url('/images/form/contact-us-success.jpg')] bg-[url('/images/form/contact-success-mobile.jpg')]  2xl:min-h-[60vh] lg:min-h-[80vh] min-h-screen bg-cover lg:bg-cover bg-no-repeat bg-center lg:bg-top p-16 text-center flex flex-col items-center gap-6">
             <h2 className="text-h3 lg:text-h1">Thank You!</h2>
             <p className="text-body-3 lg:text-body-1 lg:px-12 mx-auto lg:max-w-md">
               Your form has been submitted successfully.
@@ -271,9 +271,9 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
               </DialogTitle>
             </DialogHeader>
 
-            <div className="grid grid-cols-5 gap-6 pb-12 px-4">
-              <div className="relative col-span-1 md:flex justify-start pl-14 h-[50%] pt-2 hidden">
-                <div className="relative flex flex-col justify-between h-[50%] items-center">
+            <div className="grid grid-cols-6 gap-6 pb-12 px-4 sm:px-0">
+              <div className="relative cols-span-1 lg:flex justify-start pl-14 pt-2 hidden">
+                <div className="relative flex flex-col justify-between h-[90%] items-center">
                   {/* Background line */}
                   <div className="absolute h-full w-[6px] bg-gray-200 rounded-full z-0" />
 
@@ -313,7 +313,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
-                  className="py-6 col-span-6 md:col-span-4 flex flex-col h-full justify-between min-h-[35vh] w-full lg:w-[80%] md:pr-14 mx-auto"
+                  className="py-6 lg:col-span-5 col-span-6 flex flex-col h-full justify-between min-h-[35vh] w-full sm:w-[60%] mx-auto"
                 >
                   {step === 1 && (
                     <div className="flex flex-col space-y-4 h-full">
@@ -400,7 +400,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
                                     type="tel"
                                     placeholder="0123456789"
                                     {...field}
-                                    className="placeholder-[#AFB6B4] ml-2 lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
+                                    className="placeholder-[#AFB6B4] lg:text-body-1 focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0"
                                   />
                                 </FormControl>
                               </div>

@@ -17,7 +17,7 @@ export default function CareersSection({ onBack }) {
   const [showJobForm, setShowJobForm] = useState(false);
 
   return (
-    <div className="sticky top-0 flex flex-col space-y-4 lg:w-full overflow-hidden justify-start py-14 px-5 lg:px-10 min-h-screen overflow-y-auto h-full">
+    <div className="sticky top-0 flex flex-col space-y-4 lg:w-full overflow-hidden justify-start py-14 px-5 lg:px-10 overflow-y-auto h-full">
       {!showJobForm ? ( // Conditionally render job listings or job form
         <>
           <motion.div

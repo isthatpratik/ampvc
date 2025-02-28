@@ -33,7 +33,7 @@ export async function POST(req: Request) {
       from: process.env.EMAIL_USER, // Your email address
       to: workEmail,
       subject: "Your Interest in Our VC Database – Next Steps",
-      text: `Dear ${fullName},\n\nTThank you for reaching out and for your interest in our Venture Capital (VC) database. We appreciate the time you took to complete the form.
+      text: `Dear ${fullName},\n\nThank you for reaching out and for your interest in our Venture Capital (VC) database. We appreciate the time you took to complete the form.
 
 We are in the final stages of curating a comprehensive list of VCs and will share it with you as soon as it is ready. This resource will provide you with valuable funding opportunities tailored to your needs.
 
