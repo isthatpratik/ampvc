@@ -14,7 +14,6 @@ const eslintConfig = [
   {
     rules: {
       "@typescript-eslint/no-unused-vars": "off",
-      "jsx-a11y/anchor-is-valid": "off", 
     },
   },
 ];

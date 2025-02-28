@@ -54,6 +54,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
       <meta name="google-site-verification" content="maMWNaPvCpL7a7oAcYgbekSgjOAFjNdlXFK_5311fJ0" />
+      <meta name="google-site-verification" content="Ze-kEhGuimQiofPIkTEFHAHiq92gSGLbNeH6emnctgU" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link
           rel="icon"

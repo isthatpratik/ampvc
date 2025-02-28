@@ -271,8 +271,8 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
               </DialogTitle>
             </DialogHeader>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-12 px-4 sm:px-0">
-              <div className="relative cols-span-1 lg:flex justify-start pl-14 pt-2 hidden">
+            <div className="grid grid-cols-5 gap-6 pb-12 px-4">
+              <div className="relative col-span-1 md:flex justify-start pl-14 pt-2 hidden">
                 <div className="relative flex flex-col justify-between h-[90%] items-center">
                   {/* Background line */}
                   <div className="absolute h-full w-[6px] bg-gray-200 rounded-full z-0" />
@@ -313,7 +313,7 @@ export default function ContactUs({ open, setOpen }: ContactUsProps) {
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
-                  className="py-6 col-span-1 sm:col-span-2 flex flex-col h-full justify-between min-h-[35vh] w-full sm:w-[60%] mx-auto"
+                  className="py-6 col-span-6 md:col-span-4 flex flex-col h-full justify-between min-h-[35vh] w-full lg:w-[80%] md:pr-14 mx-auto"
                 >
                   {step === 1 && (
                     <div className="flex flex-col space-y-4 h-full">

@@ -26,7 +26,7 @@ export default function ExitBreakthrough({ onBack }) {
         <h2 className="text-h4 lg:text-h3 text-balance lg:text-start text-center">
           Maximizing Returns on Your Investment.
         </h2>
-        <h3 className="text-body-3 lg:text-body-1 text-balance lg:text-start text-center">
+        <h3 className="text-body-3 lg:text-body-1 lg:text-start text-center">
           Services are designed to help early-stage investors and stakeholders
           achieve liquidity and maximize value before a company's Series A or B
           funding rounds. Our comprehensive approach ensures that your exit
@@ -57,7 +57,7 @@ export default function ExitBreakthrough({ onBack }) {
                 alt="partnership icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain 2xl:px-8 md:px-0 px-10 aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:p-6 p-4 aspect-[4/3]"
               />
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function ExitBreakthrough({ onBack }) {
                 alt="partnership icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain 2xl:px-8 md:px-0 px-10 aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:p-6 p-4 aspect-[4/3]"
               />
             </div>
             <div className="md:w-3/5 md:order-2 order-1 bg-transparent md:py-24 py-5 md:px-10 px-5 border-t border-l border-r md:border-x-0 border-[#AFB6B4]">
@@ -110,7 +110,7 @@ export default function ExitBreakthrough({ onBack }) {
                 alt="partnership icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain 2xl:px-8 md:px-0 px-10 aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:p-6 p-4 aspect-[4/3]"
               />
             </div>
           </div>
@@ -127,10 +127,10 @@ export default function ExitBreakthrough({ onBack }) {
                 alt="partnership icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain 2xl:px-8 md:px-0 px-10 aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:p-6 p-4 aspect-[4/3]"
               />
             </div>
-            <div className="md:w-3/5 bg-transparent md:py-24 py-5 md:px-10 px-5 border-t border-b border-x md:border-x-0 border-[#AFB6B4]">
+            <div className="md:w-3/5 md:order-2 order-1 bg-transparent md:py-24 py-5 md:px-10 px-5 border-t border-b border-x md:border-x-0 border-[#AFB6B4]">
               <h3 className="text-h4 font-semibold mb-2">
                 Seamless <br />
                 Transaction Management

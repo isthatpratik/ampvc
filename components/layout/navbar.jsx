@@ -10,10 +10,10 @@ import {
   DialogTrigger,
   DialogTitle,
 } from "@/components/ui/dropdown-menu";
-import ContactUS from "../forms/contact-us";
 import AnimatedButton from "../ui/animated-button";
 import Preregister from "../forms/pre-register";
 import { motion } from "motion/react";
+import ContactUs from "../forms/contact-us";
 
 function MenuItem({ defaultIcon, hoverIcon, text, onClick }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -290,7 +290,7 @@ export default function Navbar({
       </nav>
 
       {openContactForm && (
-        <ContactUS open={openContactForm} setOpen={setOpenContactForm} />
+        <ContactUs open={openContactForm} setOpen={setOpenContactForm} />
       )}
       {openPreRegisterForm && (
         <Preregister

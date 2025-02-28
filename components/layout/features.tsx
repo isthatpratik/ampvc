@@ -84,8 +84,8 @@ export function FeaturePanel({
               <Image
                 src={imageUrl || "/placeholder.svg"}
                 alt=""
-                width={140}
-                height={140}
+                width={120}
+                height={120}
                 className={cn(
                   "transition-all duration-300",
                   isActive

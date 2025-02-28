@@ -22,7 +22,7 @@ export default function ScalingFuel({ onBack }) {
           <ArrowLeft className="" /> Back
         </Button>
         <h2 className="text-h4 lg:text-h3 text-balance lg:text-start text-center">
-        From Seed to Series A and Beyond
+        From Seed to Series A and Beyond
         </h2>
         <h3 className="text-body-3 lg:text-body-1 text-balance lg:text-start text-center">
         We believe in the transformative power of early-stage ventures, and we're committed to fueling your journey from Day One with capital, strategic guidance, and unparalleled support.
@@ -49,7 +49,7 @@ export default function ScalingFuel({ onBack }) {
                 alt="strategic guidance icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain 2xl:px-8 md:px-0 px-10 aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:p-6 p-4 aspect-[4/3]"
               />
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function ScalingFuel({ onBack }) {
                 alt="network access icon"
                 width={400}
                 height={400}
-                className="h-full object-contain relative left-0 bottom-0 2xl:px-8 md:px-0 px-10 aspect-[4/3]"
+                className="h-full object-contain relative left-0 bottom-0 2xl:p-6 p-4 aspect-[4/3]"
               />
             </div>
             <div className="md:w-3/5 md:order-2 order-1 bg-transparent md:py-24 py-5 md:px-10 px-5 border-t border-l border-r md:border-x-0 border-[#AFB6B4]">
@@ -99,7 +99,7 @@ export default function ScalingFuel({ onBack }) {
                 alt="market insight icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain 2xl:px-8 md:px-0 px-10 aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:p-6 p-4 aspect-[4/3]"
               />
             </div>
           </div>
@@ -116,10 +116,10 @@ export default function ScalingFuel({ onBack }) {
                 alt="transaction management icon"
                 width={400}
                 height={400}
-                className="w-full h-auto object-contain 2xl:px-8 md:px-0 px-10 aspect-[4/3]"
+                className="w-full h-auto object-contain 2xl:p-6 p-4 aspect-[4/3]"
               />
             </div>
-            <div className="md:w-3/5 bg-transparent md:py-24 py-5 md:px-10 px-5 border-t border-b border-x md:border-x-0 border-[#AFB6B4]">
+            <div className="md:w-3/5 md:order-2 order-1 bg-transparent md:py-24 py-5 md:px-10 px-5 border-t border-b border-x md:border-x-0 border-[#AFB6B4]">
               <h3 className="text-h4 font-semibold mb-2">
               Partnership,<br /> Not Profit
               </h3>
