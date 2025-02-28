@@ -72,7 +72,7 @@ export default function Home() {
 
         {/* Middle Section: Finyx Chat or Contact Section */}
         {!isMobile && (
-          <div className="relative hidden lg:flex flex-[2.5] transition-all duration-500">
+          <div className="relative hidden lg:flex flex-[2] transition-all duration-500">
             {/* Black Overlay */}
             <motion.div
               className="absolute top-0 left-0 w-full h-full bg-black z-50"
@@ -106,7 +106,7 @@ export default function Home() {
               ? selectedService || selectedSolution || selectedAboutUs
                 ? "flex-[3]"
                 : "flex-[5]"
-              : "flex-[2.5]"
+              : "flex-[3]"
           }`}
         >
           {/* Black Overlay */}

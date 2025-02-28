@@ -24,10 +24,10 @@ export default function ExitStrategy({ onBack }) {
           >
             <ArrowLeft className="" /> Back
           </Button>
-          <h2 className="text-h3 lg:max-w-lg">
+          <h2 className="text-h5 lg:text-h3 text-center lg:text-start lg:max-w-lg">
             Exit Strategy Services for VCs and Investors
           </h2>
-          <h3 className="text-body-1 pb-12 text-balance">
+          <h3 className="text-body-3 lg:text-body-1 pb-12 text-balance">
             Turn Deadweight into Opportunity – We help you break free from
             dormant or toxic portfolio assets and reclaim your capital with
             strategic, results-driven exits. Whether it’s a silent startup or a
@@ -38,8 +38,8 @@ export default function ExitStrategy({ onBack }) {
 
         {/* What We Do Section */}
         <section className="flex">
-          <div className="grid grid-cols-3 gap-4 lg:gap-6">
-            <div className="flex items-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
+          <div className="grid lg:grid-cols-3 gap-4 lg:gap-6">
+            <div className="flex items-center justify-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
               <h2 className="text-h4 xl:px-10 lg:px-6 text-[#181A1A] font-semibold">
                 What <br /> We Do
               </h2>
@@ -75,14 +75,14 @@ export default function ExitStrategy({ onBack }) {
         <div className="my-12 w-full h-[1px] bg-[#B9BFBE]"></div>
 
         {/* Why Choose Us Section */}
-        <section className="space-y-12 mb-6 lg:mb-12">
+        <section className="space-y-6 lg:space-y-12 mb-6 lg:mb-12">
           <div className="grid lg:grid-cols-3">
             <div className="lg:mr-6 flex items-center justify-center bg-[url('/images/background/solutions-grid.png')] bg-center bg-cover bg-no-repeat">
               <h2 className="text-h4 text-center xl:px-10 lg:px-6 text-[#181A1A] font-semibold">
                 Why <br /> Choose Us
               </h2>
             </div>
-            <div className="lg:border-r-[0.5px] lg:border-b-[0.5px] p-8 text-center text-balance space-y-4">
+            <div className="lg:border-r-[0.5px] lg:border-b-[0.5px] border-b p-4 lg:p-8 text-center text-balance space-y-4">
               <h3 className="text-h6 font-semibold text-[#181A1A]">
                 Distressed Exits
               </h3>
@@ -90,7 +90,7 @@ export default function ExitStrategy({ onBack }) {
                 Experience with turning losses into opportunities.
               </p>
             </div>
-            <div className="lg:border-b-[0.5px] lg:border-l-[0.5px] text-balance text-center p-8 space-y-4">
+            <div className="lg:border-b-[0.5px] lg:border-l-[0.5px] border-b text-balance text-center p-4 lg:p-8 space-y-4">
               <h3 className="text-h6 font-semibold text-[#181A1A]">
                 Powerful Network
               </h3>
@@ -99,7 +99,7 @@ export default function ExitStrategy({ onBack }) {
               </p>
             </div>
             <div className="hidden lg:block"></div>
-            <div className="lg:border-t-[0.5px] lg:border-r-[0.5px] text-balance text-center p-8 space-y-4">
+            <div className="lg:border-t-[0.5px] lg:border-r-[0.5px] border-b text-balance text-center p-4 lg:p-8 space-y-4">
               <h3 className="text-h6 font-semibold text-[#181A1A]">
                 End-to-End Solutions
               </h3>
@@ -107,7 +107,7 @@ export default function ExitStrategy({ onBack }) {
                 From valuation to handshake, we've got it covered.
               </p>
             </div>
-            <div className="lg:border-l-[0.5px] lg:border-t-[0.5px] text-balance text-center p-8 space-y-4">
+            <div className="lg:border-l-[0.5px] lg:border-t-[0.5px] border-b text-balance text-center p-4 lg:p-8 space-y-4">
               <h3 className="text-h6 font-semibold text-[#181A1A]">
                 Discreet & Swift
               </h3>
@@ -119,14 +119,14 @@ export default function ExitStrategy({ onBack }) {
         </section>
 
         {/* CTA Section */}
-        <section className="border border-[#AFB6B4] grid grid-cols-2 items-center justify-between gap-6">
-          <div className="space-y-4 p-14">
+        <section className="border border-[#AFB6B4] grid lg:grid-cols-2 items-center justify-between gap-6">
+          <div className="space-y-4 p-6 lg:p-14">
             <h3 className="text-h6 font-semibold text-[#181A1A]">
               Ready to clear your books and reclaim your capital?
             </h3>
             <p className="text-[#181A1A]">Let's make your exit count.</p>
           </div>
-          <div className="flex border-l border-[#AFB6B4] items-center h-full p-0 justify-center bg-[url('/images/solutions/solutions-grid-bg.jpg')] bg-top bg-no-repeat bg-cover">
+          <div className="flex border-l border-[#AFB6B4] border-t lg:border-t-0 items-center h-full py-12 lg:p-0 justify-center bg-[url('/images/solutions/solutions-grid-bg.jpg')] bg-top bg-no-repeat bg-cover">
             <Button
               onClick={() => {
                 setOpenContactForm(true);
@@ -149,7 +149,7 @@ export default function ExitStrategy({ onBack }) {
 
 function ServiceCard({ imageSrc, title, description }) {
   return (
-    <div className="border border-[#AFB6B4] rounded-[4px] flex flex-col px-4 py-8 h-full items-center justify-start space-y-4">
+    <div className="border border-[#AFB6B4] rounded-[4px] flex flex-col p-4 lg:px-4 lg:py-8 h-full items-center justify-start space-y-4">
       <div className="w-16 h-16 rounded-lg flex items-center justify-center">
         <Image src={imageSrc} alt={title} width={64} height={64} />
       </div>

@@ -1,65 +1,91 @@
-import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { motion } from "framer-motion";
-import { SendHorizonal } from "lucide-react";
-import { Textarea } from "../ui/textarea";
-import MatchingList from "../forms/matching-list"; // Import the MatchingList component
+"use client"
+
+import { useState, useRef, useEffect } from "react"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+import { SendHorizonal } from "lucide-react"
+import { Textarea } from "@/components/ui/textarea"
+import MatchingList from "@/components/forms/matching-list"
 
 export default function FinyxChat() {
-  const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [showInitialSVG, setShowInitialSVG] = useState(true);
-  const [showMidSVG, setShowMidSVG] = useState(false);
-  const [showResults, setShowResults] = useState(false);
-  const [investorMatches, setInvestorMatches] = useState<string[]>([]);
-  const [showForm, setShowForm] = useState(false); // State to control form visibility
-  const chatContainerRef = useRef<HTMLDivElement>(null);
+  const [messages, setMessages] = useState<{ role: string; content: string }[]>([])
+  const [input, setInput] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [showInitialSVG, setShowInitialSVG] = useState(true)
+  const [showMidSVG, setShowMidSVG] = useState(false)
+  const [showResults, setShowResults] = useState(false)
+  const [investorMatches, setInvestorMatches] = useState<string[]>([])
+  const [showForm, setShowForm] = useState(false)
+  const chatContainerRef = useRef<HTMLDivElement>(null)
+
+  const placeholderTexts = [
+    "We are fintech startup in New York, looking for seed funding..",
+    "AI-Powered healthcare platform aiming for $2M...",
+    "AI startup in India, looking for Series A funding...",
+  ]
+  const [placeholderIndex, setPlaceholderIndex] = useState(0)
+  const [currentPlaceholder, setCurrentPlaceholder] = useState(placeholderTexts[0])
+  const [isPlaceholderVisible, setIsPlaceholderVisible] = useState(true)
 
   useEffect(() => {
-    chatContainerRef.current?.scrollTo(0, chatContainerRef.current.scrollHeight);
-  }, [messages]);
+    const interval = setInterval(() => {
+      setIsPlaceholderVisible(false)
+      setTimeout(() => {
+        setPlaceholderIndex((prevIndex) => {
+          const newIndex = (prevIndex + 1) % placeholderTexts.length
+          setCurrentPlaceholder(placeholderTexts[newIndex])
+          return newIndex
+        })
+        setIsPlaceholderVisible(true)
+      }, 500) // Wait for fade-out before changing text
+    }, 3000) // Change text every 3 seconds
+
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    chatContainerRef.current?.scrollTo(0, chatContainerRef.current.scrollHeight)
+  }, [messages])
 
   const sendMessage = async () => {
-    if (!input.trim()) return;
+    if (!input.trim()) return
 
-    const userMessage = { role: "user", content: input };
-    setMessages([...messages, userMessage]);
-    setInput("");
-    setLoading(true);
-    setShowInitialSVG(false);
+    const userMessage = { role: "user", content: input }
+    setMessages([...messages, userMessage])
+    setInput("")
+    setLoading(true)
+    setShowInitialSVG(false)
 
     try {
       const response = await fetch("/api/chatbot/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chatHistory: [...messages, userMessage] }),
-      });
+      })
 
-      const data = await response.json();
+      const data = await response.json()
       if (response.ok) {
-        setMessages((prev) => [...prev, { role: "assistant", content: data.result }]);
+        setMessages((prev) => [...prev, { role: "assistant", content: data.result }])
       } else {
-        throw new Error(data.error || "Something went wrong");
+        throw new Error(data.error || "Something went wrong")
       }
 
       if (messages.length === 1) {
-        setShowMidSVG(true);
+        setShowMidSVG(true)
         setTimeout(() => {
-          fetchInvestorMatches();
-          setShowMidSVG(false);
-          setShowResults(true);
-        }, 2000);
+          fetchInvestorMatches()
+          setShowMidSVG(false)
+          setShowResults(true)
+        }, 2000)
       }
     } catch (error) {
-      console.error("Chat error:", error);
-      setMessages((prev) => [...prev, { role: "assistant", content: "An error occurred. Try again!" }]);
+      console.error("Chat error:", error)
+      setMessages((prev) => [...prev, { role: "assistant", content: "An error occurred. Try again!" }])
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   const fetchInvestorMatches = async () => {
     try {
@@ -67,21 +93,21 @@ export default function FinyxChat() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chatHistory: messages }),
-      });
-  
-      const data = await response.json();
+      })
+
+      const data = await response.json()
       if (response.ok) {
-        setInvestorMatches(data.investors || []);
+        setInvestorMatches(data.investors || [])
       } else {
-        throw new Error(data.error || "Failed to fetch investors");
+        throw new Error(data.error || "Failed to fetch investors")
       }
     } catch (error) {
-      console.error("Investor fetch error:", error);
+      console.error("Investor fetch error:", error)
     }
-  };
+  }
 
   const renderMessageContent = (content: string) => {
-    const parts = content.split("[Download Full List]");
+    const parts = content.split("[Download Full List]")
     return (
       <>
         {parts[0]}
@@ -91,8 +117,8 @@ export default function FinyxChat() {
           </Button>
         )}
       </>
-    );
-  };
+    )
+  }
 
   return (
     <div className="sticky top-0 flex lg:h-screen min-h-[70vh] w-full flex-col 2xl:bg-[#FAFAFA] lg:w-full overflow-hidden items-center justify-between pt-8 2xl:pt-14 2xl:pb-14 pb-8 px-5 lg:px-10">
@@ -105,33 +131,44 @@ export default function FinyxChat() {
           transition: { delay: 0.8, type: "spring", stiffness: 100, damping: 25 },
         }}
       >
-        Find the right investors effortlessly with {" "}
+        Find the right investors effortlessly with{" "}
         <span className="bg-gradient-to-r from-[#4E7E71CF]/80 from-40% via-[#FB79C7] to-[#F7E307] to-80% bg-clip-text text-transparent">
           AI-powered matching.
         </span>
       </motion.h1>
 
-      {/* Show Initial SVG before chat starts */}
       {showInitialSVG && (
-        <motion.div className="flex justify-center items-center h-full" 
-        initial={{ y: "50px", opacity: 0 }}
-        animate={{
-          y: 0,
-          opacity: 1,
-          transition: { delay: 1, type: "spring", stiffness: 100, damping: 25 },
-        }}>
-          <Image src="/images/finyx-chat/thinking.svg" alt="Start Chat" width={200} height={200} className="w-25 h-auto"/>
+        <motion.div
+          className="flex justify-center items-center h-full"
+          initial={{ y: "50px", opacity: 0 }}
+          animate={{
+            y: 0,
+            opacity: 1,
+            transition: { delay: 1, type: "spring", stiffness: 100, damping: 25 },
+          }}
+        >
+          <Image
+            src="/images/finyx-chat/thinking.svg"
+            alt="Start Chat"
+            width={200}
+            height={200}
+            className="w-25 h-auto"
+          />
         </motion.div>
       )}
 
-      {/* Show mid-way SVG after second user message */}
       {showMidSVG && (
         <div className="flex justify-center items-center h-full w-auto">
-          <Image src="/images/finyx-chat/thinking.svg" alt="Finding Match" width={200} height={200} className="w-20 h-20"/>
+          <Image
+            src="/images/finyx-chat/thinking.svg"
+            alt="Finding Match"
+            width={200}
+            height={200}
+            className="w-20 h-20"
+          />
         </div>
       )}
 
-      {/* Show Chat Window or Results */}
       {!showInitialSVG && !showMidSVG && !showResults && (
         <motion.div
           className="w-full overflow-y-auto flex flex-col space-y-4"
@@ -153,7 +190,9 @@ export default function FinyxChat() {
             >
               <div
                 className={`p-3 max-w-xs rounded-2xl text-white ${
-                  msg.role === "user" ? "bg-[#2B5C4F] rounded-br-none" : "border border-[#FCEC3B] bg-[#000000] rounded-bl-none"
+                  msg.role === "user"
+                    ? "bg-[#2B5C4F] rounded-br-none"
+                    : "border border-[#FCEC3B] bg-[#000000] rounded-bl-none"
                 }`}
               >
                 {renderMessageContent(msg.content)}
@@ -164,7 +203,6 @@ export default function FinyxChat() {
         </motion.div>
       )}
 
-      {/* Show Investor Matches as Results */}
       {showResults && (
         <motion.div
           className="w-full max-w-md p-4 bg-white shadow-lg rounded-lg flex flex-col space-y-3"
@@ -190,7 +228,6 @@ export default function FinyxChat() {
         </motion.div>
       )}
 
-      {/* Chat Input */}
       {!showResults && (
         <motion.div
           className="border border-[#DCE0DF] w-full h-auto px-4 py-4 flex items-center rounded-[10px] bg-white mt-4"
@@ -209,21 +246,35 @@ export default function FinyxChat() {
             className="mr-2 object-contain w-8 lg:w-12 h-auto"
           />
           <div className="w-[1px] h-full my-2 bg-[#DCDCDC]" />
-          <Textarea
-            className="resize-none lg:text-body-1 text-body-3 w-full min-h-8 h-8 border-none bg-transparent shadow-none focus-visible::outline-none focus-visible:ring-0"
-            placeholder="Type your prompt here"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          />
+          <div className="relative w-full mr-2 truncate">
+            <Textarea
+              className="resize-none placeholder:truncate lg:text-body-1 text-body-3 w-full min-h-8 h-8 overflow-hidden border-none bg-transparent shadow-none focus-visible:outline-none focus-visible:ring-0"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+            />
+            {!input && (
+              <div
+                className="placeholder:truncate placeholder:text-body-3 absolute inset-0 pointer-events-none flex items-center px-3 text-gray-400 transition-opacity duration-500"
+                style={{ opacity: isPlaceholderVisible ? 1 : 0 }}
+              >
+                {currentPlaceholder}
+              </div>
+            )}
+          </div>
           <Button onClick={sendMessage} disabled={loading} className="aspect-square">
             <SendHorizonal className="text-white" />
           </Button>
         </motion.div>
       )}
 
-      {/* Matching List Form */}
       <MatchingList open={showForm} setOpen={setShowForm} />
+
+      <style jsx>{`
+        textarea::placeholder {
+          color: transparent;
+        }
+      `}</style>
     </div>
-  );
+  )
 }

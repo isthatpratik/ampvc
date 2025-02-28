@@ -11,7 +11,7 @@ export default function LiquidityMove({ onBack }) {
   return (
     <>
       <motion.div
-        className="pt-6 pb-14 px-10 mx-auto"
+        className="pb-14 pt-6 px-5 lg:px-10 mx-auto"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
