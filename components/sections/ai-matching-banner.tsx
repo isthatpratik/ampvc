@@ -11,7 +11,7 @@ export default function AIMatchingBanner({ setShowFinyxChat }: AIMatchingBannerP
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1440) {
+      if (window.innerWidth > 1440) {
         setIsVisible(false); // Hide on 1440px and above
       } else {
         setIsVisible(true); // Show below 1440px
