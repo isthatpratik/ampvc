@@ -217,10 +217,8 @@ export default function TermsOfUse({ onBack }) {
                 <h2 className="mb-2 text-h6 lg:text-h5 font-semibold">Termination</h2>
                 <div className="space-y-4 lg:text-body-1 text-body-3">
                   <p>
-                    We may suspend or terminate your access to our services if
-                    you violate these Terms.
+                  We may suspend or terminate your access to our services if you violate these Terms.
                   </p>
-                  <p>You may stop using our services at any time.</p>
                 </div>
               </div>
             </div>

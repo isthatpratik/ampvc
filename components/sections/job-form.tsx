@@ -31,6 +31,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../ui/dialog";
+import { ArrowLeft } from "lucide-react";
 
 const jobFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -55,9 +56,10 @@ type JobFormValues = z.infer<typeof jobFormSchema>;
 
 interface JobFormProps {
   onClose: () => void;
+  onBack:() => void;
 }
 
-export default function JobForm({ onClose }: JobFormProps) {
+export default function JobForm({ onClose, onBack }: JobFormProps) {
   const [dialCodes, setDialCodes] = useState<{ code: string; name: string }[]>(
     []
   );
@@ -141,6 +143,12 @@ export default function JobForm({ onClose }: JobFormProps) {
           damping: 25,
         }}
       >
+        <Button
+            onClick={onBack}
+            className="shadow-none 2xl:hidden mb-6 hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
+          >
+            <ArrowLeft className="" /> Back
+          </Button>
         <h2 className="text-h3 font-semibold mb-4">Apply Now</h2>
         {/* Form Wrapper */}
         <div className="border grid space-y-8 border-[#AFB6B4] p-6 min-h-[80vh]">

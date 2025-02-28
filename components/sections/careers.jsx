@@ -13,7 +13,7 @@ import { useState } from "react";
 import JobForm from "./job-form";
 import { ArrowLeft } from "lucide-react";
 
-export default function CareersSection() {
+export default function CareersSection({ onBack }) {
   const [showJobForm, setShowJobForm] = useState(false);
 
   return (
@@ -33,6 +33,12 @@ export default function CareersSection() {
               damping: 25,
             }}
           >
+            <Button
+            onClick={onBack}
+            className="shadow-none 2xl:hidden mb-6 hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
+          >
+            <ArrowLeft className="" /> Back
+          </Button>
             <div className="flex flex-col gap-4 border-b border-[#B9BFBE] pb-4">
               <h3 className="text-h4 lg:text-h3 text-center lg:text-start">Join our Team</h3>
               <p className="text-body-3 lg:text-body-1 text-balance text-center lg:text-start">
