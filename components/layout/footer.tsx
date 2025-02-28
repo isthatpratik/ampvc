@@ -58,6 +58,7 @@ type FooterProps = {
   onStaticPageSelect?: (page: "terms-of-use" | "privacy-policy") => void;
   onResponsibleAISelect?: (state: boolean) => void;
   onAboutUsSelect?: (state: boolean) => void;
+  onCareersSelect?: (state: boolean) => void;
 };
 
 export default function Footer({
@@ -66,6 +67,7 @@ export default function Footer({
   onStaticPageSelect,
   onResponsibleAISelect,
   onAboutUsSelect,
+  onCareersSelect,
 }: FooterProps) {
   const [hoveredSection, setHoveredSection] = React.useState<string | null>(
     null
@@ -89,8 +91,14 @@ export default function Footer({
       onServiceSelect?.({ title: linkText });
       onSolutionSelect?.(null);
       onAboutUsSelect?.(false);
-    } else if (linkText === "About Us" || linkText === "Careers") {
+    } else if (linkText === "About Us") {
       onAboutUsSelect?.(true);
+      onServiceSelect?.(null);
+      onSolutionSelect?.(null);
+      onResponsibleAISelect?.(false);
+    } else if (linkText === "Careers") {
+      onAboutUsSelect?.(false);
+      onCareersSelect?.(true);
       onServiceSelect?.(null);
       onSolutionSelect?.(null);
       onResponsibleAISelect?.(false);

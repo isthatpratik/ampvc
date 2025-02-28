@@ -145,7 +145,7 @@ export default function Preregister({ open, setOpen }: PreregisterProps) {
                 />
               </div>
               <div className="p-11 space-y-4">
-                <DialogTitle className="text-center font-semibold text-[40px] ">
+                <DialogTitle className="text-center font-semibold text-[32px] lg:text-[40px] ">
                 Get Early Access to Fynar AI
                 </DialogTitle>
                 <div className="space-y-1">

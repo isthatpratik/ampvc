@@ -305,6 +305,7 @@ export default function LeftSection({
           onStaticPageSelect={handleStaticPageSelect}
           onResponsibleAISelect={handleResponsibleAISelect}
           onAboutUsSelect={handleAboutUsSelect}
+          onCareersSelect={handleCareersSelect}
         />
       </motion.div>
 
