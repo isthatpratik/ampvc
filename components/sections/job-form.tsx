@@ -144,7 +144,7 @@ export default function JobForm({ onClose, onBack }: JobFormProps) {
         }}
       >
         <Button
-            onClick={onBack}
+            onClick={onClose}
             className="shadow-none mb-6 hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
           >
             <ArrowLeft className="" /> Back

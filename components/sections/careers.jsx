@@ -34,13 +34,15 @@ export default function CareersSection({ onBack }) {
             }}
           >
             <Button
-            onClick={onBack}
-            className="shadow-none 2xl:hidden mb-6 hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
-          >
-            <ArrowLeft className="" /> Back
-          </Button>
+              onClick={onBack}
+              className="shadow-none mb-6 hover:bg-black/5 w-fit transition-all duration-300 rounded-full bg-transparent border border-black/20 px-6 py-1 flex items-center text-body-2"
+            >
+              <ArrowLeft className="" /> Back
+            </Button>
             <div className="flex flex-col gap-4 border-b border-[#B9BFBE] pb-4">
-              <h3 className="text-h4 lg:text-h3 text-center lg:text-start">Join our Team</h3>
+              <h3 className="text-h4 lg:text-h3 text-center lg:text-start">
+                Join our Team
+              </h3>
               <p className="text-body-3 lg:text-body-1 text-balance text-center lg:text-start">
                 At Ampersand, we are committed to driving business growth
                 through strategic financial solutions. If you're passionate
@@ -64,7 +66,7 @@ export default function CareersSection({ onBack }) {
             }}
           >
             <div className="flex flex-col gap-8">
-              <h3 className="text-h5 text-balance">Current Openings</h3>
+              <h3 className="text-h4 text-balance">Current Openings</h3>
 
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem value="venture-analyst">
@@ -72,17 +74,49 @@ export default function CareersSection({ onBack }) {
                     Venture Analyst
                   </AccordionTrigger>
                   <AccordionContent className="pt-4">
-                    <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2 font-normal">
-                      <li>
-                        Conduct market research and evaluate startup business
-                        models.
-                      </li>
-                      <li>
-                        Analyze financial statements and investment
-                        opportunities.
-                      </li>
-                      <li>Assist in due diligence for VC clients</li>
-                    </ul>
+                    <div>
+                      <h4 className="text-body-2 font-semibold mb-2">
+                        Responsibilities:
+                      </h4>
+                      <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2 font-normal">
+                        <li>
+                          Conduct market research and evaluate startup business
+                          models.
+                        </li>
+                        <li>
+                          Analyze financial statements and investment
+                          opportunities.
+                        </li>
+                        <li>Assist in due diligence for VC clients</li>
+                      </ul>
+                    </div>
+                    <div className="mt-4">
+                      <h4 className="text-body-2 font-semibold mb-2">
+                        Qualifications and Experience:
+                      </h4>
+                      <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
+                        <li>
+                          Bachelor's degree in Finance, Business, Economics, or
+                          a related field.
+                        </li>
+                        <li>
+                          1-3 years of experience in venture capital, investment
+                          banking, consulting, or startup analysis.
+                        </li>
+                        <li>
+                          Strong understanding of financial statements, market
+                          research, and due diligence.
+                        </li>
+                        <li>
+                          Proficiency in financial modeling and valuation
+                          techniques.
+                        </li>
+                        <li>
+                          Excellent analytical, communication, and presentation
+                          skills.
+                        </li>
+                      </ul>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
 
@@ -91,12 +125,46 @@ export default function CareersSection({ onBack }) {
                     M&A Specialist (Mergers & Acquisitions)
                   </AccordionTrigger>
                   <AccordionContent className="pt-4">
-                    <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
-                      <li>
-                        Identify and manage M&A opportunities for clients.
-                      </li>
-                      <li>Assist in structuring deals and legal compliance.</li>
-                    </ul>
+                    <div>
+                      <h4 className="text-body-2 font-semibold mb-2">
+                        Responsibilities:
+                      </h4>
+                      <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2 font-normal">
+                        <li>
+                          Identify and manage M&amp;A opportunities for clients.
+                        </li>
+                        <li>
+                          Assist in structuring deals and legal compliance.
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="mt-4">
+                      <h4 className="text-body-2 font-semibold mb-2">
+                        Qualifications and Experience:
+                      </h4>
+                      <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
+                        <li>
+                          Bachelor's or Master's degree in Finance, Business,
+                          Law, or a related field.
+                        </li>
+                        <li>
+                          3-5 years of experience in M&A, investment banking,
+                          corporate finance, or private equity.
+                        </li>
+                        <li>
+                          Proven experience structuring and managing M&A
+                          transactions.
+                        </li>
+                        <li>
+                          Strong knowledge of financial modeling, valuation, and
+                          legal compliance.
+                        </li>
+                        <li>
+                          Excellent negotiation and stakeholder management
+                          skills.
+                        </li>
+                      </ul>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
 
@@ -105,16 +173,48 @@ export default function CareersSection({ onBack }) {
                     AI/ML Engineer (Fynar CRM Development)
                   </AccordionTrigger>
                   <AccordionContent className="pt-4">
-                    <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
-                      <li>
-                        Build and refine AI-powered features for
-                        investor-startup matching
-                      </li>
-                      <li>
-                        Develop predictive analytics for deal flow and portfolio
-                        health.
-                      </li>
-                    </ul>
+                    <div>
+                      <h4 className="text-body-2 font-semibold mb-2">
+                        Responsibilities:
+                      </h4>
+                      <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
+                        <li>
+                          Build and refine AI-powered features for
+                          investor-startup matching.
+                        </li>
+                        <li>
+                          Develop predictive analytics for deal flow and
+                          portfolio health.
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="mt-4">
+                      <h4 className="text-body-2 font-semibold mb-2">
+                        Qualifications and Experience:
+                      </h4>
+                      <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
+                        <li>
+                          Bachelor's or Master’s degree in Computer Science, AI,
+                          Machine Learning, or a related field.
+                        </li>
+                        <li>
+                          3+ years of experience in AI/ML development,
+                          preferably in fintech, CRM, or investment analytics.
+                        </li>
+                        <li>
+                          Strong programming skills in Python, TensorFlow,
+                          PyTorch, or similar frameworks.
+                        </li>
+                        <li>
+                          Experience with predictive modeling, NLP, and
+                          recommender systems.
+                        </li>
+                        <li>
+                          Understanding of venture capital or startup funding
+                          ecosystems is a plus.
+                        </li>
+                      </ul>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
 
@@ -122,11 +222,43 @@ export default function CareersSection({ onBack }) {
                   <AccordionTrigger className="text-h6 border-b-[1px] border-b-[#B9BFBE] pb-2">
                     Full Stack Developer (CRM & Website)
                   </AccordionTrigger>
-                  <AccordionContent>
+                  <AccordionContent className="pt-4">
+                    <div>
+                      <h4 className="text-body-2 font-semibold mb-2">
+                        Responsibilities:
+                      </h4>
+                    </div>
                     <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
                       <li>Maintain and enhance the AI-powered CRM.</li>
                       <li>Optimize website performance and functionality.</li>
                     </ul>
+                    <div className="mt-4">
+                      <h4 className="text-body-2 font-semibold mb-2">
+                        Qualifications and Experience:
+                      </h4>
+                      <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
+                        <li>
+                          Bachelor's or Master’s degree in Computer Science, AI,
+                          Machine Learning, or a related field.
+                        </li>
+                        <li>
+                          3+ years of experience in AI/ML development,
+                          preferably in fintech, CRM, or investment analytics.
+                        </li>
+                        <li>
+                          Strong programming skills in Python, TensorFlow,
+                          PyTorch, or similar frameworks.
+                        </li>
+                        <li>
+                          Experience with predictive modeling, NLP, and
+                          recommender systems.
+                        </li>
+                        <li>
+                          Understanding of venture capital or startup funding
+                          ecosystems is a plus.
+                        </li>
+                      </ul>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
 
@@ -134,14 +266,53 @@ export default function CareersSection({ onBack }) {
                   <AccordionTrigger className="text-h6 border-b-[1px] border-b-[#B9BFBE] pb-2">
                     Growth Marketer – Investor & Startup Outreach
                   </AccordionTrigger>
-                  <AccordionContent>
+                  <AccordionContent className="pt-4 space-y-4">
+                    <div>
+                      <h4 className="text-body-2 font-semibold mb-2">
+                        Responsibilities:
+                      </h4>
+                      <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
+                        <li>
+                          Develop and execute marketing strategies to attract
+                          investors and startups.
+                        </li>
+                        <li>
+                          Optimize digital campaigns across SEO, paid ads, email
+                          marketing, and social media.
+                        </li>
+                        <li>
+                          Collaborate with the team to position Ampersand as a
+                          leader in venture capital.
+                        </li>
+                        <li>
+                          Analyze marketing performance metrics and continuously
+                          improve outreach efforts.
+                        </li>
+                      </ul>
+                    </div>
+                    <h4 className="text-body-2 font-semibold">
+                      Qualifications & Experience:
+                    </h4>
                     <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
                       <li>
-                        Develop marketing strategies to attract startups and
-                        investors.
+                        Bachelor's degree in Marketing, Business,
+                        Communications, or a related field.
                       </li>
                       <li>
-                        Manage digital marketing, events, and branding efforts.
+                        3+ years of experience in growth marketing, digital
+                        marketing, or investor relations.
+                      </li>
+                      <li>
+                        Expertise in SEO, paid advertising, email marketing, and
+                        social media strategy.
+                      </li>
+                      <li>
+                        Strong understanding of startup ecosystems, venture
+                        capital, and investment trends.
+                      </li>
+                      <li>
+                        Ability to analyze marketing performance and optimize
+                        campaigns based on data.
                       </li>
                     </ul>
                   </AccordionContent>
@@ -151,15 +322,68 @@ export default function CareersSection({ onBack }) {
                   <AccordionTrigger className="text-h6 border-b-[1px] border-b-[#B9BFBE] pb-2">
                     AI/ML Intern – Fynar CRM Development
                   </AccordionTrigger>
-                  <AccordionContent>
+                  <AccordionContent className="pt-4 space-y-4">
+                    <h4 className="text-body-2 font-semibold">
+                      Minimum Requirements:
+                    </h4>
                     <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
                       <li>
-                        Develop and optimize AI/ML models for investor-startup
-                        matching and deal insights.
+                        Currently pursuing or recently completed a
+                        Bachelor's/Master’s degree in Computer Science, AI,
+                        Machine Learning, or a related field.
                       </li>
                       <li>
-                        Collaborate on integrating AI features into Fynar CRM,
-                        improving data efficiency and accuracy.
+                        Strong programming skills in Python and experience with
+                        AI/ML frameworks such as TensorFlow, PyTorch, or
+                        Scikit-learn.
+                      </li>
+                      <li>
+                        Basic understanding of data preprocessing, predictive
+                        modeling, and natural language processing (NLP).
+                      </li>
+                      <li>
+                        Experience with data visualization tools (Matplotlib,
+                        Seaborn, Power BI, etc.) is a plus.
+                      </li>
+                      <li>
+                        Familiarity with SQL and NoSQL databases for data
+                        management.
+                      </li>
+                      <li>
+                        Strong analytical skills with a problem-solving mindset.
+                      </li>
+                      <li>
+                        Passion for startups, venture capital, and AI-driven
+                        solutions.
+                      </li>
+                    </ul>
+                    <h4 className="text-body-2 font-semibold">
+                      Responsibilities:
+                    </h4>
+                    <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
+                      <li>
+                        Assist in training and fine-tuning AI/ML models for
+                        investor-startup matching.
+                      </li>
+                      <li>
+                        Support the development of predictive analytics for deal
+                        flow insights.
+                      </li>
+                      <li>
+                        Work with structured and unstructured data to extract
+                        valuable insights.
+                      </li>
+                      <li>
+                        Optimize AI pipelines to improve efficiency and
+                        accuracy.
+                      </li>
+                      <li>
+                        Collaborate with developers and product teams to
+                        integrate AI features into Fynar CRM.
+                      </li>
+                      <li>
+                        Research and implement cutting-edge ML techniques
+                        applicable to investment analytics.
                       </li>
                     </ul>
                   </AccordionContent>
@@ -169,15 +393,59 @@ export default function CareersSection({ onBack }) {
                   <AccordionTrigger className="text-h6 border-b-[1px] border-b-[#B9BFBE] pb-2">
                     AI Research Intern – VC & Startup Intelligence
                   </AccordionTrigger>
-                  <AccordionContent>
+                  <AccordionContent className="pt-4 space-y-4">
+                    <h4 className="text-body-2 font-semibold">
+                      Minimum Requirements:
+                    </h4>
                     <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
                       <li>
-                        Conduct AI-driven research and develop models for
-                        startup evaluation and financial forecasting.
+                        Currently pursuing a Master’s/PhD in AI, Machine
+                        Learning, Data Science, or a related field.
                       </li>
                       <li>
-                        Analyze data and present insights through reports and
-                        visualizations to support decision-making.
+                        Experience with deep learning models, reinforcement
+                        learning, and AI research methodologies.
+                      </li>
+                      <li>
+                        Strong background in statistical analysis, data
+                        modeling, and feature engineering.
+                      </li>
+                      <li>
+                        Familiarity with venture capital trends, financial
+                        markets, or startup ecosystems is a plus.
+                      </li>
+                      <li>
+                        Proficiency in Python, R, and AI libraries such as
+                        Keras, OpenAI Gym, or Hugging Face.
+                      </li>
+                      <li>
+                        Ability to write research papers, whitepapers, or
+                        technical documentation.
+                      </li>
+                    </ul>
+                    <h4 className="text-body-2 font-semibold">
+                      Responsibilities:
+                    </h4>
+                    <ul className="list-disc pl-5 text-body-3 text-black/60 space-y-2">
+                      <li>
+                        Conduct AI-driven market research and investment
+                        intelligence.
+                      </li>
+                      <li>
+                        Develop prototypes of AI models for startup evaluation
+                        and investor insights.
+                      </li>
+                      <li>
+                        Work on financial forecasting models for venture capital
+                        portfolios.
+                      </li>
+                      <li>
+                        Analyze real-world startup data to enhance
+                        decision-making algorithms.
+                      </li>
+                      <li>
+                        Present findings through reports, data visualizations,
+                        and presentations.
                       </li>
                     </ul>
                   </AccordionContent>
