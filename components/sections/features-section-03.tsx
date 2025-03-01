@@ -6,7 +6,7 @@ import { FeaturePanel } from "@/components/layout/features"
 const features = [
   {
     number: "01",
-    title: "Strategic Growth Consultation",
+    title: "Bridging Financial Gaps",
     description:
       "Interim Funding Solutions bridges financial gaps during growth, restructuring, or market shifts, providing short-term financing to sustain momentum and stability while securing long-term funding.",
     color: "bg-pink-50",
@@ -15,7 +15,7 @@ const features = [
   },
   {
     number: "02",
-    title: "In-Depth Analysis",
+    title: "Specialized Short-Term Funds",
     description:
       "We provide bridge loans, mezzanine financing, and tailored short-term capital solutions, ensuring minimal risk and maximum flexibility to meet your financial needs.",
     color: "bg-cyan-50",
@@ -24,7 +24,7 @@ const features = [
   },
   {
     number: "03",
-    title: "Customized Growth Plan",
+    title: "Comprehensive Management",
     description:
       "We assess your financial status, cash flow, and funding goals, then connect you with lenders and investors eager to support high-growth businesses. This ensures competitive terms, swift approval, and timely access to strategic opportunities.",
     color: "bg-emerald-50",
@@ -33,7 +33,7 @@ const features = [
   },
   {
     number: "04",
-    title: "Best Practices & Technology",
+    title: "Advisory Services",
     description:
       "We provide advisory services for effective interim funding management, including financial planning, risk assessment, and repayment strategies, ensuring stability and confident decision-making.",
     color: "bg-yellow-50",

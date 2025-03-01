@@ -28,7 +28,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: "Ampersand Enquiry <onboarding@resend.dev>",
-      to: "pd@ampvc.co",
+      to: "hello@ampvc.co",
       subject: `New Enquiry from ${name}`,
       html: htmlContent,
       replyTo: mail,

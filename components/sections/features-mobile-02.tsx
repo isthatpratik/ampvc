@@ -32,7 +32,7 @@ export default function FeatureCards02() {
     {
       id: "in-depth-analysis",
       number: "02",
-    title: "In-Depth Analysis",
+      title: "Thorough Analysis",
     description:
       "We analyze your company's valuation, market position, and growth potential to determine the best timing and structure for a secondary exit. Our services cover preparation, buyer identification, negotiation, and transaction management.",
     imageUrl: "/images/features/Features-0202.svg",

@@ -93,7 +93,15 @@ export default function ContactSection({
   const [countryCodes, setCountryCodes] = useState<
     { code: string; dialCode: string }[]
   >([]);
-  const sourceOptions = ["LinkedIn", "Google", "Twitter", "Instagram", "YouTube", "From a friend", "Other"];
+  const sourceOptions = [
+    "LinkedIn",
+    "Google",
+    "Twitter",
+    "Instagram",
+    "YouTube",
+    "From a friend",
+    "Other",
+  ];
 
   useEffect(() => {
     const fetchCountryCodes = async () => {
@@ -161,48 +169,8 @@ export default function ContactSection({
   const [customSource, setCustomSource] = useState("");
 
   return (
-    <div className="sticky top-0 flex flex-col bg-[#FAFAFA] lg:w-full overflow-hidden justify-start py-14 px-10 max-h-screen overflow-y-auto h-full">
+    <div className="sticky top-0 flex flex-col bg-[#FAFAFA] lg:w-full overflow-hidden justify-start py-14 px-10 max-h-screen h-full overflow-y-auto">
       {/* Animate the title when the service changes */}
-      <motion.h2
-        key={selectedService?.title}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
-        transition={{
-          duration: 0.3,
-          delay: 0.3,
-          type: "spring",
-          stiffness: 100,
-          damping: 25,
-        }}
-        className="text-h5 font-semibold mb-4"
-      >
-        {selectedService
-          ? selectedService.title
-          : selectedSolution
-          ? selectedSolution.title
-          : "Get in Touch"}
-      </motion.h2>
-
-      <motion.p
-        className="text-[#798682] text-body-1 2xl:mb-20 "
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
-        transition={{
-          duration: 0.3,
-          delay: 0.5,
-          type: "spring",
-          stiffness: 100,
-          damping: 25,
-        }}
-      >
-        {selectedService
-          ? selectedService.subtitle
-          : selectedSolution
-          ? selectedSolution.subtitle
-          : "Have questions? Let's have a chat!"}
-      </motion.p>
 
       <motion.div
         className="border p-6 border-[#AFB6B4] h-full flex flex-col gap-8 justify-between"
@@ -217,26 +185,59 @@ export default function ContactSection({
           damping: 25,
         }}
       >
-        
-        {/* <div className="w-full h-full">
-          <Image 
-          src={'/images/form/middle-form-banner.svg'}
-          alt=""
-          width={200}
-          height={200}
-          className="object-contain w-auto h-auto"
-          />
-        </div> */}
+        <motion.h2
+          key={selectedService?.title}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          transition={{
+            duration: 0.3,
+            delay: 0.3,
+            type: "spring",
+            stiffness: 100,
+            damping: 25,
+          }}
+          className="text-h5 font-semibold mb-4 grid 2xl:space-y-12 space-y-8 text-white"
+        >
+          <div className="h-fit bg-[url('/images/form/middle-form-banner.jpg')] rounded-[8px] bg-no-repeat bg-cover 2xl:py-24 py-12 px-5 bg-right">
+            <div>
+              {selectedService
+                ? selectedService.title
+                : selectedSolution
+                ? selectedSolution.title
+                : "Get in Touch"}
+            </div>
+            <div className="text-[#BCBCBC] text-body-3">
+              {selectedService
+                ? selectedService.subtitle
+                : selectedSolution
+                ? selectedSolution.subtitle
+                : "Have questions? Let's have a chat!"}
+            </div>
+          </div>
+          <div className="flex flex-col gap-8 text-black">
+            <h6 className="text-h6 2xl:text-h5 text-balance">{randomTitle}</h6>
+          </div>
+        </motion.h2>
 
-        <div className="flex flex-col gap-8">
-        <h6 className="text-h6 text-balance">
-            {randomTitle}
-          </h6>
-        </div>
+        <motion.p
+          className="text-[#798682] text-body-1"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          transition={{
+            duration: 0.3,
+            delay: 0.5,
+            type: "spring",
+            stiffness: 100,
+            damping: 25,
+          }}
+        ></motion.p>
+
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-6 flex flex-col justify-center"
+            className="2xl:space-y-8  space-y-6 flex flex-col justify-center"
           >
             <div className="grid w-full">
               <FormField
@@ -298,7 +299,6 @@ export default function ContactSection({
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
-                          
                         >
                           <SelectTrigger className="lg:text-body-1 w-fit placeholder-[#AFB6B4] focus-visible:outline-none focus-visible:ring-0 border-t-0 border-l-0 border-r-0 border-b-[#AFB6B4] shadow-none rounded-none px-0">
                             <SelectValue placeholder="+91" />
@@ -355,7 +355,11 @@ export default function ContactSection({
                         </SelectTrigger>
                         <SelectContent className="lg:text-body-1 rounded-none shadow-none">
                           {sourceOptions.map((option) => (
-                            <SelectItem key={option} value={option} className="rounded-none">
+                            <SelectItem
+                              key={option}
+                              value={option}
+                              className="rounded-none"
+                            >
                               {option}
                             </SelectItem>
                           ))}
@@ -389,7 +393,7 @@ export default function ContactSection({
               )}
             />
 
-            <div className="self-center py-24">
+            <div className="self-center 2xl:py-16 py-8">
               <Button
                 type="submit"
                 className="lg:text-body-1 p-6 shadow-none transition-all duration-300 bg-transparent bg-black text-white w-fit rounded-full text-whitehover:bg-transparent"

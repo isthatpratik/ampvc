@@ -23,7 +23,7 @@ export default function FeatureCards03() {
     {
       id: "strategic-growth",
       number: "01",
-      title: "Strategic Growth Consultation",
+      title: "Bridging Financial Gaps",
       description:
         "Interim Funding Solutions bridges financial gaps during growth, restructuring, or market shifts, providing short-term financing to sustain momentum and stability while securing long-term funding.",
       imageUrl: "/images/features/Features-0301.svg",
@@ -32,7 +32,7 @@ export default function FeatureCards03() {
     {
       id: "in-depth-analysis",
       number: "02",
-      title: "In-Depth Analysis",
+      title: "Specialized Short-Term Funds",
       description:
         "We provide bridge loans, mezzanine financing, and tailored short-term capital solutions, ensuring minimal risk and maximum flexibility to meet your financial needs.",
       imageUrl: "/images/features/Features-0302.svg",
@@ -41,7 +41,7 @@ export default function FeatureCards03() {
     {
       id: "customized-growth-plan",
       number: "03",
-      title: "Customized Growth Plan",
+      title: "Experienced Team",
       description:
         "We assess your financial status, cash flow, and funding goals, then connect you with lenders and investors eager to support high-growth businesses. This ensures competitive terms, swift approval, and timely access to strategic opportunities.",
       imageUrl: "/images/features/Features-0303.svg",
@@ -50,7 +50,7 @@ export default function FeatureCards03() {
     {
       id: "best-practices",
       number: "04",
-      title: "Best Practices & Technology",
+      title: "Advisory Services",
       description:
         "We provide advisory services for effective interim funding management, including financial planning, risk assessment, and repayment strategies, ensuring stability and confident decision-making.",
       imageUrl: "/images/features/Features-0304.svg",

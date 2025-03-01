@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
 
     await resend.emails.send({
       from: "Ampersand Contact <onboarding@resend.dev>",
-      to: "pd@ampvc.co",
+      to: "hello@ampvc.co",
       subject: `New Enquiry from ${fullName} `,
       html: htmlContent,
       replyTo: workMail,

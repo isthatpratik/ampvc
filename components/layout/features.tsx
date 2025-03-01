@@ -39,21 +39,21 @@ export function FeaturePanel({
       )}
       onClick={onClick}
     >
-      <div className={cn("h-full p-6 transition-colors", color)}>
+      <div className={cn("h-full p-6 2xl:p-8 transition-colors", color)}>
         <div className="flex flex-col items-start gap-4">
           {/* Number & Title with Proper Spacing */}
           <div className="flex items-start gap-2">
             <span
               className={cn(
                 "font-bold leading-none flex-shrink-0",
-                isActive ? "text-h5 opacity-100" : "text-h2 opacity-70"
+                isActive ? "text-h5 2xl:text-h4 opacity-100" : "text-h2 opacity-70"
               )}
               style={{ color: textColor }} 
             >
               {number}
             </span>
             {isActive && (
-              <h3 className="text-h5 font-semibold leading-none" style={{ color: textColor }}>{title}</h3>
+              <h3 className="text-h5 2xl:text-h4 font-semibold leading-none" style={{ color: textColor }}>{title}</h3>
               
             )}
 
@@ -69,7 +69,7 @@ export function FeaturePanel({
                 isActive ? "opacity-100" : "opacity-0"
               )}
             >
-               <p className="text-body-3 max-w-2xl text-balance">{description}</p>
+               <p className="text-body-3 2xl:body-text-1 max-w-2xl text-balance">{description}</p>
             </div>
             
             {/* Image Section */}
@@ -77,8 +77,8 @@ export function FeaturePanel({
               className={cn(
                 "absolute transition-all duration-300",
                 isActive
-                  ? "right-0 bottom-6 col-span-4" // Active: Normal position
-                  : "bottom-0 left-1 transform -translate-x-2 scale-90" // Inactive: Bottom-centered & smaller
+                  ? "right-4 bottom-6 col-span-4" // Active: Normal position
+                  : "bottom-0 left-1 transform -translate-x-2 scale-110" // Inactive: Bottom-centered & smaller
               )}
             >
               <Image
@@ -89,7 +89,7 @@ export function FeaturePanel({
                 className={cn(
                   "transition-all duration-300",
                   isActive
-                    ? "xl:w-fit 2xl:w-60 h-auto object-contain grayscale-0 opacity-100" // Active: Full size
+                    ? "xl:w-fit 2xl:w-44 h-auto object-contain grayscale-0 opacity-100" // Active: Full size
                     : "w-48 h-48 translate-y-12 object-cover opacity-50" // Inactive: Smaller & blended
                 )}
               />

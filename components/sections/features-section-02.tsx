@@ -15,7 +15,7 @@ const features = [
   },
   {
     number: "02",
-    title: "In-Depth Analysis",
+    title: "Thorough Analysis",
     description:
       "We analyze your company's valuation, market position, and growth potential to determine the best timing and structure for a secondary exit. Our services cover preparation, buyer identification, negotiation, and transaction management.",
     color: "bg-cyan-50",
@@ -24,7 +24,7 @@ const features = [
   },
   {
     number: "03",
-    title: "Customized Growth Plan",
+    title: "Experienced Team",
     description:
       "This plan includes detailed strategies for market expansion, product development, revenue enhancement, and cost management. Our services also encompass identifying potential barriers to growth and devising solutions to overcome them.",
     color: "bg-emerald-50",
@@ -33,7 +33,7 @@ const features = [
   },
   {
     number: "04",
-    title: "Best Practices & Technology",
+    title: "Advisory Services",
     description:
       "Beyond transaction management, we offer advisory services for secondary exits, covering tax planning, legal aspects, and post-transaction support to align with your financial and strategic goals.",
     color: "bg-yellow-50",
