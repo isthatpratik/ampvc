@@ -45,10 +45,10 @@ const jobFormSchema = z.object({
 const roles = [
   "Venture Analyst",
   "M&A Specialist (Mergers & Acquisitions)",
-  "AI/ML Engineer (Fynar CRM Development)",
+  "AI/ML Engineer (platoX CRM Development)",
   "Full Stack Developer (CRM & Website)",
   "Growth Marketer – Investor & Startup Outreach",
-  "AI/ML Intern – Fynar CRM Development",
+  "AI/ML Intern – platoX CRM Development",
   "AI Research Intern – VC & Startup Intelligence",
 ];
 

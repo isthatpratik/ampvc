@@ -170,7 +170,7 @@ export default function CareersSection({ onBack }) {
 
                 <AccordionItem value="ai-ml-engineer">
                   <AccordionTrigger className="text-h6 border-b-[1px] border-b-[#B9BFBE] pb-2">
-                    AI/ML Engineer (Fynar CRM Development)
+                    AI/ML Engineer (platoX CRM Development)
                   </AccordionTrigger>
                   <AccordionContent className="pt-4">
                     <div>
@@ -320,7 +320,7 @@ export default function CareersSection({ onBack }) {
 
                 <AccordionItem value="ai-ml-intern">
                   <AccordionTrigger className="text-h6 border-b-[1px] border-b-[#B9BFBE] pb-2">
-                    AI/ML Intern – Fynar CRM Development
+                    AI/ML Intern – platoX CRM Development
                   </AccordionTrigger>
                   <AccordionContent className="pt-4 space-y-4">
                     <h4 className="text-body-2 font-semibold">
@@ -379,7 +379,7 @@ export default function CareersSection({ onBack }) {
                       </li>
                       <li>
                         Collaborate with developers and product teams to
-                        integrate AI features into Fynar CRM.
+                        integrate AI features into platoX CRM.
                       </li>
                       <li>
                         Research and implement cutting-edge ML techniques

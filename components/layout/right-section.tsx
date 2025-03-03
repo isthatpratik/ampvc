@@ -31,8 +31,8 @@ export default function RightSection() {
           <div className="flex items-center gap-2">
             <div className="w-auto h-fit">
               <Image
-                src="/images/logo/fynar-logo.svg"
-                alt="FynarAI Logo"
+                src="/images/logo/platox-logo.svg"
+                alt="platoX Logo"
                 width={162}
                 height={48}
                 className="object-contain w-auto h-10"
@@ -66,7 +66,7 @@ export default function RightSection() {
         }}
       >
         <Image
-          src="/images/fynar-dashboard-default.png"
+          src="/images/platoX-dashboard-default.png"
           alt="Platform Interface"
           fill
           quality={100}
@@ -74,7 +74,7 @@ export default function RightSection() {
           className="w-full hidden 2xl:block h-full object-cover object-left py-10"
         />
         <Image
-          src="/images/fynar-dashboard-default.png"
+          src="/images/platoX-dashboard-default.png"
           alt="Platform Interface"
           fill
           quality={100}
@@ -130,7 +130,7 @@ export default function RightSection() {
         }}
       >
         <p className="mb-6 text-body-1 text-[#AFB6B4]">
-          Fynar AI is built for those who want simplicity, efficiency, and
+          platoX is built for those who want simplicity, efficiency, and
           results. Less hassle, more success.
         </p>
 

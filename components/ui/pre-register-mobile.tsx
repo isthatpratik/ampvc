@@ -12,8 +12,8 @@ export default function PreRegisterMobile() {
         <div className="flex items-center justify-center">
           <div className="w-auto h-fit">
             <Image
-              src="/images/logo/fynar-logo.svg"
-              alt="FynarAI Logo"
+              src="/images/logo/platox-logo.svg"
+              alt="platoX Logo"
               width={162}
               height={48}
               className="object-contain w-auto h-10"
@@ -28,7 +28,7 @@ export default function PreRegisterMobile() {
           </span>
         </h2>
         <h3 className="text-[#AFB6B4] text-body-1 text-balance text-center">
-        Fynar AI is built for those who want simplicity, efficiency, and results. Less hassle, more success.
+        PlatoX AI is built for those who want simplicity, efficiency, and results. Less hassle, more success.
         </h3>
         <Button onClick={() => setOpen(true)} className="w-full text-black hover:bg-white/80 transition-all duration-300 mx-auto p-6 bg-white shadow-none border-none rounded-full">
             Get Early Access

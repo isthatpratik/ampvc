@@ -66,7 +66,7 @@ const formSchema = z.object({
 const services = [
   { id: "exit-strategy", label: "Exit Strategy" },
   { id: "board-representation", label: "Board Representation" },
-  { id: "fynar-ai-crm", label: "Fynar AI CRM" },
+  { id: "platoX-crm", label: "platoX CRM" },
   { id: "secondary-buyout", label: "Secondary Buyout" },
 ];
 

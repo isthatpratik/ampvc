@@ -39,7 +39,7 @@ const footerData: FooterSection[] = [
     ],
   },
   {
-    title: "FynarAI",
+    title: "platoX",
     links: [{ text: "Pre-register", href: "" }],
   },
 ];
@@ -161,7 +161,7 @@ export default function Footer({
             >
               <h3
                 className={`text-label-2 font-medium ${
-                  section.title === "FynarAI"
+                  section.title === "platoX"
                     ? "bg-gradient-to-r from-[#99DBE0] via-[#FFAFDF] to-[#FCEC3B] to-50% bg-clip-text text-transparent"
                     : "text-white"
                 }`}

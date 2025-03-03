@@ -101,7 +101,7 @@ export default function Navbar({
               height={100}
               priority
               quality={75}
-              className="object-contain w-16 h-auto"
+              className="object-contain w-12 lg:w-16 h-auto"
             />
           </Link>
         </div>
@@ -112,7 +112,7 @@ export default function Navbar({
 
           <DialogTrigger asChild>
             <Button
-              className="border border-[#434343]/10 bg-transparent hover:bg-transparent shadow-none w-14 h-14"
+              className="border border-[#434343]/10 bg-transparent hover:bg-transparent shadow-none w-10 h-10 lg:w-14 lg:h-14"
               size="icon"
             >
               <Image
@@ -122,7 +122,7 @@ export default function Navbar({
                 height={100}
                 priority
                 quality={75}
-                className="w-5 h-5"
+                className="w-4 h-4 lg:w-5 lg:h-5"
               />
             </Button>
           </DialogTrigger>
@@ -261,8 +261,8 @@ export default function Navbar({
               <div className="bg-[#1D1D1D] hidden rounded-md mt-6 py-6 px-8 lg:flex justify-between items-center">
                 <div className="grid gap-4">
                   <Image
-                    src={"/images/logo/fynar-logo.svg"}
-                    alt="Fynar AI logo"
+                    src={"/images/logo/platox-logo.svg"}
+                    alt="platoX AI logo"
                     width={200}
                     height={200}
                     className="object-contain w-[130px] h-auto"

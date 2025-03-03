@@ -30,7 +30,7 @@ export async function POST(req: Request) {
 
     // Send email using Resend API
     await resend.emails.send({
-      from: "Fynar AI <onboarding@resend.dev>",
+      from: "platoX <onboarding@resend.dev>",
       to: "hello@ampvc.co", // Change to your email
       subject: `New Pre-Registration from ${fullName}`,
       html: htmlContent,
