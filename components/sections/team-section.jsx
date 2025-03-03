@@ -37,7 +37,7 @@ const teamMembers = [
   { name: "Vishal", image: "/images/about/11.jpg" },
   { name: "Aishwarya", image: "/images/about/12.jpg" },
   { name: "Dinesh", image: "/images/about/13.jpg" },
-  { name: "Komal", image: "/images/about/05.jpg" },
+  { name: "Komal", image: "/images/about/14.jpg" },
   { name: "Sahil", image: "/images/about/15.jpg" },
   { name: "Clair", image: "/images/about/16.jpg" },
   { name: "Pratik", image: "/images/about/17.jpg" },
