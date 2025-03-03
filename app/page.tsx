@@ -59,6 +59,9 @@ export default function Home() {
     };
   }, [selectedService, selectedSolution, selectedAboutUs, selectedCareers]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
 
   return (
     <div className="relative mx-auto max-w-full min-h-screen flex items-center justify-center">

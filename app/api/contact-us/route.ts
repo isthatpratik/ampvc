@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
           <tr><td><strong>Role:</strong></td><td>${role}</td></tr>
           <tr><td><strong>Industry:</strong></td><td>${industry}</td></tr>
           <tr><td><strong>Services:</strong></td><td>${services.length ? services.join(", ") : "None"}</td></tr>
-          <tr><td><strong>Source:</strong></td><td>${source} || "Not Defined"</td></tr>
+          <tr><td><strong>Source:</strong></td><td>${source || "Not Defined"}</td></tr>
           <tr><td><strong>Query:</strong></td><td>${query || "No query provided"}</td></tr>
         </table>
       </div>
