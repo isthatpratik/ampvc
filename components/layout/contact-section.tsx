@@ -169,11 +169,11 @@ export default function ContactSection({
   const [customSource, setCustomSource] = useState("");
 
   return (
-    <div className="sticky top-0 flex flex-col bg-[#FAFAFA] lg:w-full overflow-hidden justify-start py-14 px-10 max-h-screen h-full overflow-y-auto">
+    <div className="sticky top-0 flex flex-col bg-[#FAFAFA] lg:w-full justify-start py-14 max-h-screen px-10 h-full overflow-y-auto">
       {/* Animate the title when the service changes */}
 
       <motion.div
-        className="border p-6 border-[#AFB6B4] h-full flex flex-col gap-8 justify-between"
+        className="border p-6 border-[#AFB6B4] h-fit flex flex-col gap-8 justify-between"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
@@ -199,7 +199,7 @@ export default function ContactSection({
           }}
           className="text-h5 font-semibold mb-4 grid 2xl:space-y-12 space-y-8 text-white"
         >
-          <div className="h-fit bg-[url('/images/form/middle-form-banner.jpg')] rounded-[8px] bg-no-repeat bg-cover 2xl:py-24 py-12 px-5 bg-right">
+          <div className="h-fit bg-[url('/images/form/middle-form-banner.jpg')] rounded-[8px] bg-no-repeat bg-cover py-12 px-5 bg-right">
             <div>
               {selectedService
                 ? selectedService.title
