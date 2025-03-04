@@ -35,7 +35,7 @@ export default function RightSection() {
                 alt="platoX Logo"
                 width={162}
                 height={48}
-                className="object-contain w-auto h-10"
+                className="object-contain w-auto h-9"
                 priority
                 quality={75}
               />
