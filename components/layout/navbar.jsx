@@ -265,7 +265,7 @@ export default function Navbar({
                     alt="platoX AI logo"
                     width={200}
                     height={200}
-                    className="object-contain w-[130px] h-auto"
+                    className="object-contain w-24 h-auto"
                   />
                   <p>
                     <span className="text-body-2 bg-gradient-to-br from-[#99DBE0] from-10% via-[#FFAFDF] via-67% to-[#FCEC3B] to-98% bg-clip-text text-transparent">
